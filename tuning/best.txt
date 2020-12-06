@@ -1,0 +1,16 @@
+0.08889 on kaggle
+
+CB = ItemKNNCB(URM, ICM)
+CB.fit(topK=70, shrink=10)
+
+CF = ItemKNNCF(URM)
+CF.fit(topK=245, shrink=120)
+
+CBCF = HybridSimilarity(URM, CB.sim_matrix, CF.sim_matrix)
+CBCF.fit(topK=65, alpha=0.09)
+
+P3A = P3alphaRecommender(URM)
+P3A.fit(topK=500, alpha=0.549)
+
+H2 = HybridSimilarity(URM, CBCF.sim_matrix, P3A.sim_matrix)
+H2.fit(topK=490, alpha=0.9)
