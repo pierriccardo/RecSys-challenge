@@ -41,6 +41,8 @@ class SLIM_BPR(Recommender):
         self.W_sparse = self._similarity_matrix_topk(self.item_item_S, k=topK)
         self.sim_matrix = sps.csr_matrix(self.W_sparse)
         self.r_hat = self.urm.dot(self.sim_matrix)
+        self.r_hat = self.r_hat.toarray()
+        
 
 
     def _run_epoch(self, n_epoch):
