@@ -12,9 +12,10 @@ class ItemKNNCF(Recommender):
 
     NAME = 'ItemKNNCF'
 
-    def __init__(self, urm):
+    def __init__(self, urm, saverhat=False):
 
         super().__init__(urm = urm)
+        self.saverhat = saverhat
 
     
     def fit(self, topK=50, shrink=100, sim_type='cosine'):
@@ -29,7 +30,7 @@ class ItemKNNCF(Recommender):
         self.r_hat = self.urm.dot(self.sim_matrix)
         #self.r_hat = sim.normalization.tfidf(self.r_hat)
 
-        self.r_hat = self.r_hat.toarray()   
+        #self.r_hat = self.r_hat.toarray()   
 
         if self.saverhat: 
             self.save_r_hat()

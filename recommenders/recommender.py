@@ -66,7 +66,7 @@ class Recommender(abc.ABC):
         #if self.r_hat is None:
         #    print('Please fit the recommender first')
 
-        scores = self.r_hat[user]
+        scores = self.r_hat[user].toarray().ravel()
 
         #try: 
         #    scores = self.r_hat[user].toarray().ravel()

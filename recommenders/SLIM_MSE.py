@@ -23,7 +23,7 @@ class SLIM_MSE(Recommender):
         self.urm = urm
 
 
-    def fit(self, learning_rate=1e-4, epochs=65, samples=135000, use_cython=True):
+    def fit(self, learning_rate=1e-4, epochs=50, samples=200000, use_cython=True):
 
         print('training SLIM_MSE...')
 
@@ -31,6 +31,7 @@ class SLIM_MSE(Recommender):
             try:
                 self.sim_matrix = train(self.urm, learning_rate, epochs, samples)
                 self.r_hat = self.urm.dot(self.sim_matrix)
+                #self.r_hat = self.r_hat.toarray()
             except: 'unable to train with cython'
         else:
             urm_coo = self.urm.tocoo()
@@ -80,6 +81,7 @@ class SLIM_MSE(Recommender):
             self.sim_matrix = sparse.csr_matrix(sparse.coo_matrix(item_item_S))
            
             self.r_hat = self.urm.dot(self.sim_matrix)
+            #self.r_hat = self.r_hat.toarray()
         
 
     def tuning(self, urm_valid):

@@ -29,15 +29,16 @@ class HybridSimilarity(Recommender):
         
         self.sim_matrix = self._similarity_matrix_topk(W, k=self.topK).tocsr()
         self.r_hat = self.urm.dot(self.sim_matrix)
+        #self.r_hat = self.r_hat.toarray()
         
 
     def tuning(self, urm_valid):
-
+        
         BEST_MAP = 0.0
         BEST_TOPK = 0
         BEST_ALPHA = 0
 
-        topKs = np.arange(20, 400, 10)
+        topKs = np.arange(10, 510, 10)
         alphas = np.arange(0.05, 0.96, 0.05)
         total = len(topKs) * len(alphas)
 

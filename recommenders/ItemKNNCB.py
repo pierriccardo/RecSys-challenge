@@ -29,7 +29,7 @@ class ItemKNNCB(Recommender):
 
         # computing the scores matrix
         self.r_hat = self.urm.dot(self.sim_matrix)
-        self.r_hat = self.r_hat.toarray()
+        #self.r_hat = self.r_hat.toarray()
 
         if self.saverhat:
             self.save_r_hat()
