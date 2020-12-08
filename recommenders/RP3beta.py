@@ -121,7 +121,7 @@ class RP3beta(Recommender):
 
         self.sim_matrix = self._check_matrix(self.W_sparse, format='csr')
         self.r_hat = self.urm.dot(self.sim_matrix)
-        self.r_hat = self.r_hat.toarray()
+        #self.r_hat = self.r_hat.toarray()
 
     def tuning(self, urm_valid):
 

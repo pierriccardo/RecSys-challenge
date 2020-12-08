@@ -6,31 +6,34 @@ import similaripy as sim
 
 #| best results CB + CF | topk: 65 | alpha: 0.09 | MAP: 0.0651 |
 
-class HybridSimilarity(Recommender):
+class HybridRhats(Recommender):
 
-    NAME = 'HybridSimilarity'
+    NAME = 'HybridRhats'
 
-    def __init__(self, urm, sim1, sim2, saverhat=False):
+    def __init__(self, urm, recs: list):
 
-        super(HybridSimilarity, self).__init__(urm)
+        self.recs = recs
+        self.rnd_values = np.random.rand(len(self.recs))
+        print(self.rnd_values)
 
-        self.sim1 = self._check_matrix(sim1.copy(), 'csr')
-        self.sim2 = self._check_matrix(sim2.copy(), 'csr')
-
+        super(HybridRhat, self).__init__(urm)
        
 
     def fit(self, topK=100, alpha = 0.5):
 
-        # hyperparameters
-        self.topK = topK
-        self.alpha = alpha
+        pass
+    
+    def _compute_items_scores(self, user):
 
-        W = self.sim1*self.alpha + self.sim2*(1-self.alpha)
-        
-        self.sim_matrix = self._similarity_matrix_topk(W, k=self.topK).tocsr()
-        self.r_hat = self.urm.dot(self.sim_matrix)
-        #self.r_hat = self.r_hat.toarray()
-        
+        scores = None
+        for r, v in zip(self.recs, self.rnd_values):
+            if scores is None:
+                scores = r.r_hat[user].toarray().ravel()
+            else:
+                scores = scores + r.r_hat[user].toarray().ravel() * v
+    
+        return scores
+
 
     def tuning(self, urm_valid):
         

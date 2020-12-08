@@ -23,19 +23,15 @@ class ItemKNNCB(Recommender):
         self.topK = topK
         self.shrink = shrink
 
-        
         self.sim_matrix = similarity(self.icm.T, k=topK, sim_type=sim_type, shrink=shrink)
         self.sim_matrix = self._check_matrix(self.sim_matrix, format='csr')
 
         # computing the scores matrix
         self.r_hat = self.urm.dot(self.sim_matrix)
-        self.r_hat = self.r_hat.toarray()
+        self.sim_matrix = self._check_matrix(self.sim_matrix, format='csr')
 
         if self.saverhat:
             self.save_r_hat()
-
-        
-        
 
     def tuning(self, urm_valid):
 

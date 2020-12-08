@@ -45,26 +45,41 @@ from recommenders.FunkSVD           import FunkSVD
 from recommenders.PureSVD           import PureSVD
 from recommenders.SLIM_BPR          import SLIM_BPR
 from recommenders.MF_BPR            import MF_BPR
-from recommenders.HybridRhat        import HybridRhat
-
 from evaluator                      import Evaluator
+
+'''
+| KNNCF     | topk: 245 | shrink: 120 | sim type: cosine  | MAP: 0.0471 |
+| KNNCB     | topk: 70  | shrink: 10  | sim type: cosine  | MAP: 0.0319 |
+| RP3B      | topk: 50  | alpha: 0.25 | beta: 0.080       | MAP: 0.0517 |
+| P3A       | topk: 500 | alpha: 0.55 |                   | MAP: 0.0571 |
+| SLIMBPR   | topk: 200 | epochs: 250 | lr = 0.0005       | MAP: 0.0514 | lambda_i = 0.0075 | lambda_j = 0.00075 |
+| SLIMMSE   | lr = 1e-4 | epochs: 50  | samples: 200000   | MAP: 0.0520 |
+'''
+
+folder = input('insert folder path to store r_hats (or press enter to store in raw_data): ')
+
+import os
+if folder == '':
+    folder = 'raw_data'
+elif not os.path.exists(folder):
+    os.makedirs(folder)
+    print('folder created ...')
 
 
 r1 = ItemKNNCF(URM_train, saverhat=True)
-r1.load_r_hat('raw_data/RHAT-ItemKNNCF-08-12-2020-11:57:54.npz')
+r1.r_hat_folder = folder
+r1.fit(topK=245, shrink=120)
 
 r2 = ItemKNNCB(URM_train, ICM, saverhat=True)
-r2.load_r_hat('raw_data/RHAT-ItemKNNCB-08-12-2020-11:57:55.npz')
+r2.r_hat_folder = folder
+r2.fit(topK=70, shrink=10)
 
 r3 = SLIM_MSE(URM_train, saverhat=True)
-r3.load_r_hat('raw_data/RHAT-SLIM_MSE-08-12-2020-11:58:52.npz')
-
-CBCF = HybridRhat(URM, r1.r_hat, r2.r_hat)
-CBCF.fit(alpha=0.09)
-
-recs = [CBCF]
+r3.r_hat_folder = folder
+r3.fit(learning_rate=1e-4, epochs=50, samples=200000)
 
 
+recs = [r1, r2, r3]
 
 #------------------------------
 #       EVALUATION
@@ -75,17 +90,3 @@ for r in recs:
     evaluator = Evaluator(r, URM_valid)
     evaluator.results()
 
-
-#------------------------------
-#      CSV RESULTS CREATION
-#------------------------------
-from utils import create_submission_csv
-
-#create_submission_csv(recommender, test_set, config['paths']['results'])
-
-            
-
-if __name__ == "__main__":
-
-    
-    pass

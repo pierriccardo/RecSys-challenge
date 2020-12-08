@@ -25,7 +25,11 @@ def create_submission_csv(recommender, users_list, save_path='./'):
         filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         filewriter.writerow(['user_id', 'item_list'])
 
-        for user_id in tqdm(users_list):
+        pbar = tqdm(users_list)
+        for user_id in pbar:
+            
+            pbar.set_description("|{}| creating submission csv".format(recommender.NAME))
+
             rec_list = recommender.recommend(user_id, 10).tolist()
             item_list = ''
             for e in rec_list:

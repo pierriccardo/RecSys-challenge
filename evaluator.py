@@ -48,8 +48,10 @@ class Evaluator:
 
     def _evaluate_algorithm(self):
 
-        for user_id in tqdm(range(self.urm_test.shape[0])):
+        pbar = tqdm(range(self.urm_test.shape[0]))
+        for user_id in pbar:
             
+            pbar.set_description('|{}| evaluating'.format(self.recommender.NAME))
             relevant_items = self.urm_test.indices[self.urm_test.indptr[user_id]:self.urm_test.indptr[user_id+1]]
             
             if len(relevant_items)>0:

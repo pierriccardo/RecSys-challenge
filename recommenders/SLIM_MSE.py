@@ -1,6 +1,6 @@
 import numpy as np
 import time
-from scipy import sparse 
+import scipy.sparse as sps
 from recommenders.recommender import Recommender
 from tqdm import tqdm
 from Cython.Build import cythonize
@@ -17,22 +17,24 @@ class SLIM_MSE(Recommender):
 
     NAME = 'SLIM_MSE'
     
-    def __init__(self, urm):
+    def __init__(self, urm, saverhat=False):
 
         super().__init__(urm = urm)
         self.urm = urm
+        self.saverhat = saverhat 
 
+    def fit(self, learning_rate=1e-4, epochs=50, samples=200000, use_cython=True):
 
-    def fit(self, learning_rate=1e-4, epochs=65, samples=135000, use_cython=True):
-
-        print('training SLIM_MSE...')
+        print('|{}| training '.format(self.NAME))
 
         if use_cython:
-            try:
-                self.sim_matrix = train(self.urm, learning_rate, epochs, samples)
-                self.r_hat = self.urm.dot(self.sim_matrix)
-                self.r_hat = self.r_hat.toarray()
-            except: 'unable to train with cython'
+            
+            self.sim_matrix = train(self.urm, learning_rate, epochs, samples)
+            #self.r_hat = self.urm.dot(self.sim_matrix)
+            self.r_hat = sps.csr_matrix(np.dot(self.urm, self.sim_matrix))
+            print('name: {}, r_hat => type {}  shape {} '.format(self.NAME, type(self.r_hat), self.r_hat.shape)) 
+            if self.saverhat:
+                self.save_r_hat()
         else:
             urm_coo = self.urm.tocoo()
             n_items = self.urm.shape[1]
@@ -78,14 +80,13 @@ class SLIM_MSE(Recommender):
 
                 print("Epoch {} complete in in {:.2f} seconds, loss is {:.3E}. Samples per second {:.2f}".format(n_epoch+1, time.time() - start_time, loss/(sample_num+1), samples_per_second))
         
-            self.sim_matrix = sparse.csr_matrix(sparse.coo_matrix(item_item_S))
+            #self.sim_matrix = sparse.csr_matrix(sparse.coo_matrix(item_item_S))
            
-            self.r_hat = self.urm.dot(self.sim_matrix)
+           
             print('name: {}, r_hat => type {}  shape {} '.format(self.NAME, type(self.r_hat), self.r_hat.shape))     
 
-            self.r_hat = self.r_hat.toarray()
-            print('name: {}, r_hat => type {}  shape {} '.format(self.NAME, type(self.r_hat), self.r_hat.shape))     
-
+            #self.r_hat = self.r_hat.toarray()   
+        
 
     def tuning(self, urm_valid):
         

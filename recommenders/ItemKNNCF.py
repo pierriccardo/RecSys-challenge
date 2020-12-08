@@ -4,8 +4,7 @@ import numpy as np
 import similaripy as sim
 import scipy
 
-# best params found
-# | topK = 300 | shrink = 100 | MAP = 0.0487 |
+
 #| best results | topk: 245 | shrink: 120 | sim type: cosine | MAP: 0.0471 |
 
 class ItemKNNCF(Recommender):
@@ -25,20 +24,13 @@ class ItemKNNCF(Recommender):
         self.shrink = shrink
 
         self.sim_matrix = similarity(self.urm, k=topK, sim_type=sim_type, shrink=shrink)
-        #self.sim_matrix = sim.normalization.tfidf(self.sim_matrix)
         self.sim_matrix = self._check_matrix(self.sim_matrix, format='csr')
 
         self.r_hat = self.urm.dot(self.sim_matrix)
-        #self.r_hat = sim.normalization.tfidf(self.r_hat)
-
-        self.r_hat = self.r_hat.toarray()   
 
         if self.saverhat: 
             self.save_r_hat()
-        print('name: {}, r_hat => type {}  shape {} '.format(self.NAME, type(self.r_hat), self.r_hat.shape))     
-      
-
-     
+        
 
     def tuning(self, urm_valid):
 

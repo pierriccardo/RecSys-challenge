@@ -19,6 +19,7 @@ class Recommender(abc.ABC):
         self.urm = sim.normalization.bm25(urm) if norm else urm 
         self.n_users, self.n_items = self.urm.shape
         self.r_hat = None # R_HAT is a matrix n° user x n° item 
+        self.r_hat_folder = None
 
 
     #@abc.abstractmethod
@@ -66,7 +67,7 @@ class Recommender(abc.ABC):
         #if self.r_hat is None:
         #    print('Please fit the recommender first')
 
-        scores = self.r_hat[user]
+        scores = self.r_hat[user].toarray().ravel()
 
         #try: 
         #    scores = self.r_hat[user].toarray().ravel()
@@ -88,16 +89,24 @@ class Recommender(abc.ABC):
     def save_r_hat(self):
 
         if self.r_hat is None:
-            msg = '{}: can not save r_hat train the model first!'
+            msg = '|{}| can not save r_hat train the model first!'
             print(msg.format(self.NAME))
         else:
-            print('entrato')
+            array = self.r_hat
             timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
-            PATH = 'raw_data/RHAT-{}-{}'.format(self.NAME, timestamp)
-            np.save(PATH, self.r_hat)
+            folder = 'raw_data' if self.r_hat_folder is None else self.r_hat_folder
+            fname = '/RHAT-{}-{}'.format(self.NAME, timestamp)
+            PATH = folder + fname
+            np.savez(PATH, data=array.data, indices=array.indices, indptr=array.indptr, shape=array.shape)
+            print('|{}| r hat has been saved'.format(self.NAME))
 
     def load_r_hat(self, path):
-        self.r_hat = np.load(path)
+        loader = np.load(path)
+        self.r_hat = sps.csr_matrix((loader['data'], 
+                                loader['indices'], 
+                                loader['indptr']),
+                                shape=loader['shape'])
+        #self.r_hat = np.load(path)
 
 
     def _remove_seen_items(self, user, scores):
@@ -216,10 +225,6 @@ class Recommender(abc.ABC):
 
 
 
-
-    
-
-
-
-
-
+    def _print_r_hat(self):
+        print('name: {}, r_hat => type {}  shape {} '.format(self.NAME, type(self.r_hat), self.r_hat.shape))
+        print(self.r_hat)

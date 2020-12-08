@@ -1,4 +1,3 @@
-from recommenders.recommender import Recommender
 import numpy as np
 import scipy.sparse as sps
 from sklearn.preprocessing import normalize
@@ -6,31 +5,50 @@ import similaripy as sim
 
 #| best results CB + CF | topk: 65 | alpha: 0.09 | MAP: 0.0651 |
 
-class HybridSimilarity(Recommender):
+class HybridRhat:
 
-    NAME = 'HybridSimilarity'
+    NAME = 'HybridRhat'
 
-    def __init__(self, urm, sim1, sim2, saverhat=False):
+    def __init__(self, urm, r1, r2):
 
-        super(HybridSimilarity, self).__init__(urm)
-
-        self.sim1 = self._check_matrix(sim1.copy(), 'csr')
-        self.sim2 = self._check_matrix(sim2.copy(), 'csr')
-
+        self.r1 = r1
+        self.r2 = r2
+        self.urm = urm
        
 
-    def fit(self, topK=100, alpha = 0.5):
-
-        # hyperparameters
-        self.topK = topK
+    def fit(self, alpha = 0.5):
+        
         self.alpha = alpha
+        
+    
+    def _compute_items_scores(self, user):
 
-        W = self.sim1*self.alpha + self.sim2*(1-self.alpha)
+        s1 = self.r1[user].toarray().ravel() #* self.alpha
+        #s2 = self.r2[user].toarray().ravel() #* (1 - self.alpha)
+
+        return s1
+
+    def recommend(self, user: int = None, cutoff: int = 10):
+     
+        scores = self._compute_items_scores(user)
+        scores = self._remove_seen_items(user, scores)
+        scores = scores.argsort()[::-1]
+
+        return scores[:cutoff]
+
+    def _remove_seen_items(self, user, scores):
+
+        assert (
+            self.urm.getformat() == 'csr'
+        ), "_remove_seen_items: urm is not in csr format, actual format is {}".format(type(self.urm))
         
-        self.sim_matrix = self._similarity_matrix_topk(W, k=self.topK).tocsr()
-        self.r_hat = self.urm.dot(self.sim_matrix)
-        #self.r_hat = self.r_hat.toarray()
+        s = self.urm.indptr[user]
+        e = self.urm.indptr[user + 1]
         
+        seen = self.urm.indices[s:e]
+        scores[seen] = -np.inf
+
+        return scores
 
     def tuning(self, urm_valid):
         

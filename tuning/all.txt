@@ -1,11 +1,14 @@
 | H(CBCF, P3A) | topk: 390 | alpha: 0.9 | MAP: 0.0701 |
 | H(CBCF, P3A) | topk: 430 | alpha: 0.9 | MAP: 0.0702 |
 | H(CBCF, P3A) | topk: 490 | alpha: 0.9 | MAP: 0.0669 | dataset split=0.7
+| H(RP3B, P3A) | topk: 490 | alpha: 0.1 | MAP: 0.0587 |
+|Hscores(H(CBCF), H(RP3B, P3A) | a: 0.081| MAP: 0.0690|
+|Hr_hat (CBCF, SLIMBPR, P3A, RP3B, SLIMMSE) | a: 0.3| b: 0.1| c: 0.0| d: 0.4| MAP: 0.06937| no normalizzazione
 
 
 | KNNCF     | topk: 245 | shrink: 120 | sim type: cosine  | MAP: 0.0471 |
 | KNNCB     | topk: 70  | shrink: 10  | sim type: cosine  | MAP: 0.0319 |
-| RP3B      | topk:  50 | alpha: 0.25 | beta: 0.080       | MAP: 0.0517 |
+| RP3B      | topk: 50  | alpha: 0.25 | beta: 0.080       | MAP: 0.0517 |
 | P3A       | topk: 500 | alpha: 0.55 |                   | MAP: 0.0571 |
 | SLIMBPR   | topk: 200 | epochs: 250 | lr = 0.0005       | MAP: 0.0514 | lambda_i = 0.0075 | lambda_j = 0.00075 |
 | SLIMMSE   | lr = 1e-4 | epochs: 50  | samples: 200000   | MAP: 0.0520 |
