@@ -4,6 +4,7 @@ import scipy.sparse as sps
 from sklearn.preprocessing import normalize
 from recommenders.recommender import Recommender
 import time, sys
+import configparser
 
 
 
@@ -109,9 +110,43 @@ class P3alpha(Recommender):
 
         self.sim_matrix = self._check_matrix(self.W_sparse, format='csr')
         self.r_hat = self.urm.dot(self.sim_matrix)
-        self.r_hat = self.r_hat.toarray()
 
 
-    def tuning(self):
+    def tuning(self, urm_valid):
         
-        pass
+        BEST_MAP = 0.0
+        BEST_TOPK = 0
+        BEST_ALPHA = 0
+
+        cp = configparser.ConfigParser(converters={'list': lambda x: [i.strip() for i in x.split(',')]})
+        cp.read('config.ini')
+        
+        t = cp.getlist('tuning.P3alpha', 'topKs') 
+        a = cp.getlist('tuning.P3alpha', 'alphas')
+
+        topKs   = np.arange(int(t[0]), int(t[1]), int(t[2]))
+        alphas = np.arange(float(a[0]), float(a[1]), float(a[2]))
+
+        total = len(topKs) * len(alphas)
+
+        i = 0
+        for t in topKs:
+            for a in alphas:
+                self.fit(alpha=a, topK=t)
+
+                self._evaluate(urm_valid)
+
+                log = '| iter: {:-5d}/{} | topk: {:-3d} | alpha: {:.3f} | MAP: {:.4f} |'
+                print(log.format(i, total, t, a, self.MAP))
+                sys.stdout.flush()
+
+                i+=1
+
+                if self.MAP > BEST_MAP:
+
+                    BEST_TOPK = t
+                    BEST_ALPHA = a
+                    BEST_MAP = self.MAP
+                    
+        log = '| best results | topk: {:-3d} | alpha: {:.3f} | MAP: {:.4f} |'
+        print(log.format(BEST_TOPK, BEST_ALPHA, BEST_MAP))

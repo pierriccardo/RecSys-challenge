@@ -26,3 +26,18 @@
 - get_r_hat on each model
 - save and load a model
 - normalize each similarity matrix before the alpha 
+
+
+
+- normalizzazione qunado ha senso farla (urm) (rhat)
+- pipeline ha senso passare la r hat
+- ...
+
+
+- user KNN
+urm normalizzo per riga
+urm moltiplica per icm -> user feature
+user feature x user feature T -> w
+w x urm
+
+

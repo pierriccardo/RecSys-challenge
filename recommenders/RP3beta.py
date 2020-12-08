@@ -2,7 +2,8 @@ import numpy as np
 import scipy.sparse as sps
 from recommenders.recommender import Recommender
 from sklearn.preprocessing import normalize
-
+import configparser
+import sys
 from tqdm import tqdm
 
 # best params found
@@ -12,9 +13,9 @@ class RP3beta(Recommender):
 
     NAME = "RP3beta"
 
-    def __init__(self, urm, norm=False):
+    def __init__(self, urm):
         
-        super(RP3beta, self).__init__(urm = urm, norm=norm)
+        super(RP3beta, self).__init__(urm = urm)
 
     def fit(self, alpha=1., beta=0.6, min_rating=0, topK=100, implicit=True, normalize_similarity=True):
 
@@ -121,7 +122,6 @@ class RP3beta(Recommender):
 
         self.sim_matrix = self._check_matrix(self.W_sparse, format='csr')
         self.r_hat = self.urm.dot(self.sim_matrix)
-        #self.r_hat = self.r_hat.toarray()
 
     def tuning(self, urm_valid):
 
@@ -130,9 +130,16 @@ class RP3beta(Recommender):
         BEST_ALPHA = 0
         BEST_BETA = 0
 
-        topKs = np.arange(20, 300, 15)
-        alphas = np.arange(0.25, 0.35, 0.3)
-        betas = np.arange(0.05, 0.15, 0.03)
+        cp = configparser.ConfigParser(converters={'list': lambda x: [i.strip() for i in x.split(',')]})
+        cp.read('config.ini')
+        
+        t = cp.getlist('tuning.RP3beta', 'topKs') 
+        a = cp.getlist('tuning.RP3beta', 'alphas')
+        b = cp.getlist('tuning.RP3beta', 'betas')
+
+        topKs   = np.arange(int(t[0]), int(t[1]), int(t[2]))
+        alphas = np.arange(float(a[0]), float(a[1]), float(a[2]))
+        betas = np.arange(float(b[0]), float(b[1]), float(b[2]))
 
         total = len(topKs) * len(alphas) * len(betas)
 
@@ -146,6 +153,7 @@ class RP3beta(Recommender):
 
                     log = '| iter: {:-5d}/{} | topk: {:-3d} | alpha: {:.3f} | beta: {:.3f} | MAP: {:.4f} |'
                     print(log.format(i, total, t, a, b, self.MAP))
+                    sys.stdout.flush()
 
                     i+=1
 

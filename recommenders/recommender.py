@@ -5,6 +5,7 @@ import time
 from tqdm import tqdm
 import similaripy as sim
 from time import strftime, gmtime
+from sklearn.preprocessing import normalize
 
 
 
@@ -16,10 +17,10 @@ class Recommender(abc.ABC):
 
         assert urm.getformat() == 'csr', "urm must be csr, you passed a {}".format(type(urm))
  
-        self.urm = sim.normalization.bm25(urm) if norm else urm 
+        #self.urm = sim.normalization.bm25(urm) if norm else urm 
+        self.urm = normalize(urm, norm='l2', axis=1) if norm else urm 
         self.n_users, self.n_items = self.urm.shape
         self.r_hat = None # R_HAT is a matrix n° user x n° item 
-        self.r_hat_folder = None
 
 
     #@abc.abstractmethod
@@ -36,6 +37,7 @@ class Recommender(abc.ABC):
 
         cumulative_MAP = 0
         num_eval = 0
+        
         for user_id in tqdm(range(urm_test.shape[0])):
             
             relevant_items = urm_test.indices[urm_test.indptr[user_id]:urm_test.indptr[user_id+1]]
@@ -91,13 +93,13 @@ class Recommender(abc.ABC):
         if self.r_hat is None:
             msg = '|{}| can not save r_hat train the model first!'
             print(msg.format(self.NAME))
+
         else:
-            array = self.r_hat
             timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
-            folder = 'raw_data' if self.r_hat_folder is None else self.r_hat_folder
+            folder = 'raw_data' 
             fname = '/RHAT-{}-{}'.format(self.NAME, timestamp)
             PATH = folder + fname
-            np.savez(PATH, data=array.data, indices=array.indices, indptr=array.indptr, shape=array.shape)
+            np.savez(PATH, data=self.r_hat.data, indices=self.r_hat.indices, indptr=self.r_hat.indptr, shape=self.r_hat.shape)
             print('|{}| r hat has been saved'.format(self.NAME))
 
     def load_r_hat(self, path):

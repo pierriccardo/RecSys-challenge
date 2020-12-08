@@ -4,6 +4,8 @@ from sklearn import feature_extraction
 from sklearn.preprocessing import normalize
 import numpy as np 
 import similaripy as sim
+import configparser
+import sys
 
 # | iter: 501/13600 | topk: 70 | shrink: 10 | sim type: cosine | MAP: 0.0319 |
 class ItemKNNCB(Recommender):
@@ -40,9 +42,15 @@ class ItemKNNCB(Recommender):
         BEST_SHRINK = 0
         BEST_SIM = ''
 
-        topKs = np.arange(20, 200, 10)
-        shrinks = np.arange(0, 50, 5)
-        similarities = ['jaccard', 'cosine']
+        cp = configparser.ConfigParser(converters={'list': lambda x: [i.strip() for i in x.split(',')]})
+        cp.read('config.ini')
+        
+        t = cp.getlist('tuning.ItemKNNCB', 'topKs') 
+        s = cp.getlist('tuning.ItemKNNCB', 'shrinks')
+        similarities = cp.getlist('tuning.ItemKNNCB', 'similarities')
+
+        topKs   = np.arange(int(t[0]), int(t[1]), int(t[2]))
+        shrinks = np.arange(int(s[0]), int(s[1]), int(s[2]))
 
         total = len(topKs) * len(shrinks) * len(similarities)
 
@@ -55,7 +63,7 @@ class ItemKNNCB(Recommender):
                     self._evaluate(urm_valid)
 
                     print('| iter: {}/{} | topk: {} | shrink: {} | sim type: {} | MAP: {:.4f} |'.format(i, total, t, s, sim, self.MAP))
-
+                    sys.stdout.flush()
                     i+=1
 
                     if self.MAP > BEST_MAP:

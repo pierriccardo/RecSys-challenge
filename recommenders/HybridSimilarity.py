@@ -10,16 +10,25 @@ class HybridSimilarity(Recommender):
 
     NAME = 'HybridSimilarity'
 
-    def __init__(self, urm, sim1, sim2, saverhat=False):
+    def __init__(self, urm, r1, r2, saverhat=False):
 
         super(HybridSimilarity, self).__init__(urm)
 
-        self.sim1 = self._check_matrix(sim1.copy(), 'csr')
-        self.sim2 = self._check_matrix(sim2.copy(), 'csr')
+        self.NAME = 'Hsimilarity({}, {})'.format(r1.NAME, r2.NAME)
+        self.r1 = r1
+        self.r2 = r2
+
+        self.info = {}
+        self.info['name'] = self.NAME
+
+        self.sim1 = self._check_matrix(self.r1.sim_matrix.copy(), 'csr')
+        self.sim2 = self._check_matrix(self.r2.sim_matrix.copy(), 'csr')
 
        
-
     def fit(self, topK=100, alpha = 0.5):
+
+        self.info['topK'] = topK
+        self.info['alpha'] = alpha
 
         # hyperparameters
         self.topK = topK
@@ -29,7 +38,6 @@ class HybridSimilarity(Recommender):
         
         self.sim_matrix = self._similarity_matrix_topk(W, k=self.topK).tocsr()
         self.r_hat = self.urm.dot(self.sim_matrix)
-        #self.r_hat = self.r_hat.toarray()
         
 
     def tuning(self, urm_valid):
