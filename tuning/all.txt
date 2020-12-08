@@ -7,7 +7,7 @@
 | KNNCB     | topk: 70  | shrink: 10  | sim type: cosine  | MAP: 0.0319 |
 | RP3B      | topk:  50 | alpha: 0.25 | beta: 0.080       | MAP: 0.0517 |
 | P3A       | topk: 500 | alpha: 0.55 |                   | MAP: 0.0571 |
-| SLIMBPR   | topk: 100 | epochs: 25  | lr = 0.05         | MAP: 0.0500 | lambda_i = 0.0025 | lambda_j = 0.00025 |
+| SLIMBPR   | topk: 200 | epochs: 250 | lr = 0.0005       | MAP: 0.0514 | lambda_i = 0.0075 | lambda_j = 0.00075 |
 | SLIMMSE   | lr = 1e-4 | epochs: 50  | samples: 200000   | MAP: 0.0520 |
 
 

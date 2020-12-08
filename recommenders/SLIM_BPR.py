@@ -12,7 +12,7 @@ class SLIM_BPR(Recommender):
         super().__init__(urm = urm)
 
 
-    def fit(self, topK = 100, epochs = 25, lambda_i = 0.0025, lambda_j = 0.00025, lr = 0.05):
+    def fit(self, topK = 200, epochs = 250, lambda_i = 0.0075, lambda_j = 0.00075, lr = 0.0005):
         """
         :param topK:
         :param epochs:
@@ -41,6 +41,7 @@ class SLIM_BPR(Recommender):
         self.W_sparse = self._similarity_matrix_topk(self.item_item_S, k=topK)
         self.sim_matrix = sps.csr_matrix(self.W_sparse)
         self.r_hat = self.urm.dot(self.sim_matrix)
+        self.r_hat = self.r_hat.toarray()
 
 
     def _run_epoch(self, n_epoch):

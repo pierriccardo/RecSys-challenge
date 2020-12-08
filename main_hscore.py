@@ -33,9 +33,7 @@ from recommenders.SLIM_MSE import SLIM_MSE
 from recommenders.HybridSimilarity import HybridSimilarity
 from recommenders.HybridScores import HybridScores
 from recommenders.P3alpha import P3alpha
-from recommenders.RP3beta import RP3beta 
-from recommenders.SLIM_BPR import SLIM_BPR
-
+from recommenders.RP3beta import RP3beta
 
 
 CB = ItemKNNCB(URM_train, ICM)
@@ -44,40 +42,26 @@ CB.fit(topK=70, shrink=10)
 CF = ItemKNNCF(URM_train)
 CF.fit(topK=245, shrink=120)
 
-P3A = P3alpha(URM_train)
-P3A.fit(topK=500, alpha=0.549)
+#P3A = P3alpha(URM_train)
+#P3A.fit(topK=500, alpha=0.549)
+#
+#SM = SLIM_MSE(URM_train)
+#SM.fit(learning_rate=1e-4, epochs=50, samples=200000)
 
-RP3B = RP3beta(URM_train)
-RP3B.fit(topK=170, alpha=0.3, beta=0.070)
+#CBCF = HybridScores(URM_train, CB, CF)
+#CBCF.fit(alpha=0.09)
 
-SM = SLIM_MSE(URM_train)
-SM.fit(samples=200000, learning_rate=1e-4, epochs=50)
+CBCF = RP3beta(URM_train)
+CBCF.fit(topK=170, alpha=0.3, beta=0.070)
 
-CBCF = HybridSimilarity(URM_train, CB.sim_matrix, CF.sim_matrix)
-CBCF.fit(topK=65, alpha=0.09)
+#CBCF_P3A = HybridScores(URM_train, CBCF, P3A)
+#CBCF_P3A.fit(alpha=0.9)
+#
+#CBCFP3A_SM = HybridScores(URM_train, CBCF_P3A, SM)
+#CBCFP3A_SM.fit(alpha=0.7)
 
-CBCF_P3A = HybridSimilarity(URM_train, CBCF.sim_matrix, P3A.sim_matrix)
-CBCF_P3A.fit(topK=490, alpha=0.9)
-
-print('tune CBCFP3A_SM')
-CBCFP3A_SM = HybridSimilarity(URM_train, CBCF_P3A.sim_matrix, SM.sim_matrix)
-CBCFP3A_SM.tuning(URM_valid)
-
-print('tune SM_RP3B')
-SM_RP3B = HybridSimilarity(URM_train, SM.sim_matrix, RP3B.sim_matrix)
-SM_RP3B.tuning(URM_valid)
-
-SB = SLIM_BPR(URM_train)
-SB.fit()
-
-print('tune CBCFP3A_RP3B')
-CBCFP3A_SB = HybridSimilarity(URM_train, CBCF_P3A.sim_matrix, SB.sim_matrix)
-CBCFP3A_SB.tuning(URM_valid)
-
-
-
-
-recs = [CBCFP3A_SM]
+recs = [CBCF]
+#recs = [CB, CF, P3A, SM, CBCF, CBCF_P3A, CBCFP3A_SM]
 #------------------------------
 #       EVALUATION
 #------------------------------
@@ -93,6 +77,6 @@ for r in recs:
 #------------------------------
 from utils import create_submission_csv
 
-create_submission_csv(H2, test_set, config['paths']['results'])
+#create_submission_csv(H2, test_set, config['paths']['results'])
 
             

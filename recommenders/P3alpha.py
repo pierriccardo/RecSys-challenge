@@ -8,12 +8,12 @@ import time, sys
 
 
 
-class P3alphaRecommender(Recommender):
+class P3alpha(Recommender):
 
     NAME = "P3alpha"
 
     def __init__(self, urm):
-        super(P3alphaRecommender, self).__init__(urm = urm)
+        super(P3alpha, self).__init__(urm = urm)
 
 
     def __str__(self):
@@ -109,6 +109,7 @@ class P3alphaRecommender(Recommender):
 
         self.sim_matrix = self._check_matrix(self.W_sparse, format='csr')
         self.r_hat = self.urm.dot(self.sim_matrix)
+        self.r_hat = self.r_hat.toarray()
 
 
     def tuning(self):

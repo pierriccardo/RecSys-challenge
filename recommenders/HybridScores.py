@@ -1,4 +1,6 @@
 from recommenders.recommender import Recommender
+from sklearn.preprocessing import normalize
+import numpy as np
 
 
 class HybridScores(Recommender):
@@ -40,3 +42,42 @@ class HybridScores(Recommender):
     def tuning(self):
 
         pass
+
+    def _compute_items_scores_round_robin(self, user):
+        
+        item_weights_1 = self.recommender1._compute_items_scores(user)
+        item_weights_2 = self.recommender2._compute_items_scores(user)
+
+        item_weights_1 = self._remove_seen_items(user, item_weights_1)
+        item_weights_2 = self._remove_seen_items(user, item_weights_2)
+
+        arr1 = np.full(shape=len(item_weights_1), fill_value=max(item_weights_1))
+        arr2 = np.full(shape=len(item_weights_2), fill_value=max(item_weights_2))
+
+        iw1 = np.divide(item_weights_1, arr1)
+        iw2 = np.divide(item_weights_2, arr2)
+
+        diw1 = []
+        diw2 = []
+
+        for idx, val in enumerate(iw1):
+            diw1.append((idx, val))
+        
+        for idx, val in enumerate(iw2):
+            diw2.append((idx, val))
+
+        diws1 = sorted(diw1, key=lambda x: x[1], reverse=True)
+        diws2 = sorted(diw2, key=lambda x: x[1], reverse=True)
+
+        dtotal = []
+        dtotal.append(diws1[:15])
+        dtotal.append(diws2[:15])
+        dtotals = sorted(dtotal, key=lambda x: x[1], reverse=True)
+
+        items_to_recommend = []
+        for e in dtotals[:10]:
+            if e[0] not in items_to_recommend:
+                items_to_recommend.append(e[0])
+        
+        
+        return items_to_recommend

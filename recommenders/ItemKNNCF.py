@@ -12,9 +12,11 @@ class ItemKNNCF(Recommender):
 
     NAME = 'ItemKNNCF'
 
-    def __init__(self, urm):
+    def __init__(self, urm, saverhat=False):
 
         super().__init__(urm = urm)
+
+        self.saverhat = saverhat
 
     
     def fit(self, topK=50, shrink=100, sim_type='cosine'):

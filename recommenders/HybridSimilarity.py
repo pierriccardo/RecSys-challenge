@@ -29,6 +29,7 @@ class HybridSimilarity(Recommender):
         
         self.sim_matrix = self._similarity_matrix_topk(W, k=self.topK).tocsr()
         self.r_hat = self.urm.dot(self.sim_matrix)
+        self.r_hat = self.r_hat.toarray()
         
 
     def tuning(self, urm_valid):
@@ -47,9 +48,8 @@ class HybridSimilarity(Recommender):
                 self.fit(t, a)
                 self._evaluate(urm_valid)
 
-                print('| iter: {}/{} | topk: {} | alpha: {} | MAP: {:.4f} |'.format(
-                    i, total, t, a, self.MAP)
-                )
+                log = '| iter: {:-5d}/{} | topk: {:-3d} | alpha: {:.3f} | MAP: {:.4f} |'
+                print(log.format(i, total, t, a, self.MAP))
 
                 i+=1
                 if self.MAP > BEST_MAP:
@@ -62,4 +62,5 @@ class HybridSimilarity(Recommender):
             BEST_TOPK, BEST_ALPHA, BEST_MAP
         ))
 
-
+        log = '| {} | topk: {:-3d} | alpha: {:.3f} | MAP: {:.4f} |'
+        print(log.format(self.NAME, BEST_TOPK, BEST_ALPHA, BEST_MAP))
