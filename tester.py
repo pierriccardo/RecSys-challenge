@@ -85,13 +85,21 @@ from evaluator                      import Evaluator
 #r8.tuning(URM_valid)
 
 r1 = UserKNNCB(URM_train, ICM)
-r1.fit()
+r1.fit(topK=35, shrink=0)
 
+r2 = UserKNNCF(URM_train)
+r2.fit(topK=65, shrink=45)
 
+h1 = HybridSimilarity(URM_train, r1, r2)
+h1.fit(topK=60, alpha=0.6)
 
-recs = [r1]
+h2 = HybridSimilarity(URM_train, r1, r2)
+h2.fit(topK=60, alpha=0.2)
 
+h3 = HybridSimilarity(URM_train, r1, r2)
+h3.fit(topK=60, alpha=0.9)
 
+recs = [h1, h2, h3]
 
 
 

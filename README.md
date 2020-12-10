@@ -50,3 +50,70 @@ print(seen)
 https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html
 '''
 
+r1 r2
+
+var = [0 0]
+[0 0]
+[0.1, 0]
++0.1
+... 
+[0.9, 0]
+[0.0, 0.1]
+[0.1, 0.1]
+[0.2, 0.1]
+...
+[0.9, 0.1]
+[0.0, 0.2]
+[0.0, 0.2]
+[0.0, 0.2]
+[0.0, 0.2]
+
+1
+___
+len(recs) * granularity
+
+1
+__     = 0.1
+2 * 5
+
+a 
+
+1/(1*5) = 0.2
+
+a: 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
+
+1/(2*5)
+
+i = 1 (1 iterazione = 1/u)
+0.0 -> 1.0 
+a:0.1,0.2,0.3,0.4,0.5,...,0.9, 1.0, 0.1 - i  
+b:.......................,0.0, 0.0, 0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,
+
+a 0.1.....1.0,1.1....2.1....3.1.....
+b 10*10
+c 10*10*10
+
+i=0
+a -> update every iteration 1
+a += u 
+a - i
+a:0.1,0.2,0.3,0.4,0.5,...,0.9, 1.0,
+
+
+i 0 -> len(recs) 
+
+----------------
+
+granularity = 5
+len(recs) = 2
+u = 1/(len(recs) * granularity) = 0.1
+i = granularity * len(recs)
+
+temp = 0
+
+var = [0, 0]
+
+for r in range(len(recs)):
+    for it in range(i):
+        var[r] += u if temp % i**r == 0 else 0
+

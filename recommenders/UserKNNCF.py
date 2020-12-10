@@ -15,7 +15,7 @@ class UserKNNCF(Recommender):
 
         super().__init__(urm = urm)
 
-    def fit(self, topK=50, shrink=100, sim_type='cosine'):
+    def fit(self, topK=65, shrink=45, sim_type='cosine'):
 
         self.topK = topK
         self.shrink = shrink

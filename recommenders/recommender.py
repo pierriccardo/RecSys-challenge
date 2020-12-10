@@ -17,8 +17,8 @@ class Recommender(abc.ABC):
 
         assert urm.getformat() == 'csr', "urm must be csr, you passed a {}".format(type(urm))
  
-        #self.urm = sim.normalization.bm25(urm) if norm else urm 
-        self.urm = normalize(urm, norm='l2', axis=1) if norm else urm 
+        self.urm = sim.normalization.bm25(urm) if norm else urm 
+        #self.urm = sim.normalization.tfidf(urm) if norm else urm 
         self.n_users, self.n_items = self.urm.shape
         self.r_hat = None # R_HAT is a matrix n° user x n° item 
 
