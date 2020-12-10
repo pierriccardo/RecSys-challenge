@@ -33,6 +33,7 @@ urm_train_df = d.urm_train_df
 #------------------------------
 #       MODEL
 #------------------------------
+from sklearn.preprocessing import normalize
 from recommenders.recommender       import Recommender
 from recommenders.ItemKNNCF         import ItemKNNCF
 from recommenders.ItemKNNCB         import ItemKNNCB
@@ -51,39 +52,89 @@ from recommenders.UserKNNCB         import UserKNNCB
 
 from evaluator                      import Evaluator
 
+# ItemKNNCF
+BEST_TOPK   = int(config['tuning.ItemKNNCF']['BEST_TOPK']) 
+BEST_SHRINK = int(config['tuning.ItemKNNCF']['BEST_SHRINK'])
+BEST_SIM    = config['tuning.ItemKNNCF']['BEST_SIM']
+itemKNNCF = ItemKNNCF(URM_train)
+itemKNNCF.fit(topK=BEST_TOPK, shrink=BEST_SHRINK)
 
-#r1 = ItemKNNCF(URM_train)
-#r1.load_r_hat('raw_data/RHAT-ItemKNNCF-08-12-2020-11:57:54.npz')
-#
-#r2 = ItemKNNCB(URM_train, ICM)
-#r2.load_r_hat('raw_data/RHAT-ItemKNNCB-08-12-2020-11:57:55.npz')
-#
-#r3 = SLIM_MSE(URM_train)
-#r3.load_r_hat('raw_data/RHAT-SLIM_MSE-08-12-2020-11:58:52.npz')
-#  
-#r4 = RP3beta(URM_train)
-#r4.load_r_hat('raw_data/RHAT-RP3beta-08-12-2020-15:22:19.npz')
-#
-#r5 = P3alpha(URM_train)
-#r5.load_r_hat('raw_data/RHAT-P3alpha-08-12-2020-15:22:35.npz')
-#
-#
-#
-#CBCF = HybridRhat(URM_train, r1, r2)
-#CBCF.fit(alpha=0.61)
-#
-#SMCBCF = HybridRhat(URM_train, r3, CBCF)
-#SMCBCF.fit(alpha=0.35)
-#
-#r6 = HybridRhat(URM_train, SMCBCF, r4)
-#r6.fit(alpha=0.8)
-#
-#r7 = HybridRhat(URM_train, r6, r5)
-#r7.fit(0.55)
-#
-#r8 = HybridRhat(URM_train, CBCF, r4)
-#r8.tuning(URM_valid)
+BEST_TOPK   = int(config['tuning.ItemKNNCB']['BEST_TOPK']) 
+BEST_SHRINK = int(config['tuning.ItemKNNCB']['BEST_SHRINK'])
+BEST_SIM    = config['tuning.ItemKNNCB']['BEST_SIM']
+itemKNNCB = ItemKNNCB(URM_train, ICM)
+itemKNNCB.fit(topK=BEST_TOPK, shrink=BEST_SHRINK)
 
+BEST_TOPK   = int(config['tuning.UserKNNCF']['BEST_TOPK']) 
+BEST_SHRINK = int(config['tuning.UserKNNCF']['BEST_SHRINK'])
+BEST_SIM    = config['tuning.UserKNNCF']['BEST_SIM']
+userKNNCF = UserKNNCF(URM_train)
+userKNNCF.fit(topK=BEST_TOPK, shrink=BEST_SHRINK)
+
+BEST_TOPK   = int(config['tuning.UserKNNCB']['BEST_TOPK']) 
+BEST_SHRINK = int(config['tuning.UserKNNCB']['BEST_SHRINK'])
+BEST_SIM    = config['tuning.UserKNNCB']['BEST_SIM']
+userKNNCB = UserKNNCB(URM_train, ICM)
+userKNNCB.fit(topK=BEST_TOPK, shrink=BEST_SHRINK)
+print(userKNNCB.NAME)
+
+BEST_TOPK   = int(config['tuning.RP3beta']['BEST_TOPK'])
+BEST_ALPHA  = float(config['tuning.RP3beta']['BEST_ALPHA'])
+BEST_BETA   = float(config['tuning.RP3beta']['BEST_BETA'])
+rp3beta = RP3beta(URM_train)
+rp3beta.fit(alpha=BEST_BETA, beta=BEST_BETA, topK=BEST_TOPK)
+
+BEST_TOPK   = int(config['tuning.P3alpha']['BEST_TOPK'])
+BEST_ALPHA  = float(config['tuning.P3alpha']['BEST_ALPHA'])
+p3alpha = P3alpha(URM_train)
+p3alpha.fit(alpha=BEST_BETA, topK=BEST_TOPK)
+
+single_recs = [itemKNNCB, itemKNNCF, userKNNCB, userKNNCF, rp3beta, p3alpha]
+
+
+values = np.arange(0.0, 1.1, 0.05)
+bestMAP = 0.0000
+besta = 0.0
+bestb = 0.0
+bestc = 0.0
+bestd = 0.0
+beste = 0.0
+
+total = 5 ** 5
+
+H = Recommender(URM_train)
+
+ar = normalize(itemKNNCF.r_hat, norm='l2', axis=1)
+br = normalize(itemKNNCB.r_hat, norm='l2', axis=1)
+cr = normalize(userKNNCF.r_hat, norm='l2', axis=1)
+dr = normalize(userKNNCB.r_hat, norm='l2', axis=1)
+er = normalize(p3alpha.r_hat, norm='l2', axis=1)
+fr = normalize(rp3beta.r_hat, norm='l2', axis=1)
+i = 0
+for a in values:
+    for b in values:
+        for c in values:
+            for d in values:
+                for e in values:
+                    if (a + b + c + d + e <= 1):
+                        H.r_hat = a*ar + b*br + c*cr + d*dr + e*er + (1-a-b-c-d-e)*fr
+                        evaluator = Evaluator(H, URM_valid)
+                        log="|iter {:-5d}/{}|a: {:.4f} |b: {:.4f} |c: {:.4f}|d: {:.4f}|e: {:.4f}|MAP: {:.4f}|"
+                        print(log.format(i, total,a, b, c, d, e, evaluator.cumulative_MAP))
+                        if evaluator.cumulative_MAP > bestMAP:
+                            bestMAP = evaluator.cumulative_MAP
+                            besta = a
+                            bestb = b
+                            bestc = c
+                            bestd = d
+                            beste = e
+                    i+=1
+
+log="|best result |a: {:.4f} |b: {:.4f} |c: {:.4f}|d: {:.4f}|e: {:.4f}|MAP: {:.4f}|"
+print(log.format(besta, bestb, bestc, bestd, beste, bestMAP))
+
+
+'''
 r1 = UserKNNCB(URM_train, ICM)
 r1.fit(topK=35, shrink=0)
 
@@ -100,9 +151,10 @@ h3 = HybridSimilarity(URM_train, r1, r2)
 h3.fit(topK=60, alpha=0.9)
 
 recs = [h1, h2, h3]
-
-
-
+'''
+recs = []
+for r in single_recs:
+    recs.append(r)
 #------------------------------
 #       EVALUATION
 #------------------------------

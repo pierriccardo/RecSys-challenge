@@ -29,8 +29,8 @@ class HybridSimilarity(Recommender):
         self.info['alpha'] = alpha
         self.info['norm'] = norm
 
-        self.sim1 = normalize(self.r1.sim_matrix, norm=norm, axis=1)
-        self.sim2 = normalize(self.r2.sim_matrix, norm=norm, axis=1)
+        self.sim1 =  self.r1.sim_matrix if norm == 'none' else normalize(self.r1.sim_matrix, norm=norm, axis=1) 
+        self.sim2 =  self.r2.sim_matrix if norm == 'none' else normalize(self.r2.sim_matrix, norm=norm, axis=1) 
 
         self.sim1 = self._check_matrix(self.sim1, 'csr')
         self.sim2 = self._check_matrix(self.sim2, 'csr')
@@ -65,7 +65,7 @@ class HybridSimilarity(Recommender):
         topKs  = np.arange(int(t[0]), int(t[1]), int(t[2]))
         alphas = np.arange(float(a[0]), float(a[1]), float(a[2]))
 
-        total = len(topKs) * len(alphas)
+        total = len(topKs) * len(alphas) *len(norms)
 
         i = 0
         for t in topKs:

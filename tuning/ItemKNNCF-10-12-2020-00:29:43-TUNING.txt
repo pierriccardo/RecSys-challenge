@@ -1,0 +1,11 @@
+|ItemKNNCF| iter:     0/1980 | topk:  70 | shrink:   0 | sim type: 'splus' | MAP: 0.0203 |
+|ItemKNNCF| iter:     1/1980 | topk:  70 | shrink:   5 | sim type: 'splus' | MAP: 0.0376 |
+|ItemKNNCF| iter:     2/1980 | topk:  70 | shrink:  10 | sim type: 'splus' | MAP: 0.0425 |
+|ItemKNNCF| iter:     3/1980 | topk:  70 | shrink:  15 | sim type: 'splus' | MAP: 0.0460 |
+|ItemKNNCF| iter:     4/1980 | topk:  70 | shrink:  20 | sim type: 'splus' | MAP: 0.0471 |
+|ItemKNNCF| iter:     5/1980 | topk:  70 | shrink:  25 | sim type: 'splus' | MAP: 0.0473 |
+|ItemKNNCF| iter:     6/1980 | topk:  70 | shrink:  30 | sim type: 'splus' | MAP: 0.0472 |
+|ItemKNNCF| iter:     7/1980 | topk:  70 | shrink:  35 | sim type: 'splus' | MAP: 0.0481 |
+|ItemKNNCF| iter:     8/1980 | topk:  70 | shrink:  40 | sim type: 'splus' | MAP: 0.0483 |
+|ItemKNNCF| iter:     9/1980 | topk:  70 | shrink:  45 | sim type: 'splus' | MAP: 0.0487 |
+|ItemKNNCF| iter:    10/1980 | topk:  70 | shrink:  50 | sim type: 'splus' | MAP: 0.0488 |

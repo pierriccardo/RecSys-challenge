@@ -1,0 +1,7 @@
+| iter:     0/2000 | topk: 100 | alpha: 0.000 | norm: non | MAP: 0.0502 |
+| iter:     1/2000 | topk: 100 | alpha: 0.020 | norm: non | MAP: 0.0503 |
+| iter:     2/2000 | topk: 100 | alpha: 0.040 | norm: non | MAP: 0.0503 |
+| iter:     3/2000 | topk: 100 | alpha: 0.060 | norm: non | MAP: 0.0504 |
+| iter:     4/2000 | topk: 100 | alpha: 0.080 | norm: non | MAP: 0.0504 |
+| iter:     5/2000 | topk: 100 | alpha: 0.100 | norm: non | MAP: 0.0505 |
+| iter:     6/2000 | topk: 100 | alpha: 0.120 | norm: non | MAP: 0.0506 |
