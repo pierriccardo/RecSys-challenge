@@ -135,13 +135,15 @@ print(Fore.BLACK + Back.GREEN + '   Enter a list with elems separated by space:'
 choice = input(Fore.BLUE + Back.MAGENTA + ' -> ' + Style.RESET_ALL)
 list = choice.split()
 
-
+# basic algorithms
 r1 = ItemKNNCF(URM_train)
 r2 = ItemKNNCB(URM_train, ICM)
 r3 = RP3beta(URM_train)
 r4 = P3alpha(URM_train)
 r5 = UserKNNCF(URM_train)
 r6 = UserKNNCB(URM_train, ICM)
+
+
 
 recs = []
 

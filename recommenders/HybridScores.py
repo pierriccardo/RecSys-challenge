@@ -1,10 +1,11 @@
 from recommenders.recommender import Recommender
 import numpy as np
+import sys
 
 
 class HybridScores(Recommender):
 
-    NAME = 'HybridScores'
+    NAME = 'Hscor'
 
     def __init__(self, urm, recommender1, recommender2):
 
@@ -27,7 +28,6 @@ class HybridScores(Recommender):
 
         # hyperparameters
         self.alpha = alpha 
-        #self.r_hat = self.r_hat.toarray()
 
 
     def _compute_items_scores(self, user):
@@ -45,7 +45,6 @@ class HybridScores(Recommender):
         BEST_MAP = 0.0
         BEST_ALPHA = 0
 
-        #topKs = np.arange(10, 510, 10)
         alphas = np.arange(0.01, 0.1, 0.001)
         total = len(alphas)
 
@@ -59,6 +58,7 @@ class HybridScores(Recommender):
             print('| iter: {}/{} | alpha: {} | MAP: {:.4f} |'.format(
                 i, total, a, self.MAP)
             )
+            sys.stdout.flush()
 
             i+=1
             if self.MAP > BEST_MAP:
@@ -69,9 +69,6 @@ class HybridScores(Recommender):
         print('| best results | alpha: {} | MAP: {:.4f} |'.format(
             BEST_ALPHA, BEST_MAP
         ))
-
-
-        pass
 
     def _compute_items_scores_round_robin(self, user):
         

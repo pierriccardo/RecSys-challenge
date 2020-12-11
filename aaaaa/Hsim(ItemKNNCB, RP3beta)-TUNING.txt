@@ -1,0 +1,401 @@
+|MAP: 0.026359030465538846|
+| iter:     0/200 | topk:  10 | alpha: 0.000 | norm: non | MAP: 0.0264 |
+|MAP: 0.039148671678952654|
+| iter:     1/200 | topk:  10 | alpha: 0.100 | norm: non | MAP: 0.0391 |
+|MAP: 0.04448866543850845|
+| iter:     2/200 | topk:  10 | alpha: 0.200 | norm: non | MAP: 0.0445 |
+|MAP: 0.044985043086741096|
+| iter:     3/200 | topk:  10 | alpha: 0.300 | norm: non | MAP: 0.0450 |
+|MAP: 0.04174828507636959|
+| iter:     4/200 | topk:  10 | alpha: 0.400 | norm: non | MAP: 0.0417 |
+|MAP: 0.03927439836210362|
+| iter:     5/200 | topk:  10 | alpha: 0.500 | norm: non | MAP: 0.0393 |
+|MAP: 0.03763453040463696|
+| iter:     6/200 | topk:  10 | alpha: 0.600 | norm: non | MAP: 0.0376 |
+|MAP: 0.03549709722357603|
+| iter:     7/200 | topk:  10 | alpha: 0.700 | norm: non | MAP: 0.0355 |
+|MAP: 0.03492137763380606|
+| iter:     8/200 | topk:  10 | alpha: 0.800 | norm: non | MAP: 0.0349 |
+|MAP: 0.03404717940114993|
+| iter:     9/200 | topk:  10 | alpha: 0.900 | norm: non | MAP: 0.0340 |
+|MAP: 0.03799549965922468|
+| iter:    10/200 | topk:  30 | alpha: 0.000 | norm: non | MAP: 0.0380 |
+|MAP: 0.05133944082650935|
+| iter:    11/200 | topk:  30 | alpha: 0.100 | norm: non | MAP: 0.0513 |
+|MAP: 0.051948697754230146|
+| iter:    12/200 | topk:  30 | alpha: 0.200 | norm: non | MAP: 0.0519 |
+|MAP: 0.04864531509038232|
+| iter:    13/200 | topk:  30 | alpha: 0.300 | norm: non | MAP: 0.0486 |
+|MAP: 0.04477822650182139|
+| iter:    14/200 | topk:  30 | alpha: 0.400 | norm: non | MAP: 0.0448 |
+|MAP: 0.04178490127127763|
+| iter:    15/200 | topk:  30 | alpha: 0.500 | norm: non | MAP: 0.0418 |
+|MAP: 0.039370153540626875|
+| iter:    16/200 | topk:  30 | alpha: 0.600 | norm: non | MAP: 0.0394 |
+|MAP: 0.03775886840197929|
+| iter:    17/200 | topk:  30 | alpha: 0.700 | norm: non | MAP: 0.0378 |
+|MAP: 0.03660883904856537|
+| iter:    18/200 | topk:  30 | alpha: 0.800 | norm: non | MAP: 0.0366 |
+|MAP: 0.03534352857598286|
+| iter:    19/200 | topk:  30 | alpha: 0.900 | norm: non | MAP: 0.0353 |
+|MAP: 0.04385721137174611|
+| iter:    20/200 | topk:  50 | alpha: 0.000 | norm: non | MAP: 0.0439 |
+|MAP: 0.05496763198238593|
+| iter:    21/200 | topk:  50 | alpha: 0.100 | norm: non | MAP: 0.0550 |
+|MAP: 0.05307222968958143|
+| iter:    22/200 | topk:  50 | alpha: 0.200 | norm: non | MAP: 0.0531 |
+|MAP: 0.04941211110582869|
+| iter:    23/200 | topk:  50 | alpha: 0.300 | norm: non | MAP: 0.0494 |
+|MAP: 0.04529088932443484|
+| iter:    24/200 | topk:  50 | alpha: 0.400 | norm: non | MAP: 0.0453 |
+|MAP: 0.042661589039865104|
+| iter:    25/200 | topk:  50 | alpha: 0.500 | norm: non | MAP: 0.0427 |
+|MAP: 0.03949663508847014|
+| iter:    26/200 | topk:  50 | alpha: 0.600 | norm: non | MAP: 0.0395 |
+|MAP: 0.037547048775073394|
+| iter:    27/200 | topk:  50 | alpha: 0.700 | norm: non | MAP: 0.0375 |
+|MAP: 0.03650131040559933|
+| iter:    28/200 | topk:  50 | alpha: 0.800 | norm: non | MAP: 0.0365 |
+|MAP: 0.035477943818602226|
+| iter:    29/200 | topk:  50 | alpha: 0.900 | norm: non | MAP: 0.0355 |
+|MAP: 0.04734238278742694|
+| iter:    30/200 | topk:  70 | alpha: 0.000 | norm: non | MAP: 0.0473 |
+|MAP: 0.057199383799143695|
+| iter:    31/200 | topk:  70 | alpha: 0.100 | norm: non | MAP: 0.0572 |
+|MAP: 0.05447348657966037|
+| iter:    32/200 | topk:  70 | alpha: 0.200 | norm: non | MAP: 0.0545 |
+|MAP: 0.050464881099974664|
+| iter:    33/200 | topk:  70 | alpha: 0.300 | norm: non | MAP: 0.0505 |
+|MAP: 0.04542236467577914|
+| iter:    34/200 | topk:  70 | alpha: 0.400 | norm: non | MAP: 0.0454 |
+|MAP: 0.04302103852203051|
+| iter:    35/200 | topk:  70 | alpha: 0.500 | norm: non | MAP: 0.0430 |
+|MAP: 0.039791945347097124|
+| iter:    36/200 | topk:  70 | alpha: 0.600 | norm: non | MAP: 0.0398 |
+|MAP: 0.03752749301048946|
+| iter:    37/200 | topk:  70 | alpha: 0.700 | norm: non | MAP: 0.0375 |
+|MAP: 0.03663400989784105|
+| iter:    38/200 | topk:  70 | alpha: 0.800 | norm: non | MAP: 0.0366 |
+|MAP: 0.035784877229021704|
+| iter:    39/200 | topk:  70 | alpha: 0.900 | norm: non | MAP: 0.0358 |
+|MAP: 0.04965916334658248|
+| iter:    40/200 | topk:  90 | alpha: 0.000 | norm: non | MAP: 0.0497 |
+|MAP: 0.05928258679492982|
+| iter:    41/200 | topk:  90 | alpha: 0.100 | norm: non | MAP: 0.0593 |
+|MAP: 0.054142485861178015|
+| iter:    42/200 | topk:  90 | alpha: 0.200 | norm: non | MAP: 0.0541 |
+|MAP: 0.04944462122410617|
+| iter:    43/200 | topk:  90 | alpha: 0.300 | norm: non | MAP: 0.0494 |
+|MAP: 0.0446666248521176|
+| iter:    44/200 | topk:  90 | alpha: 0.400 | norm: non | MAP: 0.0447 |
+|MAP: 0.0420200410819066|
+| iter:    45/200 | topk:  90 | alpha: 0.500 | norm: non | MAP: 0.0420 |
+|MAP: 0.03953796105201142|
+| iter:    46/200 | topk:  90 | alpha: 0.600 | norm: non | MAP: 0.0395 |
+|MAP: 0.03791024517041956|
+| iter:    47/200 | topk:  90 | alpha: 0.700 | norm: non | MAP: 0.0379 |
+|MAP: 0.036873772113770714|
+| iter:    48/200 | topk:  90 | alpha: 0.800 | norm: non | MAP: 0.0369 |
+|MAP: 0.035766005334284666|
+| iter:    49/200 | topk:  90 | alpha: 0.900 | norm: non | MAP: 0.0358 |
+|MAP: 0.05114647134367266|
+| iter:    50/200 | topk: 110 | alpha: 0.000 | norm: non | MAP: 0.0511 |
+|MAP: 0.06051110964737991|
+| iter:    51/200 | topk: 110 | alpha: 0.100 | norm: non | MAP: 0.0605 |
+|MAP: 0.054462316807220225|
+| iter:    52/200 | topk: 110 | alpha: 0.200 | norm: non | MAP: 0.0545 |
+|MAP: 0.04963443378062466|
+| iter:    53/200 | topk: 110 | alpha: 0.300 | norm: non | MAP: 0.0496 |
+|MAP: 0.0445883099637944|
+| iter:    54/200 | topk: 110 | alpha: 0.400 | norm: non | MAP: 0.0446 |
+|MAP: 0.04219433459247497|
+| iter:    55/200 | topk: 110 | alpha: 0.500 | norm: non | MAP: 0.0422 |
+|MAP: 0.03959658351275411|
+| iter:    56/200 | topk: 110 | alpha: 0.600 | norm: non | MAP: 0.0396 |
+|MAP: 0.03801895256641008|
+| iter:    57/200 | topk: 110 | alpha: 0.700 | norm: non | MAP: 0.0380 |
+|MAP: 0.03706939617682739|
+| iter:    58/200 | topk: 110 | alpha: 0.800 | norm: non | MAP: 0.0371 |
+|MAP: 0.0361701764642771|
+| iter:    59/200 | topk: 110 | alpha: 0.900 | norm: non | MAP: 0.0362 |
+|MAP: 0.05188456749174476|
+| iter:    60/200 | topk: 130 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.060449922438894216|
+| iter:    61/200 | topk: 130 | alpha: 0.100 | norm: non | MAP: 0.0604 |
+|MAP: 0.05392779295441701|
+| iter:    62/200 | topk: 130 | alpha: 0.200 | norm: non | MAP: 0.0539 |
+|MAP: 0.049183366851556214|
+| iter:    63/200 | topk: 130 | alpha: 0.300 | norm: non | MAP: 0.0492 |
+|MAP: 0.04422683292544174|
+| iter:    64/200 | topk: 130 | alpha: 0.400 | norm: non | MAP: 0.0442 |
+|MAP: 0.0417617968741538|
+| iter:    65/200 | topk: 130 | alpha: 0.500 | norm: non | MAP: 0.0418 |
+|MAP: 0.03953895875292143|
+| iter:    66/200 | topk: 130 | alpha: 0.600 | norm: non | MAP: 0.0395 |
+|MAP: 0.03766091343749149|
+| iter:    67/200 | topk: 130 | alpha: 0.700 | norm: non | MAP: 0.0377 |
+|MAP: 0.036683117135025096|
+| iter:    68/200 | topk: 130 | alpha: 0.800 | norm: non | MAP: 0.0367 |
+|MAP: 0.0356751525454229|
+| iter:    69/200 | topk: 130 | alpha: 0.900 | norm: non | MAP: 0.0357 |
+|MAP: 0.05188456749174476|
+| iter:    70/200 | topk: 150 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.06062419833253162|
+| iter:    71/200 | topk: 150 | alpha: 0.100 | norm: non | MAP: 0.0606 |
+|MAP: 0.05415520481383107|
+| iter:    72/200 | topk: 150 | alpha: 0.200 | norm: non | MAP: 0.0542 |
+|MAP: 0.049752497237443176|
+| iter:    73/200 | topk: 150 | alpha: 0.300 | norm: non | MAP: 0.0498 |
+|MAP: 0.04438450873165014|
+| iter:    74/200 | topk: 150 | alpha: 0.400 | norm: non | MAP: 0.0444 |
+|MAP: 0.04194250574972238|
+| iter:    75/200 | topk: 150 | alpha: 0.500 | norm: non | MAP: 0.0419 |
+|MAP: 0.03987161599005217|
+| iter:    76/200 | topk: 150 | alpha: 0.600 | norm: non | MAP: 0.0399 |
+|MAP: 0.03826698619507312|
+| iter:    77/200 | topk: 150 | alpha: 0.700 | norm: non | MAP: 0.0383 |
+|MAP: 0.03707400052130575|
+| iter:    78/200 | topk: 150 | alpha: 0.800 | norm: non | MAP: 0.0371 |
+|MAP: 0.03600793493212278|
+| iter:    79/200 | topk: 150 | alpha: 0.900 | norm: non | MAP: 0.0360 |
+|MAP: 0.05188456749174476|
+| iter:    80/200 | topk: 170 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.060457713228454196|
+| iter:    81/200 | topk: 170 | alpha: 0.100 | norm: non | MAP: 0.0605 |
+|MAP: 0.053949829931972816|
+| iter:    82/200 | topk: 170 | alpha: 0.200 | norm: non | MAP: 0.0539 |
+|MAP: 0.049218615806148024|
+| iter:    83/200 | topk: 170 | alpha: 0.300 | norm: non | MAP: 0.0492 |
+|MAP: 0.04473073056187206|
+| iter:    84/200 | topk: 170 | alpha: 0.400 | norm: non | MAP: 0.0447 |
+|MAP: 0.04168173774318796|
+| iter:    85/200 | topk: 170 | alpha: 0.500 | norm: non | MAP: 0.0417 |
+|MAP: 0.039437507257620706|
+| iter:    86/200 | topk: 170 | alpha: 0.600 | norm: non | MAP: 0.0394 |
+|MAP: 0.03793380988269551|
+| iter:    87/200 | topk: 170 | alpha: 0.700 | norm: non | MAP: 0.0379 |
+|MAP: 0.03670565124295742|
+| iter:    88/200 | topk: 170 | alpha: 0.800 | norm: non | MAP: 0.0367 |
+|MAP: 0.035630800825406775|
+| iter:    89/200 | topk: 170 | alpha: 0.900 | norm: non | MAP: 0.0356 |
+|MAP: 0.05188456749174476|
+| iter:    90/200 | topk: 190 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.06093629450253193|
+| iter:    91/200 | topk: 190 | alpha: 0.100 | norm: non | MAP: 0.0609 |
+|MAP: 0.05446023423627001|
+| iter:    92/200 | topk: 190 | alpha: 0.200 | norm: non | MAP: 0.0545 |
+|MAP: 0.04924504042605738|
+| iter:    93/200 | topk: 190 | alpha: 0.300 | norm: non | MAP: 0.0492 |
+|MAP: 0.04497394111867853|
+| iter:    94/200 | topk: 190 | alpha: 0.400 | norm: non | MAP: 0.0450 |
+|MAP: 0.04195311222425698|
+| iter:    95/200 | topk: 190 | alpha: 0.500 | norm: non | MAP: 0.0420 |
+|MAP: 0.03935746857339228|
+| iter:    96/200 | topk: 190 | alpha: 0.600 | norm: non | MAP: 0.0394 |
+|MAP: 0.0376443946653779|
+| iter:    97/200 | topk: 190 | alpha: 0.700 | norm: non | MAP: 0.0376 |
+|MAP: 0.036436578920255966|
+| iter:    98/200 | topk: 190 | alpha: 0.800 | norm: non | MAP: 0.0364 |
+|MAP: 0.035187333202341|
+| iter:    99/200 | topk: 190 | alpha: 0.900 | norm: non | MAP: 0.0352 |
+|MAP: 0.05188456749174476|
+| iter:   100/200 | topk: 210 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.06054806755526577|
+| iter:   101/200 | topk: 210 | alpha: 0.100 | norm: non | MAP: 0.0605 |
+|MAP: 0.054003221690040966|
+| iter:   102/200 | topk: 210 | alpha: 0.200 | norm: non | MAP: 0.0540 |
+|MAP: 0.04956040213699859|
+| iter:   103/200 | topk: 210 | alpha: 0.300 | norm: non | MAP: 0.0496 |
+|MAP: 0.044965991776738275|
+| iter:   104/200 | topk: 210 | alpha: 0.400 | norm: non | MAP: 0.0450 |
+|MAP: 0.04209397040861595|
+| iter:   105/200 | topk: 210 | alpha: 0.500 | norm: non | MAP: 0.0421 |
+|MAP: 0.039585302351371414|
+| iter:   106/200 | topk: 210 | alpha: 0.600 | norm: non | MAP: 0.0396 |
+|MAP: 0.037944210142034474|
+| iter:   107/200 | topk: 210 | alpha: 0.700 | norm: non | MAP: 0.0379 |
+|MAP: 0.03661746427031121|
+| iter:   108/200 | topk: 210 | alpha: 0.800 | norm: non | MAP: 0.0366 |
+|MAP: 0.0353201535162129|
+| iter:   109/200 | topk: 210 | alpha: 0.900 | norm: non | MAP: 0.0353 |
+|MAP: 0.05188456749174476|
+| iter:   110/200 | topk: 230 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.060516290634242347|
+| iter:   111/200 | topk: 230 | alpha: 0.100 | norm: non | MAP: 0.0605 |
+|MAP: 0.05414110166976766|
+| iter:   112/200 | topk: 230 | alpha: 0.200 | norm: non | MAP: 0.0541 |
+|MAP: 0.04937677944876169|
+| iter:   113/200 | topk: 230 | alpha: 0.300 | norm: non | MAP: 0.0494 |
+|MAP: 0.04484728964374353|
+| iter:   114/200 | topk: 230 | alpha: 0.400 | norm: non | MAP: 0.0448 |
+|MAP: 0.04187651330825695|
+| iter:   115/200 | topk: 230 | alpha: 0.500 | norm: non | MAP: 0.0419 |
+|MAP: 0.03946901104685336|
+| iter:   116/200 | topk: 230 | alpha: 0.600 | norm: non | MAP: 0.0395 |
+|MAP: 0.037754462060709724|
+| iter:   117/200 | topk: 230 | alpha: 0.700 | norm: non | MAP: 0.0378 |
+|MAP: 0.03646505043336205|
+| iter:   118/200 | topk: 230 | alpha: 0.800 | norm: non | MAP: 0.0365 |
+|MAP: 0.0352096016691462|
+| iter:   119/200 | topk: 230 | alpha: 0.900 | norm: non | MAP: 0.0352 |
+|MAP: 0.05188456749174476|
+| iter:   120/200 | topk: 250 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.06032422158466125|
+| iter:   121/200 | topk: 250 | alpha: 0.100 | norm: non | MAP: 0.0603 |
+|MAP: 0.05391807576037219|
+| iter:   122/200 | topk: 250 | alpha: 0.200 | norm: non | MAP: 0.0539 |
+|MAP: 0.04939857428367947|
+| iter:   123/200 | topk: 250 | alpha: 0.300 | norm: non | MAP: 0.0494 |
+|MAP: 0.04501301755270004|
+| iter:   124/200 | topk: 250 | alpha: 0.400 | norm: non | MAP: 0.0450 |
+|MAP: 0.041758622441877315|
+| iter:   125/200 | topk: 250 | alpha: 0.500 | norm: non | MAP: 0.0418 |
+|MAP: 0.039231982368287226|
+| iter:   126/200 | topk: 250 | alpha: 0.600 | norm: non | MAP: 0.0392 |
+|MAP: 0.03760179281987372|
+| iter:   127/200 | topk: 250 | alpha: 0.700 | norm: non | MAP: 0.0376 |
+|MAP: 0.0363308038139041|
+| iter:   128/200 | topk: 250 | alpha: 0.800 | norm: non | MAP: 0.0363 |
+|MAP: 0.03512562247969683|
+| iter:   129/200 | topk: 250 | alpha: 0.900 | norm: non | MAP: 0.0351 |
+|MAP: 0.05188456749174476|
+| iter:   130/200 | topk: 270 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.06095309586686704|
+| iter:   131/200 | topk: 270 | alpha: 0.100 | norm: non | MAP: 0.0610 |
+|MAP: 0.053932576298013186|
+| iter:   132/200 | topk: 270 | alpha: 0.200 | norm: non | MAP: 0.0539 |
+|MAP: 0.049606805854960134|
+| iter:   133/200 | topk: 270 | alpha: 0.300 | norm: non | MAP: 0.0496 |
+|MAP: 0.044616406638543445|
+| iter:   134/200 | topk: 270 | alpha: 0.400 | norm: non | MAP: 0.0446 |
+|MAP: 0.041483872445827935|
+| iter:   135/200 | topk: 270 | alpha: 0.500 | norm: non | MAP: 0.0415 |
+|MAP: 0.038971344782529664|
+| iter:   136/200 | topk: 270 | alpha: 0.600 | norm: non | MAP: 0.0390 |
+|MAP: 0.037388367333400084|
+| iter:   137/200 | topk: 270 | alpha: 0.700 | norm: non | MAP: 0.0374 |
+|MAP: 0.03607423057900627|
+| iter:   138/200 | topk: 270 | alpha: 0.800 | norm: non | MAP: 0.0361 |
+|MAP: 0.0349709626366141|
+| iter:   139/200 | topk: 270 | alpha: 0.900 | norm: non | MAP: 0.0350 |
+|MAP: 0.05188456749174476|
+| iter:   140/200 | topk: 290 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.06082284265890985|
+| iter:   141/200 | topk: 290 | alpha: 0.100 | norm: non | MAP: 0.0608 |
+|MAP: 0.05396013641930021|
+| iter:   142/200 | topk: 290 | alpha: 0.200 | norm: non | MAP: 0.0540 |
+|MAP: 0.04924941034050711|
+| iter:   143/200 | topk: 290 | alpha: 0.300 | norm: non | MAP: 0.0492 |
+|MAP: 0.04450149134119229|
+| iter:   144/200 | topk: 290 | alpha: 0.400 | norm: non | MAP: 0.0445 |
+|MAP: 0.041294631704376986|
+| iter:   145/200 | topk: 290 | alpha: 0.500 | norm: non | MAP: 0.0413 |
+|MAP: 0.03885692420189696|
+| iter:   146/200 | topk: 290 | alpha: 0.600 | norm: non | MAP: 0.0389 |
+|MAP: 0.037231081041700746|
+| iter:   147/200 | topk: 290 | alpha: 0.700 | norm: non | MAP: 0.0372 |
+|MAP: 0.035963625686943786|
+| iter:   148/200 | topk: 290 | alpha: 0.800 | norm: non | MAP: 0.0360 |
+|MAP: 0.03472684923289387|
+| iter:   149/200 | topk: 290 | alpha: 0.900 | norm: non | MAP: 0.0347 |
+|MAP: 0.05188456749174476|
+| iter:   150/200 | topk: 310 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.06096891478905136|
+| iter:   151/200 | topk: 310 | alpha: 0.100 | norm: non | MAP: 0.0610 |
+|MAP: 0.0542187141835304|
+| iter:   152/200 | topk: 310 | alpha: 0.200 | norm: non | MAP: 0.0542 |
+|MAP: 0.049083357863869574|
+| iter:   153/200 | topk: 310 | alpha: 0.300 | norm: non | MAP: 0.0491 |
+|MAP: 0.0442799705558103|
+| iter:   154/200 | topk: 310 | alpha: 0.400 | norm: non | MAP: 0.0443 |
+|MAP: 0.04114769318188474|
+| iter:   155/200 | topk: 310 | alpha: 0.500 | norm: non | MAP: 0.0411 |
+|MAP: 0.038560909931860884|
+| iter:   156/200 | topk: 310 | alpha: 0.600 | norm: non | MAP: 0.0386 |
+|MAP: 0.03701110313882553|
+| iter:   157/200 | topk: 310 | alpha: 0.700 | norm: non | MAP: 0.0370 |
+|MAP: 0.03573281109647155|
+| iter:   158/200 | topk: 310 | alpha: 0.800 | norm: non | MAP: 0.0357 |
+|MAP: 0.0345230589593131|
+| iter:   159/200 | topk: 310 | alpha: 0.900 | norm: non | MAP: 0.0345 |
+|MAP: 0.05188456749174476|
+| iter:   160/200 | topk: 330 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.06072786931146792|
+| iter:   161/200 | topk: 330 | alpha: 0.100 | norm: non | MAP: 0.0607 |
+|MAP: 0.05392933350649517|
+| iter:   162/200 | topk: 330 | alpha: 0.200 | norm: non | MAP: 0.0539 |
+|MAP: 0.048964209869929214|
+| iter:   163/200 | topk: 330 | alpha: 0.300 | norm: non | MAP: 0.0490 |
+|MAP: 0.04417954317294472|
+| iter:   164/200 | topk: 330 | alpha: 0.400 | norm: non | MAP: 0.0442 |
+|MAP: 0.04082217990163723|
+| iter:   165/200 | topk: 330 | alpha: 0.500 | norm: non | MAP: 0.0408 |
+|MAP: 0.03832820505854833|
+| iter:   166/200 | topk: 330 | alpha: 0.600 | norm: non | MAP: 0.0383 |
+|MAP: 0.03677558982151312|
+| iter:   167/200 | topk: 330 | alpha: 0.700 | norm: non | MAP: 0.0368 |
+|MAP: 0.03545038722070144|
+| iter:   168/200 | topk: 330 | alpha: 0.800 | norm: non | MAP: 0.0355 |
+|MAP: 0.03428897613680976|
+| iter:   169/200 | topk: 330 | alpha: 0.900 | norm: non | MAP: 0.0343 |
+|MAP: 0.05188456749174476|
+| iter:   170/200 | topk: 350 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.06074247607781656|
+| iter:   171/200 | topk: 350 | alpha: 0.100 | norm: non | MAP: 0.0607 |
+|MAP: 0.05400041896114008|
+| iter:   172/200 | topk: 350 | alpha: 0.200 | norm: non | MAP: 0.0540 |
+|MAP: 0.04900852593993511|
+| iter:   173/200 | topk: 350 | alpha: 0.300 | norm: non | MAP: 0.0490 |
+|MAP: 0.04402483758132744|
+| iter:   174/200 | topk: 350 | alpha: 0.400 | norm: non | MAP: 0.0440 |
+|MAP: 0.04090903750343348|
+| iter:   175/200 | topk: 350 | alpha: 0.500 | norm: non | MAP: 0.0409 |
+|MAP: 0.03819377563915443|
+| iter:   176/200 | topk: 350 | alpha: 0.600 | norm: non | MAP: 0.0382 |
+|MAP: 0.03665523386096011|
+| iter:   177/200 | topk: 350 | alpha: 0.700 | norm: non | MAP: 0.0367 |
+|MAP: 0.03530894437617398|
+| iter:   178/200 | topk: 350 | alpha: 0.800 | norm: non | MAP: 0.0353 |
+|MAP: 0.03416261083296889|
+| iter:   179/200 | topk: 350 | alpha: 0.900 | norm: non | MAP: 0.0342 |
+|MAP: 0.05188456749174476|
+| iter:   180/200 | topk: 370 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.060391630482877254|
+| iter:   181/200 | topk: 370 | alpha: 0.100 | norm: non | MAP: 0.0604 |
+|MAP: 0.053846693481244906|
+| iter:   182/200 | topk: 370 | alpha: 0.200 | norm: non | MAP: 0.0538 |
+|MAP: 0.049004330141800126|
+| iter:   183/200 | topk: 370 | alpha: 0.300 | norm: non | MAP: 0.0490 |
+|MAP: 0.04399773294787594|
+| iter:   184/200 | topk: 370 | alpha: 0.400 | norm: non | MAP: 0.0440 |
+|MAP: 0.0408619633433333|
+| iter:   185/200 | topk: 370 | alpha: 0.500 | norm: non | MAP: 0.0409 |
+|MAP: 0.038120771464890596|
+| iter:   186/200 | topk: 370 | alpha: 0.600 | norm: non | MAP: 0.0381 |
+|MAP: 0.03655756759219753|
+| iter:   187/200 | topk: 370 | alpha: 0.700 | norm: non | MAP: 0.0366 |
+|MAP: 0.0352410455885562|
+| iter:   188/200 | topk: 370 | alpha: 0.800 | norm: non | MAP: 0.0352 |
+|MAP: 0.03408074370548992|
+| iter:   189/200 | topk: 370 | alpha: 0.900 | norm: non | MAP: 0.0341 |
+|MAP: 0.05188456749174476|
+| iter:   190/200 | topk: 390 | alpha: 0.000 | norm: non | MAP: 0.0519 |
+|MAP: 0.059943760291616965|
+| iter:   191/200 | topk: 390 | alpha: 0.100 | norm: non | MAP: 0.0599 |
+|MAP: 0.053783044480026694|
+| iter:   192/200 | topk: 390 | alpha: 0.200 | norm: non | MAP: 0.0538 |
+|MAP: 0.04889998225655982|
+| iter:   193/200 | topk: 390 | alpha: 0.300 | norm: non | MAP: 0.0489 |
+|MAP: 0.043991659490055984|
+| iter:   194/200 | topk: 390 | alpha: 0.400 | norm: non | MAP: 0.0440 |
+|MAP: 0.0407916119182384|
+| iter:   195/200 | topk: 390 | alpha: 0.500 | norm: non | MAP: 0.0408 |
+|MAP: 0.038023545785865795|
+| iter:   196/200 | topk: 390 | alpha: 0.600 | norm: non | MAP: 0.0380 |
+|MAP: 0.03639851971835635|
+| iter:   197/200 | topk: 390 | alpha: 0.700 | norm: non | MAP: 0.0364 |
+|MAP: 0.035094249610618626|
+| iter:   198/200 | topk: 390 | alpha: 0.800 | norm: non | MAP: 0.0351 |
+|MAP: 0.03399701678494586|
+| iter:   199/200 | topk: 390 | alpha: 0.900 | norm: non | MAP: 0.0340 |
+| Hsim(ItemKNNCB, RP3beta) | topk: 310 | alpha: 0.100 | norm: non | MAP: 0.0610 |

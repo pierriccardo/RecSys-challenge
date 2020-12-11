@@ -19,7 +19,7 @@ class MF_BPR(Recommender):
 
     NAME = 'MF_BPR'
 
-    def __init__(self, urm, urm_df, n_factors=10, batch_size=32, loadmodel=False, savemodel=False):
+    def __init__(self, urm, urm_df, n_factors=128, batch_size=1024, loadmodel=False, savemodel=False):
 
         super().__init__(urm = urm)
         self.urm = urm
@@ -42,6 +42,8 @@ class MF_BPR(Recommender):
             sampler=rnd_sampler, 
             num_workers=8
         )
+        a=5
+        print(len(self.train_dataloader))
 
         self.n_factors = n_factors
         self.n_users, self.n_items = self.urm.shape
@@ -57,11 +59,12 @@ class MF_BPR(Recommender):
 
 
     
-    def fit(self, epochs=5, lr=1e-4):
+    def fit(self,  valid_set, epochs=200, lr=1e-3, wd=1e-5, valtimes=10):
 
         self.optimizer = torch.optim.Adam(
             params=self.model.parameters(),
-            lr=lr
+            lr=lr,
+            weight_decay=wd
         )
 
         device = torch.device('cpu')
@@ -74,13 +77,32 @@ class MF_BPR(Recommender):
                 # move the batch to the correct device
                 batch = [b.to(device) for b in batch]
                 #print(batch)
+                
+                
                 self.model.train()
                 self.optimizer.zero_grad()
                 loss = self.model(batch)
                 loss.backward()
                 self.optimizer.step()
+
+                #print('self.model.user_embeddings')
+                #print(self.model.user_embeddings)
+                #print('')
+                #print('')
+                #print('')
+                #print('')
+                #print('')
+                #print('self.model.item_embeddings')
+                #print(self.model.item_embeddings)
+        
                 cum_loss += loss
             cum_loss /= len(self.train_dataloader)
+
+            if (epoch % valtimes == 0):
+                self.user_factors = self.model.user_embeddings.detach().cpu().numpy()
+                self.item_factors = self.model.item_embeddings.detach().cpu().numpy()
+                self._evaluate(valid_set)
+                
 
             m = "[ Epoch: {} | Loss: {:.4f} | Time: {:.4f}s ]"
             print(m.format(epoch, cum_loss, time.time() - t1))
@@ -97,6 +119,33 @@ class MF_BPR(Recommender):
 
         if self.savemodel:
             self.save_model()
+
+    def _compute_items_scores(self, user):
+        
+        #scores = self.r_hat[user]
+        scores = np.dot(self.user_factors[user], self.item_factors.T)
+            
+        return scores
+
+    def _evaluate(self, urm_test, cutoff=10):
+
+        cumulative_MAP = 0
+        num_eval = 0
+        
+        for user_id in tqdm(range(urm_test.shape[0])):
+            
+            relevant_items = urm_test.indices[urm_test.indptr[user_id]:urm_test.indptr[user_id+1]]
+            
+            if len(relevant_items)>0:
+                
+                recommended_items = self.recommend(user_id, cutoff)
+                num_eval+=1
+
+                cumulative_MAP += self._MAP(recommended_items, relevant_items)
+                
+        cumulative_MAP /= num_eval
+        self.MAP = cumulative_MAP
+        print('|MAP: {}|'.format(cumulative_MAP))
 
     def tuning(self, urm_valid):
 
@@ -182,12 +231,17 @@ class MF_BP_Model(nn.Module):
         x_i = torch.index_select(self.item_embeddings, 0, x[1])
         x_j = torch.index_select(self.item_embeddings, 0, x[2])
 
-        x_ui = torch.einsum("nf,nf->n", x_u, x_i)
-        x_uj = torch.einsum("nf,nf->n", x_u, x_j)
+        #x_ui = torch.einsum("nf,nf->n", x_u, x_i)
+        #x_uj = torch.einsum("nf,nf->n", x_u, x_j)
 
-        x_uij = x_ui - x_uj
+        #x_uij = x_ui - x_uj
 
-        loss = -F.logsigmoid(x_uij).sum()
+        #loss = -F.logsigmoid(x_uij).sum()
+
+        pos_scores = torch.sum(torch.mul(x_u, x_i), dim=1)
+        neg_scores = torch.sum(torch.mul(x_u, x_j), dim=1)
+        xuij = F.logsigmoid(pos_scores - neg_scores)
+        loss = -(torch.sum(xuij))
         return loss
 
 

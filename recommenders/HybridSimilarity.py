@@ -10,13 +10,13 @@ import configparser
 
 class HybridSimilarity(Recommender):
 
-    NAME = 'HybridSimilarity'
+    NAME = 'Hsim'
 
     def __init__(self, urm, r1, r2):
 
         super(HybridSimilarity, self).__init__(urm)
 
-        self.NAME = 'Hsimilarity({}, {})'.format(r1.NAME, r2.NAME)
+        self.NAME = 'Hsim({}, {})'.format(r1.NAME, r2.NAME)
         self.r1 = r1
         self.r2 = r2
 

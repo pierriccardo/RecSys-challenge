@@ -24,6 +24,7 @@ URM_train   = d.get_URM_train()
 URM_valid   = d.get_URM_valid()
 ICM         = d.get_ICM()
 test_set    = d.get_test()
+train_df = d.urm_train_df
 #------------------------------
 #       RECOMMENDER
 #------------------------------
@@ -35,12 +36,13 @@ from recommenders.HybridScores import HybridScores
 from recommenders.P3alpha import P3alpha
 from recommenders.RP3beta import RP3beta
 from recommenders.UserKNNCB import UserKNNCB 
+from recommenders.MF_BPR import MF_BPR
 
 
-UCB = UserKNNCB(URM_train, ICM)
-UCB.fit()
+r = MF_BPR(URM_train,train_df)
+r.fit(URM_valid)
 
-recs = [UCB]
+recs = [r]
 #------------------------------
 #       EVALUATION
 #------------------------------

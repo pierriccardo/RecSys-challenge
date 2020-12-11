@@ -20,7 +20,7 @@ from dataset import Dataset
 d = Dataset(split=0.8)
 
 URM         = d.URM
-URM_train   = d.get_URM_train()
+URM_train   = d.URM #d.get_URM_train()
 URM_valid   = d.get_URM_valid()
 ICM         = d.get_ICM()
 test_set    = d.get_test()
@@ -37,31 +37,28 @@ from recommenders.P3alpha import P3alpha
 from recommenders.RP3beta import RP3beta 
 from recommenders.SLIM_BPR import SLIM_BPR
 
+CB = ItemKNNCB(URM_train, ICM)
+CB.fit()
 
-SM = SLIM_MSE(URM_train)
-SM.fit()
+#CF = ItemKNNCF(URM_train)
+#CF.fit()
 
-BPR = SLIM_BPR(URM_train)
-BPR.fit(topK=200, epochs=250, lambda_i=0.075, lambda_j=0.0075, lr=0.0005)
+H = HybridSimilarity(URM_train, CB, CB)
+H.fit()
 
+P3A = P3alpha(URM_train)
+P3A.fit()
 
-P3A = P3alphaRecommender(URM_train)
-P3A.fit(topK=500, alpha=0.549)
-
-#H2 = HybridSimilarity(URM_train, CBCF.sim_matrix, P3A.sim_matrix)
-#H2.fit(topK=490, alpha=0.9)
-
+H2 = HybridSimilarity(URM_train, H, P3A)
+H2.fit(topK=350, alpha=0.5)
+'''
 RP3 = RP3beta(URM_train)
 RP3.fit(topK=50, alpha=0.25, beta=0.080)
 
-#H3 = HybridSimilarity(URM_train, RP3.sim_matrix, P3A.sim_matrix)
-#H3.fit(topK=490, alpha=0.1)
+H3 = HybridSimilarity(URM_train, RP3.sim_matrix, P3A.sim_matrix)
+H3.fit(topK=490, alpha=0.1)
 
-CB = ItemKNNCB(URM_train, ICM)
-CB.fit(topK=70, shrink=10)
 
-CF = ItemKNNCF(URM_train)
-CF.fit(topK=245, shrink=120)
 
 P3A = P3alpha(URM_train)
 P3A.fit(topK=500, alpha=0.549)
@@ -78,27 +75,8 @@ CBCF.fit(topK=65, alpha=0.09)
 CBCF_P3A = HybridSimilarity(URM_train, CBCF.sim_matrix, P3A.sim_matrix)
 CBCF_P3A.fit(topK=490, alpha=0.9)
 
-print('tune CBCFP3A_SM')
-CBCFP3A_SM = HybridSimilarity(URM_train, CBCF_P3A.sim_matrix, SM.sim_matrix)
-CBCFP3A_SM.tuning(URM_valid)
-
-print('tune SM_RP3B')
-SM_RP3B = HybridSimilarity(URM_train, SM.sim_matrix, RP3B.sim_matrix)
-SM_RP3B.tuning(URM_valid)
-
-SB = SLIM_BPR(URM_train)
-SB.fit()
-
-print('tune CBCFP3A_RP3B')
-CBCFP3A_SB = HybridSimilarity(URM_train, CBCF_P3A.sim_matrix, SB.sim_matrix)
-CBCFP3A_SB.tuning(URM_valid)
-
-
-
 
 recs = [CBCFP3A_SM]
-#H4 = HybridSimilarity(URM_train, H3.sim_matrix, CBCF.sim_matrix)
-#H4.tuning(URM_valid)
 from evaluator import Evaluator
 
 #best param so far a=0.3, b=0.1, c=0, d=0.4 | MAP = 0.06937
@@ -127,17 +105,20 @@ for a in values:
 
 print("best alfa=" + str(bestalfa) + "beta=" + str(bestbeta) + "c=" + str(bestc) + "d=" + str(bestd) + " | MAP = " + str(bestMAP))
 
-#recs = [H]
+'''
+
+recs = [H2]
+
 #------------------------------
 #       EVALUATION
 #------------------------------
 from evaluator import Evaluator
-'''
-for r in recs:
 
-    evaluator = Evaluator(r, URM_valid)
-    evaluator.results()
-'''
+#for r in recs:
+#
+#    evaluator = Evaluator(r, URM_valid)
+#    evaluator.results()
+
 #------------------------------
 #      CSV RESULTS CREATION
 #------------------------------

@@ -1,4 +1,0 @@
-|UserKNNCF| iter:     0/3 | topk:  60 | shrink:  40 | sim type: 'splus' | MAP: 0.0562 |
-|UserKNNCF| iter:     1/3 | topk:  60 | shrink:  40 | sim type: 'cosine' | MAP: 0.0562 |
-|UserKNNCF| iter:     2/3 | topk:  60 | shrink:  40 | sim type: 'jaccard' | MAP: 0.0562 |
-|UserKNNCF| best results | topk:  60 | shrink:  40 | sim type: 'splus' | MAP: 0.0562 |

@@ -18,7 +18,7 @@ class UserKNNCB(Recommender):
         self.urm = urm
         self.icm = icm       
 
-    def fit(self, topK=35, shrink=0, sim_type='cosine'):
+    def fit(self, topK=30, shrink=1, sim_type='cosine'):
 
         self.topK = topK
         self.shrink = shrink

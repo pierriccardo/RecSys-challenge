@@ -1,5 +1,12 @@
 # TODO
 
+- prova p3alpha con implicit=True
+
+
+
+
+
+
 - normalization on similarity matrix
 - round robin
 - tuning with different similarity (cosine, jaccard)

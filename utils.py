@@ -11,14 +11,6 @@ def create_submission_csv(recommender, users_list, save_path='./'):
 
     timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
 
-    try:
-        rec_name = recommender.name + '-'
-    
-    except AttributeError:
-
-        rec_name = ''
-        print("Recommender has no name")
-
     filename = os.path.join(save_path, rec_name + 'results-' + timestamp + '.csv')
 
     with open(filename, 'w') as csvfile:

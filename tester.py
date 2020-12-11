@@ -76,7 +76,6 @@ BEST_SHRINK = int(config['tuning.UserKNNCB']['BEST_SHRINK'])
 BEST_SIM    = config['tuning.UserKNNCB']['BEST_SIM']
 userKNNCB = UserKNNCB(URM_train, ICM)
 userKNNCB.fit(topK=BEST_TOPK, shrink=BEST_SHRINK)
-print(userKNNCB.NAME)
 
 BEST_TOPK   = int(config['tuning.RP3beta']['BEST_TOPK'])
 BEST_ALPHA  = float(config['tuning.RP3beta']['BEST_ALPHA'])

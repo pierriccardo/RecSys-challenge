@@ -6,7 +6,7 @@ from tqdm import tqdm
 import similaripy as sim
 from time import strftime, gmtime
 from sklearn.preprocessing import normalize
-
+import os
 
 
 class Recommender(abc.ABC):
@@ -51,6 +51,7 @@ class Recommender(abc.ABC):
                 
         cumulative_MAP /= num_eval
         self.MAP = cumulative_MAP
+        #print('|MAP: {}|'.format(cumulative_MAP))
         
 
     def _MAP(self, recommended_items, relevant_items):
@@ -88,28 +89,32 @@ class Recommender(abc.ABC):
 
         return scores[:cutoff]
 
-    def save_r_hat(self):
+    def save_r_hat(self, folder='raw_data'):
+
+        if not os.path.exist(folder):
+            os.mkdir(folder)
 
         if self.r_hat is None:
             msg = '|{}| can not save r_hat train the model first!'
             print(msg.format(self.NAME))
 
         else:
-            timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
-            folder = 'raw_data' 
-            fname = '/RHAT-{}-{}'.format(self.NAME, timestamp)
-            PATH = folder + fname
-            np.savez(PATH, data=self.r_hat.data, indices=self.r_hat.indices, indptr=self.r_hat.indptr, shape=self.r_hat.shape)
+            PATH = os.path.join(folder, self.NAME) 
+            np.savez(
+                PATH, 
+                data=self.r_hat.data, 
+                indices=self.r_hat.indices, 
+                indptr=self.r_hat.indptr, 
+                shape=self.r_hat.shape
+            )
             print('|{}| r hat has been saved'.format(self.NAME))
 
     def load_r_hat(self, path):
         loader = np.load(path)
-        self.r_hat = sps.csr_matrix((loader['data'], 
-                                loader['indices'], 
-                                loader['indptr']),
-                                shape=loader['shape'])
-        #self.r_hat = np.load(path)
-
+        self.r_hat = sps.csr_matrix(
+            (loader['data'], loader['indices'], loader['indptr']),
+            shape=loader['shape']
+        )
 
     def _remove_seen_items(self, user, scores):
 

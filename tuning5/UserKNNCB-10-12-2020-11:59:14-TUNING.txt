@@ -1,5 +1,0 @@
-|UserKNNCB| iter:     0/300 | topk:  30 | shrink:   0 | sim type: 'splus' | MAP: 0.0522 |
-|UserKNNCB| iter:     1/300 | topk:  30 | shrink:   1 | sim type: 'splus' | MAP: 0.0522 |
-|UserKNNCB| iter:     2/300 | topk:  30 | shrink:   2 | sim type: 'splus' | MAP: 0.0517 |
-|UserKNNCB| iter:     3/300 | topk:  30 | shrink:   3 | sim type: 'splus' | MAP: 0.0518 |
-|UserKNNCB| iter:     4/300 | topk:  30 | shrink:   4 | sim type: 'splus' | MAP: 0.0520 |

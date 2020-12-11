@@ -14,3 +14,6 @@
 | SLIMMSE   | lr = 1e-4 | epochs: 50  | samples: 200000   | MAP: 0.0520 |
 
 
+
+| Hsimilarity(UserKNNCF, UserKNNCB) | topk: 310 | alpha: 0.960 | norm: non | MAP: 0.0607 |
+| Hsimilarity(ItemKNNCF, ItemKNNCB) | topk:  70 | alpha: 0.800 | norm: non | MAP: 0.0657 |

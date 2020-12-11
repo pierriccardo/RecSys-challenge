@@ -19,7 +19,7 @@ class ItemKNNCB(Recommender):
         self.icm = icm
         self.saverhat = saverhat
 
-    def fit(self, topK=50, shrink=100, sim_type='cosine'):
+    def fit(self, topK=200, shrink=10, sim_type='cosine'):
 
         # hyperparameters 
         self.topK = topK

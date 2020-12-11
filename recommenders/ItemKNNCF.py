@@ -19,7 +19,7 @@ class ItemKNNCF(Recommender):
         self.saverhat = saverhat
 
     
-    def fit(self, topK=50, shrink=100, sim_type='cosine'):
+    def fit(self, topK=120, shrink=55, sim_type='cosine'):
 
         self.topK = topK
         self.shrink = shrink

@@ -22,7 +22,7 @@ class P3alpha(Recommender):
                                                                             self.min_rating, self.topK, self.implicit,
                                                                             self.normalize_similarity)
 
-    def fit(self, topK=100, alpha=1., min_rating=0, implicit=False, normalize_similarity=False):
+    def fit(self, topK=300, alpha=0.6, min_rating=0, implicit=False, normalize_similarity=False):
 
         self.topK = topK
         self.alpha = alpha
