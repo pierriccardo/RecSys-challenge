@@ -11,7 +11,7 @@ def create_submission_csv(recommender, users_list, save_path='./'):
 
     timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
 
-    filename = os.path.join(save_path, rec_name + 'results-' + timestamp + '.csv')
+    filename = os.path.join(save_path, recommender.NAME + 'results-' + timestamp + '.csv')
 
     with open(filename, 'w') as csvfile:
         filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)

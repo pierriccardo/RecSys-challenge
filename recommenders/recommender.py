@@ -115,6 +115,33 @@ class Recommender(abc.ABC):
             (loader['data'], loader['indices'], loader['indptr']),
             shape=loader['shape']
         )
+    
+    def save_sim_matrix(self, folder='raw_data'):
+
+        if not os.path.exist(folder):
+            os.mkdir(folder)
+
+        if self.sim_matrix is None:
+            msg = '|{}| can not save sim_matrix train the model first!'
+            print(msg.format(self.NAME))
+
+        else:
+            PATH = os.path.join(folder, self.NAME + '-sim-matrix') 
+            np.savez(
+                PATH, 
+                data=self.sim_matrix.data, 
+                indices=self.sim_matrix.indices, 
+                indptr=self.sim_matrix.indptr, 
+                shape=self.sim_matrix.shape
+            )
+            print('|{}| sim matrix has been saved'.format(self.NAME))
+
+    def load_sim_matrix(self, path):
+        loader = np.load(path)
+        self.sim_matrix = sps.csr_matrix(
+            (loader['data'], loader['indices'], loader['indptr']),
+            shape=loader['shape']
+        )
 
     def _remove_seen_items(self, user, scores):
 
