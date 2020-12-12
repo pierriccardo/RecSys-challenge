@@ -17,7 +17,7 @@ class RP3beta(Recommender):
         
         super(RP3beta, self).__init__(urm = urm)
 
-    def fit(self, alpha=0.4, beta=0.0, min_rating=0, topK=120, implicit=True, normalize_similarity=True):
+    def fit(self, alpha=0.4, beta=0.0, min_rating=0, topK=110, implicit=True, normalize_similarity=True):
 
         self.alpha = alpha
         self.beta = beta

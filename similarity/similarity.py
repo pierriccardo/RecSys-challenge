@@ -13,7 +13,6 @@ def similarity(matrix, k=100, sim_type='cosine', shrink=0, threshold=0, implicit
     SIM_DICE        = 'dice'
 
     matrix = matrix.T
-    
 
     if sim_type==SIM_COSINE:
         return sim.cosine(matrix, k=k, shrink=shrink, threshold=threshold, binary=implicit)
@@ -28,7 +27,7 @@ def similarity(matrix, k=100, sim_type='cosine', shrink=0, threshold=0, implicit
     elif sim_type==SIM_RP3BETA:
         return sim.rp3beta(matrix, k=k, shrink=shrink, threshold=threshold, binary=implicit, alpha=alpha, beta=beta)
     elif sim_type==SIM_SPLUS:
-        return sim.s_plus(matrix, k=k, shrink=shrink, threshold=threshold, binary=implicit, l=l, t1=alpha, t2=beta, c=c)
+        return sim.s_plus(matrix, k=k, shrink=shrink, threshold=threshold, binary=implicit)#, l=l, t1=alpha, t2=beta, c=c)
     elif sim_type==SIM_DICE:
         return sim.dice(matrix, k=k, shrink=shrink, threshold=threshold, binary=implicit)
     else:

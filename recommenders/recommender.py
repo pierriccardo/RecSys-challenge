@@ -70,7 +70,13 @@ class Recommender(abc.ABC):
         #if self.r_hat is None:
         #    print('Please fit the recommender first')
 
-        scores = self.r_hat[user].toarray().ravel()
+        #scores = self.r_hat[user].toarray().ravel()
+
+        if isinstance(self.r_hat, sps.csc_matrix):
+            scores = self.r_hat[user].toarray().ravel()
+        else:
+            scores = self.r_hat[user]
+        return scores
 
         #try: 
         #    scores = self.r_hat[user].toarray().ravel()
@@ -91,7 +97,7 @@ class Recommender(abc.ABC):
 
     def save_r_hat(self, folder='raw_data'):
 
-        if not os.path.exist(folder):
+        if not os.path.exists(folder):
             os.mkdir(folder)
 
         if self.r_hat is None:
@@ -99,7 +105,7 @@ class Recommender(abc.ABC):
             print(msg.format(self.NAME))
 
         else:
-            PATH = os.path.join(folder, self.NAME) 
+            PATH = os.path.join(folder, self.NAME + '-r-hat') 
             np.savez(
                 PATH, 
                 data=self.r_hat.data, 
@@ -118,7 +124,7 @@ class Recommender(abc.ABC):
     
     def save_sim_matrix(self, folder='raw_data'):
 
-        if not os.path.exist(folder):
+        if not os.path.exists(folder):
             os.mkdir(folder)
 
         if self.sim_matrix is None:
@@ -144,17 +150,12 @@ class Recommender(abc.ABC):
         )
 
     def _remove_seen_items(self, user, scores):
-
-        assert (
-            self.urm.getformat() == 'csr'
-        ), "_remove_seen_items: urm is not in csr format, actual format is {}".format(type(self.urm))
         
         s = self.urm.indptr[user]
         e = self.urm.indptr[user + 1]
         
         seen = self.urm.indices[s:e]
         scores[seen] = -np.inf
-
         return scores
 
     def _check_matrix(self, X, format='csc', dtype=np.float32):

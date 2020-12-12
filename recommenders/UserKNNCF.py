@@ -15,7 +15,7 @@ class UserKNNCF(Recommender):
 
         super().__init__(urm = urm)
 
-    def fit(self, topK=60, shrink=40, sim_type='cosine'):
+    def fit(self, topK=160, shrink=35, sim_type='cosine'):
 
         self.topK = topK
         self.shrink = shrink
@@ -48,7 +48,7 @@ class UserKNNCF(Recommender):
         for sim in similarities:
             for t in topKs:
                 for s in shrinks:
-                    self.fit(t, s)
+                    self.fit(topK=t, shrink=s, sim_type=sim)
 
                     self._evaluate(urm_valid)
 

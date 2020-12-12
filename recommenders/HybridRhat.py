@@ -27,6 +27,14 @@ class HybridRhat(Recommender):
         
         self.alpha = alpha
         self.r_hat = self.r1 * self.alpha + self.r2 * (1 - self.alpha)
+    
+    def _compute_items_scores(self, user):
+        
+        if isinstance(self.r_hat, sps.csc_matrix):
+            scores = self.r_hat[user].toarray().ravel()
+        else:
+            scores = self.r_hat[user]
+        return scores
 
     def tuning(self, urm_valid):
         

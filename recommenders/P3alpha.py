@@ -22,13 +22,12 @@ class P3alpha(Recommender):
                                                                             self.min_rating, self.topK, self.implicit,
                                                                             self.normalize_similarity)
 
-    def fit(self, topK=300, alpha=0.6, min_rating=0, implicit=False, normalize_similarity=False):
+    def fit(self, topK=230, alpha=0.5, min_rating=0, implicit=False, norm='none'):
 
         self.topK = topK
         self.alpha = alpha
         self.min_rating = min_rating
         self.implicit = implicit
-        self.normalize_similarity = normalize_similarity
 
         if self.min_rating > 0:
             self.urm.data[self.urm.data < self.min_rating] = 0
@@ -101,8 +100,8 @@ class P3alpha(Recommender):
         self.W_sparse = sps.csr_matrix((values[:numCells], (rows[:numCells], cols[:numCells])), shape=(Pui.shape[1], Pui.shape[1]))
 
 
-        if self.normalize_similarity:
-            self.W_sparse = normalize(self.W_sparse, norm='l1', axis=1)
+        if norm!='none':
+            self.W_sparse = normalize(self.W_sparse, norm=norm, axis=1)
 
 
         if self.topK != False:

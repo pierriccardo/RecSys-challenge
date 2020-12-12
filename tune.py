@@ -32,42 +32,6 @@ ICM = d.get_ICM()
 test_set = d.get_test()
 
 urm_train_df = d.urm_train_df
-
-def hsim():
-    print(Fore.BLACK + Back.GREEN + '   choose two algorithm to hybrid:   ' + Style.RESET_ALL)
-    print(Fore.GREEN)
-    print('   press 1 --> ItemKNNCF')
-    print('   press 2 --> ItemKNNCB')
-    print('   press 3 --> RP3beta')
-    print('   press 4 --> P3alpha')
-    print('   press 5 --> UserKNNCF')
-    print('   press 6 --> UserKNNCB')
-    print(Style.RESET_ALL)
-
-    print(Fore.BLACK + Back.GREEN + '   Enter the two separated by space: ' + Style.RESET_ALL)
-
-    hrecs = []
-
-    choice = input(Fore.BLUE + Back.MAGENTA + ' -> ' + Style.RESET_ALL)
-    list = choice.split()
-    for e in list:
-        if e == '1':
-            hrecs.append(r1)
-        elif e == '2':
-            hrecs.append(r2)
-        elif e == '3':
-            hrecs.append(r3)
-        elif e == '4':
-            hrecs.append(r4)
-        elif e == '5':
-            hrecs.append(r5)
-        elif e == '6':
-            hrecs.append(r6)
-    hrecs[0].fit()
-    hrecs[1].fit()
-    h = HybridSimilarity(URM_train, hrecs[0], hrecs[1])
-    recs.append(h)
-
 #------------------------------
 #       MODEL
 #------------------------------
@@ -112,7 +76,7 @@ print(Fore.BLACK + Back.GREEN + '   Choose the folder (press enter for /tuning):
 
 choice = input(Fore.BLUE + Back.MAGENTA + ' -> ' + Style.RESET_ALL)
 
-folder = '/tuning' if (choice == '' or choice is None) else choice + '/'
+folder = 'tuning' if (choice == '' or choice is None) else choice + '/'
 if not os.path.exists(folder):
     os.mkdir(folder)
 
@@ -125,6 +89,9 @@ print('   press 3 --> RP3beta')
 print('   press 4 --> P3alpha')
 print('   press 5 --> UserKNNCF')
 print('   press 6 --> UserKNNCB')
+print('   press todo --> ')
+print('   press todo --> ')
+print('   press 9 --> PureSVD')
 print('')
 print('   press hsim --> Hybrid Similarity')
 print('')
@@ -144,6 +111,8 @@ r5 = UserKNNCF(URM_train)
 r6 = UserKNNCB(URM_train, ICM)
 
 
+r9 = PureSVD(URM_train)
+
 
 recs = []
 
@@ -161,21 +130,20 @@ for e in list:
         recs.append(r5)
     elif e == '6':
         recs.append(r6)
-    elif e == 'hsim':
-        hsim()
+    elif e == '9':
+        recs.append(r9)
 
     else:
         print("wrong insertion, skipped")
 
 for r in recs:
 
-    timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
-    #folder = 'tuning/'
-    #folder = 'tuning2/'
-    filename = '{}{}-{}-TUNING.txt'.format(folder, r.NAME, timestamp)
+    filename = os.path.join(folder, r.NAME + '-TUNING.txt')
 
     with open(filename, 'w') as f:
         with redirect_stdout(f):
+            timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
+            print(timestamp)
             r.tuning(URM_valid)
 
 

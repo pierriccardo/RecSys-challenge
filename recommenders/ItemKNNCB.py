@@ -12,12 +12,11 @@ class ItemKNNCB(Recommender):
 
     NAME = 'ItemKNNCB'
 
-    def __init__(self, urm, icm, saverhat=False):
+    def __init__(self, urm, icm):
 
         super().__init__(urm = urm)
 
         self.icm = icm
-        self.saverhat = saverhat
 
     def fit(self, topK=200, shrink=10, sim_type='cosine'):
 
@@ -30,10 +29,6 @@ class ItemKNNCB(Recommender):
 
         # computing the scores matrix
         self.r_hat = self.urm.dot(self.sim_matrix)
-        self.sim_matrix = self._check_matrix(self.sim_matrix, format='csr')
-
-        if self.saverhat:
-            self.save_r_hat()
 
     def tuning(self, urm_valid):
 
@@ -58,11 +53,11 @@ class ItemKNNCB(Recommender):
         for sim in similarities:
             for t in topKs:
                 for s in shrinks:
-                    self.fit(t, s)
+                    self.fit(topK=t, shrink=s, sim_type=sim)
 
                     self._evaluate(urm_valid)
 
-                    print('| iter: {}/{} | topk: {} | shrink: {} | sim type: {} | MAP: {:.4f} |'.format(i, total, t, s, sim, self.MAP))
+                    print('|{}| iter: {}/{} | topk: {} | shrink: {} | sim type: {} | MAP: {:.4f} |'.format(self.NAME, i, total, t, s, sim, self.MAP))
                     sys.stdout.flush()
                     i+=1
 
@@ -73,6 +68,6 @@ class ItemKNNCB(Recommender):
                         BEST_MAP = self.MAP
                         BEST_SIM = sim
                 
-        print('| best results | topk: {} | shrink: {} | sim type: {} | MAP: {:.4f} |'.format(BEST_TOPK, BEST_SHRINK, BEST_SIM, BEST_MAP))
+        print('|{}| topk: {} | shrink: {} | sim type: {} | MAP: {:.4f} |'.format(self.NAME, BEST_TOPK, BEST_SHRINK, BEST_SIM, BEST_MAP))
 
 

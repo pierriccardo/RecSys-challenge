@@ -17,11 +17,10 @@ class SLIM_MSE(Recommender):
 
     NAME = 'SLIM_MSE'
     
-    def __init__(self, urm, saverhat=False):
+    def __init__(self, urm):
 
         super().__init__(urm = urm)
         self.urm = urm
-        self.saverhat = saverhat 
 
     def fit(self, learning_rate=1e-4, epochs=50, samples=200000, use_cython=True):
 
@@ -33,8 +32,6 @@ class SLIM_MSE(Recommender):
             #self.r_hat = self.urm.dot(self.sim_matrix)
             self.r_hat = sps.csr_matrix(np.dot(self.urm, self.sim_matrix))
             print('name: {}, r_hat => type {}  shape {} '.format(self.NAME, type(self.r_hat), self.r_hat.shape)) 
-            if self.saverhat:
-                self.save_r_hat()
         else:
             urm_coo = self.urm.tocoo()
             n_items = self.urm.shape[1]

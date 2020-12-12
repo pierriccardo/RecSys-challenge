@@ -1,0 +1,19 @@
+11-12-2020-22:08:44
+HMR(ItemKNNCF,ItemKNNCB)
+[0.1092869 0.8907131]
+|HMR(ItemKNNCF,ItemKNNCB)| iter:     0/100 | vec: [0.1092869 0.8907131] | norm: none | MAP: 0.0340 |
+[0.08451467 0.91548533]
+|HMR(ItemKNNCF,ItemKNNCB)| iter:     1/100 | vec: [0.08451467 0.91548533] | norm: none | MAP: 0.0336 |
+[0.41466565 0.58533435]
+|HMR(ItemKNNCF,ItemKNNCB)| iter:     2/100 | vec: [0.41466565 0.58533435] | norm: none | MAP: 0.0407 |
+[0.66524382 0.33475618]
+|HMR(ItemKNNCF,ItemKNNCB)| iter:     3/100 | vec: [0.66524382 0.33475618] | norm: none | MAP: 0.0537 |
+[0.62874659 0.37125341]
+|HMR(ItemKNNCF,ItemKNNCB)| iter:     4/100 | vec: [0.62874659 0.37125341] | norm: none | MAP: 0.0512 |
+[0.05906744 0.94093256]
+|HMR(ItemKNNCF,ItemKNNCB)| iter:     5/100 | vec: [0.05906744 0.94093256] | norm: none | MAP: 0.0332 |
+[0.77158014 0.22841986]
+|HMR(ItemKNNCF,ItemKNNCB)| iter:     6/100 | vec: [0.77158014 0.22841986] | norm: none | MAP: 0.0613 |
+[0.86872293 0.13127707]
+|HMR(ItemKNNCF,ItemKNNCB)| iter:     7/100 | vec: [0.86872293 0.13127707] | norm: none | MAP: 0.0633 |
+[0.60370275 0.39629725]

@@ -56,7 +56,7 @@ class ItemKNNCF(Recommender):
         for sim in similarities:
             for t in topKs:
                 for s in shrinks:
-                    self.fit(t, s)
+                    self.fit(topK=t, shrink=s, sim_type=sim)
 
                     self._evaluate(urm_valid)
 

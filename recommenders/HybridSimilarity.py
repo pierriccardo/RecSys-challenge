@@ -23,7 +23,7 @@ class HybridSimilarity(Recommender):
         self.info = {}
         self.info['name'] = self.NAME
        
-    def fit(self, topK=100, alpha=0.5, norm='l2'):
+    def fit(self, topK=100, alpha=0.5, norm='none'):
 
         self.info['topK'] = topK
         self.info['alpha'] = alpha

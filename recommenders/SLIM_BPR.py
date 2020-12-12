@@ -31,6 +31,8 @@ class SLIM_BPR(Recommender):
 
         stt = time.time()
 
+        print('|{}| training |'.format(self.NAME))
+
         for n_epoch in range(epochs):
             ts = time.time()
             self._run_epoch(n_epoch)

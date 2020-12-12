@@ -1,3 +1,38 @@
+#------------------------------
+# RECOMMENDERS
+#------------------------------
+
+# KNN
+|ItemKNNCF| best results | topk: 120 | shrink:  55 | sim type: cosine | MAP: 0.0491 | -
+|ItemKNNCB| best results | topk: 200 | shrink:  15 | sim type: splus  | MAP: 0.0328 | -
+|UserKNNCF| best results | topk: 160 | shrink:  35 | sim type: cosine | MAP: 0.0570 | -
+|UserKNNCB| best results | topk:  40 | shrink:   5 | sim type: splus  | MAP: 0.0518 | -
+
+# Graph Based
+| rp3beta | topk: 110 | alpha: 0.400 | beta: 0.000 | MAP: 0.0544 |
+| p3alfa  | topk: 230 | alpha: 0.500 |             | MAP: 0.0588 |
+
+# SLIM
+| SLIMBPR | topk: 200 | epochs: 250 | lr = 0.0005    |                  |                    | MAP: 0.0514 | 
+| SLIMMSE | lr = 1e-4 | epochs: 50  | samples: 200000|lambda_i = 0.0075 | lambda_j = 0.00075 | MAP: 0.0520 |
+
+# SVD
+|PureSVD| best results | n factors: 290 | n iter:   5 | MAP: 0.0450 |
+
+#------------------------------
+# HYBRIDS
+#------------------------------
+| Hsim(ItemKNNCF, ItemKNNCB) | topk:  60 | alpha: 0.800 | norm: non | MAP: 0.0655 |
+| Hsim(RP3beta, P3alpha)     | topk: 400 | alpha: 0.160 | norm: non | MAP: 0.0587 |
+| Hsim(UserKNNCF, UserKNNCB) | topk: 360 | alpha: 0.700 | norm: l2  | MAP: 0.0598 |
+| Hsim(SLIM_MSE, SLIM_BPR)   | topk: 540 | alpha: 0.500 | norm: non | MAP: 0.0582 |
+
+
+| Hsim(SLIM_MSE, P3alpha) | topk: 300 | alpha: 0.800 | norm: non | MAP: 0.0601 |
+| Hsim(SLIM_BPR, RP3beta) | topk: 260 | alpha: 0.400 | norm: non | MAP: 0.0562 |
+
+
+
 | H(CBCF, P3A) | topk: 390 | alpha: 0.9 | MAP: 0.0701 |
 | H(CBCF, P3A) | topk: 430 | alpha: 0.9 | MAP: 0.0702 |
 | H(CBCF, P3A) | topk: 490 | alpha: 0.9 | MAP: 0.0669 | dataset split=0.7
@@ -6,14 +41,16 @@
 |Hr_hat (CBCF, SLIMBPR, P3A, RP3B, SLIMMSE) | a: 0.3| b: 0.1| c: 0.0| d: 0.4| MAP: 0.06937| no normalizzazione
 
 
-| KNNCF     | topk: 245 | shrink: 120 | sim type: cosine  | MAP: 0.0471 |
-| KNNCB     | topk: 70  | shrink: 10  | sim type: cosine  | MAP: 0.0319 |
-| RP3B      | topk: 50  | alpha: 0.25 | beta: 0.080       | MAP: 0.0517 |
-| P3A       | topk: 500 | alpha: 0.55 |                   | MAP: 0.0571 |
-| SLIMBPR   | topk: 200 | epochs: 250 | lr = 0.0005       | MAP: 0.0514 | lambda_i = 0.0075 | lambda_j = 0.00075 |
-| SLIMMSE   | lr = 1e-4 | epochs: 50  | samples: 200000   | MAP: 0.0520 |
-
-
-
 | Hsimilarity(UserKNNCF, UserKNNCB) | topk: 310 | alpha: 0.960 | norm: non | MAP: 0.0607 |
 | Hsimilarity(ItemKNNCF, ItemKNNCB) | topk:  70 | alpha: 0.800 | norm: non | MAP: 0.0657 |
+
+
+#------------------------------
+# HYBRIDS MULTI RHAT
+#------------------------------
+
+HMR(Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(P3alpha, RP3beta),Hsim(SLIM_MSE, SLIM_BPR),PureSVD)
+|iter:     0/400 | vec: [0.55825934 0.22904416 0.03593987 0.02631597 0.15044067] | norm: none | MAP: 0.0723 |
+
+HMR(Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(P3alpha, RP3beta),Hsim(SLIM_MSE, SLIM_BPR),PureSVD)
+|iter:    25/400 | vec: [0.54454824 0.06172216 0.00242153 0.26698694 0.12432112] | norm: none | MAP: 0.0723 |
