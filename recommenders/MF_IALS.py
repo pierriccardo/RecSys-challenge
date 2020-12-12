@@ -4,6 +4,8 @@ from sklearn.preprocessing import normalize
 import numpy as np
 import time
 import os
+import configparser
+from tqdm import tqdm
 
 class MF_IALS(Recommender):
     """
@@ -46,6 +48,73 @@ class MF_IALS(Recommender):
 
     def load_r_hat(self, path):
         self.r_hat = np.load(path)
+
+    def tuning(self, urm_valid):
+
+        BEST_MAP = 0.0
+        BEST_N_FACTORS = 0
+        BEST_ALPHA = 0
+        BEST_EPSILON = 0
+        BEST_EPOCHS = 0
+        BEST_CONFIDENCE_SCALING = ''
+        BEST_REG = 0
+        BEST_INIT_MEAN=0.0
+        BEST_INIT_STD=0
+
+        cp = configparser.ConfigParser(converters={'list': lambda x: [i.strip() for i in x.split(',')]})
+        cp.read('config.ini')
+
+        confidence_scaling = ['linear'] #['linear', 'log']
+        epsilon = 1.0
+        init_mean=0.0
+        init_std=0.1
+        
+        epochs = int(cp.get('tuning.MF_IALS', 'epochs'))
+        t = cp.getlist('tuning.MF_IALS', 'n_factors')
+        a = cp.getlist('tuning.MF_IALS', 'alphas')
+
+        n_factors = np.arange(int(t[0]), int(t[1]), int(t[2]))
+        alpha     = np.arange(float(a[0]), float(a[1]), float(a[2]))
+        reg       = [1e-1, 1e-2, 1e-3] 
+
+        total = len(n_factors) * len(alpha) * len(reg) * len(confidence_scaling)
+
+        i = 0
+        for nf in n_factors:
+            for a in alpha:
+                for r in reg:
+                    for cs in confidence_scaling:
+                        self.fit(
+                            epochs=epochs,
+                            num_factors=nf,
+                            confidence_scaling=cs,
+                            epsilon=epsilon,
+                            reg=r,
+                            alpha=a,
+                            init_mean=init_mean,
+                            init_std=init_std
+                            )
+
+                        self._evaluate(urm_valid)
+
+                        m = '|{}|iter:{:-4d}/{}|nfact:{:-3d}|alpha:{:.3f}|epsilon:{}|epochs:{:-3d}|confscal:{}|reg:{:.6f}|imean:{}|istd:{}| MAP: {:.4f} |'
+                        print(m.format(self.NAME, i, total, nf, a, epsilon, epochs, cs[:2], r, init_mean, init_std ,self.MAP))
+                        sys.stdout.flush()
+                        i+=1
+
+                        if self.MAP > BEST_MAP:
+
+                            BEST_N_FACTORS = nf
+                            BEST_ALPHA = a
+                            BEST_EPSILON = epsilon
+                            BEST_EPOCHS = epochs
+                            BEST_CONFIDENCE_SCALING = cs
+                            BEST_REG = r
+                            BEST_INIT_MEAN=init_mean
+                            BEST_INIT_STD=init_std
+                            BEST_MAP = self.MAP
+        m = '|{}|best|nfact:{:-3d}|alpha:{:.3f}|epsilon:{}|epochs:{:-3d}|confscal:{}|reg:{:.6f}|imean:{}|istd:{}| MAP: {:.4f} |'
+        print(m.format(self.NAME, BEST_N_FACTORS, BEST_ALPHA, BEST_EPSILON, BEST_EPOCHS, BEST_CONFIDENCE_SCALING, BEST_REG, BEST_INIT_MEAN, BEST_INIT_STD ,self.MAP))       
 
 
     def fit(self, 
@@ -92,26 +161,12 @@ class MF_IALS(Recommender):
 
         self.regularization_diagonal = np.diag(self.reg * np.ones(self.num_factors))
 
-        self._train_with_early_stopping(epochs)
-
-        self.r_hat = self.USER_factors.dot(self.ITEM_factors.T)
-
-    def _train_with_early_stopping(self, epochs):
         
-        self.epochs_best = 0
-
-        epochs_current = 0
-
-        while epochs_current < epochs:
+        for epochs_current in range(epochs):
             
-            ts = time.time()
-
             self._run_epoch(epochs_current)
 
-            epochs_current += 1
-            print("|epoch {}/{} | time {:.2f} |".format(epochs_current, epochs, time.time() -ts))
-
-            sys.stdout.flush()
+        self.r_hat = self.USER_factors.dot(self.ITEM_factors.T)     
 
     def _build_confidence_matrix(self, confidence_scaling):
 
@@ -144,7 +199,7 @@ class MF_IALS(Recommender):
         # VV = n_factors x n_factors
         VV = self.ITEM_factors.T.dot(self.ITEM_factors)
 
-        for user_id in self.warm_users:
+        for user_id in tqdm(self.warm_users):
             # get (positive i.e. non-zero scored) items for user
 
             start_pos = self.C.indptr[user_id]

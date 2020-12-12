@@ -15,15 +15,18 @@ from time import strftime, gmtime
 
 
 
-class MF_BPR(Recommender):
+class LightGCN(Recommender):
 
-    NAME = 'MF_BPR'
+    NAME = 'LightGCN'
 
-    def __init__(self, urm, urm_df, batch_size=1024):
+    def __init__(self, urm, urm_df, n_factors=128, batch_size=1024, conv_depth=2, l2_reg=1e-2):
 
         super().__init__(urm = urm)
         self.urm = urm
         self.urm_df = urm_df
+
+        
+
 
         train_dataset = TripletsBPRDataset(self.urm_df)
 
@@ -40,8 +43,8 @@ class MF_BPR(Recommender):
             sampler=rnd_sampler, 
             num_workers=8
         )
-    
-    def fit(self, valid_set=None, n_factors=10, epochs=200, lr=1e-3, wd=1e-5, valtimes=10):
+        a=5
+        print(len(self.train_dataloader))
 
         self.n_factors = n_factors
         self.n_users, self.n_items = self.urm.shape
@@ -52,6 +55,12 @@ class MF_BPR(Recommender):
             self.n_factors,
             self.load_model
         )
+        if self.loadmodel:
+            self.load_model()
+
+
+    
+    def fit(self,  valid_set, epochs=200, lr=1e-3, wd=1e-5, valtimes=10):
 
         self.optimizer = torch.optim.Adam(
             params=self.model.parameters(),
@@ -66,21 +75,17 @@ class MF_BPR(Recommender):
             cum_loss = 0
             t1 = time.time()
             for batch in tqdm(self.train_dataloader):
-                # move the batch to the correct device
                 batch = [b.to(device) for b in batch]
-                #print(batch)
-                
-                
+        
                 self.model.train()
                 self.optimizer.zero_grad()
                 loss = self.model(batch)
                 loss.backward()
                 self.optimizer.step()
-        
                 cum_loss += loss
             cum_loss /= len(self.train_dataloader)
 
-            if (valid_set is not None) and (epoch % valtimes == 0):
+            if (epoch % valtimes == 0):
                 self.user_factors = self.model.user_embeddings.detach().cpu().numpy()
                 self.item_factors = self.model.item_embeddings.detach().cpu().numpy()
                 self._evaluate(valid_set)
@@ -104,8 +109,8 @@ class MF_BPR(Recommender):
 
     def _compute_items_scores(self, user):
         
-        #scores = self.r_hat[user]
-        scores = np.dot(self.user_factors[user], self.item_factors.T)
+        scores = self.r_hat[user]
+        #scores = np.dot(self.user_factors[user], self.item_factors.T)
             
         return scores
 
@@ -135,12 +140,10 @@ class MF_BPR(Recommender):
         BEST_EPOCHS = 0
         BEST_FACTORS = 0
         BEST_LR = 0
-        BEST_WD = 0
 
-        epochs      = [10]
-        n_factors   = [30, 70, 100, 300]
+        epochs      = [10, 15, 20]
+        n_factors   = [30, 70, 50, 100, 300]
         lrs         = [1e-4]
-        wd          = [1e-5]
 
         total = len(epochs) * len(n_factors) * len(lrs)
 
@@ -148,26 +151,23 @@ class MF_BPR(Recommender):
         for t in epochs:
             for a in n_factors:
                 for b in lrs:
-                    for w in wd:
-                        self.fit(epochs=t, n_factors=a, lr=b, wd=w)
+                    self.fit(epochs=t, n_factors=a, lr=b)
 
-                        self._evaluate(urm_valid)
+                    self._evaluate(urm_valid)
 
-                        m = '| iter: {:-5d}/{} | epochs: {:-3d} | factors: {:-3d} | lr: {:.6f} | wd: {:.6f} | MAP: {:.4f} |'
-                        print(m.format(i, total, t, a, b, w, self.MAP))
+                    m = '| iter: {:-5d}/{} | epochs: {:-3d} | factors: {:-3d} | lr: {} | MAP: {:.4f} |'
+                    print(m.format(i, total, t, a, b, self.MAP))
 
-                        i+=1
+                    i+=1
 
-                        if self.MAP > BEST_MAP:
+                    if self.MAP > BEST_MAP:
 
-                            BEST_EPOCHS = t
-                            BEST_FACTORS = a
-                            BEST_LR = b
-                            BEST_WD = w
-                            BEST_MAP = self.MAP
-
-        log = '| best results | epochs: {:-3d} | factors: {:-3d} | lr: {:.6f} | wd: {:.6f} | MAP: {:.4f} |'
-        print(log.format(BEST_EPOCHS, BEST_FACTORS, BEST_LR, BEST_WD, BEST_MAP))
+                        BEST_EPOCHS = t
+                        BEST_FACTORS = a
+                        BEST_LR = b
+                        BEST_MAP = self.MAP
+        log = '| best results | epochs: {:-3d} | factors: {:-3d} | lr: {} | MAP: {:.4f} |'
+        print(log.format(BEST_EPOCHS, BEST_FACTORS, BEST_LR, BEST_MAP))
 
     
     def save_model(self):
@@ -184,33 +184,23 @@ class MF_BPR(Recommender):
 
 class MF_BP_Model(nn.Module):
 
-    def __init__(self, n_users, n_items, n_factors=10, loadmodel=False):
+    def __init__(self, n_users, n_items, n_factors=10, conv_depth=2, l2_reg=1e-2):
 
         nn.Module.__init__(self)
 
         self.n_factors = n_factors                
         self.n_users = n_users 
         self.n_items = n_items
-        
-        # initialize user embeddings
-        self.user_embeddings = nn.Parameter(
-            torch.empty( # a matrix n° users x n° factors
-                self.n_users,
-                self.n_factors
-            )
-        )
-        # apply xavier distr 
-        nn.init.xavier_normal_(self.user_embeddings)
 
-        # initialize user embeddings
-        self.item_embeddings = nn.Parameter(
-            torch.empty( # a matrix n° items x n° factors
-                self.n_items,
-                self.n_factors
-            )
+        self.conv_depth = conv_depth
+        self.l2_reg = l2_reg
+
+        self.embeddings = nn.Parameter(
+            torch.empty(self.n_users + self.n_items, self.n_factors)
         )
-        # apply xavier distr 
         nn.init.xavier_normal_(self.item_embeddings)
+
+        S = normalized_adjacency_matrix
 
     def forward(self, x):
 

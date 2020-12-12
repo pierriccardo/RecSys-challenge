@@ -1,0 +1,61 @@
+12-12-2020-16:37:31
+|MF_IALS|iter:   0/264|nfact: 70|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0305 |
+|MF_IALS|iter:   1/264|nfact: 70|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0302 |
+|MF_IALS|iter:   2/264|nfact: 70|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0295 |
+|MF_IALS|iter:   3/264|nfact: 70|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0305 |
+|MF_IALS|iter:   4/264|nfact: 70|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0306 |
+|MF_IALS|iter:   5/264|nfact: 70|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0301 |
+|MF_IALS|iter:   6/264|nfact: 70|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0311 |
+|MF_IALS|iter:   7/264|nfact: 70|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0311 |
+|MF_IALS|iter:   8/264|nfact: 70|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0312 |
+|MF_IALS|iter:   9/264|nfact: 70|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0309 |
+|MF_IALS|iter:  10/264|nfact: 70|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0316 |
+|MF_IALS|iter:  11/264|nfact: 70|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0316 |
+|MF_IALS|iter:  12/264|nfact: 90|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0314 |
+|MF_IALS|iter:  13/264|nfact: 90|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0307 |
+|MF_IALS|iter:  14/264|nfact: 90|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0306 |
+|MF_IALS|iter:  15/264|nfact: 90|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0314 |
+|MF_IALS|iter:  16/264|nfact: 90|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0315 |
+|MF_IALS|iter:  17/264|nfact: 90|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0311 |
+|MF_IALS|iter:  18/264|nfact: 90|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0317 |
+|MF_IALS|iter:  19/264|nfact: 90|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0324 |
+|MF_IALS|iter:  20/264|nfact: 90|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0319 |
+|MF_IALS|iter:  21/264|nfact: 90|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0325 |
+|MF_IALS|iter:  22/264|nfact: 90|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0327 |
+|MF_IALS|iter:  23/264|nfact: 90|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0329 |
+|MF_IALS|iter:  24/264|nfact:110|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0311 |
+|MF_IALS|iter:  25/264|nfact:110|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0316 |
+|MF_IALS|iter:  26/264|nfact:110|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0316 |
+|MF_IALS|iter:  27/264|nfact:110|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0320 |
+|MF_IALS|iter:  28/264|nfact:110|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0323 |
+|MF_IALS|iter:  29/264|nfact:110|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0320 |
+|MF_IALS|iter:  30/264|nfact:110|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0318 |
+|MF_IALS|iter:  31/264|nfact:110|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0325 |
+|MF_IALS|iter:  32/264|nfact:110|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0325 |
+|MF_IALS|iter:  33/264|nfact:110|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0332 |
+|MF_IALS|iter:  34/264|nfact:110|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0333 |
+|MF_IALS|iter:  35/264|nfact:110|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0332 |
+|MF_IALS|iter:  36/264|nfact:130|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0325 |
+|MF_IALS|iter:  37/264|nfact:130|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0317 |
+|MF_IALS|iter:  38/264|nfact:130|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0326 |
+|MF_IALS|iter:  39/264|nfact:130|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0318 |
+|MF_IALS|iter:  40/264|nfact:130|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0327 |
+|MF_IALS|iter:  41/264|nfact:130|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0327 |
+|MF_IALS|iter:  42/264|nfact:130|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0332 |
+|MF_IALS|iter:  43/264|nfact:130|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0316 |
+|MF_IALS|iter:  44/264|nfact:130|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0329 |
+|MF_IALS|iter:  45/264|nfact:130|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0338 |
+|MF_IALS|iter:  46/264|nfact:130|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0335 |
+|MF_IALS|iter:  47/264|nfact:130|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0336 |
+|MF_IALS|iter:  48/264|nfact:150|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0325 |
+|MF_IALS|iter:  49/264|nfact:150|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0332 |
+|MF_IALS|iter:  50/264|nfact:150|alpha:0.600|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0330 |
+|MF_IALS|iter:  51/264|nfact:150|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0331 |
+|MF_IALS|iter:  52/264|nfact:150|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0324 |
+|MF_IALS|iter:  53/264|nfact:150|alpha:0.700|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0337 |
+|MF_IALS|iter:  54/264|nfact:150|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0341 |
+|MF_IALS|iter:  55/264|nfact:150|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0338 |
+|MF_IALS|iter:  56/264|nfact:150|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0334 |
+|MF_IALS|iter:  57/264|nfact:150|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0335 |
+|MF_IALS|iter:  58/264|nfact:150|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0341 |
+|MF_IALS|iter:  59/264|nfact:150|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0346 |

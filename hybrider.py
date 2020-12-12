@@ -67,6 +67,7 @@ from recommenders.MF_BPR            import MF_BPR
 from recommenders.HybridRhat        import HybridRhat
 from recommenders.UserKNNCF         import UserKNNCF
 from recommenders.UserKNNCB         import UserKNNCB
+from recommenders.IALS              import IALS
 
 from evaluator                      import Evaluator
 
@@ -86,15 +87,16 @@ print('                                                            ')
 print(Fore.BLACK + Back.GREEN + '   Choose 2 algorithms to Hybrid                           ' + Style.RESET_ALL)
 print(Fore.BLACK + Back.GREEN + '   put the prefix hsim, hrhat, hmr                         ' + Style.RESET_ALL)
 print(Fore.GREEN)                                                                           
-print('   press 1 --> ItemKNNCF')
-print('   press 2 --> ItemKNNCB')
-print('   press 3 --> RP3beta')
-print('   press 4 --> P3alpha')
-print('   press 5 --> UserKNNCF')
-print('   press 6 --> UserKNNCB')
-print('   press 7 --> SLIM_MSE')
-print('   press 8 --> SLIM_BPR')
-print('   press 9 --> PureSVD')
+print('   press 1  --> ItemKNNCF')
+print('   press 2  --> ItemKNNCB')
+print('   press 3  --> RP3beta')
+print('   press 4  --> P3alpha')
+print('   press 5  --> UserKNNCF')
+print('   press 6  --> UserKNNCB')
+print('   press 7  --> SLIM_MSE')
+print('   press 8  --> SLIM_BPR')
+print('   press 9  --> PureSVD')
+print('   press 10 --> IALS')
 print('')
 print('')
 print('   press h1 --> Hsim(ItemKNNCF, ItemKNNCB)')
@@ -114,6 +116,7 @@ userKNNCB   = UserKNNCB(URM_train, ICM)
 slim_mse    = SLIM_MSE(URM_train)
 slim_bpr    = SLIM_BPR(URM_train)
 pureSVD     = PureSVD(URM_train)
+ials        = IALS(URM_train)
 
 choice = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
 list = choice.split()
@@ -123,27 +126,40 @@ recs = []
 for e in list[1:]:
 
     if e == '1':
-        itemKNNCF.fit()
+        #itemKNNCF.fit()
+        #itemKNNCF.save_r_hat()
+        itemKNNCF.load_r_hat('raw_data/ItemKNNCF-r-hat.npz')
         recs.append(itemKNNCF)
 
+
     elif e == '2':
-        itemKNNCB.fit()
+        #itemKNNCB.fit()
+        #itemKNNCB.save_r_hat()
+        itemKNNCB.load_r_hat('raw_data/ItemKNNCB-r-hat.npz')
         recs.append(itemKNNCB)
 
     elif e == '3':
-        rp3beta.fit()
+        rp3beta.load_r_hat('raw_data/RP3beta-r-hat.npz')
+        #rp3beta.fit()
+        #rp3beta.save_r_hat()
         recs.append(rp3beta)
 
     elif e == '4':
-        p3alpha.fit()
+        #p3alpha.fit()
+        #p3alpha.save_r_hat()
+        p3alpha.load_r_hat('raw_data/P3alpha-r-hat.npz')
         recs.append(p3alpha)
 
     elif e == '5':
-        userKNNCF.fit()
+        #userKNNCF.fit()
+        #userKNNCF.save_r_hat()
+        userKNNCF.load_r_hat('raw_data/UserKNNCF-r-hat.npz')
         recs.append(userKNNCF)
 
     elif e == '6':
-        userKNNCB.fit()
+        #userKNNCB.fit()
+        #userKNNCB.save_r_hat()
+        userKNNCB.load_r_hat('raw_data/UserKNNCB-r-hat.npz')
         recs.append(userKNNCB)
     
     elif e == '7':
@@ -167,9 +183,16 @@ for e in list[1:]:
         recs.append(slim_bpr)
     
     elif e == '9':
-        pureSVD.fit()
+        #pureSVD.fit()
+        #pureSVD.save_r_hat()
+        pureSVD.load_r_hat('raw_data/PureSVD-r-hat.npy')
         recs.append(pureSVD)
 
+    elif e == '10':
+        #ials.fit()
+        #ials.save_r_hat()
+        ials.load_r_hat('raw_data/IALS-r-hat.npy')
+        recs.append(ials)
 
 
     elif e == 'h1':

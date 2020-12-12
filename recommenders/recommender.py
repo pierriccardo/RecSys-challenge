@@ -72,8 +72,9 @@ class Recommender(abc.ABC):
 
         #scores = self.r_hat[user].toarray().ravel()
 
-        if isinstance(self.r_hat, sps.csc_matrix):
+        if isinstance(self.r_hat, sps.csc_matrix) or isinstance(self.r_hat, sps.csr_matrix):
             scores = self.r_hat[user].toarray().ravel()
+        
         else:
             scores = self.r_hat[user]
         return scores
@@ -105,22 +106,30 @@ class Recommender(abc.ABC):
             print(msg.format(self.NAME))
 
         else:
-            PATH = os.path.join(folder, self.NAME + '-r-hat') 
-            np.savez(
-                PATH, 
-                data=self.r_hat.data, 
-                indices=self.r_hat.indices, 
-                indptr=self.r_hat.indptr, 
-                shape=self.r_hat.shape
-            )
+            if isinstance(self.r_hat, np.ndarray):
+                PATH = os.path.join(folder, self.NAME + '-r-hat') 
+                np.save(PATH, self.r_hat)
+                
+            else:
+                PATH = os.path.join(folder, self.NAME + '-r-hat') 
+                np.savez(
+                    PATH, 
+                    data=self.r_hat.data, 
+                    indices=self.r_hat.indices, 
+                    indptr=self.r_hat.indptr, 
+                    shape=self.r_hat.shape
+                )
             print('|{}| r hat has been saved'.format(self.NAME))
 
     def load_r_hat(self, path):
-        loader = np.load(path)
-        self.r_hat = sps.csr_matrix(
-            (loader['data'], loader['indices'], loader['indptr']),
-            shape=loader['shape']
-        )
+        if path[-1] == 'y':
+            self.r_hat = np.load(path)
+        else:
+            loader = np.load(path)
+            self.r_hat = sps.csr_matrix(
+                (loader['data'], loader['indices'], loader['indptr']),
+                shape=loader['shape']
+            )
     
     def save_sim_matrix(self, folder='raw_data'):
 

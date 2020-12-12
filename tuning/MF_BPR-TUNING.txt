@@ -1,0 +1,12 @@
+12-12-2020-17:51:17
+[ Epoch: 0 | Loss: 704.8828 | Time: 4.7991s ]
+[ Epoch: 1 | Loss: 704.7938 | Time: 4.1318s ]
+[ Epoch: 2 | Loss: 704.6914 | Time: 5.4560s ]
+[ Epoch: 3 | Loss: 704.5760 | Time: 4.8323s ]
+[ Epoch: 4 | Loss: 704.4308 | Time: 4.7459s ]
+[ Epoch: 5 | Loss: 704.2531 | Time: 6.7490s ]
+[ Epoch: 6 | Loss: 704.0191 | Time: 4.9408s ]
+[ Epoch: 7 | Loss: 703.7053 | Time: 4.7218s ]
+[ Epoch: 8 | Loss: 703.3105 | Time: 5.4985s ]
+[ Epoch: 9 | Loss: 702.7682 | Time: 6.1237s ]
+name: MF_BPR, r_hat => type <class 'numpy.ndarray'>  shape (7947, 25975) 

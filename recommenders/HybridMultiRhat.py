@@ -46,10 +46,13 @@ class HybridMultiRhat(Recommender):
 
     def _compute_items_scores(self, user):
 
-        #m = self.r_hat[user]
-        #scores = np.array(m).flatten()
-        #return scores
-        return np.array(self.r_hat[user]).flatten()
+        if isinstance(self.r_hat, sps.csc_matrix) or isinstance(self.r_hat, sps.csr_matrix):
+            scores = self.r_hat[user].toarray().ravel()
+        else:
+            scores = np.array(self.r_hat[user]).flatten()
+        return scores  
+            
+        
 
     def tuning(self, urm_valid):
         

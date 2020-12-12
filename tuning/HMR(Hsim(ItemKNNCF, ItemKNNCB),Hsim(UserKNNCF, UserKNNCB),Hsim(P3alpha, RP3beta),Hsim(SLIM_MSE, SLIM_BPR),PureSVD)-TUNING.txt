@@ -2532,4 +2532,5 @@ HMR(Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(P3alpha, RP3beta)
 |iter:  2497/2500 | vec: [0.40535406 0.08542006 0.14964822 0.32529386 0.03428381] | norm: none | MAP: 0.0697 |
 |iter:  2498/2500 | vec: [0.0742572  0.060208   0.02181705 0.17097741 0.67274034] | norm: none | MAP: 0.0550 |
 |iter:  2499/2500 | vec: [0.00415454 0.0042474  0.02824126 0.18470832 0.77864849] | norm: none | MAP: 0.0497 |
-|HMR(Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(P3alpha, RP3beta),Hsim(SLIM_MSE, SLIM_BPR),PureSVD)| best results | vec: [0.53147416 0.28873127 0.02203029 0.03613029 0.12163399] | norm: none | MAP: 0.0727 |
+|HMR(Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(P3alpha, RP3beta),Hsim(SLIM_MSE, SLIM_BPR),PureSVD)|
+ best results | vec: [0.53147416 0.28873127 0.02203029 0.03613029 0.12163399] | norm: none | MAP: 0.0727 |

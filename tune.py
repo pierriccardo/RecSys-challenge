@@ -50,6 +50,8 @@ from recommenders.MF_BPR            import MF_BPR
 from recommenders.HybridRhat        import HybridRhat
 from recommenders.UserKNNCF         import UserKNNCF
 from recommenders.UserKNNCB         import UserKNNCB
+from recommenders.MF_IALS           import MF_IALS
+from recommenders.IALS              import IALS
 
 from evaluator                      import Evaluator
 
@@ -83,19 +85,18 @@ if not os.path.exists(folder):
 # algorithms choice
 print(Fore.BLACK + Back.GREEN + '   Which algorithm you want to tune?          ' + Style.RESET_ALL)
 print(Fore.GREEN)
-print('   press 1 --> ItemKNNCF')
-print('   press 2 --> ItemKNNCB')
-print('   press 3 --> RP3beta')
-print('   press 4 --> P3alpha')
-print('   press 5 --> UserKNNCF')
-print('   press 6 --> UserKNNCB')
+print('   press 1  --> ItemKNNCF')
+print('   press 2  --> ItemKNNCB')
+print('   press 3  --> RP3beta')
+print('   press 4  --> P3alpha')
+print('   press 5  --> UserKNNCF')
+print('   press 6  --> UserKNNCB')
 print('   press todo --> ')
 print('   press todo --> ')
-print('   press 9 --> PureSVD')
-print('')
-print('   press hsim --> Hybrid Similarity')
-print('')
-print('')
+print('   press 9  --> PureSVD')
+print('   press 10 --> MF_IALS')
+print('   press 11 --> MF_BPR')
+print('   press 12 --> IALS')
 
 print(Fore.BLACK + Back.GREEN + '   Enter a list with elems separated by space:' + Style.RESET_ALL)
 
@@ -112,6 +113,9 @@ r6 = UserKNNCB(URM_train, ICM)
 
 
 r9 = PureSVD(URM_train)
+r10 = MF_IALS(URM_train)
+r11 = MF_BPR(URM_train, urm_train_df)
+r12 = IALS(URM_train)
 
 
 recs = []
@@ -132,6 +136,12 @@ for e in list:
         recs.append(r6)
     elif e == '9':
         recs.append(r9)
+    elif e == '10':
+        recs.append(r10)
+    elif e == '11':
+        recs.append(r11)
+    elif e == '12':
+        recs.append(r12)
 
     else:
         print("wrong insertion, skipped")

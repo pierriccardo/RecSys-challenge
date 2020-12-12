@@ -38,13 +38,30 @@ from recommenders.RP3beta import RP3beta
 from recommenders.SLIM_BPR import SLIM_BPR
 from recommenders.MF_IALS import MF_IALS
 from recommenders.MF_NN import MF_NN
+from recommenders.EASE_R import EASE_R 
+from recommenders.ICM_SVD import ICM_SVD
+from recommenders.IALS import IALS
 
+'''
 r = MF_IALS(URM_train)
-r.fit(epochs=70, num_factors=100)
+r.fit(
+    epochs=10,
+    num_factors=100,
+    confidence_scaling = "log",
+    alpha = 0.9,
+    epsilon = 1.0,
+    reg = 1e-3,
+    init_mean=0.0,
+    init_std=0.1)
 r.save_r_hat()
+'''
 
 #r = MF_NN(URM_train)
 #r.fit()
+
+r = IALS(URM_train)
+r.fit()
+
 
 
 recs = [r]
