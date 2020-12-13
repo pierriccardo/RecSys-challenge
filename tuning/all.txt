@@ -3,14 +3,16 @@
 #------------------------------
 
 # KNN
-|ItemKNNCF| best results | topk: 120 | shrink:  55 | sim type: cosine | MAP: 0.0491 | -
+|ItemKNNCF| best results  | topk: 120 | shrink:  55 | sim type: cosine | MAP: 0.0491 | -
+|ItemKNNCF| normalized l2 | topk: 160 | shrink: 140 | sim type: splus | MAP: 0.0509 |
+
 |ItemKNNCB| best results | topk: 200 | shrink:  15 | sim type: splus  | MAP: 0.0328 | -
 |UserKNNCF| best results | topk: 160 | shrink:  35 | sim type: cosine | MAP: 0.0570 | -
 |UserKNNCB| best results | topk:  40 | shrink:   5 | sim type: splus  | MAP: 0.0518 | -
 
 # Graph Based
-| rp3beta | topk: 110 | alpha: 0.400 | beta: 0.000 | MAP: 0.0544 |
-| p3alfa  | topk: 230 | alpha: 0.500 |             | MAP: 0.0588 |
+| rp3beta | topk: 110 | alpha: 0.35 | beta: 0.06 | MAP: 0.0590 |
+| p3alfa  | topk: 80  | alpha: 0.4 |             | MAP: 0.0588 |
 
 # SLIM
 | SLIMBPR | topk: 200 | epochs: 250 | lr = 0.0005    |                  |                    | MAP: 0.0514 | 
@@ -63,4 +65,13 @@ HMR(Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(P3alpha, RP3beta)
 
 HMR(Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(P3alpha, RP3beta),Hsim(SLIM_MSE, SLIM_BPR),PureSVD)
 |iter:    25/400 | vec: [0.54454824 0.06172216 0.00242153 0.26698694 0.12432112] | norm: none | MAP: 0.0723 |
+
+HMR(Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(P3alpha, RP3beta),Hsim(SLIM_MSE, SLIM_BPR),PureSVD,IALS)
+|iter:    16/2500 | vec: [0.44120586 0.16095929 0.00054268 0.18126128 0.07466488 0.141366  ] | norm: none | MAP: 0.0726 |
+
+HMR(Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(SLIM_MSE, SLIM_BPR),P3alpha,PureSVD,IALS)
+|iter:    76/2500 | vec: [0.46226059 0.09866503 0.05536885 0.03668445 0.02450175 0.32251933] | norm: l2 | MAP: 0.0726 |
+
+HMR(Hsim(ItemKNNCF, ItemKNNCB),P3alpha,Hsim(UserKNNCF, UserKNNCB),Hsim(SLIM_MSE, SLIM_BPR),PureSVD,IALS)
+|iter:   996/2500 | vec: [0.41811671 0.02081832 0.07799069 0.02403838 0.06952526 0.38951064] | norm: l2 | MAP: 0.0734 |
 

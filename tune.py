@@ -104,43 +104,40 @@ choice = input(Fore.BLUE + Back.MAGENTA + ' -> ' + Style.RESET_ALL)
 list = choice.split()
 
 # basic algorithms
-r1 = ItemKNNCF(URM_train)
-r2 = ItemKNNCB(URM_train, ICM)
-r3 = RP3beta(URM_train)
-r4 = P3alpha(URM_train)
-r5 = UserKNNCF(URM_train)
-r6 = UserKNNCB(URM_train, ICM)
-
-
-r9 = PureSVD(URM_train)
-r10 = MF_IALS(URM_train)
-r11 = MF_BPR(URM_train, urm_train_df)
-r12 = IALS(URM_train)
-
 
 recs = []
 
 for e in list:
 
     if e == '1':
+        r1 = ItemKNNCF(URM_train)
         recs.append(r1)
     elif e == '2':
+        r2 = ItemKNNCB(URM_train, ICM)
         recs.append(r2)
     elif e == '3':
+        r3 = RP3beta(URM_train)
         recs.append(r3)
     elif e == '4':
+        r4 = P3alpha(URM_train)
         recs.append(r4)
     elif e == '5':
+        r5 = UserKNNCF(URM_train)
         recs.append(r5)
     elif e == '6':
+        r6 = UserKNNCB(URM_train, ICM)
         recs.append(r6)
     elif e == '9':
+        r9 = PureSVD(URM_train)
         recs.append(r9)
     elif e == '10':
+        r10 = MF_IALS(URM_train)
         recs.append(r10)
     elif e == '11':
+        r11 = MF_BPR(URM_train, urm_train_df)
         recs.append(r11)
     elif e == '12':
+        r12 = IALS(URM_train)
         recs.append(r12)
 
     else:

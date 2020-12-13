@@ -1,6 +1,6 @@
 import numpy as np
 import scipy.sparse as sps
-
+import similaripy as sim
 from sklearn.preprocessing import normalize
 from recommenders.recommender import Recommender
 import time, sys
@@ -16,20 +16,60 @@ class P3alpha(Recommender):
     def __init__(self, urm):
         super(P3alpha, self).__init__(urm = urm)
 
-
-    def __str__(self):
-        return "P3alpha(alpha={}, min_rating={}, topk={}, implicit={}, normalize_similarity={})".format(self.alpha,
-                                                                            self.min_rating, self.topK, self.implicit,
-                                                                            self.normalize_similarity)
-
-    def fit(self, topK=230, alpha=0.5, min_rating=0, implicit=False, norm='none'):
+    def fit(self, topK=80, alpha=0.4):
 
         self.topK = topK
         self.alpha = alpha
-        self.min_rating = min_rating
-        self.implicit = implicit
 
-        if self.min_rating > 0:
+        self.sim_matrix = sim.p3alpha(
+            self.urm.T,
+            alpha=alpha,
+            k=topK)
+        self.r_hat = self.urm.dot(self.sim_matrix)
+
+
+    def tuning(self, urm_valid):
+        
+        BEST_MAP = 0.0
+        BEST_TOPK = 0
+        BEST_ALPHA = 0
+
+        cp = configparser.ConfigParser(converters={'list': lambda x: [i.strip() for i in x.split(',')]})
+        cp.read('config.ini')
+        
+        t = cp.getlist('tuning.P3alpha', 'topKs') 
+        a = cp.getlist('tuning.P3alpha', 'alphas')
+
+        topKs   = np.arange(int(t[0]), int(t[1]), int(t[2]))
+        alphas = np.arange(float(a[0]), float(a[1]), float(a[2]))
+
+        total = len(topKs) * len(alphas)
+
+        i = 0
+        for t in topKs:
+            for a in alphas:
+                self.fit(alpha=a, topK=t)
+
+                self._evaluate(urm_valid)
+
+                log = '| iter: {:-5d}/{} | topk: {:-3d} | alpha: {:.3f} | MAP: {:.4f} |'
+                print(log.format(i, total, t, a, self.MAP))
+                sys.stdout.flush()
+
+                i+=1
+
+                if self.MAP > BEST_MAP:
+
+                    BEST_TOPK = t
+                    BEST_ALPHA = a
+                    BEST_MAP = self.MAP
+                    
+        log = '| best results | topk: {:-3d} | alpha: {:.3f} | MAP: {:.4f} |'
+        print(log.format(BEST_TOPK, BEST_ALPHA, BEST_MAP))
+
+
+'''
+if self.min_rating > 0:
             self.urm.data[self.urm.data < self.min_rating] = 0
             self.urm.eliminate_zeros()
             if self.implicit:
@@ -108,44 +148,4 @@ class P3alpha(Recommender):
             self.W_sparse = self._similarity_matrix_topk(self.W_sparse, k=self.topK)
 
         self.sim_matrix = self._check_matrix(self.W_sparse, format='csr')
-        self.r_hat = self.urm.dot(self.sim_matrix)
-
-
-    def tuning(self, urm_valid):
-        
-        BEST_MAP = 0.0
-        BEST_TOPK = 0
-        BEST_ALPHA = 0
-
-        cp = configparser.ConfigParser(converters={'list': lambda x: [i.strip() for i in x.split(',')]})
-        cp.read('config.ini')
-        
-        t = cp.getlist('tuning.P3alpha', 'topKs') 
-        a = cp.getlist('tuning.P3alpha', 'alphas')
-
-        topKs   = np.arange(int(t[0]), int(t[1]), int(t[2]))
-        alphas = np.arange(float(a[0]), float(a[1]), float(a[2]))
-
-        total = len(topKs) * len(alphas)
-
-        i = 0
-        for t in topKs:
-            for a in alphas:
-                self.fit(alpha=a, topK=t)
-
-                self._evaluate(urm_valid)
-
-                log = '| iter: {:-5d}/{} | topk: {:-3d} | alpha: {:.3f} | MAP: {:.4f} |'
-                print(log.format(i, total, t, a, self.MAP))
-                sys.stdout.flush()
-
-                i+=1
-
-                if self.MAP > BEST_MAP:
-
-                    BEST_TOPK = t
-                    BEST_ALPHA = a
-                    BEST_MAP = self.MAP
-                    
-        log = '| best results | topk: {:-3d} | alpha: {:.3f} | MAP: {:.4f} |'
-        print(log.format(BEST_TOPK, BEST_ALPHA, BEST_MAP))
+'''

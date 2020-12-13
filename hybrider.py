@@ -68,6 +68,7 @@ from recommenders.HybridRhat        import HybridRhat
 from recommenders.UserKNNCF         import UserKNNCF
 from recommenders.UserKNNCB         import UserKNNCB
 from recommenders.IALS              import IALS
+from recommenders.HybridMultiSim    import HybridMultiSim
 
 from evaluator                      import Evaluator
 
@@ -85,7 +86,7 @@ print('██║  ██║   ██║   ██████╔╝██║  █
 print('╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝')
 print('                                                            ')
 print(Fore.BLACK + Back.GREEN + '   Choose 2 algorithms to Hybrid                           ' + Style.RESET_ALL)
-print(Fore.BLACK + Back.GREEN + '   put the prefix hsim, hrhat, hmr                         ' + Style.RESET_ALL)
+print(Fore.BLACK + Back.GREEN + '   put the prefix hsim, hrhat, hmr, hms                    ' + Style.RESET_ALL)
 print(Fore.GREEN)                                                                           
 print('   press 1  --> ItemKNNCF')
 print('   press 2  --> ItemKNNCB')
@@ -126,40 +127,40 @@ recs = []
 for e in list[1:]:
 
     if e == '1':
-        #itemKNNCF.fit()
-        #itemKNNCF.save_r_hat()
-        itemKNNCF.load_r_hat('raw_data/ItemKNNCF-r-hat.npz')
+        itemKNNCF.fit()
+        itemKNNCF.save_r_hat()
+        #itemKNNCF.load_r_hat('raw_data/ItemKNNCF-r-hat.npz')
         recs.append(itemKNNCF)
 
 
     elif e == '2':
-        #itemKNNCB.fit()
-        #itemKNNCB.save_r_hat()
-        itemKNNCB.load_r_hat('raw_data/ItemKNNCB-r-hat.npz')
+        itemKNNCB.fit()
+        itemKNNCB.save_r_hat()
+        #itemKNNCB.load_r_hat('raw_data/ItemKNNCB-r-hat.npz')
         recs.append(itemKNNCB)
 
     elif e == '3':
-        rp3beta.load_r_hat('raw_data/RP3beta-r-hat.npz')
-        #rp3beta.fit()
-        #rp3beta.save_r_hat()
+        #rp3beta.load_r_hat('raw_data/RP3beta-r-hat.npz')
+        rp3beta.fit()
+        rp3beta.save_r_hat()
         recs.append(rp3beta)
 
     elif e == '4':
-        #p3alpha.fit()
-        #p3alpha.save_r_hat()
-        p3alpha.load_r_hat('raw_data/P3alpha-r-hat.npz')
+        p3alpha.fit()
+        p3alpha.save_r_hat()
+        #p3alpha.load_r_hat('raw_data/P3alpha-r-hat.npz')
         recs.append(p3alpha)
 
     elif e == '5':
-        #userKNNCF.fit()
-        #userKNNCF.save_r_hat()
-        userKNNCF.load_r_hat('raw_data/UserKNNCF-r-hat.npz')
+        userKNNCF.fit()
+        userKNNCF.save_r_hat()
+        #userKNNCF.load_r_hat('raw_data/UserKNNCF-r-hat.npz')
         recs.append(userKNNCF)
 
     elif e == '6':
-        #userKNNCB.fit()
-        #userKNNCB.save_r_hat()
-        userKNNCB.load_r_hat('raw_data/UserKNNCB-r-hat.npz')
+        userKNNCB.fit()
+        userKNNCB.save_r_hat()
+        #userKNNCB.load_r_hat('raw_data/UserKNNCB-r-hat.npz')
         recs.append(userKNNCB)
     
     elif e == '7':
@@ -219,8 +220,8 @@ for e in list[1:]:
     elif e == 'h4':
         p3alpha.fit()
         rp3beta.fit()
-        h = HybridSimilarity(URM_train, p3alpha, rp3beta)
-        h.fit()
+        h = HybridSimilarity(URM_train, rp3beta, p3alpha)
+        h.fit(topk=400, alpha=0.160 )
         recs.append(h)
     
     elif e == 'h5':
@@ -246,6 +247,9 @@ elif list[0] == 'hrhat':
 
 elif list[0] == 'hmr':
     h = HybridMultiRhat(URM_train, recs)
+    totune.append(h)
+elif list[0] == 'hms':
+    h = HybridMultiSim(URM_train, recs)
     totune.append(h)
 else:
     print('wrong hybrid type')

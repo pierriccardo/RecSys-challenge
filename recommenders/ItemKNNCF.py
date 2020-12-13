@@ -1,5 +1,6 @@
 from recommenders.recommender import Recommender
 from similarity.similarity import similarity
+from sklearn.preprocessing import normalize
 import numpy as np
 import similaripy as sim
 import scipy
@@ -24,8 +25,9 @@ class ItemKNNCF(Recommender):
         self.topK = topK
         self.shrink = shrink
 
-        self.sim_matrix = similarity(self.urm, k=topK, sim_type=sim_type, shrink=shrink)
-        self.sim_matrix = self._check_matrix(self.sim_matrix, format='csr')
+        m = similarity(self.urm, k=topK, sim_type=sim_type, shrink=shrink)
+        m = self._check_matrix(m, format='csr')
+        self.sim_matrix = normalize(m, norm='l2', axis=1)
 
         self.r_hat = self.urm.dot(self.sim_matrix)
 

@@ -5,6 +5,7 @@ import scipy.sparse as sps
 from matplotlib import pyplot
 import configparser
 from tqdm import tqdm
+import similaripy as sim
 #------------------------------
 #       MISC
 #------------------------------
@@ -27,6 +28,7 @@ test_set    = d.get_test()
 #------------------------------
 #       RECOMMENDER
 #------------------------------
+from sklearn.preprocessing import normalize
 from recommenders.recommender import Recommender
 from recommenders.ItemKNNCF import ItemKNNCF
 from recommenders.ItemKNNCB import ItemKNNCB
@@ -59,10 +61,13 @@ r.save_r_hat()
 #r = MF_NN(URM_train)
 #r.fit()
 
-r = IALS(URM_train)
-r.fit()
 
-
+#r.load_r_hat('raw_data/IALS-r-hat.npy')
+r = Recommender(URM_train)
+sim_matrix = sim.p3alpha(ICM, alpha=0.2, k=80)
+sim_matrix_norm = normalize(sim_matrix, norm='l2', axis=0)
+r_hat = URM_train.dot(sim_matrix_norm)
+r.r_hat = r_hat
 
 recs = [r]
 

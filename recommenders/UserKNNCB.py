@@ -5,6 +5,7 @@ import similaripy as sim
 import scipy
 import configparser
 import sys
+from sklearn.preprocessing import normalize
 
 
 class UserKNNCB(Recommender):
@@ -24,8 +25,10 @@ class UserKNNCB(Recommender):
         self.shrink = shrink
 
         self.ucm = self.urm.dot(self.icm)
-        self.sim_matrix = similarity(self.ucm.T, k=topK, sim_type=sim_type, shrink=shrink)
-        self.sim_matrix = self._check_matrix(self.sim_matrix, format='csr')
+        m = similarity(self.ucm.T, k=topK, sim_type=sim_type, shrink=shrink)
+        m = self._check_matrix(m, format='csr')
+
+        self.sim_matrix = normalize(m, norm='l2', axis=0)
         
         self.r_hat = self.sim_matrix.dot(self.urm)
 

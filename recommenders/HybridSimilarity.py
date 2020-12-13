@@ -19,15 +19,8 @@ class HybridSimilarity(Recommender):
         self.NAME = 'Hsim({}, {})'.format(r1.NAME, r2.NAME)
         self.r1 = r1
         self.r2 = r2
-
-        self.info = {}
-        self.info['name'] = self.NAME
        
     def fit(self, topK=100, alpha=0.5, norm='none'):
-
-        self.info['topK'] = topK
-        self.info['alpha'] = alpha
-        self.info['norm'] = norm
 
         self.sim1 =  self.r1.sim_matrix if norm == 'none' else normalize(self.r1.sim_matrix, norm=norm, axis=1) 
         self.sim2 =  self.r2.sim_matrix if norm == 'none' else normalize(self.r2.sim_matrix, norm=norm, axis=1) 

@@ -5,6 +5,7 @@ import similaripy as sim
 import scipy
 import configparser
 import sys
+from sklearn.preprocessing import normalize
 
 
 class UserKNNCF(Recommender):
@@ -20,8 +21,9 @@ class UserKNNCF(Recommender):
         self.topK = topK
         self.shrink = shrink
 
-        self.sim_matrix = similarity(self.urm.T, k=topK, sim_type=sim_type, shrink=shrink)
-        self.sim_matrix = self._check_matrix(self.sim_matrix, format='csr')
+        m = similarity(self.urm.T, k=topK, sim_type=sim_type, shrink=shrink)
+        m = self._check_matrix(m, format='csr')
+        self.sim_matrix = normalize(m, norm='l2', axis=0)
 
         self.r_hat = self.sim_matrix.dot(self.urm)
 
