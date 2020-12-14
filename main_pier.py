@@ -44,31 +44,12 @@ from recommenders.EASE_R import EASE_R
 from recommenders.ICM_SVD import ICM_SVD
 from recommenders.IALS import IALS
 
-'''
-r = MF_IALS(URM_train)
-r.fit(
-    epochs=10,
-    num_factors=100,
-    confidence_scaling = "log",
-    alpha = 0.9,
-    epsilon = 1.0,
-    reg = 1e-3,
-    init_mean=0.0,
-    init_std=0.1)
-r.save_r_hat()
-'''
 
-#r = MF_NN(URM_train)
-#r.fit()
 
 
 #r.load_r_hat('raw_data/IALS-r-hat.npy')
-r = Recommender(URM_train)
-sim_matrix = sim.p3alpha(ICM, alpha=0.2, k=80)
-sim_matrix_norm = normalize(sim_matrix, norm='l2', axis=0)
-r_hat = URM_train.dot(sim_matrix_norm)
-r.r_hat = r_hat
-
+r = SLIM_MSE(URM_train)
+r.fit()
 recs = [r]
 
 #------------------------------

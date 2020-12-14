@@ -1,6 +1,23 @@
-13-12-2020-13:09:58
-|UserKNNCB| iter:     0/570 | topk:  20 | shrink:   0 | sim type: splus | MAP: 0.0489 |
-|UserKNNCB| iter:     1/570 | topk:  20 | shrink:  20 | sim type: splus | MAP: 0.0501 |
-|UserKNNCB| iter:     2/570 | topk:  20 | shrink:  40 | sim type: splus | MAP: 0.0490 |
-|UserKNNCB| iter:     3/570 | topk:  20 | shrink:  60 | sim type: splus | MAP: 0.0496 |
-|UserKNNCB| iter:     4/570 | topk:  20 | shrink:  80 | sim type: splus | MAP: 0.0493 |
+13-12-2020-14:47:48
+|UserKNNCB| iter:     0/342 | topk:  20 | shrink:   0 | sim type: splus | MAP: 0.0495 |
+|UserKNNCB| iter:     1/342 | topk:  20 | shrink:  20 | sim type: splus | MAP: 0.0506 |
+|UserKNNCB| iter:     2/342 | topk:  20 | shrink:  40 | sim type: splus | MAP: 0.0502 |
+|UserKNNCB| iter:     3/342 | topk:  20 | shrink:  60 | sim type: splus | MAP: 0.0501 |
+|UserKNNCB| iter:     4/342 | topk:  20 | shrink:  80 | sim type: splus | MAP: 0.0502 |
+|UserKNNCB| iter:     5/342 | topk:  20 | shrink: 100 | sim type: splus | MAP: 0.0499 |
+|UserKNNCB| iter:     6/342 | topk:  40 | shrink:   0 | sim type: splus | MAP: 0.0510 |
+|UserKNNCB| iter:     7/342 | topk:  40 | shrink:  20 | sim type: splus | MAP: 0.0510 |
+|UserKNNCB| iter:     8/342 | topk:  40 | shrink:  40 | sim type: splus | MAP: 0.0502 |
+|UserKNNCB| iter:     9/342 | topk:  40 | shrink:  60 | sim type: splus | MAP: 0.0504 |
+|UserKNNCB| iter:    10/342 | topk:  40 | shrink:  80 | sim type: splus | MAP: 0.0497 |
+|UserKNNCB| iter:    11/342 | topk:  40 | shrink: 100 | sim type: splus | MAP: 0.0492 |
+|UserKNNCB| iter:    12/342 | topk:  60 | shrink:   0 | sim type: splus | MAP: 0.0509 |
+|UserKNNCB| iter:    13/342 | topk:  60 | shrink:  20 | sim type: splus | MAP: 0.0506 |
+|UserKNNCB| iter:    14/342 | topk:  60 | shrink:  40 | sim type: splus | MAP: 0.0506 |
+|UserKNNCB| iter:    15/342 | topk:  60 | shrink:  60 | sim type: splus | MAP: 0.0491 |
+|UserKNNCB| iter:    16/342 | topk:  60 | shrink:  80 | sim type: splus | MAP: 0.0485 |
+|UserKNNCB| iter:    17/342 | topk:  60 | shrink: 100 | sim type: splus | MAP: 0.0477 |
+|UserKNNCB| iter:    18/342 | topk:  80 | shrink:   0 | sim type: splus | MAP: 0.0510 |
+|UserKNNCB| iter:    19/342 | topk:  80 | shrink:  20 | sim type: splus | MAP: 0.0504 |
+|UserKNNCB| iter:    20/342 | topk:  80 | shrink:  40 | sim type: splus | MAP: 0.0496 |
+|UserKNNCB| iter:    21/342 | topk:  80 | shrink:  60 | sim type: splus | MAP: 0.0482 |

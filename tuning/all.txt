@@ -6,9 +6,13 @@
 |ItemKNNCF| best results  | topk: 120 | shrink:  55 | sim type: cosine | MAP: 0.0491 | -
 |ItemKNNCF| normalized l2 | topk: 160 | shrink: 140 | sim type: splus | MAP: 0.0509 |
 
-|ItemKNNCB| best results | topk: 200 | shrink:  15 | sim type: splus  | MAP: 0.0328 | -
+|ItemKNNCB| best results | topk: 200 | shrink:  15 | sim type: splus          | MAP: 0.0328 | -
+|ItemKNNCB| norm : l2    | axis 0  | topk: 160 | shrink: 0 | sim type: cosine | MAP: 0.0391 |
+
 |UserKNNCF| best results | topk: 160 | shrink:  35 | sim type: cosine | MAP: 0.0570 | -
-|UserKNNCB| best results | topk:  40 | shrink:   5 | sim type: splus  | MAP: 0.0518 | -
+
+|UserKNNCB| best results | topk:  40 | shrink:   5 | sim type: splus        | MAP: 0.0518 | -
+|UserKNNCB| norm='l2', axis=0| topk:  80 | shrink:  40 | sim type: splus    | MAP: 0.0534 |
 
 # Graph Based
 | rp3beta | topk: 110 | alpha: 0.35 | beta: 0.06 | MAP: 0.0590 |
@@ -75,3 +79,26 @@ HMR(Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(SLIM_MSE, SLIM_BP
 HMR(Hsim(ItemKNNCF, ItemKNNCB),P3alpha,Hsim(UserKNNCF, UserKNNCB),Hsim(SLIM_MSE, SLIM_BPR),PureSVD,IALS)
 |iter:   996/2500 | vec: [0.41811671 0.02081832 0.07799069 0.02403838 0.06952526 0.38951064] | norm: l2 | MAP: 0.0734 |
 
+HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB,IALS)
+|iter:    46/2500 | vec: [0.07929039 0.25269468 0.03685626 0.10952595 0.0184932  0.04030198
+ 0.46283755] | norm: l2 | MAP: 0.0740 |
+
+ |iter:   208/2500 | vec: [0.08178641 0.35627287 0.01860214 0.32106781 0.02836425 0.00723577
+ 0.18667075] | norm: l2 | MAP: 0.0741 |
+
+ |iter:   474/2500 | vec: [0.02107824 0.37487624 0.21933112 0.05357673 0.03866059 0.0762722
+ 0.21620488] | norm: l2 | MAP: 0.0750 |
+
+ |iter:   514/2500 | vec: [0.0771352  0.40491195 0.05819951 0.19162613 0.03083112 0.08388713
+ 0.15340896] | norm: l2 | MAP: 0.0745 |
+
+
+HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB,SLIM_MSE,SLIM_BPR,IALS)
+ |iter:    43/2500 | vec: [0.03518162 0.36148473 0.0773163  0.0546652  0.09869039 0.04335913
+ 0.09798169 0.02526836 0.20605259] | norm: none | MAP: 0.0761 |
+
+ |iter:    71/2500 | vec: [0.0068366  0.15018189 0.00792804 0.00724071 0.32836327 0.19991625
+ 0.03564293 0.05093109 0.21295923] | norm: none | MAP: 0.0765 |
+
+ |iter:   115/2500 | vec: [0.02146381 0.16695917 0.01549932 0.01086414 0.11211956 0.16555224
+ 0.16055148 0.06453604 0.28245425] | norm: none | MAP: 0.0777 |

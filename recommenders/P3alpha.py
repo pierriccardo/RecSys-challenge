@@ -25,6 +25,8 @@ class P3alpha(Recommender):
             self.urm.T,
             alpha=alpha,
             k=topK)
+
+        
         self.r_hat = self.urm.dot(self.sim_matrix)
 
 

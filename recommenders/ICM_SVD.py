@@ -18,29 +18,39 @@ class ICM_SVD(Recommender):
 
     NAME = 'ICM_SVD'
 
-    def __init__(self, URM, ICM):
+    def __init__(self, urm):
         
-        self.URM = URM
-        self.ICM = ICM
+        super().__init__(urm = urm)
+        
+        #self.ICM = ICM
 
-    def fit(self, n_factors = 5, topK = 50):
+    def fit(self, n_factors = 30, topK = 150):
         self.n_factors = n_factors
         self.topK = topK
-        self.S_ICM_SVD = self.get_S_ICM_SVD(self.ICM, n_factors=self.n_factors, topK=self.topK)
+        self.S_ICM_SVD = self.get_S_urm_SVD(self.urm, n_factors=self.n_factors, topK=self.topK)
 
-        self.r_hat = self.URM.dot(self.S_ICM_SVD)
+        self.r_hat = self.urm.dot(self.S_ICM_SVD)
 
-    def get_S_ICM_SVD(self, ICM, n_factors, topK):
-        print('Computing S_ICM_SVD...')
+    
+    def get_S_urm_SVD(self, urm, n_factors, topK):
+        print('Computing S _urm_SVD...')
 
-        u, s, vt = svds(ICM, k=n_factors, which='LM')
+        S_matrix_list = []
 
-        ut = u.T
+        urm = sps.csr_matrix(urm, dtype=float)
 
-        s_2_flatten = np.power(s, 2)
-        s_2 = np.diagflat(s_2_flatten)
-        s_2_csr = sps.csr_matrix(s_2)
+        u, s, vt = svds(urm, k=n_factors)
+        v = vt.T
 
-        S = u.dot(s_2_csr.dot(ut))
+        for i in tqdm(range(0, v.shape[0])):
+            S_row = v[i, :].dot(vt)
+            r = S_row.argsort()[:-topK]
+            S_row[r] = 0
+            S_row_sparse = sps.csr_matrix(S_row)
+            sps.csr_matrix.eliminate_zeros(S_row_sparse)
+            S_matrix_list.append(S_row_sparse)
+
+        S = sps.vstack(S_matrix_list)
+        S.setdiag(0)
 
         return S

@@ -5,7 +5,8 @@ from recommenders.recommender import Recommender
 from tqdm import tqdm
 from Cython.Build import cythonize
 from recommenders.cython_recommenders.SLIM_MSE_fast import train 
-import similaripy as sim 
+from sklearn.preprocessing import normalize
+import similaripy as sim
 
 """
 Best params:
@@ -28,9 +29,10 @@ class SLIM_MSE(Recommender):
 
         if use_cython:
             
-            self.sim_matrix = train(self.urm, learning_rate, epochs, samples)
-            #self.r_hat = self.urm.dot(self.sim_matrix)
-            self.r_hat = sps.csr_matrix(np.dot(self.urm, self.sim_matrix))
+            m = train(self.urm, learning_rate, epochs, samples)
+            self.sim_matrix = normalize(m, norm='l2', axis=1)
+            self.r_hat = self.urm.dot(self.sim_matrix)
+
             print('name: {}, r_hat => type {}  shape {} '.format(self.NAME, type(self.r_hat), self.r_hat.shape)) 
         else:
             urm_coo = self.urm.tocoo()

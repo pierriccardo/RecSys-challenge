@@ -22,8 +22,7 @@ class UserKNNCF(Recommender):
         self.shrink = shrink
 
         m = similarity(self.urm.T, k=topK, sim_type=sim_type, shrink=shrink)
-        m = self._check_matrix(m, format='csr')
-        self.sim_matrix = normalize(m, norm='l2', axis=0)
+        self.sim_matrix = self._check_matrix(m, format='csr')
 
         self.r_hat = self.sim_matrix.dot(self.urm)
 

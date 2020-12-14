@@ -19,7 +19,7 @@ class UserKNNCB(Recommender):
         self.urm = urm
         self.icm = icm       
 
-    def fit(self, topK=40, shrink=5, sim_type='splus'):
+    def fit(self, topK=80, shrink=40, sim_type='splus'):
 
         self.topK = topK
         self.shrink = shrink
