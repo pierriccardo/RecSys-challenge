@@ -43,13 +43,15 @@ from recommenders.MF_NN import MF_NN
 from recommenders.EASE_R import EASE_R 
 from recommenders.ICM_SVD import ICM_SVD
 from recommenders.IALS import IALS
+from recommenders.UserKNNCB import UserKNNCB
+from recommenders.UserKNNCF import UserKNNCF
 
-
-
-
-#r.load_r_hat('raw_data/IALS-r-hat.npy')
-r = SLIM_MSE(URM_train)
-r.fit()
+#r = SLIM_BPR(URM_train)
+#r = SLIM_MSE(URM_train)
+r = UserKNNCB(URM_train, ICM)
+#r.fit()
+#r.save_r_hat()
+r.load_r_hat('raw_data/UserKNNCB-r-hat-valid.npz')
 recs = [r]
 
 #------------------------------

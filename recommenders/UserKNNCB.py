@@ -30,7 +30,9 @@ class UserKNNCB(Recommender):
 
         self.sim_matrix = normalize(m, norm='l2', axis=0)
         
-        self.r_hat = self.sim_matrix.dot(self.urm)
+        m = self.sim_matrix.dot(self.urm)
+        m = self._check_matrix(m, format='csr')
+        self.r_hat = m
 
     def tuning(self, urm_valid):
 

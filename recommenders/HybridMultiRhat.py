@@ -29,7 +29,7 @@ class HybridMultiRhat(Recommender):
         self.NAME = '{}({})'.format(self.NAME, names)
 
 
-    def fit(self, vec, norm='l2'):
+    def fit(self, vec, norm='none'):
         
         if norm!='none':
             for r in self.recs:

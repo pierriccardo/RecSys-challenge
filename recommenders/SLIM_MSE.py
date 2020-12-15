@@ -33,7 +33,6 @@ class SLIM_MSE(Recommender):
             self.sim_matrix = normalize(m, norm='l2', axis=1)
             self.r_hat = self.urm.dot(self.sim_matrix)
 
-            print('name: {}, r_hat => type {}  shape {} '.format(self.NAME, type(self.r_hat), self.r_hat.shape)) 
         else:
             urm_coo = self.urm.tocoo()
             n_items = self.urm.shape[1]

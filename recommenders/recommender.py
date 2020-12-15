@@ -96,22 +96,24 @@ class Recommender(abc.ABC):
 
         return scores[:cutoff]
 
-    def save_r_hat(self, folder='raw_data'):
+    def save_r_hat(self, folder='raw_data', test=False):
 
         if not os.path.exists(folder):
             os.mkdir(folder)
 
+        if test:
+            PATH = os.path.join(folder, self.NAME + '-r-hat-test')
+        else:
+            PATH = os.path.join(folder, self.NAME + '-r-hat-valid')
+        
         if self.r_hat is None:
             msg = '|{}| can not save r_hat train the model first!'
             print(msg.format(self.NAME))
 
         else:
             if isinstance(self.r_hat, np.ndarray):
-                PATH = os.path.join(folder, self.NAME + '-r-hat') 
                 np.save(PATH, self.r_hat)
-                
             else:
-                PATH = os.path.join(folder, self.NAME + '-r-hat') 
                 np.savez(
                     PATH, 
                     data=self.r_hat.data, 
@@ -131,17 +133,21 @@ class Recommender(abc.ABC):
                 shape=loader['shape']
             )
     
-    def save_sim_matrix(self, folder='raw_data'):
+    def save_sim_matrix(self, folder='raw_data', test=False):
 
         if not os.path.exists(folder):
             os.mkdir(folder)
+
+        if test:
+            PATH = os.path.join(folder, self.NAME + '-sim-matrix-test')
+        else:
+            PATH = os.path.join(folder, self.NAME + '-sim-matrix-valid')  
 
         if self.sim_matrix is None:
             msg = '|{}| can not save sim_matrix train the model first!'
             print(msg.format(self.NAME))
 
         else:
-            PATH = os.path.join(folder, self.NAME + '-sim-matrix') 
             np.savez(
                 PATH, 
                 data=self.sim_matrix.data, 

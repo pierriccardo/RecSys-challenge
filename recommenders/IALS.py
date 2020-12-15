@@ -15,7 +15,7 @@ class IALS(Recommender):
         self.n_users, self.n_items = self.urm.shape
         self.urmt = self.urm.T
 
-    def fit(self, n_factors=80, reg=0.1, iterations=40, alpha=15):
+    def fit(self, n_factors=80, reg=0.01, iterations=90, alpha=15):
 
         model = implicit.als.AlternatingLeastSquares(factors=n_factors, regularization=reg, iterations=iterations)
         data_conf = (self.urmt * alpha).astype('double')
@@ -39,44 +39,46 @@ class IALS(Recommender):
         cp = configparser.ConfigParser(converters={'list': lambda x: [i.strip() for i in x.split(',')]})
         cp.read('config.ini')
         
-        epochs = int(cp.get('tuning.IALS', 'epochs'))
+        e = cp.getlist('tuning.IALS', 'epochs')
         f = cp.getlist('tuning.IALS', 'n_factors')
         a = cp.getlist('tuning.IALS', 'alphas')
-        #r = cp.getlist('tuning.IALS', 'reg')
+        r = cp.getlist('tuning.IALS', 'reg')
 
-        r = float(cp.get('tuning.IALS', 'reg'))
+        #r = float(cp.get('tuning.IALS', 'reg'))
 
         n_factors = np.arange(int(f[0]), int(f[1]), int(f[2]))
         alphas    = np.arange(int(a[0]), int(a[1]), int(a[2]))
-        #reg       = np.arange(float(r[0]), float(r[1]), float(r[2]))
-
+        reg       = np.arange(float(r[0]), float(r[1]), float(r[2]))
+        epochs    = np.arange(int(e[0]), int(e[1]), int(e[2]))
         
-        total = len(n_factors) * len(alphas)
+        total = len(n_factors) * len(alphas) * len(reg) * len(epochs)
 
         i = 0
         for nf in n_factors:
             for a in alphas:
-                self.fit(
-                    iterations=epochs,
-                    n_factors=nf,
-                    reg=r,
-                    alpha=a
-                )
+                for r in reg:
+                    for e in epochs:
+                        self.fit(
+                            iterations=e,
+                            n_factors=nf,
+                            reg=r,
+                            alpha=a
+                        )
 
-                self._evaluate(urm_valid)
+                        self._evaluate(urm_valid)
 
-                m = '|{}|iter:{:-4d}/{}|nfact:{:-3d}|alpha:{:.3f}|epochs:{:-3d}|reg:{:.6f}|MAP: {:.4f} |'
-                print(m.format(self.NAME, i, total, nf, a, epochs, r ,self.MAP))
-                sys.stdout.flush()
-                i+=1
+                        m = '|{}|iter:{:-4d}/{}|nfact:{:-3d}|alpha:{:.3f}|epochs:{:-3d}|reg:{:.6f}|MAP: {:.4f} |'
+                        print(m.format(self.NAME, i, total, nf, a, e, r ,self.MAP))
+                        sys.stdout.flush()
+                        i+=1
 
-                if self.MAP > BEST_MAP:
+                        if self.MAP > BEST_MAP:
 
-                    BEST_N_FACTORS = nf
-                    BEST_ALPHA = a
-                    BEST_EPOCHS = epochs
-                    BEST_REG = r
-                    BEST_MAP = self.MAP
+                            BEST_N_FACTORS = nf
+                            BEST_ALPHA = a
+                            BEST_EPOCHS = e
+                            BEST_REG = r
+                            BEST_MAP = self.MAP
 
         m = '|{}|best|nfact:{:-3d}|alpha:{:.3f}|epochs:{:-3d}|reg:{:.6f}| MAP: {:.4f} |'
         print(m.format(self.NAME, BEST_N_FACTORS, BEST_ALPHA, BEST_EPOCHS, BEST_REG, BEST_MAP))       

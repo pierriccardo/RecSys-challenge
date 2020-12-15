@@ -69,7 +69,7 @@ def train(urm, learning_rate_input, epochs, n_samples):
                 profile_rating = urm_data[index]
                 item_item_S[profile_item_id,item_id] += learning_rate * prediction_error * profile_rating
 
-        #print("|Epoch: {} | loss: {:.4f} | Time: {:.2f} |".format(n_epoch, loss/(sample_num), time.time() - ts))
+        print("[epoch: {:-3d} | loss: {:.4f} | time: {:.2f}]".format(n_epoch, loss/(sample_num), time.time() - ts))
         
         
     return sparse.csr_matrix(sparse.coo_matrix(item_item_S))
