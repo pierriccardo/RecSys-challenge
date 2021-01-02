@@ -50,8 +50,17 @@ from recommenders.IALS              import IALS
 
 from evaluator                      import Evaluator
 
-r = IALS(URM_train)
-r.fit() 
+#r = IALS(URM_train)
+#r.fit() 
+
+ds = d.k_fold()
+
+print(ds[1][1].nnz)
+
+r = ItemKNNCF(ds[1][0])
+r.fit()
+
+URM_valid = ds[1][1]
 
 recs = [r]
 #------------------------------

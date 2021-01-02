@@ -12,6 +12,7 @@ from contextlib import redirect_stdout
 from time import strftime, gmtime
 from colorama import Fore, Back, Style
 from utils import create_submission_csv
+from utils import *
 
 parser = argparse.ArgumentParser(description='Recsys main.')
 parser.add_argument('-f', '--folder', type=str, default='tuning')
@@ -168,20 +169,52 @@ for e in list:
 msg = '   Choose an action:                                                     '
 info(msg)
 
-print('   hsim     --> tune a hybrid with 2 algorithms with sim matrix          ')
-print('   hrhat    --> tune a hybrid with 2 algorithms with r hat               ')
-print('   hms      --> tune a hybrid with n algorithms by sim matrix, random val')
-print('')
-print('   hmr      --> tune a hybrid with n algorithms by r hat, random val     ')
-print('   subhmr   --> submit a hybrid multi rhat algorithm                     ')
-print('   evalhmr  --> evaluate a hybrid multi rhat recommender                 ')
-print('')
-print('   tune     --> tune the choosen algorithms                              ')
-print('   saverhat --> save r hats of the selected algorithms                   ')
-print('   savesim  --> save r hats of the selected algorithms                   ')
-print('   eval     --> just evaluate the selected algorithms                    ')
+print('   hsim          --> tune a hybrid with 2 algorithms with sim matrix          ')
+print('   hrhat         --> tune a hybrid with 2 algorithms with r hat               ')
+print('   hms           --> tune a hybrid with n algorithms by sim matrix, random val')
+print('')       
+print('   hmr           --> tune a hybrid with n algorithms by r hat, random val     ')
+print('   subhmr        --> submit a hybrid multi rhat algorithm                     ')
+print('   evalhmr       --> evaluate a hybrid multi rhat recommender                 ')
+print('')       
+print('   tune          --> tune the choosen algorithms                              ')
+print('   saverhat      --> save r hats of the selected algorithms                   ')
+print('   savesim       --> save r hats of the selected algorithms                   ')
+print('   eval          --> just evaluate the selected algorithms                    ')
+print('   crossvalid    --> just cross evaluate the selected algorithms              ')
 print('')
 c = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
+
+
+def fit_or_load(recs):
+    for r in recs:
+            if args.loadrhat:
+                try:
+                    try:
+                        filename = 'raw_data/' + r.NAME + '-r-hat-valid.npy'
+                        r.load_r_hat(filename)
+                    except:
+                        filename = 'raw_data/' + r.NAME + '-r-hat-valid.npz'
+                        r.load_r_hat(filename)
+                    
+                    msg = '|{}|  rhat loaded '.format(r.NAME)
+                    success(msg)
+                except:
+                    msg = '|{}|  no rhat file found, proceeding with fit '.format(r.NAME)
+                    warning(msg)
+                    r.fit()
+                    r.save_r_hat(test=args.test)
+            else:
+                r.fit()
+
+    return recs
+
+def tune_and_log(h, filename):
+    with open(filename, 'w') as f:
+        with redirect_stdout(f):
+            timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
+            print(timestamp)
+            h.tuning(URM_valid)
 
 if c == 'hsim':
     h = HybridSimilarity(URM_train, recs[0], recs[1])
@@ -192,8 +225,29 @@ elif c == 'hrhat':
     h.tuning(URM_valid)
 
 elif c == 'hms':
+    for r in recs:
+        if args.loadrhat:
+            try:
+                try:
+                    filename = 'raw_data/' + r.NAME + '-sim-matrix-valid.npy'
+                    r.load_sim_matrix(filename)
+                except:
+                    filename = 'raw_data/' + r.NAME + '-sim-matrix-valid.npz'
+                    r.load_sim_matrix(filename)
+                
+                msg = '|{}| sim matrix loaded '.format(r.NAME)
+                success(msg)
+            except:
+                msg = '|{}|  no sim matrix file found, proceeding with fit '.format(r.NAME)
+                warning(msg)
+                r.fit()
+                r.save_sim_matrix(test=args.test)
+        else:
+            r.fit()
+    recs = fit_or_load(recs)
     h = HybridMultiSim(URM_train, recs)
-    h.tuning(URM_valid)
+    filename = os.path.join(args.folder, '{}-TUNING.txt'.format(h.NAME))
+    tune_and_log(h, filename)
 
 elif c == 'hmr':
     for r in recs:
@@ -238,7 +292,6 @@ elif c == 'tune':
                 r.tuning(URM_valid)
 
 elif c == 'saverhat':
-
     for r in recs:
         msg = '|{}|  fitting... '.format(r.NAME)
         success(msg)
@@ -248,10 +301,32 @@ elif c == 'saverhat':
         evaluator.results()
 
 elif c == 'savesim':
-
     for r in recs:
+        msg = '|{}|  fitting... '.format(r.NAME)
+        success(msg)
         r.fit()
         r.save_sim_matrix(test=args.test)
+        evaluator = Evaluator(r, URM_valid)
+        evaluator.results()
+
+elif c == 'save':
+    for r in recs:
+        msg = '|{}|  fitting... '.format(r.NAME)
+        success(msg)
+        r.fit()
+        r.save_r_hat(test=args.test)
+        msg = '|{}|  saved r hat '.format(r.NAME)
+        success(msg)
+        try:
+            r.save_sim_matrix(test=arg.test)
+            msg = '|{}|  saved sim matrix '.format(r.NAME)
+            success(msg)
+        except:
+            msg = '|{}|  failed or no sim matrix to save '.format(r.NAME)
+            warning(msg)
+
+        evaluator = Evaluator(r, URM_valid)
+        evaluator.results()
 
 elif c == 'eval':
     for r in recs:
@@ -336,6 +411,13 @@ elif c == 'evalhmr':
     h.fit(vec)
     evaluator = Evaluator(h, URM_valid)
     evaluator.results()
+
+elif c == 'crossvalid':
+    
+    datasets = d.k_fold()
+    cross_validate(recs[0], datasets)
+    
+
 
 else:
     print('wrong selection')

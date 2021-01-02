@@ -33,7 +33,8 @@ class HybridMultiRhat(Recommender):
         
         if norm!='none':
             for r in self.recs:
-                r.r_hat = normalize(r.r_hat, norm=norm, axis=1)
+                #r.r_hat = normalize(r.r_hat, norm=norm, axis=0)
+                r.r_hat = sim.normalization.bm25plus(r.r_hat)
 
         first = True
         for alpha, rec in zip(vec, self.recs):

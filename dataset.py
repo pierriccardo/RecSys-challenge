@@ -3,9 +3,11 @@ import pandas as pd
 import scipy.sparse as sps
 import numpy as np
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import KFold
 
 config = configparser.ConfigParser()
 config.read('config.ini')
+seed = int(config['DEFAULT']['SEED'])
 
 class Dataset:
 
@@ -32,6 +34,7 @@ class Dataset:
         self.test = self._create_test()
         self.URM_train, self.URM_valid = self._split_train_validation()
 
+        self.crossvalid_datasets = []
         
         self.urm_train_df.columns = ['user_id', 'item_id', 'data']
         self.urm_valid_df.columns = ['user_id', 'item_id', 'data']
@@ -118,6 +121,35 @@ class Dataset:
         print('min_interaction: {}'.format(min_interaction))
         print('max_interaction: {}'.format(max_interaction))
 
+    def k_fold(self, splits=5, shuff=True, seed=5):
+        ds = np.arange(0, self.NUM_INTERACTIONS, 1)
+        datasets = []
+        
+        kf = KFold(n_splits=splits, shuffle=shuff, random_state=seed)
+        for train_index, test_index in kf.split(ds):
+
+            train_mask = np.zeros(self.NUM_INTERACTIONS, dtype=bool)
+            for i in train_index:
+                train_mask[i] = True
+
+            d = self.URM_dataframe.data[train_mask]
+            r = self.URM_dataframe.row[train_mask]
+            c = self.URM_dataframe.col[train_mask]
+            URM_train = sps.csr_matrix((d,(r, c)), shape=(7947, 25975))
+
+            valid_mask = np.logical_not(train_mask)
+
+            d = self.URM_dataframe.data[valid_mask]
+            r = self.URM_dataframe.row[valid_mask]
+            c = self.URM_dataframe.col[valid_mask]
+            URM_valid = sps.csr_matrix((d,(r, c)), shape=(7947, 25975))
+
+            tmp_ds = (URM_train, URM_valid)
+            datasets.append(tmp_ds)
+
+        return datasets
+   
+        
 
 
 

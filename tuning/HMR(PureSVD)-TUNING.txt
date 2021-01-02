@@ -1,3 +1,0 @@
-11-12-2020-22:26:43
-HMR(PureSVD)
-|HMR(PureSVD)| iter:     0/100 | vec: [1.] | norm: none | MAP: 0.0450 |

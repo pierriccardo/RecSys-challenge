@@ -143,6 +143,8 @@ class Recommender(abc.ABC):
         else:
             PATH = os.path.join(folder, self.NAME + '-sim-matrix-valid')  
 
+        self.sim_matrix = self._check_matrix(self.sim_matrix, format='csr')
+
         if self.sim_matrix is None:
             msg = '|{}| can not save sim_matrix train the model first!'
             print(msg.format(self.NAME))

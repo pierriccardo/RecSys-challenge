@@ -5,6 +5,7 @@ import numpy as np
 from time import strftime, gmtime
 from tqdm import tqdm
 import os
+from recommenders.ItemKNNCF import ItemKNNCF
 
 
 def create_submission_csv(recommender, users_list, save_path='./'):
@@ -68,4 +69,88 @@ def check_matrix(X, format='csc', dtype=np.float32):
         return check_matrix(X, format=format, dtype=dtype)
     else:
         return X.astype(dtype)
+
+def precision(recommended_items, relevant_items):
+        
+    is_relevant = np.in1d(recommended_items, relevant_items, assume_unique=True)
+
+    precision_score = np.sum(is_relevant, dtype=np.float32) / len(is_relevant)
+
+    return precision_score
+
+def recall(recommended_items, relevant_items):
+
+    is_relevant = np.in1d(recommended_items, relevant_items, assume_unique=True)
+    
+    recall_score = np.sum(is_relevant, dtype=np.float32) / relevant_items.shape[0]
+    
+    return recall_score
+
+def MAP(recommended_items, relevant_items):
+
+    is_relevant = np.in1d(recommended_items, relevant_items, assume_unique=True)
+    
+    # Cumulative sum: precision at 1, at 2, at 3 ...
+    p_at_k = is_relevant * np.cumsum(is_relevant, dtype=np.float32) / (1 + np.arange(is_relevant.shape[0]))
+    
+    map_score = np.sum(p_at_k) / np.min([relevant_items.shape[0], is_relevant.shape[0]])
+
+    return map_score
+
+from recommenders.P3alpha import P3alpha
+
+def cross_validate(rec, datasets, cutoff=10):
+    
+    list_precision = []
+    list_recall = []
+    list_MAP = []    
+
+    for ds in datasets:
+        cumulative_precision = 0.0
+        cumulative_recall = 0.0
+        cumulative_MAP = 0.0
+        num_eval = 0
+        print(ds)
+        train_ds = ds[0]
+        valid_ds = ds[1]
+
+        temp_rec = P3alpha(train_ds)
+        temp_rec.fit()
+
+        pbar = tqdm(range(valid_ds.shape[0]))
+        for user_id in pbar:
+            
+            pbar.set_description('|{}| evaluating'.format(rec.NAME))
+            relevant_items = valid_ds.indices[valid_ds.indptr[user_id]:valid_ds.indptr[user_id+1]]
+            
+            if len(relevant_items)>0:
+                
+                recommended_items = temp_rec.recommend(user_id, cutoff)
+                num_eval+=1
+
+                cumulative_precision += precision(recommended_items, relevant_items)
+                cumulative_recall += recall(recommended_items, relevant_items)
+                cumulative_MAP += MAP(recommended_items, relevant_items)
+        
+        cumulative_precision /= num_eval
+        cumulative_recall /= num_eval
+        cumulative_MAP /= num_eval  
+
+        print(cumulative_precision)
+        print(cumulative_recall)
+        print(cumulative_MAP)
+        
+        list_precision.append(cumulative_precision)
+        list_recall.append(cumulative_recall)
+        list_MAP.append(cumulative_MAP)
+
+    print(list_precision)
+    print(list_recall)
+    print(list_MAP)
+
+
+    print('[avg precision: {}]'.format(sum(list_precision) / len(list_precision)))
+    print('[avg recall: {}]'.format(sum(list_recall) / len(list_recall)))
+    print('[avg MAP: {}]'.format(sum(list_MAP) / len(list_MAP)))
+
 

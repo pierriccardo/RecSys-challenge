@@ -10,9 +10,12 @@
 |ItemKNNCB| norm : l2    | axis 0  | topk: 160 | shrink: 0 | sim type: cosine | MAP: 0.0391 |
 
 |UserKNNCF| best results | topk: 160 | shrink:  35 | sim type: cosine | MAP: 0.0570 | -
+|UserKNNCF| best results | topk: 100 | shrink: 180 | sim type: cosine | MAP: 0.0572 |
+
 
 |UserKNNCB| best results | topk:  40 | shrink:   5 | sim type: splus        | MAP: 0.0518 | -
 |UserKNNCB| norm='l2', axis=0| topk:  80 | shrink:  40 | sim type: splus    | MAP: 0.0534 |
+|UserKNNCB| best results | topk: 100 | shrink:   0 | sim type: cosine | MAP: 0.0546 |
 
 # Graph Based
 | rp3beta | topk: 110 | alpha: 0.35 | beta: 0.06 | MAP: 0.0590 |
@@ -96,14 +99,41 @@ HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB,IALS)
 
 
 HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB,SLIM_MSE,SLIM_BPR,IALS)
- |iter:    43/2500 | vec: [0.03518162 0.36148473 0.0773163  0.0546652  0.09869039 0.04335913
+vec: [0.03518162 0.36148473 0.0773163  0.0546652  0.09869039 0.04335913
  0.09798169 0.02526836 0.20605259] | norm: none | MAP: 0.0761 |
-
- |iter:    71/2500 | vec: [0.0068366  0.15018189 0.00792804 0.00724071 0.32836327 0.19991625
+vec: [0.0068366  0.15018189 0.00792804 0.00724071 0.32836327 0.19991625
  0.03564293 0.05093109 0.21295923] | norm: none | MAP: 0.0765 |
-
- |iter:   115/2500 | vec: [0.02146381 0.16695917 0.01549932 0.01086414 0.11211956 0.16555224
+vec: [0.02146381 0.16695917 0.01549932 0.01086414 0.11211956 0.16555224
  0.16055148 0.06453604 0.28245425] | norm: none | MAP: 0.0777 |
 
+HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB,IALS)
+vec: [0.00612782 0.16095149 0.02471651 0.00193874 0.26023385 0.02453397 0.52149762] 
+norm: none | MAP: 0.0772 |
 
- 0.02146381 0.16695917 0.01549932 0.01086414 0.11211956 0.16555224 0.16055148 0.06453604 0.28245425
+
+HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB)
+vec: [0.1143441  0.36932955 0.01258561 0.02942783 0.29144298 0.18286992] | norm: none | MAP: 0.0749 |
+
+
+|HMR(ItemKNNCB,P3alpha,IALS)| best results | 
+vec: [0.3415275  0.10359555 0.55487696] | norm: none | MAP: 0.0774 |
+
+
+HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)
+|2 vec: [0.20545329 0.03659098 0.2521909  0.11956662 0.38619821] | norm: none | MAP: 0.0779 |
+
+
+|HMR(ItemKNNCB,P3alpha,UserKNNCF,UserKNNCB,IALS)| best results |
+vec: [0.24113119 0.06475081 0.08733692 0.14996223 0.45681886] | norm: none | MAP: 0.0780 |
+
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)| best results |
+vec: [0.24113119 0.06475081 0.08733692 0.14996223 0.45681886] | norm: none | MAP: 0.0781 |
+
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)| best results | 
+vec: [0.18829772 0.04812123 0.32011762 0.10940571 0.33405772] | norm: none | MAP: 0.0779 |
+
+HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)
+| vec: [0.2146038  0.06367613 0.15229995 0.12157612 0.447844  ] | norm: none | MAP: 0.0780 |
+
+HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)| best results | 
+vec: [0.2146038  0.06367613 0.15229995 0.12157612 0.447844  ] | norm: none | MAP: 0.0780 |
