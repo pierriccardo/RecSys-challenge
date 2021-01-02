@@ -78,10 +78,8 @@ from recommenders.HybridRhat        import HybridRhat
 from recommenders.HybridMultiRhat   import HybridMultiRhat
 from recommenders.P3alpha           import P3alpha
 from recommenders.RP3beta           import RP3beta
-from recommenders.FunkSVD           import FunkSVD
 from recommenders.PureSVD           import PureSVD
 from recommenders.SLIM_BPR          import SLIM_BPR
-from recommenders.MF_BPR            import MF_BPR
 from recommenders.HybridRhat        import HybridRhat
 from recommenders.UserKNNCF         import UserKNNCF
 from recommenders.UserKNNCB         import UserKNNCB
@@ -180,8 +178,8 @@ print('')
 print('   tune          --> tune the choosen algorithms                              ')
 print('   saverhat      --> save r hats of the selected algorithms                   ')
 print('   savesim       --> save r hats of the selected algorithms                   ')
-print('   eval          --> just evaluate the selected algorithms                    ')
-print('   crossvalid    --> just cross evaluate the selected algorithms              ')
+print('   eval          --> evaluate the selected algorithms                         ')
+print('   crossvalid    --> evaluate with cross validation the selected algorithms   ')
 print('')
 c = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
 
@@ -413,11 +411,11 @@ elif c == 'evalhmr':
     evaluator.results()
 
 elif c == 'crossvalid':
-    
-    datasets = d.k_fold()
-    cross_validate(recs[0], datasets)
-    
 
+    datasets = d.k_fold()
+
+    for r in recs:
+        cross_validate(r, datasets)
 
 else:
     print('wrong selection')

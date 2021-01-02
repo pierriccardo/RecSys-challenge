@@ -110,12 +110,12 @@ def cross_validate(rec, datasets, cutoff=10):
         cumulative_recall = 0.0
         cumulative_MAP = 0.0
         num_eval = 0
-        print(ds)
+        
         train_ds = ds[0]
         valid_ds = ds[1]
 
-        temp_rec = P3alpha(train_ds)
-        temp_rec.fit()
+        rec.urm = train_ds
+        rec.fit()
 
         pbar = tqdm(range(valid_ds.shape[0]))
         for user_id in pbar:
@@ -125,7 +125,7 @@ def cross_validate(rec, datasets, cutoff=10):
             
             if len(relevant_items)>0:
                 
-                recommended_items = temp_rec.recommend(user_id, cutoff)
+                recommended_items = rec.recommend(user_id, cutoff)
                 num_eval+=1
 
                 cumulative_precision += precision(recommended_items, relevant_items)
@@ -135,22 +135,13 @@ def cross_validate(rec, datasets, cutoff=10):
         cumulative_precision /= num_eval
         cumulative_recall /= num_eval
         cumulative_MAP /= num_eval  
-
-        print(cumulative_precision)
-        print(cumulative_recall)
-        print(cumulative_MAP)
         
         list_precision.append(cumulative_precision)
         list_recall.append(cumulative_recall)
         list_MAP.append(cumulative_MAP)
 
-    print(list_precision)
-    print(list_recall)
-    print(list_MAP)
-
-
-    print('[avg precision: {}]'.format(sum(list_precision) / len(list_precision)))
-    print('[avg recall: {}]'.format(sum(list_recall) / len(list_recall)))
-    print('[avg MAP: {}]'.format(sum(list_MAP) / len(list_MAP)))
+    print('[avg precision:  {:.4f}]'.format(sum(list_precision) / len(list_precision)))
+    print('[avg recall:     {:.4f}]'.format(sum(list_recall) / len(list_recall)))
+    print('[avg MAP:        {:.4f}]'.format(sum(list_MAP) / len(list_MAP)))
 
 
