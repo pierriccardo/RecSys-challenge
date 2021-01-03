@@ -86,12 +86,13 @@ from recommenders.UserKNNCB         import UserKNNCB
 from recommenders.IALS              import IALS
 from recommenders.HybridMultiSim    import HybridMultiSim
 
+from recommenders.hybridCFCB.UserKNNCFCB import UserKNNCFCB
+
 from evaluator                      import Evaluator
 
 #------------------------------
 # BASIC RECOMMENDERS
 #------------------------------
-
 
 print('')
 print('   ██████╗ ███████╗ ██████╗███████╗██╗   ██╗███████╗')
@@ -114,6 +115,7 @@ print('   press 7  --> SLIM_MSE')
 print('   press 8  --> SLIM_BPR')
 print('   press 9  --> PureSVD')
 print('   press 10 --> IALS')
+print('   press h1 --> UserKNNCFCB')
 print('')
 choice = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
 list = choice.split()
@@ -161,6 +163,10 @@ for e in list:
     elif e == '10':
         ials = IALS(URM_train)
         recs.append(ials)
+
+    elif e == 'h1':
+        r = UserKNNCFCB(URM_train, ICM)
+        recs.append(r)
     else:
         print("wrong insertion, skipped")
 
@@ -184,28 +190,41 @@ print('')
 c = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
 
 
-def fit_or_load(recs):
-    for r in recs:
-            if args.loadrhat:
-                try:
-                    try:
-                        filename = 'raw_data/' + r.NAME + '-r-hat-valid.npy'
-                        r.load_r_hat(filename)
-                    except:
-                        filename = 'raw_data/' + r.NAME + '-r-hat-valid.npz'
-                        r.load_r_hat(filename)
-                    
-                    msg = '|{}|  rhat loaded '.format(r.NAME)
-                    success(msg)
-                except:
-                    msg = '|{}|  no rhat file found, proceeding with fit '.format(r.NAME)
-                    warning(msg)
-                    r.fit()
-                    r.save_r_hat(test=args.test)
-            else:
-                r.fit()
+def fit_or_load(rec, matrix='r-hat', type='valid'):
+    """
+    try to load a given matrix for the recommender, if
+    the matrix is not present in the folder raw data then
+    will fit the recommender and save the matrix
 
-    return recs
+    Args:
+        rec ([type]): [description]
+        matrix (str, optional): define the matrix type: 'r-hat' or 'sim-matrix'.
+        type (str, optional): type of matrix to save 'valid' or 'test'.
+
+    Returns:
+        [type]: [description]
+    """
+    filename = 'raw_data/{}-{}-{}'.format(r.NAME, matrix, type)
+    if args.loadrhat:
+        try:
+            try: r.load_r_hat(filename + '.npy')
+            except: r.load_r_hat(filename + '.npz')
+            msg = '|{}|  rhat loaded '.format(r.NAME)
+            success(msg)
+        except:
+            msg = '|{}|  no rhat file found, proceeding with fit '.format(r.NAME)
+            warning(msg)
+            r.fit()
+            if matrix=='r-hat':
+                r.save_r_hat(test=args.test)
+            if matrix=='sim-matrix':
+                r.save_sim_matrix(test=args.test)
+    else:
+        r.fit()
+    
+    return rec
+
+ 
 
 def tune_and_log(h, filename):
     with open(filename, 'w') as f:
@@ -416,6 +435,7 @@ elif c == 'crossvalid':
 
     for r in recs:
         cross_validate(r, datasets)
+
 
 else:
     print('wrong selection')

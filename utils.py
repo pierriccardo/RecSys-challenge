@@ -110,7 +110,7 @@ def cross_validate(rec, datasets, cutoff=10):
         cumulative_recall = 0.0
         cumulative_MAP = 0.0
         num_eval = 0
-        
+
         train_ds = ds[0]
         valid_ds = ds[1]
 
@@ -140,8 +140,14 @@ def cross_validate(rec, datasets, cutoff=10):
         list_recall.append(cumulative_recall)
         list_MAP.append(cumulative_MAP)
 
-    print('[avg precision:  {:.4f}]'.format(sum(list_precision) / len(list_precision)))
-    print('[avg recall:     {:.4f}]'.format(sum(list_recall) / len(list_recall)))
-    print('[avg MAP:        {:.4f}]'.format(sum(list_MAP) / len(list_MAP)))
+    #print('[avg precision:  {:.4f}]'.format(sum(list_precision) / len(list_precision)))
+    #print('[avg recall:     {:.4f}]'.format(sum(list_recall) / len(list_recall)))
+    #print('[avg MAP:        {:.4f}]'.format(sum(list_MAP) / len(list_MAP)))
+
+    t_p = sum(list_precision) / len(list_precision)
+    t_r = sum(list_recall) / len(list_recall)
+    t_m = sum(list_MAP) / len(list_MAP)
+
+    return t_p, t_r, t_m
 
 

@@ -6,7 +6,6 @@ from matplotlib import pyplot
 import configparser
 from utils import *
 
-
 from tqdm import tqdm
 
 #------------------------------
@@ -51,93 +50,6 @@ from recommenders.IALS              import IALS
 from evaluator                      import Evaluator
 import similaripy as sim
 from utils import cross_validate
-
-#r = IALS(URM_train)
-#r.fit() 
-
-#ds = d.k_fold()
-#r = ItemKNNCF(ds[1][0], ICM)
-
-#r.fit()
-
-#URM_valid = ds[1][1]
-
-recs = []
-
-'''
-from itertools import product
-
-topk = {
-        'type': 'int',
-        'start': 10,
-        'end': 300,
-        'step': 10
-    }
-
-simtype = {
-    'type': 'string',
-    'values': ['cosine', 's_plus', 'jaccard']
-}
-
-
-
-def cross_valid_tuning(datasets, **kwargs):
-
-    best = {}
-    params = {}
-    for key, value in kwargs.items():
-        best[key] = None
-
-        if (value['type'] == 'int') or (value['type'] == 'float'):
-            i = value['start']
-            e = value['end']
-            s = value['step']
-            params[key] = np.arange(i, e, s)
-        
-        elif value['type'] == 'string':
-            params[key] = value['values']
-    
-    print(best)
-    print(params['simtype'])
-
-    BEST_MAP = 0.0
-    BEST_TOPK = 0
-    BEST_SHRINK = 0
-    BEST_SIM = ''
-
-    total = 1
-    for key, value in params.items():
-        total *= len(value)
-
-    
-    for items in product(*params.items()):
-        print(items)
-
-    i = 0
-    for sim in similarities:
-        for t in topKs:
-            for s in shrinks:
-                self.fit(topK=t, shrink=s, sim_type=sim)
-
-                self._evaluate(urm_valid)
-
-                m = '|{}| iter: {:-5d}/{} | topk: {:-3d} | shrink: {:-3d} | sim type: {} | MAP: {:.4f} |'
-                print(m.format(self.NAME, i, total, t, s, sim, self.MAP))
-                sys.stdout.flush()
-                i+=1
-
-                if self.MAP > BEST_MAP:
-
-                    BEST_TOPK = t
-                    BEST_SHRINK = s
-                    BEST_MAP = self.MAP
-                    BEST_SIM = sim
-            
-    m = '|{}| best results | topk: {:-3d} | shrink: {:-3d} | sim type: {} | MAP: {:.4f} |'
-    print(m.format(self.NAME, BEST_TOPK, BEST_SHRINK, BEST_SIM, BEST_MAP))
-
-    '''
-
 import sys
 
 datasets = d.k_fold()
@@ -177,7 +89,7 @@ for sim in similarities:
                 train_ds = ds[0]
                 valid_ds = ds[1]
 
-                rec = UserKNNCF(train_ds)
+                rec = UserKNNCB(train_ds, ICM)
                 rec.fit(topK=t, sim_type=sim, shrink=s)
 
                 pbar = tqdm(range(valid_ds.shape[0]))

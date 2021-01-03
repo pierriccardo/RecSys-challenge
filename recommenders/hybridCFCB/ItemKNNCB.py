@@ -1,33 +1,34 @@
 from recommenders.recommender import Recommender
 from similarity.similarity import similarity
+from sklearn import feature_extraction
 from sklearn.preprocessing import normalize
-import numpy as np
+import numpy as np 
 import similaripy as sim
-import scipy
 import configparser
 import sys
 
-#| best results | topk: 245 | shrink: 120 | sim type: cosine | MAP: 0.0471 |
+# | iter: 501/13600 | topk: 70 | shrink: 10 | sim type: cosine | MAP: 0.0319 |
+class ItemKNNCB(Recommender):
 
-class ItemKNNCF(Recommender):
+    NAME = 'ItemKNNCB'
 
-    NAME = 'ItemKNNCF'
-
-    def __init__(self, urm):
+    def __init__(self, urm, icm):
 
         super().__init__(urm = urm)
 
-    def fit(self, topK=120, shrink=55, sim_type='cosine'):
+        self.icm = icm
 
+    def fit(self, topK=160, shrink=0, sim_type='cosine'):
+
+        # hyperparameters 
         self.topK = topK
         self.shrink = shrink
 
-        m = similarity(self.urm, k=topK, sim_type=sim_type, shrink=shrink)
+        m = similarity(self.icm.T, k=topK, sim_type=sim_type, shrink=shrink)
         m = self._check_matrix(m, format='csr')
-        self.sim_matrix = normalize(m, norm='l2', axis=1)
-
-        self.r_hat = self.urm.dot(self.sim_matrix)
+        self.sim_matrix = normalize(m, norm='l2', axis=0)
         
+        self.r_hat = self.urm.dot(self.sim_matrix)
 
     def tuning(self, urm_valid):
 
@@ -39,9 +40,9 @@ class ItemKNNCF(Recommender):
         cp = configparser.ConfigParser(converters={'list': lambda x: [i.strip() for i in x.split(',')]})
         cp.read('config.ini')
         
-        t = cp.getlist('tuning.ItemKNNCF', 'topKs') 
-        s = cp.getlist('tuning.ItemKNNCF', 'shrinks')
-        similarities = cp.getlist('tuning.ItemKNNCF', 'similarities')
+        t = cp.getlist('tuning.ItemKNNCB', 'topKs') 
+        s = cp.getlist('tuning.ItemKNNCB', 'shrinks')
+        similarities = cp.getlist('tuning.ItemKNNCB', 'similarities')
 
         topKs   = np.arange(int(t[0]), int(t[1]), int(t[2]))
         shrinks = np.arange(int(s[0]), int(s[1]), int(s[2]))
@@ -54,12 +55,9 @@ class ItemKNNCF(Recommender):
                 for s in shrinks:
                     self.fit(topK=t, shrink=s, sim_type=sim)
 
-                    
-
                     self._evaluate(urm_valid)
 
-                    m = '|{}| iter: {:-5d}/{} | topk: {:-3d} | shrink: {:-3d} | sim type: {} | MAP: {:.4f} |'
-                    print(m.format(self.NAME, i, total, t, s, sim, self.MAP))
+                    print('|{}| iter: {}/{} | topk: {} | shrink: {} | sim type: {} | MAP: {:.4f} |'.format(self.NAME, i, total, t, s, sim, self.MAP))
                     sys.stdout.flush()
                     i+=1
 
@@ -70,10 +68,6 @@ class ItemKNNCF(Recommender):
                         BEST_MAP = self.MAP
                         BEST_SIM = sim
                 
-        m = '|{}| best results | topk: {:-3d} | shrink: {:-3d} | sim type: {} | MAP: {:.4f} |'
-        print(m.format(self.NAME, BEST_TOPK, BEST_SHRINK, BEST_SIM, BEST_MAP))
+        print('|{}| topk: {} | shrink: {} | sim type: {} | MAP: {:.4f} |'.format(self.NAME, BEST_TOPK, BEST_SHRINK, BEST_SIM, BEST_MAP))
 
 
-        
-
-        
