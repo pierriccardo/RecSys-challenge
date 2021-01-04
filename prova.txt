@@ -1,0 +1,1 @@
+|ItemKNNCB| precision = 0.0241 | Recall = 0.0824 | MAP = 0.0391 |

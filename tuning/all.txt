@@ -1,3 +1,8 @@
+# cross validation tunings
+
+|ItemKNNCB| topk: 350 | shrink:  10 | sim type: splus  | avgMAP: 0.0356 |
+|UserKNNCB| topk:  50 | shrink:  10 | sim type: cosine | avgMAP: 0.0539 |
+
 #------------------------------
 # RECOMMENDERS
 #------------------------------

@@ -20,6 +20,9 @@ class ItemKNNCB(Recommender):
 
     def fit(self, topK=160, shrink=0, sim_type='cosine'):
 
+        m = '[ {}: fitting... ]'
+        print(m.format(self.NAME))
+
         # hyperparameters 
         self.topK = topK
         self.shrink = shrink

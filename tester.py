@@ -136,7 +136,7 @@ def cross_valid_tuning(datasets, **kwargs):
     m = '|{}| best results | topk: {:-3d} | shrink: {:-3d} | sim type: {} | MAP: {:.4f} |'
     print(m.format(self.NAME, BEST_TOPK, BEST_SHRINK, BEST_SIM, BEST_MAP))
 
-    '''
+    
 
 import sys
 
@@ -221,7 +221,11 @@ for sim in similarities:
         
 m = '|{}| best results | topk: {:-3d} | shrink: {:-3d} | sim type: {} | MAP: {:.4f} |'
 print(m.format(rec.NAME, BEST_TOPK, BEST_SHRINK, BEST_SIM, BEST_MAP))
+'''
 
+r = ItemKNNCB(URM_train, ICM)
+r.fit()
+recs = [r]
 
 
 #------------------------------

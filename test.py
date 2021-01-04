@@ -54,18 +54,20 @@ import sys
 
 datasets = d.k_fold()
 
-#------------------------------
-# PARAMS
-#------------------------------
-
 BEST_MAP = 0.0
 BEST_TOPK = 0
 BEST_SHRINK = 0
 BEST_SIM = ''
 
-similarities = ['splus', 'cosine', 'jaccard']
-topKs   = np.arange(10, 100, 10)
-shrinks = np.arange(10, 100, 10)
+cp = configparser.ConfigParser(converters={'list': lambda x: [i.strip() for i in x.split(',')]})
+cp.read('config.ini')
+
+t = cp.getlist('tuning.ItemKNNCF', 'topKs') 
+s = cp.getlist('tuning.ItemKNNCF', 'shrinks')
+similarities = cp.getlist('tuning.ItemKNNCF', 'similarities')
+
+topKs   = np.arange(int(t[0]), int(t[1]), int(t[2]))
+shrinks = np.arange(int(s[0]), int(s[1]), int(s[2]))
 
 total = len(topKs) * len(shrinks) * len(similarities)
 
@@ -86,11 +88,7 @@ for sim in similarities:
 
                 train_ds = ds[0]
                 valid_ds = ds[1]
-                
-                #------------------------------
-                # RECOMMENDER
-                #------------------------------
-                
+
                 rec = UserKNNCF(train_ds)
                 rec.fit(topK=t, sim_type=sim, shrink=s)
 
@@ -104,11 +102,21 @@ for sim in similarities:
                         
                         recommended_items = rec.recommend(user_id, 10)
                         num_eval+=1
+
+                        cumulative_precision += precision(recommended_items, relevant_items)
+                        cumulative_recall += recall(recommended_items, relevant_items)
                         cumulative_MAP += MAP(recommended_items, relevant_items)
                 
+                cumulative_precision /= num_eval
+                cumulative_recall /= num_eval
                 cumulative_MAP /= num_eval  
+                
+                list_precision.append(cumulative_precision)
+                list_recall.append(cumulative_recall)
                 list_MAP.append(cumulative_MAP)
 
+            #print('[avg precision:  {:.4f}]'.format(sum(list_precision) / len(list_precision)))
+            #print('[avg recall:     {:.4f}]'.format(sum(list_recall) / len(list_recall)))
             avgmap = sum(list_MAP) / len(list_MAP)
 
             m = '|{}| iter: {:-5d}/{} | topk: {:-3d} | shrink: {:-3d} | sim type: {} | avgMAP: {:.4f} |'
@@ -125,3 +133,14 @@ for sim in similarities:
         
 m = '|{}| best results | topk: {:-3d} | shrink: {:-3d} | sim type: {} | MAP: {:.4f} |'
 print(m.format(rec.NAME, BEST_TOPK, BEST_SHRINK, BEST_SIM, BEST_MAP))
+
+
+
+#------------------------------
+#       EVALUATION
+#------------------------------
+from evaluator import Evaluator
+for r in recs:
+
+    evaluator = Evaluator(r, URM_valid)
+    evaluator.results()

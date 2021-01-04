@@ -1,0 +1,15 @@
+|UserKNNCB| iter:     0/63 | topk:  30 | shrink:  10 | sim type: cosine | avgMAP: 0.0528 |
+|UserKNNCB| iter:     1/63 | topk:  30 | shrink:  20 | sim type: cosine | avgMAP: 0.0525 |
+|UserKNNCB| iter:     2/63 | topk:  30 | shrink:  30 | sim type: cosine | avgMAP: 0.0524 |
+|UserKNNCB| iter:     3/63 | topk:  30 | shrink:  40 | sim type: cosine | avgMAP: 0.0523 |
+|UserKNNCB| iter:     4/63 | topk:  30 | shrink:  50 | sim type: cosine | avgMAP: 0.0522 |
+|UserKNNCB| iter:     5/63 | topk:  30 | shrink:  60 | sim type: cosine | avgMAP: 0.0520 |
+|UserKNNCB| iter:     6/63 | topk:  30 | shrink:  70 | sim type: cosine | avgMAP: 0.0516 |
+|UserKNNCB| iter:     7/63 | topk:  30 | shrink:  80 | sim type: cosine | avgMAP: 0.0513 |
+|UserKNNCB| iter:     8/63 | topk:  30 | shrink:  90 | sim type: cosine | avgMAP: 0.0511 |
+|UserKNNCB| iter:     9/63 | topk:  40 | shrink:  10 | sim type: cosine | avgMAP: 0.0534 |
+|UserKNNCB| iter:    10/63 | topk:  40 | shrink:  20 | sim type: cosine | avgMAP: 0.0535 |
+|UserKNNCB| iter:    11/63 | topk:  40 | shrink:  30 | sim type: cosine | avgMAP: 0.0535 |
+|UserKNNCB| iter:    12/63 | topk:  40 | shrink:  40 | sim type: cosine | avgMAP: 0.0534 |
+|UserKNNCB| iter:    13/63 | topk:  40 | shrink:  50 | sim type: cosine | avgMAP: 0.0531 |
+|UserKNNCB| iter:    14/63 | topk:  40 | shrink:  60 | sim type: cosine | avgMAP: 0.0529 |

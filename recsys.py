@@ -129,8 +129,8 @@ for e in list:
         recs.append(itemKNNCF)
 
     elif e == '2':
-        itemKNNCB = ItemKNNCB(URM_train, ICM)
-        recs.append(itemKNNCB)
+        r = ItemKNNCB(URM_train, ICM)
+        recs.append(r)
 
     elif e == '3':
         rp3beta = RP3beta(URM_train)
@@ -364,6 +364,7 @@ elif c == 'eval':
                 r.fit()
                 r.save_r_hat(test=args.test)
         else:
+            print('FITTINNNNG')
             r.fit()
             
         evaluator = Evaluator(r, URM_valid)
