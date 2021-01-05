@@ -25,6 +25,7 @@ class P3alpha(Recommender):
             self.urm.T,
             alpha=alpha,
             k=topK)
+        self.sim_matrix = normalize(self.sim_matrix, norm='l2', axis=1)
 
         
         self.r_hat = self.urm.dot(self.sim_matrix)

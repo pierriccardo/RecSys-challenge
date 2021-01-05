@@ -69,6 +69,9 @@ similarities = cp.getlist('tuning.ItemKNNCF', 'similarities')
 topKs   = np.arange(int(t[0]), int(t[1]), int(t[2]))
 shrinks = np.arange(int(s[0]), int(s[1]), int(s[2]))
 
+params = {}
+params[]
+
 total = len(topKs) * len(shrinks) * len(similarities)
 
 i = 0

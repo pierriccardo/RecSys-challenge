@@ -17,7 +17,7 @@ class ItemKNNCF(Recommender):
 
         super().__init__(urm = urm)
 
-    def fit(self, topK=120, shrink=55, sim_type='cosine'):
+    def fit(self, topK=210, shrink=460, sim_type='jaccard'):
 
         self.topK = topK
         self.shrink = shrink

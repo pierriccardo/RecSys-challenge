@@ -86,8 +86,6 @@ from recommenders.UserKNNCB         import UserKNNCB
 from recommenders.IALS              import IALS
 from recommenders.HybridMultiSim    import HybridMultiSim
 
-from recommenders.hybridCFCB.UserKNNCFCB import UserKNNCFCB
-
 from evaluator                      import Evaluator
 
 #------------------------------
@@ -173,7 +171,9 @@ for e in list:
 msg = '   Choose an action:                                                     '
 info(msg)
 
-print('   hsim          --> tune a hybrid with 2 algorithms with sim matrix          ')
+print('   tunehs        --> tune a hybrid with 2 algorithms with sim matrix          ')
+print('   evalhs        --> eval a hybrid with 2 algorithms with sim matrix          ')
+print('')
 print('   hrhat         --> tune a hybrid with 2 algorithms with r hat               ')
 print('   hms           --> tune a hybrid with n algorithms by sim matrix, random val')
 print('')       
@@ -233,9 +233,20 @@ def tune_and_log(h, filename):
             print(timestamp)
             h.tuning(URM_valid)
 
-if c == 'hsim':
+if c == 'tunehs':
+    for r in recs:
+        fit_or_load(r, matrix='sim-matrix')
     h = HybridSimilarity(URM_train, recs[0], recs[1])
     h.tuning(URM_valid)
+
+if c == 'evalhs':
+    for r in recs:
+        r.fit()
+    h = HybridSimilarity(URM_train, recs[0], recs[1])
+    h.fit()
+    evaluator = Evaluator(h, URM_valid)
+    evaluator.results()
+
 
 elif c == 'hrhat':
     h = HybridRhat(URM_train, recs[0], recs[1])
@@ -364,7 +375,6 @@ elif c == 'eval':
                 r.fit()
                 r.save_r_hat(test=args.test)
         else:
-            print('FITTINNNNG')
             r.fit()
             
         evaluator = Evaluator(r, URM_valid)

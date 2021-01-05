@@ -20,7 +20,7 @@ class HybridSimilarity(Recommender):
         self.r1 = r1
         self.r2 = r2
        
-    def fit(self, topK=100, alpha=0.5, norm='none'):
+    def fit(self, topK=500, alpha=0.95, norm='none'):
 
         self.sim1 =  self.r1.sim_matrix if norm == 'none' else normalize(self.r1.sim_matrix, norm=norm, axis=1) 
         self.sim2 =  self.r2.sim_matrix if norm == 'none' else normalize(self.r2.sim_matrix, norm=norm, axis=1) 
@@ -28,13 +28,9 @@ class HybridSimilarity(Recommender):
         self.sim1 = self._check_matrix(self.sim1, 'csr')
         self.sim2 = self._check_matrix(self.sim2, 'csr')
 
-        # hyperparameters
-        self.topK = topK
-        self.alpha = alpha
-
-        W = self.sim1*self.alpha + self.sim2*(1-self.alpha)
+        self.sim_matrix = self.sim1*alpha + self.sim2*(1-alpha)
         
-        self.sim_matrix = self._similarity_matrix_topk(W, k=self.topK).tocsr()
+        #self.sim_matrix = self._similarity_matrix_topk(W, k=self.topK).tocsr()
 
         if self.sim_matrix.shape[0] == self.urm.shape[0]: # user-user similarity
             self.r_hat = self.sim_matrix.dot(self.urm)

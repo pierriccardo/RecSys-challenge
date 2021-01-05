@@ -30,6 +30,7 @@ class RP3beta(Recommender):
             alpha=alpha,
             beta=beta,
             k=topK)
+        self.sim_matrix = normalize(self.sim_matrix, norm='l2', axis=1)
             
         self.r_hat = self.urm.dot(self.sim_matrix)
 

@@ -63,11 +63,12 @@ BEST_TOPK = 0
 BEST_SHRINK = 0
 BEST_SIM = ''
 
-similarities = ['splus', 'cosine', 'jaccard']
-topKs   = np.arange(10, 100, 10)
-shrinks = np.arange(10, 100, 10)
+similarities = np.arange(0, 1, 0.2) #['a']#['splus', 'cosine', 'jaccard']
+topKs   = np.arange(90, 400, 50)
+shrinks = [0.35]#np.arange(0.2, 0.6, 0.1)
 
 total = len(topKs) * len(shrinks) * len(similarities)
+message = '| topk: {:-3d} | alpha: {:.3f} | beta: {:.3f} | avgMAP: {:.4f} |'
 
 i = 0
 for sim in similarities:
@@ -79,8 +80,6 @@ for sim in similarities:
             list_MAP = []    
 
             for ds in datasets:
-                cumulative_precision = 0.0
-                cumulative_recall = 0.0
                 cumulative_MAP = 0.0
                 num_eval = 0
 
@@ -91,8 +90,15 @@ for sim in similarities:
                 # RECOMMENDER
                 #------------------------------
                 
-                rec = UserKNNCF(train_ds)
-                rec.fit(topK=t, sim_type=sim, shrink=s)
+                #r1 = UserKNNCF(train_ds)
+                #r2 = UserKNNCB(train_ds, ICM)
+                #r1.fit()
+                #r2.fit()
+                #rec = HybridSimilarity(train_ds, r1, r2)
+                #rec.fit(alpha=s)
+
+                rec = RP3beta(train_ds)
+                rec.fit(topK=t, alpha=s)
 
                 pbar = tqdm(range(valid_ds.shape[0]))
                 for user_id in pbar:
@@ -111,7 +117,7 @@ for sim in similarities:
 
             avgmap = sum(list_MAP) / len(list_MAP)
 
-            m = '|{}| iter: {:-5d}/{} | topk: {:-3d} | shrink: {:-3d} | sim type: {} | avgMAP: {:.4f} |'
+            m = '|{}| iter: {:-5d}/{} '+ message
             print(m.format(rec.NAME, i, total, t, s, sim, avgmap))
             sys.stdout.flush()
             i+=1
@@ -123,5 +129,5 @@ for sim in similarities:
                 BEST_MAP = avgmap
                 BEST_SIM = sim
         
-m = '|{}| best results | topk: {:-3d} | shrink: {:-3d} | sim type: {} | MAP: {:.4f} |'
+m = '|{}| best results ' + message
 print(m.format(rec.NAME, BEST_TOPK, BEST_SHRINK, BEST_SIM, BEST_MAP))

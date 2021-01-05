@@ -16,13 +16,14 @@ class UserKNNCF(Recommender):
 
         super().__init__(urm = urm)
 
-    def fit(self, topK=100, shrink=180, sim_type='cosine'):
+    def fit(self, topK=110, shrink=350, sim_type='cosine'):
 
         self.topK = topK
         self.shrink = shrink
 
         m = similarity(self.urm.T, k=topK, sim_type=sim_type, shrink=shrink)
-        self.sim_matrix = self._check_matrix(m, format='csr')
+        m = self._check_matrix(m, format='csr')
+        self.sim_matrix = normalize(m, norm='l2', axis=1)
 
         self.r_hat = self.sim_matrix.dot(self.urm)
 
