@@ -1,3 +1,8 @@
+
+
+HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB)
+|iter:     2/1000 | vec: [0.14266883 0.04223591 0.5194811  0.07850139 0.13107157 0.08604119] | norm: none | MAP: 0.0752 |
+|iter:    10/1000 | vec: [0.10540553 0.17456877 0.27300835 0.25468303 0.18199685 0.01033747] | norm: none | MAP: 0.0755 |
 # cross validation tunings
 
 |ItemKNNCF| topk: 210 | shrink: 460 | sim type: jaccard | avgMAP: 0.0498 |

@@ -30,7 +30,10 @@ class HybridMultiRhat(Recommender):
 
 
     def fit(self, vec, norm='none'):
+        self.vec = vec
+        self.norm = norm
 
+        '''
         first = True
         for alpha, rec in zip(vec, self.recs):
 
@@ -42,7 +45,8 @@ class HybridMultiRhat(Recommender):
                 first = False
             else:
                 self.r_hat = self.r_hat + alpha * rec.r_hat
-
+        '''
+    '''
     def _compute_items_scores(self, user):
 
         if isinstance(self.r_hat, sps.csc_matrix) or isinstance(self.r_hat, sps.csr_matrix):
@@ -50,7 +54,20 @@ class HybridMultiRhat(Recommender):
         else:
             scores = np.array(self.r_hat[user]).flatten()
         return scores  
-            
+    '''
+
+    def _compute_items_scores(self, user):
+
+        scores_vec = []
+        scores = np.zeros(25975)
+        for alpha, rec in zip(self.vec, self.recs):
+
+            v = rec._compute_items_scores(user)
+            item_scores = normalize(v[:,np.newaxis], axis=0).ravel()
+            #item_scores = normalize(rec._compute_items_scores(user), axis=0)
+            scores = scores +  item_scores * alpha
+
+        return scores
         
 
     def tuning(self, urm_valid):

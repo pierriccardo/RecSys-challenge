@@ -99,11 +99,11 @@ def fit_and_save(r):
     except:
         msg = '|{}|  failed to save r-hat'.format(r.NAME)
         error(msg)
-    try: 
-        r.save_sim_matrix(test=args.test)
-    except:
-        msg = '|{}| rec with no sim-matrix or failed to save'.format(r.NAME)
-        error(msg)
+    #try: 
+    #    r.save_sim_matrix(test=args.test)
+    #except:
+    #    msg = '|{}| rec with no sim-matrix or failed to save'.format(r.NAME)
+    #    error(msg)
     return r
 
 def fit_or_load(r, matrix='r-hat'):
@@ -169,15 +169,6 @@ print('   press 10 --> IALS')
 print('   press 11 --> SLIM_ELN')
 print('   press 12 --> MF_BPR')
 print('')
-print('   press h1 --> Hsim(ItemKNNCF, ItemKNNCB)')
-print('   press h2 --> Hsim(UserKNNCF, UserKNNCB)')
-print('   press h3 --> Hsim(RP3beta, ItemKNNCB)')
-print('   press h4 --> Hsim(P3alpha, ItemKNNCB)')
-print('   press h5 --> Hsim(ItemKNNCB, SLIM_MSE)')
-print('   press h6 --> Hsim(ItemKNNCB, SLIM_BPR)')
-print('   press h7 --> Hsim(ItemKNNCB, SLIM_ELN)')
-print('   press h8 --> HMR(ItemKNNCB,UserKNNCB)')
-print('')
 choice = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
 list = choice.split()
 
@@ -204,13 +195,8 @@ c = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
 #------------------------------
 
 recs = []
-hybrids = []
 
 for e in list:
-
-    #------------------------------
-    # RECOMMENDERS
-    #------------------------------
 
     if e == '1':
         r = ItemKNNCF(URM_train)
@@ -260,112 +246,6 @@ for e in list:
         r = MF_BPR(URM_train)
         recs.append(r)
 
-    #------------------------------
-    # HYBRIDS
-    #------------------------------
-    elif e == 'h1':
-        
-        r1 = ItemKNNCF(URM_train)
-        r2 = ItemKNNCB(URM_train, ICM)
-        fit_or_load(r1, matrix='sim-matrix')
-        fit_or_load(r2, matrix='sim-matrix')
-
-        a = 0.45
-        h1 = HybridSimilarity(URM_train, r1, r2)
-        h1.fit(alpha=a)
-        
-        hybrids.append(h1)
-
-    elif e == 'h2':
-        
-        r1 = UserKNNCF(URM_train)
-        r2 = UserKNNCB(URM_train, ICM)
-        fit_or_load(r1, matrix='sim-matrix')
-        fit_or_load(r2, matrix='sim-matrix')
-
-        a = 0.7
-        h2 = HybridSimilarity(URM_train, r1, r2)
-        h2.fit(alpha=a)
-        
-        hybrids.append(h2)
-    
-    elif e == 'h3':
-        
-        r1 = RP3beta(URM_train)
-        r2 = ItemKNNCB(URM_train, ICM)
-        fit_or_load(r1, matrix='sim-matrix')
-        fit_or_load(r2, matrix='sim-matrix')
-
-        a = 0.5
-        h3 = HybridSimilarity(URM_train, r1, r2)
-        h3.fit(alpha=a)
-        
-        hybrids.append(h3)
-
-    elif e == 'h4':
-        
-        r1 = P3alpha(URM_train)
-        r2 = ItemKNNCB(URM_train, ICM)
-        fit_or_load(r1, matrix='sim-matrix')
-        fit_or_load(r2, matrix='sim-matrix')
-
-        a = 0.5
-        h4 = HybridSimilarity(URM_train, r1, r2)
-        h4.fit(alpha=a)
-        
-        hybrids.append(h4)
-
-    elif e == 'h5':
-        
-        r1 = ItemKNNCB(URM_train, ICM)
-        r2 = SLIM_MSE(URM_train)
-        fit_or_load(r1, matrix='sim-matrix')
-        fit_or_load(r2, matrix='sim-matrix')
-
-        a = 0.4
-        h5 = HybridSimilarity(URM_train, r1, r2)
-        h5.fit(alpha=a)
-        
-        hybrids.append(h5)
-
-    elif e == 'h6':
-        
-        r1 = ItemKNNCB(URM_train, ICM)
-        r2 = SLIM_BPR(URM_train)
-        fit_or_load(r1, matrix='sim-matrix')
-        fit_or_load(r2, matrix='sim-matrix')
-
-        a = 0.6
-        h6 = HybridSimilarity(URM_train, r1, r2)
-        h6.fit(alpha=a)
-        
-        hybrids.append(h6)
-
-    elif e == 'h7':
-        
-        r1 = ItemKNNCB(URM_train, ICM)
-        r2 = SLIM_ELN(URM_train)
-        fit_or_load(r1, matrix='sim-matrix')
-        fit_or_load(r2, matrix='sim-matrix')
-
-        a = 0.5
-        h7 = HybridSimilarity(URM_train, r1, r2)
-        h7.fit(alpha=a)
-        
-        hybrids.append(h7)
-    
-    elif e == 'h8':
-        vec = [0.187771, 0.812229]
-        r1 = ItemKNNCB(URM_train, ICM)
-        r2 = UserKNNCB(URM_train, ICM)
-        fit_or_load(r1)
-        fit_or_load(r2)
-
-        h = HybridMultiRhat(URM_train, [r1, r2])
-        h.fit(vec)
-        
-        hybrids.append(h)
-
     else:
         print("wrong insertion, skipped")
 
@@ -376,8 +256,6 @@ for r in recs:
         r = fit_or_load(r, matrix='sim-matrix')
     else:
         r = fit_or_load(r)
-
-recs = recs + hybrids
  
 
 def tune_and_log(h, filename):

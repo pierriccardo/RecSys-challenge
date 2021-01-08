@@ -5,6 +5,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
 from sklearn.preprocessing import normalize
+from sklearn.feature_selection import VarianceThreshold
 from similarity.similarity import similarity
 import similaripy as sim
 
@@ -42,10 +43,12 @@ class Dataset:
         self.urm_train_df.columns = ['user_id', 'item_id', 'data']
         self.urm_valid_df.columns = ['user_id', 'item_id', 'data']
 
-        print(self.ICM_dataframe.get(0))
+        selector = VarianceThreshold(0.00002) 
+        NewICM = selector.fit_transform(self.ICM)
+        print(NewICM.shape)
 
-        #self.URMICM = sps.vstack((self.URM_train,self.ICM.T))
-        #print(self.URMICM.shape)
+        self.URMICM = sps.vstack((self.URM_train,NewICM.T))
+        print(self.URMICM.shape)
 
     def get_URM_train(self):
         return self.URM_train
