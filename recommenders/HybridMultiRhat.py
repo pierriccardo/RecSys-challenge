@@ -61,11 +61,12 @@ class HybridMultiRhat(Recommender):
         scores_vec = []
         scores = np.zeros(25975)
         for alpha, rec in zip(self.vec, self.recs):
-
             v = rec._compute_items_scores(user)
-            item_scores = normalize(v[:,np.newaxis], axis=0).ravel()
-            #item_scores = normalize(rec._compute_items_scores(user), axis=0)
-            scores = scores +  item_scores * alpha
+
+            if self.norm != 'none':
+                v = normalize(v[:,np.newaxis], norm=self.norm, axis=0).ravel()
+
+            scores = scores +  v * alpha
 
         return scores
         
