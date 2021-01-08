@@ -54,11 +54,13 @@ d = Dataset(split=0.8)
 
 if args.test:
     URM_train = d.URM
+    URMICM_train = d.URMICM.tocsr()
     msg = '   NB: Complete URM loaded                          '
     warning(msg)
 
 else:
-    URM_train = d.URMICM.tocsr()#d.get_URM_train()
+    URM_train = d.get_URM_train()
+    URMICM_train = d.URMICM_train.tocsr()
     msg = '   NB: Train URM loaded                             '
     warning(msg)
     
@@ -199,7 +201,7 @@ recs = []
 for e in list:
 
     if e == '1':
-        r = ItemKNNCF(URM_train)
+        r = ItemKNNCF(URMICM_train)
         recs.append(r)
 
     elif e == '2':
@@ -207,15 +209,15 @@ for e in list:
         recs.append(r)
 
     elif e == '3':
-        r = RP3beta(URM_train)
+        r = RP3beta(URMICM_train)
         recs.append(r)
 
     elif e == '4':
-        r = P3alpha(URM_train)
+        r = P3alpha(URMICM_train)
         recs.append(r)
 
     elif e == '5':
-        r = UserKNNCF(URM_train)
+        r = UserKNNCF(URMICM_train)
         recs.append(r)
 
     elif e == '6':
@@ -223,27 +225,27 @@ for e in list:
         recs.append(r)
     
     elif e == '7':
-        r = SLIM_MSE(URM_train)
+        r = SLIM_MSE(URMICM_train)
         recs.append(r)
     
     elif e == '8':
-        r = SLIM_BPR(URM_train)
+        r = SLIM_BPR(URMICM_train)
         recs.append(r)
     
     elif e == '9':
-        r = PureSVD(URM_train)
+        r = PureSVD(URMICM_train)
         recs.append(r)
 
     elif e == '10':
-        r = IALS(URM_train)
+        r = IALS(URMICM_train)
         recs.append(r)
     
     elif e == '11':
-        r = SLIM_ELN(URM_train)
+        r = SLIM_ELN(URMICM_train)
         recs.append(r)
     
     elif e == '12':
-        r = MF_BPR(URM_train)
+        r = MF_BPR(URMICM_train)
         recs.append(r)
 
     else:
@@ -269,13 +271,22 @@ if c == 'tunehs':
     for r in recs:
         fit_or_load(r, matrix='sim-matrix')
     h = HybridSimilarity(URM_train, recs[0], recs[1])
-    h.tuning(URM_valid)
+ 
+    filename = os.path.join(args.folder, '{}-TUNING.txt'.format(h.NAME))
+
+    with open(filename, 'w') as f:
+        with redirect_stdout(f):
+            timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
+            print(timestamp)
+            h.tuning(URM_valid)
 
 if c == 'evalhs':
+    print('insert alpha:')
+    a = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
     for r in recs:
         r.fit()
     h = HybridSimilarity(URM_train, recs[0], recs[1])
-    h.fit()
+    h.fit(alpha=float(a))
     evaluator = Evaluator(h, URM_valid)
     evaluator.results()
 
@@ -320,24 +331,6 @@ elif c == 'subhmr':
     list = vec_input.split()
     vec = [float(ele) for ele in list] 
 
-    assert len(vec) == len(recs), "number of recommenders different from number of values"
-    for r in recs:
-        try:
-            try:
-                filename = 'raw_data/' + r.NAME + '-r-hat-test.npy'
-                r.load_r_hat(filename)
-            except:
-                filename = 'raw_data/' + r.NAME + '-r-hat-test.npz'
-                r.load_r_hat(filename)
-            
-            msg = '|{}|  rhat loaded '.format(r.NAME)
-            success(msg)
-        except:
-            msg = '|{}|  no rhat file found, proceeding with fit '.format(r.NAME)
-            warning(msg)
-            r.fit()
-            r.save_r_hat(test=True)
-            
     h = HybridMultiRhat(URM_train, recs)
     h.fit(vec)
     create_submission_csv(h, test_set, config['paths']['results'])

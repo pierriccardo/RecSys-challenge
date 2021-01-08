@@ -1,0 +1,12 @@
+08-01-2021-23:27:16
+| iter:     0/10 | topk:  40 | alpha: 0.000 | norm: l2 | MAP: 0.0376 |
+| iter:     1/10 | topk:  40 | alpha: 0.100 | norm: l2 | MAP: 0.0413 |
+| iter:     2/10 | topk:  40 | alpha: 0.200 | norm: l2 | MAP: 0.0441 |
+| iter:     3/10 | topk:  40 | alpha: 0.300 | norm: l2 | MAP: 0.0477 |
+| iter:     4/10 | topk:  40 | alpha: 0.400 | norm: l2 | MAP: 0.0503 |
+| iter:     5/10 | topk:  40 | alpha: 0.500 | norm: l2 | MAP: 0.0526 |
+| iter:     6/10 | topk:  40 | alpha: 0.600 | norm: l2 | MAP: 0.0548 |
+| iter:     7/10 | topk:  40 | alpha: 0.700 | norm: l2 | MAP: 0.0558 |
+| iter:     8/10 | topk:  40 | alpha: 0.800 | norm: l2 | MAP: 0.0562 |
+| iter:     9/10 | topk:  40 | alpha: 0.900 | norm: l2 | MAP: 0.0560 |
+| Hsim(ItemKNNCF, ItemKNNCB) | topk:  40 | alpha: 0.800 | norm: l2 | MAP: 0.0562 |

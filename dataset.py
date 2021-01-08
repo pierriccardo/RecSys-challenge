@@ -47,8 +47,9 @@ class Dataset:
         NewICM = selector.fit_transform(self.ICM)
         print(NewICM.shape)
 
-        self.URMICM = sps.vstack((self.URM_train,NewICM.T))
-        print(self.URMICM.shape)
+        self.URMICM_train = sps.vstack((self.URM_train,NewICM.T))
+        self.URMICM = sps.vstack((self.URM,NewICM.T))
+        
 
     def get_URM_train(self):
         return self.URM_train

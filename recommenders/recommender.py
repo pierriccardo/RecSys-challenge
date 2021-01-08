@@ -101,6 +101,8 @@ class Recommender(abc.ABC):
 
     def save_r_hat(self, folder='raw_data', test=False):
 
+        self.r_hat = self.r_hat[:7947]
+
         if not os.path.exists(folder):
             os.mkdir(folder)
 

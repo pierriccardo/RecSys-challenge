@@ -26,8 +26,7 @@ class ItemKNNCF(Recommender):
         m = self._check_matrix(m, format='csr')
         self.sim_matrix = normalize(m, norm='l2', axis=1)
 
-        self.r_hat = self.urm.dot(self.sim_matrix)
-        
+        self.r_hat = self.urm.dot(self.sim_matrix)        
 
     def tuning(self, urm_valid):
 
