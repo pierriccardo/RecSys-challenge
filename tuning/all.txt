@@ -5,12 +5,31 @@
 |UserKNNCF| topk: 110 | shrink: 350 | sim type: cosine  | avgMAP: 0.0571 |
 |UserKNNCB| topk:  50 | shrink:  20 | sim type: cosine  | avgMAP: 0.0539 |
 |P3alpha| topk: 210 | alpha: 0.300 | MAP: 0.0554 |
+|RP3beta| topk: 340 | alpha: 0.350 | beta: 0.06 | avgMAP: 0.0554 |
 
 
 # cross validation Hybrids
 
 |Hsim(ItemKNNCF, ItemKNNCB)| alpha: 0.450 | avgMAP: 0.0651 |
 |Hsim(UserKNNCF, UserKNNCB)| alpha: 0.700 | avgMAP: 0.0609 |
+|Hsim(RP3beta, ItemKNNCB)| alpha: 0.500 | avgMAP: 0.0691 |
+|Hsim(P3alpha, ItemKNNCB)| alpha: 0.500 | avgMAP: 0.0700 |
+|Hsim(ItemKNNCB, SLIM_MSE) | topk:  40 | alpha: 0.400 | norm: l2 | MAP: 0.0635 |
+|Hsim(ItemKNNCB, SLIM_BPR) | topk:  40 | alpha: 0.600 | norm: l2 | MAP: 0.0672 |
+|Hsim(ItemKNNCB, SLIM_ELN) | topk:  40 | alpha: 0.600 | norm: l2 | MAP: 0.0695 |
+
+
+# HYBRIDS
+HMR(ItemKNNCB,UserKNNCB)
+|iter:    39/2500 | vec: [0.23815851 0.76184149] | norm: none | MAP: 0.0629 |
+|iter:   108/2500 | vec: [0.187771 0.812229] | norm: none | MAP: 0.0630 |
+
+
+
+
+
+
+
 
 
 #------------------------------
@@ -152,3 +171,14 @@ HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)
 
 HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)| best results | 
 vec: [0.2146038  0.06367613 0.15229995 0.12157612 0.447844  ] | norm: none | MAP: 0.0780 |
+
+
+
+# Hybrid
+
+HMR(IALS,Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(RP3beta, ItemKNNCB),Hsim(P3alpha, ItemKNNCB),Hsim(ItemKNNCB, SLIM_MSE),Hsim(ItemKNNCB, SLIM_BPR),Hsim(ItemKNNCB, SLIM_ELN))
+
+|iter:   222/2500 | vec: [0.388992   0.09577393 0.05444316 0.01606637 0.13609958 0.02582959
+ 0.20633242 0.07646295] | norm: none | MAP: 0.0716 |
+
+0.388992   0.09577393 0.05444316 0.01606637 0.13609958 0.02582959 0.20633242 0.07646295

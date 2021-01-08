@@ -4,6 +4,9 @@ import scipy.sparse as sps
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
+from sklearn.preprocessing import normalize
+from similarity.similarity import similarity
+import similaripy as sim
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -39,6 +42,11 @@ class Dataset:
         self.urm_train_df.columns = ['user_id', 'item_id', 'data']
         self.urm_valid_df.columns = ['user_id', 'item_id', 'data']
 
+        print(self.ICM_dataframe.get(0))
+
+        #self.URMICM = sps.vstack((self.URM_train,self.ICM.T))
+        #print(self.URMICM.shape)
+
     def get_URM_train(self):
         return self.URM_train
 
@@ -64,14 +72,14 @@ class Dataset:
         self.urm_train_df = self.URM_dataframe.iloc[train_mask]       
 
         URM_train = sps.csr_matrix((self.URM_dataframe.data[train_mask],
-                            (self.URM_dataframe.row[train_mask], self.URM_dataframe.col[train_mask])))
+                            (self.URM_dataframe.row[train_mask], self.URM_dataframe.col[train_mask])), shape=(7947, 25975))
 
         valid_mask = np.logical_not(train_mask)
 
         self.urm_valid_df = self.URM_dataframe.iloc[valid_mask]       
 
         URM_valid = sps.csr_matrix((self.URM_dataframe.data[valid_mask],
-                            (self.URM_dataframe.row[valid_mask], self.URM_dataframe.col[valid_mask])))
+                            (self.URM_dataframe.row[valid_mask], self.URM_dataframe.col[valid_mask])), shape=(7947, 25975))
         
         #assert URM_train.shape == URM_valid.shape, "shapes aren't equal"
 

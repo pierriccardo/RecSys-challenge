@@ -19,13 +19,12 @@ class MF_BPR(Recommender):
 
     NAME = 'MF_BPR'
 
-    def __init__(self, urm, urm_df, batch_size=1024):
+    def __init__(self, urm, batch_size=1024):
 
         super().__init__(urm = urm)
         self.urm = urm
-        self.urm_df = urm_df
 
-        train_dataset = TripletsBPRDataset(self.urm_df)
+        train_dataset = TripletsBPRDataset(urm)
 
         
         rnd_sampler = RandomSampler(
@@ -41,16 +40,16 @@ class MF_BPR(Recommender):
             num_workers=8
         )
     
-    def fit(self, valid_set=None, n_factors=10, epochs=200, lr=1e-3, wd=1e-5, valtimes=10):
-
+    def fit(self, valid_set=None, n_factors=500, epochs=120, lr=1e-3, wd=1e-5, valtimes=10):
+        
+        print('fitting..............')
         self.n_factors = n_factors
         self.n_users, self.n_items = self.urm.shape
 
         self.model = MF_BP_Model(
             self.n_users, 
             self.n_items, 
-            self.n_factors,
-            self.load_model
+            self.n_factors
         )
 
         self.optimizer = torch.optim.Adam(
@@ -98,9 +97,6 @@ class MF_BPR(Recommender):
 
         self.user_factors = user_emb
         self.item_factors = item_emb
-
-        if self.savemodel:
-            self.save_model()
 
     def _compute_items_scores(self, user):
         
@@ -167,24 +163,13 @@ class MF_BPR(Recommender):
                             BEST_MAP = self.MAP
 
         log = '| best results | epochs: {:-3d} | factors: {:-3d} | lr: {:.6f} | wd: {:.6f} | MAP: {:.4f} |'
-        print(log.format(BEST_EPOCHS, BEST_FACTORS, BEST_LR, BEST_WD, BEST_MAP))
-
-    
-    def save_model(self):
-        timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
-        PATH = 'recommenders/models/MF-BPR-{}-NF-{}.pt'
-        PATH.format(timestamp, self.n_factors)
-        torch.save(self.model.state_dict(), PATH)
-    
-    def load_model(self, path):
-        self.model.load_state_dict(torch.load(path))
-        
+        print(log.format(BEST_EPOCHS, BEST_FACTORS, BEST_LR, BEST_WD, BEST_MAP))       
         
 
 
 class MF_BP_Model(nn.Module):
 
-    def __init__(self, n_users, n_items, n_factors=10, loadmodel=False):
+    def __init__(self, n_users, n_items, n_factors=10):
 
         nn.Module.__init__(self)
 
@@ -234,9 +219,20 @@ class MF_BP_Model(nn.Module):
 
 class TripletsBPRDataset(Dataset):
 
-    def __init__(self, urm_df):
+    def __init__(self, urm):
+        
+        
+        r = urm.tocoo().row
+        c = urm.tocoo().col
+        d = urm.tocoo().data
 
-        self.urm_df = urm_df
+        data = {
+            'user_id':r, 
+            'item_id': c,
+            'data': d
+        } 
+
+        urm_df = pd.DataFrame(data)
         
         self.interactions_list = [
             (u, i) for u, i in zip(urm_df['user_id'], urm_df['item_id'])

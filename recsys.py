@@ -31,6 +31,8 @@ def error(msg):
 def info(msg):
     print(Back.BLUE + Fore.BLACK + msg + Style.RESET_ALL)
 
+
+
 args = parser.parse_args()
 if not os.path.exists(args.folder):
     os.mkdir(args.folder)
@@ -56,7 +58,7 @@ if args.test:
     warning(msg)
 
 else:
-    URM_train = d.get_URM_train()
+    URM_train = d.URMICM.tocsr()#d.get_URM_train()
     msg = '   NB: Train URM loaded                             '
     warning(msg)
     
@@ -85,8 +87,59 @@ from recommenders.UserKNNCF         import UserKNNCF
 from recommenders.UserKNNCB         import UserKNNCB
 from recommenders.IALS              import IALS
 from recommenders.HybridMultiSim    import HybridMultiSim
+from recommenders.SLIM_ELN          import SLIM_ELN
+from recommenders.MF_BPR            import MF_BPR
 
 from evaluator                      import Evaluator
+
+def fit_and_save(r):
+    r.fit()
+    try: 
+        r.save_r_hat(test=args.test)
+    except:
+        msg = '|{}|  failed to save r-hat'.format(r.NAME)
+        error(msg)
+    try: 
+        r.save_sim_matrix(test=args.test)
+    except:
+        msg = '|{}| rec with no sim-matrix or failed to save'.format(r.NAME)
+        error(msg)
+    return r
+
+def fit_or_load(r, matrix='r-hat'):
+    """
+    try to load a given matrix for the recommender, if
+    the matrix is not present in the folder raw data then
+    will fit the recommender and save the matrix
+
+    Args:
+        r (Recommender): recommender
+        matrix (str, optional): define the matrix type: 'r-hat' or 'sim-matrix'.
+        type (str, optional): type of matrix to save 'valid' or 'test'.
+    """
+    matrix_type = 'test' if args.test else 'valid'
+    filename = 'raw_data/{}-{}-{}'.format(r.NAME, matrix, matrix_type)
+    if args.loadrhat:
+        try:
+            if matrix == 'r-hat':
+                try: r.load_r_hat(filename + '.npy')
+                except: r.load_r_hat(filename + '.npz')
+                msg = '|{}|  rhat loaded '.format(r.NAME)
+                success(msg)
+            elif matrix == 'sim-matrix':
+                try: r.load_sim_matrix(filename + '.npy')
+                except: r.load_sim_matrix(filename + '.npz')
+                msg = '|{}|  sim-matrix loaded '.format(r.NAME)
+                success(msg)
+        except:
+            msg = '|{}|  no rhat file found, proceeding with fit '.format(r.NAME)
+            warning(msg)
+            r = fit_and_save(r)
+    else:
+        r = fit_and_save(r)
+        
+        
+    return r
 
 #------------------------------
 # BASIC RECOMMENDERS
@@ -113,60 +166,20 @@ print('   press 7  --> SLIM_MSE')
 print('   press 8  --> SLIM_BPR')
 print('   press 9  --> PureSVD')
 print('   press 10 --> IALS')
-print('   press h1 --> UserKNNCFCB')
+print('   press 11 --> SLIM_ELN')
+print('   press 12 --> MF_BPR')
+print('')
+print('   press h1 --> Hsim(ItemKNNCF, ItemKNNCB)')
+print('   press h2 --> Hsim(UserKNNCF, UserKNNCB)')
+print('   press h3 --> Hsim(RP3beta, ItemKNNCB)')
+print('   press h4 --> Hsim(P3alpha, ItemKNNCB)')
+print('   press h5 --> Hsim(ItemKNNCB, SLIM_MSE)')
+print('   press h6 --> Hsim(ItemKNNCB, SLIM_BPR)')
+print('   press h7 --> Hsim(ItemKNNCB, SLIM_ELN)')
+print('   press h8 --> HMR(ItemKNNCB,UserKNNCB)')
 print('')
 choice = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
 list = choice.split()
-
-recs = []
-
-for e in list:
-
-    if e == '1':
-        itemKNNCF = ItemKNNCF(URM_train)
-        recs.append(itemKNNCF)
-
-    elif e == '2':
-        r = ItemKNNCB(URM_train, ICM)
-        recs.append(r)
-
-    elif e == '3':
-        rp3beta = RP3beta(URM_train)
-        recs.append(rp3beta)
-
-    elif e == '4':
-        p3alpha = P3alpha(URM_train)
-        recs.append(p3alpha)
-
-    elif e == '5':
-        userKNNCF = UserKNNCF(URM_train)
-        recs.append(userKNNCF)
-
-    elif e == '6':
-        userKNNCB = UserKNNCB(URM_train, ICM)
-        recs.append(userKNNCB)
-    
-    elif e == '7':
-        slim_mse = SLIM_MSE(URM_train)
-        recs.append(slim_mse)
-    
-    elif e == '8':
-        slim_bpr = SLIM_BPR(URM_train)
-        recs.append(slim_bpr)
-    
-    elif e == '9':
-        pureSVD = PureSVD(URM_train)
-        recs.append(pureSVD)
-
-    elif e == '10':
-        ials = IALS(URM_train)
-        recs.append(ials)
-
-    elif e == 'h1':
-        r = UserKNNCFCB(URM_train, ICM)
-        recs.append(r)
-    else:
-        print("wrong insertion, skipped")
 
 msg = '   Choose an action:                                                     '
 info(msg)
@@ -182,48 +195,189 @@ print('   subhmr        --> submit a hybrid multi rhat algorithm                
 print('   evalhmr       --> evaluate a hybrid multi rhat recommender                 ')
 print('')       
 print('   tune          --> tune the choosen algorithms                              ')
-print('   saverhat      --> save r hats of the selected algorithms                   ')
-print('   savesim       --> save r hats of the selected algorithms                   ')
 print('   eval          --> evaluate the selected algorithms                         ')
-print('   crossvalid    --> evaluate with cross validation the selected algorithms   ')
 print('')
 c = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
 
+#------------------------------
+# ALGORITHMS LIST CREATION
+#------------------------------
 
-def fit_or_load(rec, matrix='r-hat', type='valid'):
-    """
-    try to load a given matrix for the recommender, if
-    the matrix is not present in the folder raw data then
-    will fit the recommender and save the matrix
+recs = []
+hybrids = []
 
-    Args:
-        rec ([type]): [description]
-        matrix (str, optional): define the matrix type: 'r-hat' or 'sim-matrix'.
-        type (str, optional): type of matrix to save 'valid' or 'test'.
+for e in list:
 
-    Returns:
-        [type]: [description]
-    """
-    filename = 'raw_data/{}-{}-{}'.format(r.NAME, matrix, type)
-    if args.loadrhat:
-        try:
-            try: r.load_r_hat(filename + '.npy')
-            except: r.load_r_hat(filename + '.npz')
-            msg = '|{}|  rhat loaded '.format(r.NAME)
-            success(msg)
-        except:
-            msg = '|{}|  no rhat file found, proceeding with fit '.format(r.NAME)
-            warning(msg)
-            r.fit()
-            if matrix=='r-hat':
-                r.save_r_hat(test=args.test)
-            if matrix=='sim-matrix':
-                r.save_sim_matrix(test=args.test)
-    else:
-        r.fit()
+    #------------------------------
+    # RECOMMENDERS
+    #------------------------------
+
+    if e == '1':
+        r = ItemKNNCF(URM_train)
+        recs.append(r)
+
+    elif e == '2':
+        r = ItemKNNCB(URM_train, ICM)
+        recs.append(r)
+
+    elif e == '3':
+        r = RP3beta(URM_train)
+        recs.append(r)
+
+    elif e == '4':
+        r = P3alpha(URM_train)
+        recs.append(r)
+
+    elif e == '5':
+        r = UserKNNCF(URM_train)
+        recs.append(r)
+
+    elif e == '6':
+        r = UserKNNCB(URM_train, ICM)
+        recs.append(r)
     
-    return rec
+    elif e == '7':
+        r = SLIM_MSE(URM_train)
+        recs.append(r)
+    
+    elif e == '8':
+        r = SLIM_BPR(URM_train)
+        recs.append(r)
+    
+    elif e == '9':
+        r = PureSVD(URM_train)
+        recs.append(r)
 
+    elif e == '10':
+        r = IALS(URM_train)
+        recs.append(r)
+    
+    elif e == '11':
+        r = SLIM_ELN(URM_train)
+        recs.append(r)
+    
+    elif e == '12':
+        r = MF_BPR(URM_train)
+        recs.append(r)
+
+    #------------------------------
+    # HYBRIDS
+    #------------------------------
+    elif e == 'h1':
+        
+        r1 = ItemKNNCF(URM_train)
+        r2 = ItemKNNCB(URM_train, ICM)
+        fit_or_load(r1, matrix='sim-matrix')
+        fit_or_load(r2, matrix='sim-matrix')
+
+        a = 0.45
+        h1 = HybridSimilarity(URM_train, r1, r2)
+        h1.fit(alpha=a)
+        
+        hybrids.append(h1)
+
+    elif e == 'h2':
+        
+        r1 = UserKNNCF(URM_train)
+        r2 = UserKNNCB(URM_train, ICM)
+        fit_or_load(r1, matrix='sim-matrix')
+        fit_or_load(r2, matrix='sim-matrix')
+
+        a = 0.7
+        h2 = HybridSimilarity(URM_train, r1, r2)
+        h2.fit(alpha=a)
+        
+        hybrids.append(h2)
+    
+    elif e == 'h3':
+        
+        r1 = RP3beta(URM_train)
+        r2 = ItemKNNCB(URM_train, ICM)
+        fit_or_load(r1, matrix='sim-matrix')
+        fit_or_load(r2, matrix='sim-matrix')
+
+        a = 0.5
+        h3 = HybridSimilarity(URM_train, r1, r2)
+        h3.fit(alpha=a)
+        
+        hybrids.append(h3)
+
+    elif e == 'h4':
+        
+        r1 = P3alpha(URM_train)
+        r2 = ItemKNNCB(URM_train, ICM)
+        fit_or_load(r1, matrix='sim-matrix')
+        fit_or_load(r2, matrix='sim-matrix')
+
+        a = 0.5
+        h4 = HybridSimilarity(URM_train, r1, r2)
+        h4.fit(alpha=a)
+        
+        hybrids.append(h4)
+
+    elif e == 'h5':
+        
+        r1 = ItemKNNCB(URM_train, ICM)
+        r2 = SLIM_MSE(URM_train)
+        fit_or_load(r1, matrix='sim-matrix')
+        fit_or_load(r2, matrix='sim-matrix')
+
+        a = 0.4
+        h5 = HybridSimilarity(URM_train, r1, r2)
+        h5.fit(alpha=a)
+        
+        hybrids.append(h5)
+
+    elif e == 'h6':
+        
+        r1 = ItemKNNCB(URM_train, ICM)
+        r2 = SLIM_BPR(URM_train)
+        fit_or_load(r1, matrix='sim-matrix')
+        fit_or_load(r2, matrix='sim-matrix')
+
+        a = 0.6
+        h6 = HybridSimilarity(URM_train, r1, r2)
+        h6.fit(alpha=a)
+        
+        hybrids.append(h6)
+
+    elif e == 'h7':
+        
+        r1 = ItemKNNCB(URM_train, ICM)
+        r2 = SLIM_ELN(URM_train)
+        fit_or_load(r1, matrix='sim-matrix')
+        fit_or_load(r2, matrix='sim-matrix')
+
+        a = 0.5
+        h7 = HybridSimilarity(URM_train, r1, r2)
+        h7.fit(alpha=a)
+        
+        hybrids.append(h7)
+    
+    elif e == 'h8':
+        vec = [0.187771, 0.812229]
+        r1 = ItemKNNCB(URM_train, ICM)
+        r2 = UserKNNCB(URM_train, ICM)
+        fit_or_load(r1)
+        fit_or_load(r2)
+
+        h = HybridMultiRhat(URM_train, [r1, r2])
+        h.fit(vec)
+        
+        hybrids.append(h)
+
+    else:
+        print("wrong insertion, skipped")
+
+
+for r in recs:
+    
+    if c == 'hms':
+        r = fit_or_load(r, matrix='sim-matrix')
+    else:
+        r = fit_or_load(r)
+
+recs = recs + hybrids
  
 
 def tune_and_log(h, filename):
@@ -253,51 +407,11 @@ elif c == 'hrhat':
     h.tuning(URM_valid)
 
 elif c == 'hms':
-    for r in recs:
-        if args.loadrhat:
-            try:
-                try:
-                    filename = 'raw_data/' + r.NAME + '-sim-matrix-valid.npy'
-                    r.load_sim_matrix(filename)
-                except:
-                    filename = 'raw_data/' + r.NAME + '-sim-matrix-valid.npz'
-                    r.load_sim_matrix(filename)
-                
-                msg = '|{}| sim matrix loaded '.format(r.NAME)
-                success(msg)
-            except:
-                msg = '|{}|  no sim matrix file found, proceeding with fit '.format(r.NAME)
-                warning(msg)
-                r.fit()
-                r.save_sim_matrix(test=args.test)
-        else:
-            r.fit()
-    recs = fit_or_load(recs)
     h = HybridMultiSim(URM_train, recs)
     filename = os.path.join(args.folder, '{}-TUNING.txt'.format(h.NAME))
     tune_and_log(h, filename)
 
 elif c == 'hmr':
-    for r in recs:
-        if args.loadrhat:
-            try:
-                try:
-                    filename = 'raw_data/' + r.NAME + '-r-hat-valid.npy'
-                    r.load_r_hat(filename)
-                except:
-                    filename = 'raw_data/' + r.NAME + '-r-hat-valid.npz'
-                    r.load_r_hat(filename)
-                
-                msg = '|{}|  rhat loaded '.format(r.NAME)
-                success(msg)
-            except:
-                msg = '|{}|  no rhat file found, proceeding with fit '.format(r.NAME)
-                warning(msg)
-                r.fit()
-                r.save_r_hat(test=args.test)
-        else:
-            r.fit()
-
     h = HybridMultiRhat(URM_train, recs)
     filename = os.path.join(args.folder, '{}-TUNING.txt'.format(h.NAME))
 
@@ -307,7 +421,6 @@ elif c == 'hmr':
             print(timestamp)
             h.tuning(URM_valid)
     
-
 elif c == 'tune':
     for r in recs:
 
@@ -319,67 +432,11 @@ elif c == 'tune':
                 print(timestamp)
                 r.tuning(URM_valid)
 
-elif c == 'saverhat':
-    for r in recs:
-        msg = '|{}|  fitting... '.format(r.NAME)
-        success(msg)
-        r.fit()
-        r.save_r_hat(test=args.test)
-        evaluator = Evaluator(r, URM_valid)
-        evaluator.results()
-
-elif c == 'savesim':
-    for r in recs:
-        msg = '|{}|  fitting... '.format(r.NAME)
-        success(msg)
-        r.fit()
-        r.save_sim_matrix(test=args.test)
-        evaluator = Evaluator(r, URM_valid)
-        evaluator.results()
-
-elif c == 'save':
-    for r in recs:
-        msg = '|{}|  fitting... '.format(r.NAME)
-        success(msg)
-        r.fit()
-        r.save_r_hat(test=args.test)
-        msg = '|{}|  saved r hat '.format(r.NAME)
-        success(msg)
-        try:
-            r.save_sim_matrix(test=arg.test)
-            msg = '|{}|  saved sim matrix '.format(r.NAME)
-            success(msg)
-        except:
-            msg = '|{}|  failed or no sim matrix to save '.format(r.NAME)
-            warning(msg)
-
-        evaluator = Evaluator(r, URM_valid)
-        evaluator.results()
-
 elif c == 'eval':
     for r in recs:
-        if args.loadrhat:
-            try:
-                try:
-                    filename = 'raw_data/' + r.NAME + '-r-hat-valid.npy'
-                    r.load_r_hat(filename)
-                except:
-                    filename = 'raw_data/' + r.NAME + '-r-hat-valid.npz'
-                    r.load_r_hat(filename)
-                
-                msg = '|{}|  rhat loaded '.format(r.NAME)
-                success(msg)
-            except:
-                msg = '|{}|  no rhat file found, proceeding with fit '.format(r.NAME)
-                warning(msg)
-                r.fit()
-                r.save_r_hat(test=args.test)
-        else:
-            r.fit()
-            
         evaluator = Evaluator(r, URM_valid)
         evaluator.results()
-
+    
 elif c == 'subhmr':
     vec_input = input('Insert the value vector:')
     list = vec_input.split()
@@ -412,41 +469,10 @@ elif c == 'evalhmr':
     list = vec_input.split()
     vec = [float(ele) for ele in list] 
 
-    assert len(vec) == len(recs), "number of recommenders different from number of values"
-    for r in recs:
-        try:
-            try:
-                filename = 'raw_data/' + r.NAME + '-r-hat-valid.npy'
-                r.load_r_hat(filename)
-            except:
-                filename = 'raw_data/' + r.NAME + '-r-hat-valid.npz'
-                r.load_r_hat(filename)
-            
-            msg = '|{}|  rhat loaded '.format(r.NAME)
-            success(msg)
-        except:
-            msg = '|{}|  no rhat file found, proceeding with fit '.format(r.NAME)
-            warning(msg)
-            r.fit()
-            if not args.test:
-                r.save_r_hat(test=False)
-            else:
-                msg = 'Error: you select the complete URM option saving r-hat is skipped'
-                error(msg)
-
-            
     h = HybridMultiRhat(URM_train, recs)
     h.fit(vec)
     evaluator = Evaluator(h, URM_valid)
     evaluator.results()
-
-elif c == 'crossvalid':
-
-    datasets = d.k_fold()
-
-    for r in recs:
-        cross_validate(r, datasets)
-
 
 else:
     print('wrong selection')

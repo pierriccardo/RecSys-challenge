@@ -16,7 +16,7 @@ class P3alpha(Recommender):
     def __init__(self, urm):
         super(P3alpha, self).__init__(urm = urm)
 
-    def fit(self, topK=80, alpha=0.4):
+    def fit(self, topK=210, alpha=0.3):
 
         self.topK = topK
         self.alpha = alpha
@@ -25,7 +25,7 @@ class P3alpha(Recommender):
             self.urm.T,
             alpha=alpha,
             k=topK)
-        self.sim_matrix = normalize(self.sim_matrix, norm='l2', axis=1)
+        #self.sim_matrix = normalize(self.sim_matrix, norm='l2', axis=1)
 
         
         self.r_hat = self.urm.dot(self.sim_matrix)

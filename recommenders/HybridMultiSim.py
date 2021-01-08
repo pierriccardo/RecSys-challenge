@@ -29,14 +29,14 @@ class HybridMultiSim(Recommender):
         self.NAME = '{}({})'.format(self.NAME, names)
 
 
-    def fit(self, vec, norm='l2'):
-        
-        if norm!='none':
-            for r in self.recs:
-                r.sim_matrix = normalize(r.sim_matrix, norm=norm, axis=1)
+    def fit(self, vec, norm='l2'):              
 
         first = True
         for alpha, rec in zip(vec, self.recs):
+
+            if norm != 'none':
+                r.sim_matrix = normalize(r.sim_matrix, norm=norm, axis=1)
+
             if first:
                 self.sim_matrix = rec.sim_matrix * alpha
                 first = False

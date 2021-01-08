@@ -30,17 +30,15 @@ class HybridMultiRhat(Recommender):
 
 
     def fit(self, vec, norm='none'):
-        
-        if norm!='none':
-            for r in self.recs:
-                #r.r_hat = normalize(r.r_hat, norm=norm, axis=0)
-                r.r_hat = sim.normalization.bm25plus(r.r_hat)
 
         first = True
         for alpha, rec in zip(vec, self.recs):
-            r = rec.r_hat
+
+            if norm != 'none':
+                rec.r_hat = normalize(rec.r_hat, norm=norm, axis=1)
+            
             if first:
-                self.r_hat = r * alpha
+                self.r_hat = rec.r_hat * alpha
                 first = False
             else:
                 self.r_hat = self.r_hat + alpha * rec.r_hat

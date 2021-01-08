@@ -1,5 +1,17 @@
 # TODO
 
+1) prova ItemKNNCB con RP3beta, P3alpha similarities
+
+
+
+
+
+
+
+
+
+
+
 - traformazione TF iDF da una sim -> ibridala 
 
 

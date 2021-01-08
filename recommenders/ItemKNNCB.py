@@ -20,13 +20,6 @@ class ItemKNNCB(Recommender):
 
     def fit(self, topK=350, shrink=10, sim_type='splus'):
 
-        m = '[ {}: fitting... ]'
-        print(m.format(self.NAME))
-
-        # hyperparameters 
-        self.topK = topK
-        self.shrink = shrink
-
         m = similarity(self.icm.T, k=topK, sim_type=sim_type, shrink=shrink)
         m = self._check_matrix(m, format='csr')
         self.sim_matrix = normalize(m, norm='l2', axis=0)

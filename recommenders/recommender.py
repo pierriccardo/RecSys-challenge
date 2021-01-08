@@ -22,6 +22,7 @@ class Recommender(abc.ABC):
         self.n_users, self.n_items = self.urm.shape
         self.r_hat = None # R_HAT is a matrix n° user x n° item 
 
+        self.popitems = self._compute_toppop_items()
 
     #@abc.abstractmethod
     def fit(self):
@@ -88,10 +89,12 @@ class Recommender(abc.ABC):
         return scores
 
     
-    def recommend(self, user: int = None, cutoff: int = 10):
-     
+    def recommend(self, user: int = None, cutoff: int = 10, remove_toppop=False):
+    
         scores = self._compute_items_scores(user)
         scores = self._remove_seen_items(user, scores)
+        if remove_toppop:
+            scores[self.popitems] = -np.inf
         scores = scores.argsort()[::-1]
 
         return scores[:cutoff]
@@ -121,7 +124,7 @@ class Recommender(abc.ABC):
                     indptr=self.r_hat.indptr, 
                     shape=self.r_hat.shape
                 )
-            print('|{}| r hat has been saved'.format(self.NAME))
+            print('|{}| r hat saved in:{}'.format(self.NAME, PATH))
 
     def load_r_hat(self, path):
         if path[-1] == 'y':
@@ -157,7 +160,7 @@ class Recommender(abc.ABC):
                 indptr=self.sim_matrix.indptr, 
                 shape=self.sim_matrix.shape
             )
-            print('|{}| sim matrix has been saved'.format(self.NAME))
+            print('|{}| sim matrix saved in: {}'.format(self.NAME, PATH))
 
     def load_sim_matrix(self, path):
         loader = np.load(path)
@@ -172,8 +175,27 @@ class Recommender(abc.ABC):
         e = self.urm.indptr[user + 1]
         
         seen = self.urm.indices[s:e]
+       
         scores[seen] = -np.inf
         return scores
+
+    def _remove_toppop_items(self, user, scores, at=5):
+
+        item_popularity = np.ediff1d(self.urm.tocsc().indptr)
+        popular_items = np.argsort(item_popularity)
+        popular_items = np.flip(popular_items, axis = 0)
+        toremove = popular_items[0:at]
+
+        scores[toremove] = -np.inf
+        return scores
+    
+    def _compute_toppop_items(self, at=10):
+        item_popularity = np.ediff1d(self.urm.tocsc().indptr)
+        popular_items = np.argsort(item_popularity)
+        popular_items = np.flip(popular_items, axis = 0)
+        popitems = popular_items[0:at]
+        return popitems
+
 
     def _check_matrix(self, X, format='csc', dtype=np.float32):
         """

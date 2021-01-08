@@ -20,7 +20,7 @@ class HybridSimilarity(Recommender):
         self.r1 = r1
         self.r2 = r2
        
-    def fit(self, topK=500, alpha=0.95, norm='none'):
+    def fit(self, topK=500, alpha=0.5, norm='none'):
 
         self.sim1 =  self.r1.sim_matrix if norm == 'none' else normalize(self.r1.sim_matrix, norm=norm, axis=1) 
         self.sim2 =  self.r2.sim_matrix if norm == 'none' else normalize(self.r2.sim_matrix, norm=norm, axis=1) 

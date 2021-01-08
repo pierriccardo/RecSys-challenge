@@ -1,5 +1,0 @@
-14-12-2020-12:57:00
-|ItemKNNCF| iter:     0/96 | topk: 130 | shrink: 110 | sim type: splus | MAP: 0.0499 |
-|ItemKNNCF| iter:     1/96 | topk: 130 | shrink: 120 | sim type: splus | MAP: 0.0500 |
-|ItemKNNCF| iter:     2/96 | topk: 130 | shrink: 130 | sim type: splus | MAP: 0.0499 |
-|ItemKNNCF| iter:     3/96 | topk: 130 | shrink: 140 | sim type: splus | MAP: 0.0499 |

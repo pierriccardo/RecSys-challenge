@@ -18,7 +18,7 @@ class RP3beta(Recommender):
         
         super(RP3beta, self).__init__(urm = urm)
 
-    def fit(self, alpha=0.35, beta=0.06, topK=110):
+    def fit(self, alpha=0.35, beta=0.06, topK=310):
 
         self.alpha = alpha
         self.beta = beta
@@ -30,7 +30,7 @@ class RP3beta(Recommender):
             alpha=alpha,
             beta=beta,
             k=topK)
-        self.sim_matrix = normalize(self.sim_matrix, norm='l2', axis=1)
+        #self.sim_matrix = normalize(self.sim_matrix, norm='l2', axis=1)
             
         self.r_hat = self.urm.dot(self.sim_matrix)
 
