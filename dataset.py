@@ -43,8 +43,9 @@ class Dataset:
         self.urm_train_df.columns = ['user_id', 'item_id', 'data']
         self.urm_valid_df.columns = ['user_id', 'item_id', 'data']
 
+        icm = self.ICM.copy()
         selector = VarianceThreshold(0.00002) 
-        NewICM = selector.fit_transform(self.ICM)
+        NewICM = selector.fit_transform(icm)
         print(NewICM.shape)
 
         self.URMICM_train = sps.vstack((self.URM_train,NewICM.T))
@@ -132,6 +133,40 @@ class Dataset:
         print('n_interaction: {}'.format(n_interactions))
         print('min_interaction: {}'.format(min_interaction))
         print('max_interaction: {}'.format(max_interaction))
+
+    def k_fold_icm(self, splits=5, shuff=True, seed=5):
+        ds = np.arange(0, self.NUM_INTERACTIONS, 1)
+        datasets = []
+        
+        kf = KFold(n_splits=splits, shuffle=shuff, random_state=seed)
+        for train_index, test_index in kf.split(ds):
+
+            train_mask = np.zeros(self.NUM_INTERACTIONS, dtype=bool)
+            for i in train_index:
+                train_mask[i] = True
+
+            d = self.URM_dataframe.data[train_mask]
+            r = self.URM_dataframe.row[train_mask]
+            c = self.URM_dataframe.col[train_mask]
+            URM_train = sps.csr_matrix((d,(r, c)), shape=(7947, 25975))
+
+            icm = self.ICM.copy()
+            selector = VarianceThreshold(0.00002) 
+            NewICM = selector.fit_transform(icm)
+
+            URMICM_train = sps.vstack((URM_train,NewICM.T))
+
+            valid_mask = np.logical_not(train_mask)
+
+            d = self.URM_dataframe.data[valid_mask]
+            r = self.URM_dataframe.row[valid_mask]
+            c = self.URM_dataframe.col[valid_mask]
+            URM_valid = sps.csr_matrix((d,(r, c)), shape=(7947, 25975))
+
+            tmp_ds = (URMICM_train.tocsr(), URM_valid)
+            datasets.append(tmp_ds)
+
+        return datasets
 
     def k_fold(self, splits=5, shuff=True, seed=5):
         ds = np.arange(0, self.NUM_INTERACTIONS, 1)

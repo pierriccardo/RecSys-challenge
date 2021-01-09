@@ -2,6 +2,7 @@
 
 1) prova ItemKNNCB con RP3beta, P3alpha similarities
 
+2) PROVA SLIM MSE E ELASTIC NET CON URM NORMALE
 
 
 

@@ -225,7 +225,7 @@ for e in list:
         recs.append(r)
     
     elif e == '7':
-        r = SLIM_MSE(URMICM_train)
+        r = SLIM_MSE(URM_train)
         recs.append(r)
     
     elif e == '8':
@@ -241,11 +241,11 @@ for e in list:
         recs.append(r)
     
     elif e == '11':
-        r = SLIM_ELN(URMICM_train)
+        r = SLIM_ELN(URM_train)
         recs.append(r)
     
     elif e == '12':
-        r = MF_BPR(URMICM_train)
+        r = MF_BPR(URM_train)
         recs.append(r)
 
     else:
