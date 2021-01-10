@@ -91,8 +91,18 @@ from recommenders.IALS              import IALS
 from recommenders.HybridMultiSim    import HybridMultiSim
 from recommenders.SLIM_ELN          import SLIM_ELN
 from recommenders.MF_BPR            import MF_BPR
+from recommenders.TopPop            import TopPop
+from recommenders.HybridCluster     import HybridCluster
 
 from evaluator                      import Evaluator
+
+
+def tune_and_log(h, filename):
+    with open(filename, 'w') as f:
+        with redirect_stdout(f):
+            timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
+            print(timestamp)
+            h.tuning(URM_valid)
 
 def fit_and_save(r):
     r.fit()
@@ -101,11 +111,11 @@ def fit_and_save(r):
     except:
         msg = '|{}|  failed to save r-hat'.format(r.NAME)
         error(msg)
-    #try: 
-    #    r.save_sim_matrix(test=args.test)
-    #except:
-    #    msg = '|{}| rec with no sim-matrix or failed to save'.format(r.NAME)
-    #    error(msg)
+    try: 
+        r.save_sim_matrix(test=args.test)
+    except:
+        msg = '|{}| rec with no sim-matrix or failed to save'.format(r.NAME)
+        error(msg)
     return r
 
 def fit_or_load(r, matrix='r-hat'):
@@ -179,8 +189,6 @@ info(msg)
 
 print('   tunehs        --> tune a hybrid with 2 algorithms with sim matrix          ')
 print('   evalhs        --> eval a hybrid with 2 algorithms with sim matrix          ')
-print('')
-print('   hrhat         --> tune a hybrid with 2 algorithms with r hat               ')
 print('   hms           --> tune a hybrid with n algorithms by sim matrix, random val')
 print('')       
 print('   hmr           --> tune a hybrid with n algorithms by r hat, random val     ')
@@ -199,6 +207,10 @@ c = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
 recs = []
 
 for e in list:
+
+    if e == '0':
+        r = TopPop(URM_train)
+        recs.append(r)
 
     if e == '1':
         r = ItemKNNCF(URMICM_train)
@@ -248,6 +260,10 @@ for e in list:
         r = MF_BPR(URM_train)
         recs.append(r)
 
+    elif e == 'c':
+        r = HybridCluster(URM_train, URMICM_train, ICM)
+        recs.append(r)
+
     else:
         print("wrong insertion, skipped")
 
@@ -258,14 +274,6 @@ for r in recs:
         r = fit_or_load(r, matrix='sim-matrix')
     else:
         r = fit_or_load(r)
- 
-
-def tune_and_log(h, filename):
-    with open(filename, 'w') as f:
-        with redirect_stdout(f):
-            timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
-            print(timestamp)
-            h.tuning(URM_valid)
 
 if c == 'tunehs':
     for r in recs:
@@ -289,11 +297,6 @@ if c == 'evalhs':
     h.fit(alpha=float(a))
     evaluator = Evaluator(h, URM_valid)
     evaluator.results()
-
-
-elif c == 'hrhat':
-    h = HybridRhat(URM_train, recs[0], recs[1])
-    h.tuning(URM_valid)
 
 elif c == 'hms':
     h = HybridMultiSim(URM_train, recs)

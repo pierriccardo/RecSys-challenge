@@ -45,7 +45,7 @@ class Recommender(abc.ABC):
             
             if len(relevant_items)>0:
                 
-                recommended_items = self.recommend(user_id, cutoff)
+                recommended_items, k = self.recommend(user_id, cutoff)
                 num_eval+=1
 
                 cumulative_MAP += self._MAP(recommended_items, relevant_items)
@@ -92,12 +92,12 @@ class Recommender(abc.ABC):
     def recommend(self, user: int = None, cutoff: int = 10, remove_toppop=False):
     
         scores = self._compute_items_scores(user)
-        scores = self._remove_seen_items(user, scores)
+        scores, seen = self._remove_seen_items(user, scores)
         if remove_toppop:
             scores[self.popitems] = -np.inf
         scores = scores.argsort()[::-1]
 
-        return scores[:cutoff]
+        return scores[:cutoff], seen
 
     def save_r_hat(self, folder='raw_data', test=False):
 
@@ -177,9 +177,9 @@ class Recommender(abc.ABC):
         e = self.urm.indptr[user + 1]
         
         seen = self.urm.indices[s:e]
-       
+        
         scores[seen] = -np.inf
-        return scores
+        return scores, len(seen)
 
     def _remove_toppop_items(self, user, scores, at=5):
 

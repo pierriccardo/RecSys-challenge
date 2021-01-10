@@ -8,6 +8,8 @@ from sklearn.preprocessing import normalize
 from sklearn.feature_selection import VarianceThreshold
 from similarity.similarity import similarity
 import similaripy as sim
+from matplotlib import pyplot as plt
+from tqdm import tqdm
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -118,22 +120,6 @@ class Dataset:
 
         return users_to_recommend
 
-    def statistics(self):
-
-        n_user, n_item = self.URM.shape
-        n_interactions = self.URM.nnz
-        
-        user_profile_length = np.ediff1d(self.URM.indptr)
-      
-        min_interaction = user_profile_length.min()
-        max_interaction = user_profile_length.max()
-
-        print('n_user: {}'.format(n_user))
-        print('n_item: {}'.format(n_item))
-        print('n_interaction: {}'.format(n_interactions))
-        print('min_interaction: {}'.format(min_interaction))
-        print('max_interaction: {}'.format(max_interaction))
-
     def k_fold_icm(self, splits=5, shuff=True, seed=5):
         ds = np.arange(0, self.NUM_INTERACTIONS, 1)
         datasets = []
@@ -196,12 +182,52 @@ class Dataset:
 
         return datasets
    
+    def statistics(self):
+
+        n_user, n_item = self.URM.shape
+        n_interactions = self.URM.nnz
+        
+        user_profile_length = np.ediff1d(self.URM.indptr)
+      
+        min_interaction = user_profile_length.min()
+        max_interaction = user_profile_length.max()
+
+        print('n_user: {}'.format(n_user))
+        print('n_item: {}'.format(n_item))
+        print('n_interaction: {}'.format(n_interactions))
+        print('min_interaction: {}'.format(min_interaction))
+        print('max_interaction: {}'.format(max_interaction))
+
+        data = []
+        for x in tqdm(range(min_interaction, max_interaction)):
+            user_with_x_interactions = 0
+            for user in range(0,7947):
+                s = self.URM.indptr[user]
+                e = self.URM.indptr[user + 1]
+        
+                seen = self.URM.indices[s:e]
+                if len(seen) == x:
+                    user_with_x_interactions += 1
+            
+            data.append([x, user_with_x_interactions])
+        df = pd.DataFrame(data, columns = ['interactions', 'num_users']) 
+        df = df[:30]
+
+        df.plot(kind='bar',x='interactions',y='num_users',color='blue')
+        plt.show()
         
 
+            
 
 
 
 
 
 
-        
+def main():
+
+    d = Dataset()
+
+    d.statistics()
+
+#main()

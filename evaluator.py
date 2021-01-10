@@ -14,6 +14,19 @@ class Evaluator:
         self.cumulative_MAP = 0.0
         self.num_eval = 0
 
+        self.clusters = []
+
+        self.clusters_range = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 30, 50, 100, 1600]
+        for x in range(0, len(self.clusters_range) - 1):
+            cluster = {
+                'start': self.clusters_range[x],
+                'end': self.clusters_range[x+1],
+                'pred': [],
+                'users': 0
+            }
+            self.clusters.append(cluster)
+        
+
         self._evaluate_algorithm()
 
     def get_MAP(self):
@@ -45,7 +58,7 @@ class Evaluator:
         map_score = np.sum(p_at_k) / np.min([relevant_items.shape[0], is_relevant.shape[0]])
 
         return map_score
-
+    '''
     def _evaluate_algorithm(self):
 
         pbar = tqdm(range(self.urm_test.shape[0]))
@@ -65,6 +78,38 @@ class Evaluator:
                 
         self.cumulative_precision /= self.num_eval
         self.cumulative_recall /= self.num_eval
+        self.cumulative_MAP /= self.num_eval
+    '''
+    
+
+    def _evaluate_algorithm(self):
+
+        pbar = tqdm(range(self.urm_test.shape[0]))
+        for user_id in pbar:
+            
+            pbar.set_description('|{}| evaluating'.format(self.recommender.NAME))
+            relevant_items = self.urm_test.indices[self.urm_test.indptr[user_id]:self.urm_test.indptr[user_id+1]]
+            
+            if len(relevant_items)>0:
+                
+                recommended_items, seen = self.recommender.recommend(user_id, self.cutoff)
+                self.num_eval+=1
+
+                P = self.precision(recommended_items, relevant_items)
+                R = self.recall(recommended_items, relevant_items)
+                M = self.MAP(recommended_items, relevant_items)
+                
+                for c in self.clusters:
+                    if seen >= c['start'] and seen < c['end']:
+                        c['pred'].append(M)
+                        c['users'] += 1
+
+                self.cumulative_precision += P 
+                self.cumulative_recall += R
+                self.cumulative_MAP += M
+
+        self.cumulative_precision /= self.num_eval
+        self.cumulative_recall /= self.num_eval
         self.cumulative_MAP /= self.num_eval  
         
 
@@ -80,3 +125,13 @@ class Evaluator:
             self.cumulative_MAP
             )
         )
+        m = "|range(-----,-----) | users ----- |{:8s}|".format(self.recommender.NAME)
+        print(m)
+        for c in self.clusters:
+            den = 1
+            if len(c['pred']) > 0:
+                den = len(c['pred'])
+            p = sum(c['pred']) / den
+
+            m = "|range({:5},{:5}) | users {:5} |  {:.4f}  |"
+            print(m.format(c['start'], c['end'], c['users'], p))
