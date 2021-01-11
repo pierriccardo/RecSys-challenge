@@ -6,6 +6,7 @@ import similaripy as sim
 import sys
 import configparser
 from tqdm import tqdm
+from evaluator import Evaluator
 
 class HybridMultiRhat(Recommender):
 
@@ -94,18 +95,21 @@ class HybridMultiRhat(Recommender):
 
                 vec = np.random.dirichlet(np.ones(len(self.recs)),size=1)[0]
                 self.fit(vec, norm=n)
-                self._evaluate(urm_valid)
+
+                e = Evaluator(self, urm_valid)
+                MAP = e.results()
+                #self._evaluate(urm_valid)
 
                 log = '|iter: {:-5d}/{} | vec: {} | norm: {} | MAP: {:.4f} |'
-                print(log.format(i, total, vec, n, self.MAP))
+                print(log.format(i, total, vec, n, MAP))
                 sys.stdout.flush()
                 i+=1
 
-                if self.MAP > BEST_MAP:
+                if MAP > BEST_MAP:
 
                     BEST_VEC = vec
                     BEST_NORM = n
-                    BEST_MAP = self.MAP
+                    BEST_MAP = MAP
             
         log = '|{}| best results | vec: {} | norm: {} | MAP: {:.4f} |'
         print(log.format(self.NAME, BEST_VEC, BEST_NORM, BEST_MAP))

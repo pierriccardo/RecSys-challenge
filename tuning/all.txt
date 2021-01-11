@@ -1,3 +1,17 @@
+# HYBRIDS
+HMR(ItemKNNCF,ItemKNNCB) | vec: [0.41466565 0.58533435] | norm: none | MAP: 0.0649 |
+HMR(ItemKNNCB,RP3beta)   | vec: [0.71494442 0.28505558] | norm: none | MAP: 0.0744 |
+HMR(ItemKNNCB,UserKNNCF) | vec: [0.5499629 0.4500371]   | norm: none | MAP: 0.0701 |
+
+
+
+
+
+
+
+
+
+
 
 
 HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB)

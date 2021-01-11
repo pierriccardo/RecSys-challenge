@@ -23,7 +23,8 @@ def create_submission_csv(recommender, users_list, save_path='./'):
             
             pbar.set_description("|{}| creating submission csv".format(recommender.NAME))
 
-            rec_list = recommender.recommend(user_id, 10).tolist()
+            rec_list, k = recommender.recommend(user_id, 10)
+            rec_list = rec_list.tolist()
             item_list = ''
             for e in rec_list:
                 item_list += str(e) + ' '

@@ -213,7 +213,7 @@ for e in list:
         recs.append(r)
 
     if e == '1':
-        r = ItemKNNCF(URMICM_train)
+        r = ItemKNNCF(URM_train)
         recs.append(r)
 
     elif e == '2':
@@ -221,15 +221,15 @@ for e in list:
         recs.append(r)
 
     elif e == '3':
-        r = RP3beta(URMICM_train)
+        r = RP3beta(URM_train)
         recs.append(r)
 
     elif e == '4':
-        r = P3alpha(URMICM_train)
+        r = P3alpha(URM_train)
         recs.append(r)
 
     elif e == '5':
-        r = UserKNNCF(URMICM_train)
+        r = UserKNNCF(URM_train)
         recs.append(r)
 
     elif e == '6':
@@ -241,15 +241,15 @@ for e in list:
         recs.append(r)
     
     elif e == '8':
-        r = SLIM_BPR(URMICM_train)
+        r = SLIM_BPR(URM_train)
         recs.append(r)
     
     elif e == '9':
-        r = PureSVD(URMICM_train)
+        r = PureSVD(URM_train)
         recs.append(r)
 
     elif e == '10':
-        r = IALS(URMICM_train)
+        r = IALS(URM_train)
         recs.append(r)
     
     elif e == '11':
@@ -276,8 +276,6 @@ for r in recs:
         r = fit_or_load(r)
 
 if c == 'tunehs':
-    for r in recs:
-        fit_or_load(r, matrix='sim-matrix')
     h = HybridSimilarity(URM_train, recs[0], recs[1])
  
     filename = os.path.join(args.folder, '{}-TUNING.txt'.format(h.NAME))
@@ -291,8 +289,7 @@ if c == 'tunehs':
 if c == 'evalhs':
     print('insert alpha:')
     a = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
-    for r in recs:
-        r.fit()
+
     h = HybridSimilarity(URM_train, recs[0], recs[1])
     h.fit(alpha=float(a))
     evaluator = Evaluator(h, URM_valid)
@@ -328,6 +325,8 @@ elif c == 'eval':
     for r in recs:
         evaluator = Evaluator(r, URM_valid)
         evaluator.results()
+
+        create_submission_csv(r, test_set, config['paths']['results'])
     
 elif c == 'subhmr':
     vec_input = input('Insert the value vector:')

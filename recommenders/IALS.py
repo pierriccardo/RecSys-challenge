@@ -15,7 +15,7 @@ class IALS(Recommender):
         self.n_users, self.n_items = self.urm.shape
         self.urmt = self.urm.T
 
-    def fit(self, n_factors=80, reg=0.01, iterations=90, alpha=15):
+    def fit(self, n_factors=100, reg=0.02, iterations=90, alpha=15):
 
         model = implicit.als.AlternatingLeastSquares(factors=n_factors, regularization=reg, iterations=iterations)
         data_conf = (self.urmt * alpha).astype('double')

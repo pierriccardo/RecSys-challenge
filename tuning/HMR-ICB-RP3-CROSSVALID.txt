@@ -1,0 +1,12 @@
+10-01-2021-23:46:17
+|HMR(ItemKNNCB,RP3beta)| iter:     0/100 | vec: [0.29751149 0.70248851] | avgMAP: 0.0721 |
+|HMR(ItemKNNCB,RP3beta)| iter:     1/100 | vec: [0.29751149 0.70248851] | avgMAP: 0.0721 |
+|HMR(ItemKNNCB,RP3beta)| iter:     2/100 | vec: [0.29751149 0.70248851] | avgMAP: 0.0721 |
+|HMR(ItemKNNCB,RP3beta)| iter:     3/100 | vec: [0.29751149 0.70248851] | avgMAP: 0.0721 |
+|HMR(ItemKNNCB,RP3beta)| iter:     4/100 | vec: [0.29751149 0.70248851] | avgMAP: 0.0721 |
+|HMR(ItemKNNCB,RP3beta)| iter:     5/100 | vec: [0.29751149 0.70248851] | avgMAP: 0.0721 |
+|HMR(ItemKNNCB,RP3beta)| iter:     6/100 | vec: [0.29751149 0.70248851] | avgMAP: 0.0721 |
+|HMR(ItemKNNCB,RP3beta)| iter:     7/100 | vec: [0.29751149 0.70248851] | avgMAP: 0.0721 |
+|HMR(ItemKNNCB,RP3beta)| iter:     8/100 | vec: [0.29751149 0.70248851] | avgMAP: 0.0721 |
+|HMR(ItemKNNCB,RP3beta)| iter:     9/100 | vec: [0.29751149 0.70248851] | avgMAP: 0.0721 |
+|HMR(ItemKNNCB,RP3beta)| iter:    10/100 | vec: [0.29751149 0.70248851] | avgMAP: 0.0721 |

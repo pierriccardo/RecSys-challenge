@@ -298,9 +298,3 @@ class Recommender(abc.ABC):
         W_sparse = sps.csc_matrix((data, rows_indices, cols_indptr), shape=(nitems, nitems), dtype=np.float32)
 
         return W_sparse
-
-
-
-    def _print_r_hat(self):
-        print('name: {}, r_hat => type {}  shape {} '.format(self.NAME, type(self.r_hat), self.r_hat.shape))
-        print(self.r_hat)

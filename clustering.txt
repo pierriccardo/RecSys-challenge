@@ -1,51 +1,3 @@
-(25975, 19908)
-[43m[30m   NB: Train URM loaded                             [0m
-
-   ██████╗ ███████╗ ██████╗███████╗██╗   ██╗███████╗
-   ██╔══██╗██╔════╝██╔════╝██╔════╝╚██╗ ██╔╝██╔════╝
-   ██████╔╝█████╗  ██║     ███████╗ ╚████╔╝ ███████╗
-   ██╔══██╗██╔══╝  ██║     ╚════██║  ╚██╔╝  ╚════██║
-   ██║  ██║███████╗╚██████╗███████║   ██║   ███████║
-   ╚═╝  ╚═╝╚══════╝ ╚═════╝╚══════╝   ╚═╝   ╚══════╝
-[30m[42m
-   Choose a list of algorithms:                     
-[0m[32m
-   press 1  --> ItemKNNCF
-   press 2  --> ItemKNNCB
-   press 3  --> RP3beta
-   press 4  --> P3alpha
-   press 5  --> UserKNNCF
-   press 6  --> UserKNNCB
-   press 7  --> SLIM_MSE
-   press 8  --> SLIM_BPR
-   press 9  --> PureSVD
-   press 10 --> IALS
-   press 11 --> SLIM_ELN
-   press 12 --> MF_BPR
-
-[34m[47m -> [0m[44m[30m   Choose an action:                                                     [0m
-   tunehs        --> tune a hybrid with 2 algorithms with sim matrix          
-   evalhs        --> eval a hybrid with 2 algorithms with sim matrix          
-   hms           --> tune a hybrid with n algorithms by sim matrix, random val
-
-   hmr           --> tune a hybrid with n algorithms by r hat, random val     
-   subhmr        --> submit a hybrid multi rhat algorithm                     
-   evalhmr       --> evaluate a hybrid multi rhat recommender                 
-
-   tune          --> tune the choosen algorithms                              
-   eval          --> evaluate the selected algorithms                         
-
-[34m[47m -> [0m[42m[30m|ItemKNNCF|  rhat loaded [0m
-[42m[30m|ItemKNNCB|  rhat loaded [0m
-[42m[30m|RP3beta|  rhat loaded [0m
-[42m[30m|P3alpha|  rhat loaded [0m
-[42m[30m|UserKNNCF|  rhat loaded [0m
-[42m[30m|UserKNNCB|  rhat loaded [0m
-[42m[30m|SLIM_MSE|  rhat loaded [0m
-[42m[30m|SLIM_BPR|  rhat loaded [0m
-[42m[30m|IALS|  rhat loaded [0m
-[42m[30m|SLIM_ELN|  rhat loaded [0m
-|ItemKNNCF| precision = 0.0332 | Recall = 0.1179 | MAP = 0.0570 |
 |range(-----,-----) | users ----- |ItemKNNCF|ItemKNNCB|RP3beta |P3alpha |UserKNNCF|UserKNNCB|SLIM_MSE|SLIM_BPR|IALS    |SLIM_ELN|
 |range(    0,    2) | users   512 |  0.0442 |  0.0294 |  0.0396|  0.0430|  0.0394 |  0.0355 |  0.0250|  0.0383|  0.0376|  0.0279|ItemCF
 |range(    2,    3) | users   628 |  0.0620 |  0.0330 |  0.0745|  0.0768|  0.0725 |  0.0473 |  0.0468|  0.0620|  0.0641|  0.0454|P3alpha
@@ -65,21 +17,108 @@
 |range(   30,   50) | users   286 |  0.0382 |  0.0221 |  0.0507|  0.0475|  0.0475 |  0.0362 |  0.0580|  0.0498|  0.0501|  0.0477|SLIM_MSE
 |range(   50,  100) | users   178 |  0.0372 |  0.0297 |  0.0477|  0.0440|  0.0534 |  0.0333 |  0.0500|  0.0473|  0.0436|  0.0469|UserKNNCF
 |range(  100, 1600) | users   105 |  0.0618 |  0.0513 |  0.0825|  0.0796|  0.0792 |  0.0584 |  0.1026|  0.0924|  0.0808|  0.0925|SLIM_MSE
-|range(    0,    2) |ItemCF
-|range(    2,    3) |P3alpha
-|range(    3,    4) |RP3beta
-|range(    4,    5) |RP3beta
-|range(    5,    6) |RP3beta
-|range(    6,    7) |RP3beta
-|range(    7,    8) |RP3beta
-|range(    8,    9) |RP3beta
-|range(    9,   10) |RP3beta
-|range(   10,   11) |RP3beta
-|range(   11,   12) |RP3beta
-|range(   12,   13) |RP3beta
-|range(   13,   14) |RP3beta
-|range(   14,   15) |RP3beta
-|range(   15,   30) |RP3beta
-|range(   30,   50) |SLIM_MSE
-|range(   50,  100) |UserKNNCF
-|range(  100, 1600) |SLIM_MSE
+
+
+|range(-----,-----) | users ----- |
+|range(    0,    2) | users   512 |
+|range(    2,    3) | users   628 |
+|range(    3,    4) | users   579 |
+|range(    4,    5) | users   446 |
+|range(    5,    6) | users   403 |
+|range(    6,    7) | users   368 |
+|range(    7,    8) | users   344 |
+|range(    8,    9) | users   224 |
+|range(    9,   10) | users   181 |
+|range(   10,   11) | users   150 |
+|range(   11,   12) | users   144 |
+|range(   12,   13) | users   135 |
+|range(   13,   14) | users   117 |
+|range(   14,   15) | users   100 |
+|range(   15,   30) | users   712 |
+|range(   30,   50) | users   286 |
+|range(   50,  100) | users   178 |
+|range(  100, 1600) | users   105 |
+
+
+|range(-----,-----) | users ----- |ItemKNNCF|ItemKNNCB|RP3betaICM |P3alphaICM |UserKNNCF|UserKNNCB|SLIM_MSE|SLIM_ELN|HMRICF,CB)|HMR-ICB,RP3|HMR-ICB,UCF|
+|range(    0,    2) | users   512 |  0.0442 |  0.0294 |  0.0396   |  0.0430   |  0.0394 |  0.0355 |  0.0250|  0.0279|  0.0494  |  0.0498   |  0.0435   |HMR-ICB,RP3
+|range(    2,    3) | users   628 |  0.0620 |  0.0330 |  0.0745   |  0.0768   |  0.0725 |  0.0473 |  0.0468|  0.0454|  0.0575  |  0.0685   |  0.0655   |P3alpha
+|range(    3,    4) | users   579 |  0.0619 |  0.0384 |  0.0763   |  0.0740   |  0.0714 |  0.0527 |  0.0501|  0.0507|  0.0677  |  0.0769   |  0.0738   |HMR-ICB,RP3
+|range(    4,    5) | users   446 |  0.0665 |  0.0397 |  0.0899   |  0.0892   |  0.0851 |  0.0610 |  0.0575|  0.0566|  0.0672  |  0.0833   |  0.0841   |RP3beta
+|range(    5,    6) | users   403 |  0.0605 |  0.0433 |  0.0715   |  0.0699   |  0.0689 |  0.0592 |  0.0467|  0.0472|  0.0653  |  0.0769   |  0.0758   |HMR-ICB,RP3
+|range(    6,    7) | users   368 |  0.0621 |  0.0516 |  0.0878   |  0.0846   |  0.0746 |  0.0694 |  0.0585|  0.0597|  0.0730  |  0.0953   |  0.0904   |HMR-ICB,RP3
+|range(    7,    8) | users   344 |  0.0629 |  0.0525 |  0.0832   |  0.0790   |  0.0698 |  0.0393 |  0.0517|  0.0479|  0.0659  |  0.0822   |  0.0738   |RP3beta
+|range(    8,    9) | users   224 |  0.0434 |  0.0342 |  0.0693   |  0.0667   |  0.0565 |  0.0400 |  0.0497|  0.0496|  0.0579  |  0.0652   |  0.0694   |HMR-ICB,UCF
+|range(    9,   10) | users   181 |  0.0593 |  0.0449 |  0.0830   |  0.0815   |  0.0741 |  0.0447 |  0.0490|  0.0447|  0.0814  |  0.0821   |  0.0750   |RP3beta
+|range(   10,   11) | users   150 |  0.0805 |  0.0480 |  0.1115   |  0.1095   |  0.0977 |  0.0708 |  0.0779|  0.0881|  0.1070  |  0.1105   |  0.1096   |RP3beta
+|range(   11,   12) | users   144 |  0.0554 |  0.0409 |  0.0826   |  0.0777   |  0.0702 |  0.0462 |  0.0467|  0.0547|  0.0643  |  0.0733   |  0.0636   |RP3beta
+|range(   12,   13) | users   135 |  0.0506 |  0.0391 |  0.0780   |  0.0654   |  0.0686 |  0.0533 |  0.0570|  0.0506|  0.0647  |  0.0723   |  0.0719   |RP3beta
+|range(   13,   14) | users   117 |  0.0368 |  0.0251 |  0.0706   |  0.0678   |  0.0652 |  0.0435 |  0.0641|  0.0456|  0.0608  |  0.0709   |  0.0712   |HMR-ICB,RP3
+|range(   14,   15) | users   100 |  0.0625 |  0.0461 |  0.0677   |  0.0659   |  0.0643 |  0.0435 |  0.0552|  0.0417|  0.0798  |  0.0830   |  0.0739   |HMR-ICB,RP3
+|range(   15,   30) | users   712 |  0.0593 |  0.0329 |  0.0762   |  0.0734   |  0.0672 |  0.0479 |  0.0574|  0.0540|  0.0683  |  0.0771   |  0.0700   |HMR-ICB,RP3
+|range(   30,   50) | users   286 |  0.0382 |  0.0221 |  0.0507   |  0.0475   |  0.0475 |  0.0362 |  0.0580|  0.0477|  0.0506  |  0.0563   |  0.0456   |SLIM_MSE
+|range(   50,  100) | users   178 |  0.0372 |  0.0297 |  0.0477   |  0.0440   |  0.0534 |  0.0333 |  0.0500|  0.0469|  0.0514  |  0.0524   |  0.0498   |UserKNNCF
+|range(  100, 1600) | users   105 |  0.0618 |  0.0513 |  0.0825   |  0.0796   |  0.0792 |  0.0584 |  0.1026|  0.0925|  0.0837  |  0.0923   |  0.0857   |SLIM_MSE
+
+
+|range(-----,-----) | users ----- |UserKNNCF|
+|range(    0,    2) | users   512 |  0.0299  |
+|range(    2,    3) | users   628 |  0.0505  |
+|range(    3,    4) | users   579 |  0.0529  |
+|range(    4,    5) | users   446 |  0.0727  |
+|range(    5,    6) | users   403 |  0.0522  |
+|range(    6,    7) | users   368 |  0.0651  |
+|range(    7,    8) | users   344 |  0.0507  |
+|range(    8,    9) | users   224 |  0.0585  |
+|range(    9,   10) | users   181 |  0.0443  |
+|range(   10,   11) | users   150 |  0.0902  |
+|range(   11,   12) | users   144 |  0.0498  |
+|range(   12,   13) | users   135 |  0.0535  |
+|range(   13,   14) | users   117 |  0.0618  |
+|range(   14,   15) | users   100 |  0.0508  |
+|range(   15,   30) | users   712 |  0.0557  |
+|range(   30,   50) | users   286 |  0.0469  |
+|range(   50,  100) | users   178 |  0.0477  |
+|range(  100, 1600) | users   105 |  0.0878  |
+
+|range(-----,-----) | users ----- |UserKNNCB|
+|range(    0,    2) | users   512 |  0.0355  |
+|range(    2,    3) | users   628 |  0.0473  |
+|range(    3,    4) | users   579 |  0.0527  |
+|range(    4,    5) | users   446 |  0.0610  |
+|range(    5,    6) | users   403 |  0.0592  |
+|range(    6,    7) | users   368 |  0.0694  |
+|range(    7,    8) | users   344 |  0.0393  |
+|range(    8,    9) | users   224 |  0.0400  |
+|range(    9,   10) | users   181 |  0.0447  |
+|range(   10,   11) | users   150 |  0.0708  |
+|range(   11,   12) | users   144 |  0.0462  |
+|range(   12,   13) | users   135 |  0.0533  |
+|range(   13,   14) | users   117 |  0.0435  |
+|range(   14,   15) | users   100 |  0.0435  |
+|range(   15,   30) | users   712 |  0.0479  |
+|range(   30,   50) | users   286 |  0.0362  |
+|range(   50,  100) | users   178 |  0.0333  |
+|range(  100, 1600) | users   105 |  0.0584  |
+
+
+
+|range(-----,-----) | users ----- |
+|range(    0,    2) | users   512 |
+|range(    2,    3) | users   628 |
+|range(    3,    4) | users   579 |
+|range(    4,    5) | users   446 |
+|range(    5,    6) | users   403 |
+|range(    6,    7) | users   368 |
+|range(    7,    8) | users   344 |
+|range(    8,    9) | users   224 |
+|range(    9,   10) | users   181 |
+|range(   10,   11) | users   150 |
+|range(   11,   12) | users   144 |
+|range(   12,   13) | users   135 |
+|range(   13,   14) | users   117 |
+|range(   14,   15) | users   100 |
+|range(   15,   30) | users   712 |
+|range(   30,   50) | users   286 |
+|range(   50,  100) | users   178 |
+|range(  100, 1600) | users   105 |

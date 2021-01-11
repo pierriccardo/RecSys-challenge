@@ -113,7 +113,7 @@ class Evaluator:
         self.cumulative_MAP /= self.num_eval  
         
 
-    def results(self):
+    def results(self, cluster=True):
 
         try: name = self.recommender.NAME
         except: name = 'Recommender'
@@ -125,13 +125,16 @@ class Evaluator:
             self.cumulative_MAP
             )
         )
-        m = "|range(-----,-----) | users ----- |{:8s}|".format(self.recommender.NAME)
-        print(m)
-        for c in self.clusters:
-            den = 1
-            if len(c['pred']) > 0:
-                den = len(c['pred'])
-            p = sum(c['pred']) / den
+        if cluster:
+            m = "|range(-----,-----) | users ----- |{:8s}|".format(self.recommender.NAME)
+            print(m)
+            for c in self.clusters:
+                den = 1
+                if len(c['pred']) > 0:
+                    den = len(c['pred'])
+                p = sum(c['pred']) / den
 
-            m = "|range({:5},{:5}) | users {:5} |  {:.4f}  |"
-            print(m.format(c['start'], c['end'], c['users'], p))
+                m = "|range({:5},{:5}) | users {:5} |  {:.4f}  |"
+                print(m.format(c['start'], c['end'], c['users'], p))
+        
+        return self.cumulative_MAP

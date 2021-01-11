@@ -37,25 +37,47 @@ class HybridCluster(Recommender):
         self.urm = urm
         self.urmicm = urmicm
         self.icm = icm
+
+        TYPE = 'test'
+
+        # --- paths ---
+        ICF_path = 'raw_data/ItemKNNCF-r-hat-{}.npz'.format(TYPE)
+        ICB_path = 'raw_data/ItemKNNCB-r-hat-{}.npz'.format(TYPE)
+        RP3_path = 'raw_data/RP3beta-r-hat-{}.npz'.format(TYPE)
+        P3A_path = 'raw_data/P3alpha-r-hat-{}.npz'.format(TYPE)
+        UCF_path = 'raw_data/UserKNNCF-r-hat-{}.npz'.format(TYPE)
+        UCB_path = 'raw_data/UserKNNCB-r-hat-{}.npz'.format(TYPE)
+        MSE_path = 'raw_data/SLIM_MSE-r-hat-{}.npz'.format(TYPE)
+
         
-    
-        self.itemKNNCF = ItemKNNCF(self.urmicm)
-        self.itemKNNCF.fit()
+        # --- recommenders ---
+        self.ICF = ItemKNNCF(self.urm)
+        self.ICF.load_r_hat(ICF_path)
 
-        self.itemKNNCB = ItemKNNCB(self.urm, self.icm)
-        self.itemKNNCB.fit()
+        self.ICB = ItemKNNCB(self.urm, self.icm)
+        self.ICB.load_r_hat(ICB_path)
 
-        self.rp3beta = RP3beta(self.urmicm)
-        self.rp3beta.fit()
+        self.RP3 = RP3beta(self.urm)
+        self.RP3.load_r_hat(RP3_path)
 
-        self.p3alpha = P3alpha(self.urmicm)
-        self.p3alpha.fit()
+        self.P3A = P3alpha(self.urm)
+        self.P3A.load_r_hat(P3A_path)
 
-        self.userKNNCF = UserKNNCF(self.urmicm)
-        self.userKNNCF.fit()
+        self.UCF = UserKNNCF(self.urm)
+        self.UCF.load_r_hat(UCF_path)
 
-        self.slim_mse = SLIM_MSE(self.urm)
-        self.slim_mse.load_r_hat('raw_data/SLIM_MSE-r-hat-valid.npz')
+        self.UCB = UserKNNCB(self.urm, self.icm)
+        self.UCB.load_r_hat(UCB_path)
+
+        self.MSE = SLIM_MSE(self.urm)
+        self.MSE.load_r_hat(MSE_path)
+
+        # --- HYBRIDS ---
+        self.HMR_ICF_ICB = HybridMultiRhat(self.urm, [self.ICF, self.ICB]) 
+        self.HMR_ICF_ICB.fit([0.41466565, 0.58533435]) 
+
+        self.HMR_ICB_RP3 = HybridMultiRhat(self.urm, [self.ICB, self.RP3]) 
+        self.HMR_ICB_RP3.fit([0.71494442, 0.28505558]) 
 
        
 
@@ -94,26 +116,28 @@ class HybridCluster(Recommender):
         sn = self.urm.indices[s:e]
         seen = len(sn)
 
-        scores, k = self.rp3beta.recommend(user, cutoff=10)
+        
 
         if seen >= 0 and seen < 2:
-            scores, k = self.itemKNNCF.recommend(user, cutoff=10)
+            scores, k = self.HMR_ICF_ICB.recommend(user, cutoff=10)
         if seen >= 2 and seen < 3:
-            scores, k = self.p3alpha.recommend(user, cutoff=10)
+            scores, k = self.P3A.recommend(user, cutoff=10)
         if seen >= 3 and seen < 30:
-            scores, k = self.userKNNCF.recommend(user, cutoff=10)
+            scores, k = self.UCF.recommend(user, cutoff=10)
         if seen >= 30 and seen < 50:
-            scores, k = self.slim_mse.recommend(user, cutoff=10)
+            scores, k = self.MSE.recommend(user, cutoff=10)
         if seen >= 50 and seen < 100:
-            scores, k = self.userKNNCF.recommend(user, cutoff=10)
+            scores, k = self.UCF.recommend(user, cutoff=10)
         if seen >= 100 and seen < 1600:
-            scores, k = self.slim_mse.recommend(user, cutoff=10)
+            scores, k = self.MSE.recommend(user, cutoff=10)
         #if seen >= 500 and seen < 600:
         #    scores, k = self.itemKNNCF.recommend(user, cutoff=10)
         #if seen >= 600 and seen < 1000:
         #    scores, k = self.rp3beta.recommend(user, cutoff=10)
         #if seen >= 1000 and seen < 1600:
         #    scores, k = self.userKNNCF.recommend(user, cutoff=10)
+        else:
+            scores, k = self.HMR_ICB_RP3.recommend(user, cutoff=10)
 
         return scores, seen
         
