@@ -6,6 +6,7 @@ from time import strftime, gmtime
 from tqdm import tqdm
 import os
 from recommenders.ItemKNNCF import ItemKNNCF
+from colorama import Fore, Back, Style
 
 
 def create_submission_csv(recommender, users_list, save_path='./'):
@@ -150,5 +151,18 @@ def cross_validate(rec, datasets, cutoff=10):
     t_m = sum(list_MAP) / len(list_MAP)
 
     return t_p, t_r, t_m
+
+
+def warning(msg):
+    print(Back.YELLOW + Fore.BLACK + msg + Style.RESET_ALL)
+
+def success(msg):
+    print(Back.GREEN + Fore.BLACK + msg + Style.RESET_ALL)
+
+def error(msg):
+    print(Back.RED + Fore.BLACK + msg + Style.RESET_ALL)
+
+def info(msg):
+    print(Back.BLUE + Fore.BLACK + msg + Style.RESET_ALL)
 
 

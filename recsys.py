@@ -10,28 +10,18 @@ import argparse
 import os
 from contextlib import redirect_stdout
 from time import strftime, gmtime
-from colorama import Fore, Back, Style
-from utils import create_submission_csv
 from utils import *
+from similarity.similarity import similarity
 
+
+
+#------------------------------
+#       PARSER
+#------------------------------
 parser = argparse.ArgumentParser(description='Recsys main.')
 parser.add_argument('-f', '--folder', type=str, default='tuning')
 parser.add_argument('-t', '--test', action='store_true', default=False)
 parser.add_argument('-lr', '--loadrhat', action='store_true', default=False)
-
-def warning(msg):
-    print(Back.YELLOW + Fore.BLACK + msg + Style.RESET_ALL)
-
-def success(msg):
-    print(Back.GREEN + Fore.BLACK + msg + Style.RESET_ALL)
-
-def error(msg):
-    print(Back.RED + Fore.BLACK + msg + Style.RESET_ALL)
-
-def info(msg):
-    print(Back.BLUE + Fore.BLACK + msg + Style.RESET_ALL)
-
-
 
 args = parser.parse_args()
 if not os.path.exists(args.folder):
@@ -53,46 +43,48 @@ from dataset import Dataset
 d = Dataset(split=0.8)
 
 if args.test:
-    URM_train = d.URM
-    URMICM_train = d.URMICM.tocsr()
-    msg = '   NB: Complete URM loaded                          '
-    warning(msg)
+    URM_train = d.get_URM()
+    URMICM_train = d.get_URMICM()
+    warning('NB: Complete URM loaded')
 
 else:
     URM_train = d.get_URM_train()
-    URMICM_train = d.URMICM_train.tocsr()
-    msg = '   NB: Train URM loaded                             '
-    warning(msg)
+    URMICM_train = d.get_URMICM_train()
+    warning('NB: Train URM loaded')
     
-URM_valid   = d.get_URM_valid()
-ICM         = d.get_ICM()
-test_set    = d.get_test()
+URM_valid    = d.get_URM_valid()
+ICM          = d.get_ICM()
+ICM_selected = d.get_ICM_selected()
+test_set     = d.get_test()
 
 #------------------------------
-#       MODEL
+#       RECOMMENDERS
 #------------------------------
-
 from recommenders.recommender       import Recommender
+from recommenders.TopPop            import TopPop
 from recommenders.ItemKNNCF         import ItemKNNCF
 from recommenders.ItemKNNCB         import ItemKNNCB
+from recommenders.P3alpha           import P3alpha
+from recommenders.RP3beta           import RP3beta
+from recommenders.UserKNNCF         import UserKNNCF
+from recommenders.UserKNNCB         import UserKNNCB
 from recommenders.SLIM_MSE          import SLIM_MSE
+from recommenders.SLIM_BPR          import SLIM_BPR
+from recommenders.SLIM_ELN          import SLIM_ELN
+from recommenders.PureSVD           import PureSVD
+from recommenders.IALS              import IALS
+from recommenders.MF_BPR            import MF_BPR
+
+#------------------------------
+#       HYBRIDS
+#------------------------------
+from recommenders.HybridCluster     import HybridCluster
 from recommenders.HybridSimilarity  import HybridSimilarity
 from recommenders.HybridScores      import HybridScores
 from recommenders.HybridRhat        import HybridRhat
 from recommenders.HybridMultiRhat   import HybridMultiRhat
-from recommenders.P3alpha           import P3alpha
-from recommenders.RP3beta           import RP3beta
-from recommenders.PureSVD           import PureSVD
-from recommenders.SLIM_BPR          import SLIM_BPR
-from recommenders.HybridRhat        import HybridRhat
-from recommenders.UserKNNCF         import UserKNNCF
-from recommenders.UserKNNCB         import UserKNNCB
-from recommenders.IALS              import IALS
 from recommenders.HybridMultiSim    import HybridMultiSim
-from recommenders.SLIM_ELN          import SLIM_ELN
-from recommenders.MF_BPR            import MF_BPR
-from recommenders.TopPop            import TopPop
-from recommenders.HybridCluster     import HybridCluster
+from recommenders.HybridRhat        import HybridRhat
 
 from evaluator                      import Evaluator
 
@@ -154,7 +146,7 @@ def fit_or_load(r, matrix='r-hat'):
     return r
 
 #------------------------------
-# BASIC RECOMMENDERS
+# CONSOLE
 #------------------------------
 
 print('')
@@ -166,20 +158,22 @@ print('   ██║  ██║███████╗╚██████╗�
 print('   ╚═╝  ╚═╝╚══════╝ ╚═════╝╚══════╝   ╚═╝   ╚══════╝')
 print(Fore.BLACK + Back.GREEN)
 print('   Choose a list of algorithms:                     ')
-
-print(Style.RESET_ALL + Fore.GREEN)                                                                           
-print('   press 1  --> ItemKNNCF')
-print('   press 2  --> ItemKNNCB')
-print('   press 3  --> RP3beta')
-print('   press 4  --> P3alpha')
-print('   press 5  --> UserKNNCF')
-print('   press 6  --> UserKNNCB')
-print('   press 7  --> SLIM_MSE')
-print('   press 8  --> SLIM_BPR')
-print('   press 9  --> PureSVD')
-print('   press 10 --> IALS')
-print('   press 11 --> SLIM_ELN')
-print('   press 12 --> MF_BPR')
+print(Style.RESET_ALL + Fore.GREEN)    
+print('  press:                                            ')
+print('   [0]  --> TopPop')
+print('   [1]  --> ItemKNNCF')
+print('   [2]  --> ItemKNNCB')
+print('   [3]  --> RP3beta')
+print('   [4]  --> P3alpha')
+print('   [5]  --> UserKNNCF')
+print('   [6]  --> UserKNNCB')
+print('   [7]  --> SLIM_MSE')
+print('   [8]  --> SLIM_BPR')
+print('   [9]  --> PureSVD')
+print('   [10] --> IALS')
+print('   [11] --> SLIM_ELN')
+print('   [12] --> MF_BPR')
+print('   [c]  --> Hybrid Cluster')
 print('')
 choice = input(Fore.BLUE + Back.WHITE + ' -> ' + Style.RESET_ALL)
 list = choice.split()
@@ -213,7 +207,7 @@ for e in list:
         recs.append(r)
 
     if e == '1':
-        r = ItemKNNCF(URM_train)
+        r = ItemKNNCF(URMICM_train)
         recs.append(r)
 
     elif e == '2':
@@ -221,15 +215,15 @@ for e in list:
         recs.append(r)
 
     elif e == '3':
-        r = RP3beta(URM_train)
+        r = RP3beta(URMICM_train)
         recs.append(r)
 
     elif e == '4':
-        r = P3alpha(URM_train)
+        r = P3alpha(URMICM_train)
         recs.append(r)
 
     elif e == '5':
-        r = UserKNNCF(URM_train)
+        r = UserKNNCF(URMICM_train)
         recs.append(r)
 
     elif e == '6':
@@ -249,7 +243,7 @@ for e in list:
         recs.append(r)
 
     elif e == '10':
-        r = IALS(URM_train)
+        r = IALS(URMICM_train)
         recs.append(r)
     
     elif e == '11':
@@ -257,16 +251,19 @@ for e in list:
         recs.append(r)
     
     elif e == '12':
-        r = MF_BPR(URM_train)
+        r = MF_BPR(URMICM_train)
         recs.append(r)
 
     elif e == 'c':
-        r = HybridCluster(URM_train, URMICM_train, ICM)
+        r = HybridCluster(URM_train, URMICM_train, ICM, URM_valid, is_test=args.test)
         recs.append(r)
 
     else:
         print("wrong insertion, skipped")
 
+#------------------------------
+# TRAIN OR LOAD SELECTED RECS
+#------------------------------
 
 for r in recs:
     
@@ -277,14 +274,8 @@ for r in recs:
 
 if c == 'tunehs':
     h = HybridSimilarity(URM_train, recs[0], recs[1])
- 
     filename = os.path.join(args.folder, '{}-TUNING.txt'.format(h.NAME))
-
-    with open(filename, 'w') as f:
-        with redirect_stdout(f):
-            timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
-            print(timestamp)
-            h.tuning(URM_valid)
+    tune_and_log(h, filename)
 
 if c == 'evalhs':
     print('insert alpha:')
@@ -303,30 +294,19 @@ elif c == 'hms':
 elif c == 'hmr':
     h = HybridMultiRhat(URM_train, recs)
     filename = os.path.join(args.folder, '{}-TUNING.txt'.format(h.NAME))
-
-    with open(filename, 'w') as f:
-        with redirect_stdout(f):
-            timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
-            print(timestamp)
-            h.tuning(URM_valid)
+    tune_and_log(h, filename)
     
 elif c == 'tune':
     for r in recs:
-
         filename = os.path.join(args.folder, '{}-TUNING.txt'.format(r.NAME))
-
-        with open(filename, 'w') as f:
-            with redirect_stdout(f):
-                timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
-                print(timestamp)
-                r.tuning(URM_valid)
+        tune_and_log(r, filename)
 
 elif c == 'eval':
     for r in recs:
         evaluator = Evaluator(r, URM_valid)
         evaluator.results()
 
-        create_submission_csv(r, test_set, config['paths']['results'])
+        #create_submission_csv(r, test_set, config['paths']['results'])
     
 elif c == 'subhmr':
     vec_input = input('Insert the value vector:')
@@ -346,6 +326,10 @@ elif c == 'evalhmr':
     h.fit(vec)
     evaluator = Evaluator(h, URM_valid)
     evaluator.results()
+
+elif c == 'sub':
+    for r in recs:
+        create_submission_csv(r, test_set, config['paths']['results'])
 
 else:
     print('wrong selection')

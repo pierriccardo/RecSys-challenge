@@ -1,28 +1,18 @@
+#------------------------------
 # HYBRIDS
+#------------------------------
 HMR(ItemKNNCF,ItemKNNCB) | vec: [0.41466565 0.58533435] | norm: none | MAP: 0.0649 |
 HMR(ItemKNNCB,RP3beta)   | vec: [0.71494442 0.28505558] | norm: none | MAP: 0.0744 |
 HMR(ItemKNNCB,UserKNNCF) | vec: [0.5499629 0.4500371]   | norm: none | MAP: 0.0701 |
 
-
-
-
-
-
-
-
-
-
-
-
 HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB)
-|iter:     2/1000 | vec: [0.14266883 0.04223591 0.5194811  0.07850139 0.13107157 0.08604119] | norm: none | MAP: 0.0752 |
-|iter:    10/1000 | vec: [0.10540553 0.17456877 0.27300835 0.25468303 0.18199685 0.01033747] | norm: none | MAP: 0.0755 |
+vec: [0.14266883 0.04223591 0.5194811  0.07850139 0.13107157 0.08604119] | norm: none | MAP: 0.0752 |
+vec: [0.10540553 0.17456877 0.27300835 0.25468303 0.18199685 0.01033747] | norm: none | MAP: 0.0755 |
 
-|HMR(ItemKNNCF,RP3beta,UserKNNCF,IALS)| best results | 
+HMR(ItemKNNCF,RP3beta,UserKNNCF,IALS)| 
 vec: [0.13933412 0.16239213 0.00883737 0.68943638] | norm: none | MAP: 0.0754 |
 
-
-HMR(  ItemKNNCF, ItemKNNCB, RP3beta,   P3alpha,   UserKNNCF, UserKNNCB, SLIM_MSE,  SLIM_BPR,  IALS)
+HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB,SLIM_MSE,SLIM_BPR,IALS)
 vec: [0.01361843 0.03391836 0.01384946 0.03608095 0.10730138 0.08679838 0.55565283 0.07768221 0.075098  ] | norm: none | MAP: 0.0770 |
 vec: [0.02061615 0.0270556  0.0217106  0.00300065 0.04813809 0.07843089 0.46077815 0.041509   0.29876087] | norm: none | MAP: 0.0776 |
 vec: [0.13080059 0.0610249  0.03266542 0.03590662 0.03430059 0.15435453 0.40347003 0.01016103 0.13731628] | norm: none | MAP: 0.0773 |
@@ -30,23 +20,25 @@ vec: [0.03836348 0.14982967 0.11180231 0.02973049 0.01736507 0.01230049 0.606407
 vec: [0.04336864 0.15141577 0.11909084 0.00270169 0.1142707  0.30823848 0.23222394 0.02397327 0.00471669] | norm: none | MAP: 0.0772 |
 vec: [0.00996289 0.11134091 0.07012866 0.07830509 0.02096274 0.02818429 0.58280192 0.08760375 0.01070975] | norm: none | MAP: 0.0770 |
 
-
-
-|HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB,SLIM_MSE,SLIM_BPR,IALS,SLIM_ELN)| best results | 
+HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB,SLIM_MSE,SLIM_BPR,IALS,SLIM_ELN)| 
 vec: [0.01226581 0.10041107 0.01747894 0.00849807 0.0596974  0.13454616 0.05412645 0.00263245 0.40257135 0.20777229] | norm: none | MAP: 0.0784 |
 
+#------------------------------
+# CROSS VALIDATION TUNING
+#------------------------------
 
-# cross validation tunings
+|ItemKNNCF| topk: 210 | shrink: 460  | sim type: jaccard | avgMAP: 0.0498 |
+|ItemKNNCB| topk: 350 | shrink:  10  | sim type: splus   | avgMAP: 0.0356 |
+|UserKNNCF| topk: 110 | shrink: 350  | sim type: cosine  | avgMAP: 0.0571 |
+|UserKNNCB| topk:  50 | shrink:  20  | sim type: cosine  | avgMAP: 0.0539 |
+|P3alpha  | topk: 210 | alpha: 0.300 | MAP: 0.0554 |
+|RP3beta  | topk: 340 | alpha: 0.350 | beta: 0.06  | avgMAP: 0.0554 |
 
-|ItemKNNCF| topk: 210 | shrink: 460 | sim type: jaccard | avgMAP: 0.0498 |
-|ItemKNNCB| topk: 350 | shrink:  10 | sim type: splus   | avgMAP: 0.0356 |
-|UserKNNCF| topk: 110 | shrink: 350 | sim type: cosine  | avgMAP: 0.0571 |
-|UserKNNCB| topk:  50 | shrink:  20 | sim type: cosine  | avgMAP: 0.0539 |
-|P3alpha| topk: 210 | alpha: 0.300 | MAP: 0.0554 |
-|RP3beta| topk: 340 | alpha: 0.350 | beta: 0.06 | avgMAP: 0.0554 |
+|RP3betaICM| topk: 310 | alpha: 0.350 | beta: 0.080 | avgMAP: 0.0714 |
 
-
-# cross validation Hybrids
+#------------------------------
+# CROSS VALIDATION HYBRIDS
+#------------------------------
 
 |Hsim(ItemKNNCF, ItemKNNCB)| alpha: 0.450 | avgMAP: 0.0651 |
 |Hsim(UserKNNCF, UserKNNCB)| alpha: 0.700 | avgMAP: 0.0609 |
@@ -55,20 +47,6 @@ vec: [0.01226581 0.10041107 0.01747894 0.00849807 0.0596974  0.13454616 0.054126
 |Hsim(ItemKNNCB, SLIM_MSE) | topk:  40 | alpha: 0.400 | norm: l2 | MAP: 0.0635 |
 |Hsim(ItemKNNCB, SLIM_BPR) | topk:  40 | alpha: 0.600 | norm: l2 | MAP: 0.0672 |
 |Hsim(ItemKNNCB, SLIM_ELN) | topk:  40 | alpha: 0.600 | norm: l2 | MAP: 0.0695 |
-
-
-# HYBRIDS
-HMR(ItemKNNCB,UserKNNCB)
-|iter:    39/2500 | vec: [0.23815851 0.76184149] | norm: none | MAP: 0.0629 |
-|iter:   108/2500 | vec: [0.187771 0.812229] | norm: none | MAP: 0.0630 |
-
-
-
-
-
-
-
-
 
 #------------------------------
 # RECOMMENDERS
@@ -83,7 +61,6 @@ HMR(ItemKNNCB,UserKNNCB)
 
 |UserKNNCF| best results | topk: 160 | shrink:  35 | sim type: cosine | MAP: 0.0570 | -
 |UserKNNCF| best results | topk: 100 | shrink: 180 | sim type: cosine | MAP: 0.0572 |
-
 
 |UserKNNCB| best results | topk:  40 | shrink:   5 | sim type: splus        | MAP: 0.0518 | -
 |UserKNNCB| norm='l2', axis=0| topk:  80 | shrink:  40 | sim type: splus    | MAP: 0.0534 |
@@ -100,17 +77,18 @@ HMR(ItemKNNCB,UserKNNCB)
 # SVD
 |PureSVD| best results | n factors: 290 | n iter:   5 | MAP: 0.0450 |
 
+# MF_IALS
+|MF_IALS|nfact: 70|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0316 |
+|MF_IALS|nfact: 90|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0329 |
+|MF_IALS|nfact:110|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0333 |
+|MF_IALS|nfact:150|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0341 |
+|MF_IALS|nfact:150|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0346 |
 
-|MF_IALS|iter:  11/264|nfact: 70|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0316 |
-|MF_IALS|iter:  23/264|nfact: 90|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0329 |
-|MF_IALS|iter:  34/264|nfact:110|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.010000|imean:0.0|istd:0.1| MAP: 0.0333 |
-|MF_IALS|iter:  54/264|nfact:150|alpha:0.800|epsilon:1.0|epochs:  5|confscal:li|reg:0.100000|imean:0.0|istd:0.1| MAP: 0.0341 |
-|MF_IALS|iter:  59/264|nfact:150|alpha:0.900|epsilon:1.0|epochs:  5|confscal:li|reg:0.001000|imean:0.0|istd:0.1| MAP: 0.0346 |
+# IALS
+|IALS|nfact: 70|alpha:15.000|epochs: 30|reg:0.100000| MAP: 0.0551 |
+|IALS|nfact: 80|alpha:15.000|epochs: 70|reg:0.090000| MAP: 0.0555 |
+|IALS|nfact: 80|alpha:15.000|epochs: 90|reg:0.010000| MAP: 0.0565 |
 
-
-|IALS|best|nfact: 70|alpha:15.000|epochs: 30|reg:0.100000| MAP: 0.0551 |
-|IALS|best|nfact: 80|alpha:15.000|epochs: 70|reg:0.090000| MAP: 0.0555 |
-|IALS|iter|nfact: 80|alpha:15.000|epochs: 90|reg:0.010000| MAP: 0.0565 |
 #------------------------------
 # HYBRIDS
 #------------------------------
@@ -132,10 +110,8 @@ HMR(ItemKNNCB,UserKNNCB)
 |Hscores(H(CBCF), H(RP3B, P3A) | a: 0.081| MAP: 0.0690|
 |Hr_hat (CBCF, SLIMBPR, P3A, RP3B, SLIMMSE) | a: 0.3| b: 0.1| c: 0.0| d: 0.4| MAP: 0.06937| no normalizzazione
 
-
 | Hsimilarity(UserKNNCF, UserKNNCB) | topk: 310 | alpha: 0.960 | norm: non | MAP: 0.0607 |
 | Hsimilarity(ItemKNNCF, ItemKNNCB) | topk:  70 | alpha: 0.800 | norm: non | MAP: 0.0657 |
-
 
 #------------------------------
 # HYBRIDS MULTI RHAT
@@ -157,66 +133,43 @@ HMR(Hsim(ItemKNNCF, ItemKNNCB),P3alpha,Hsim(UserKNNCF, UserKNNCB),Hsim(SLIM_MSE,
 |iter:   996/2500 | vec: [0.41811671 0.02081832 0.07799069 0.02403838 0.06952526 0.38951064] | norm: l2 | MAP: 0.0734 |
 
 HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB,IALS)
-|iter:    46/2500 | vec: [0.07929039 0.25269468 0.03685626 0.10952595 0.0184932  0.04030198
- 0.46283755] | norm: l2 | MAP: 0.0740 |
-
- |iter:   208/2500 | vec: [0.08178641 0.35627287 0.01860214 0.32106781 0.02836425 0.00723577
- 0.18667075] | norm: l2 | MAP: 0.0741 |
-
- |iter:   474/2500 | vec: [0.02107824 0.37487624 0.21933112 0.05357673 0.03866059 0.0762722
- 0.21620488] | norm: l2 | MAP: 0.0750 |
-
- |iter:   514/2500 | vec: [0.0771352  0.40491195 0.05819951 0.19162613 0.03083112 0.08388713
- 0.15340896] | norm: l2 | MAP: 0.0745 |
-
+vec: [0.07929039 0.25269468 0.03685626 0.10952595 0.0184932  0.04030198 0.46283755] | norm: l2 | MAP: 0.0740 |
+vec: [0.08178641 0.35627287 0.01860214 0.32106781 0.02836425 0.00723577 0.18667075] | norm: l2 | MAP: 0.0741 |
+vec: [0.02107824 0.37487624 0.21933112 0.05357673 0.03866059 0.0762722  0.21620488] | norm: l2 | MAP: 0.0750 |
+vec: [0.0771352  0.40491195 0.05819951 0.19162613 0.03083112 0.08388713 0.15340896] | norm: l2 | MAP: 0.0745 |
 
 HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB,SLIM_MSE,SLIM_BPR,IALS)
-vec: [0.03518162 0.36148473 0.0773163  0.0546652  0.09869039 0.04335913
- 0.09798169 0.02526836 0.20605259] | norm: none | MAP: 0.0761 |
-vec: [0.0068366  0.15018189 0.00792804 0.00724071 0.32836327 0.19991625
- 0.03564293 0.05093109 0.21295923] | norm: none | MAP: 0.0765 |
-vec: [0.02146381 0.16695917 0.01549932 0.01086414 0.11211956 0.16555224
- 0.16055148 0.06453604 0.28245425] | norm: none | MAP: 0.0777 |
+vec: [0.03518162 0.36148473 0.0773163  0.0546652  0.09869039 0.04335913 0.09798169 0.02526836 0.20605259] | norm: none | MAP: 0.0761 |
+vec: [0.0068366  0.15018189 0.00792804 0.00724071 0.32836327 0.19991625 0.03564293 0.05093109 0.21295923] | norm: none | MAP: 0.0765 |
+vec: [0.02146381 0.16695917 0.01549932 0.01086414 0.11211956 0.16555224 0.16055148 0.06453604 0.28245425] | norm: none | MAP: 0.0777 |
 
 HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB,IALS)
-vec: [0.00612782 0.16095149 0.02471651 0.00193874 0.26023385 0.02453397 0.52149762] 
-norm: none | MAP: 0.0772 |
-
+vec: [0.00612782 0.16095149 0.02471651 0.00193874 0.26023385 0.02453397 0.52149762] | norm: none | MAP: 0.0772 |
 
 HMR(ItemKNNCF,ItemKNNCB,RP3beta,P3alpha,UserKNNCF,UserKNNCB)
 vec: [0.1143441  0.36932955 0.01258561 0.02942783 0.29144298 0.18286992] | norm: none | MAP: 0.0749 |
 
-
-|HMR(ItemKNNCB,P3alpha,IALS)| best results | 
+HMR(ItemKNNCB,P3alpha,IALS)| best results | 
 vec: [0.3415275  0.10359555 0.55487696] | norm: none | MAP: 0.0774 |
 
-
 HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)
-|2 vec: [0.20545329 0.03659098 0.2521909  0.11956662 0.38619821] | norm: none | MAP: 0.0779 |
+vec: [0.20545329 0.03659098 0.2521909  0.11956662 0.38619821] | norm: none | MAP: 0.0779 |
 
-
-|HMR(ItemKNNCB,P3alpha,UserKNNCF,UserKNNCB,IALS)| best results |
+HMR(ItemKNNCB,P3alpha,UserKNNCF,UserKNNCB,IALS)| best results |
 vec: [0.24113119 0.06475081 0.08733692 0.14996223 0.45681886] | norm: none | MAP: 0.0780 |
 
-|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)| best results |
+HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)| best results |
 vec: [0.24113119 0.06475081 0.08733692 0.14996223 0.45681886] | norm: none | MAP: 0.0781 |
 
-|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)| best results | 
+HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)| best results | 
 vec: [0.18829772 0.04812123 0.32011762 0.10940571 0.33405772] | norm: none | MAP: 0.0779 |
 
 HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)
-| vec: [0.2146038  0.06367613 0.15229995 0.12157612 0.447844  ] | norm: none | MAP: 0.0780 |
+vec: [0.2146038  0.06367613 0.15229995 0.12157612 0.447844  ] | norm: none | MAP: 0.0780 |
 
 HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB,IALS)| best results | 
 vec: [0.2146038  0.06367613 0.15229995 0.12157612 0.447844  ] | norm: none | MAP: 0.0780 |
 
-
-
-# Hybrid
-
 HMR(IALS,Hsim(ItemKNNCF, ItemKNNCB),Hsim(UserKNNCF, UserKNNCB),Hsim(RP3beta, ItemKNNCB),Hsim(P3alpha, ItemKNNCB),Hsim(ItemKNNCB, SLIM_MSE),Hsim(ItemKNNCB, SLIM_BPR),Hsim(ItemKNNCB, SLIM_ELN))
+vec: [0.388992   0.09577393 0.05444316 0.01606637 0.13609958 0.02582959 0.20633242 0.07646295] | norm: none | MAP: 0.0716 |
 
-|iter:   222/2500 | vec: [0.388992   0.09577393 0.05444316 0.01606637 0.13609958 0.02582959
- 0.20633242 0.07646295] | norm: none | MAP: 0.0716 |
-
-0.388992   0.09577393 0.05444316 0.01606637 0.13609958 0.02582959 0.20633242 0.07646295

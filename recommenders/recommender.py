@@ -8,14 +8,11 @@ from time import strftime, gmtime
 from sklearn.preprocessing import normalize
 import os
 
-
 class Recommender(abc.ABC):
 
     NAME = 'Recommender'
 
     def __init__(self, urm, norm=True):
-
-        assert urm.getformat() == 'csr', "urm must be csr, you passed a {}".format(type(urm))
  
         self.urm = sim.normalization.bm25(urm) if norm else urm 
         #self.urm = sim.normalization.tfidf(urm) if norm else urm 
@@ -75,7 +72,6 @@ class Recommender(abc.ABC):
 
         if isinstance(self.r_hat, sps.csc_matrix) or isinstance(self.r_hat, sps.csr_matrix):
             scores = self.r_hat[user].toarray().ravel()
-        
         else:
             scores = self.r_hat[user]
         return scores
@@ -137,6 +133,7 @@ class Recommender(abc.ABC):
                 (loader['data'], loader['indices'], loader['indptr']),
                 shape=loader['shape']
             )
+        print('|{}| r hat loaded:{}'.format(self.NAME, path))
     
     def save_sim_matrix(self, folder='raw_data', test=False):
 
@@ -181,7 +178,7 @@ class Recommender(abc.ABC):
         scores[seen] = -np.inf
         return scores, len(seen)
 
-    def _remove_toppop_items(self, user, scores, at=5):
+    def _remove_toppop_items(self, user, scores, at=2):
 
         item_popularity = np.ediff1d(self.urm.tocsc().indptr)
         popular_items = np.argsort(item_popularity)

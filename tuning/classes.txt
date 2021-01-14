@@ -1,0 +1,62 @@
+# performances per interaction range on train dataset
+e.g. |range(    0,    2) | users   512 | means we have 512 users with 1 interaction
+
+|range of interact. | usr in range|ItemKNNCF |ItemKNNCB |RP3beta   |P3alpha   |UserKNNCF |UserKNNCB |IALS      |SLIM_MSE  |SLIM_ELN  | 
+|range(    0,    2) | users   512 |  0.0442  |  0.0294  |  0.0396  |  0.0312  |  0.0299  |  0.0355  |  0.0295  |  0.0250  |  0.0279  |
+|range(    2,    3) | users   628 |  0.0620  |  0.0330  |  0.0745  |  0.0505  |  0.0505  |  0.0473  |  0.0462  |  0.0468  |  0.0454  |
+|range(    3,    4) | users   579 |  0.0619  |  0.0384  |  0.0763  |  0.0559  |  0.0529  |  0.0527  |  0.0543  |  0.0501  |  0.0507  |
+|range(    4,    5) | users   446 |  0.0665  |  0.0397  |  0.0899  |  0.0738  |  0.0727  |  0.0610  |  0.0656  |  0.0575  |  0.0566  |
+|range(    5,    6) | users   403 |  0.0605  |  0.0433  |  0.0715  |  0.0533  |  0.0522  |  0.0592  |  0.0591  |  0.0467  |  0.0472  |
+|range(    6,    7) | users   368 |  0.0621  |  0.0516  |  0.0878  |  0.0701  |  0.0651  |  0.0694  |  0.0609  |  0.0585  |  0.0597  |
+|range(    7,    8) | users   344 |  0.0629  |  0.0525  |  0.0832  |  0.0535  |  0.0507  |  0.0393  |  0.0472  |  0.0517  |  0.0479  |
+|range(    8,    9) | users   224 |  0.0434  |  0.0342  |  0.0693  |  0.0512  |  0.0585  |  0.0400  |  0.0494  |  0.0497  |  0.0496  |
+|range(    9,   10) | users   181 |  0.0593  |  0.0449  |  0.0830  |  0.0488  |  0.0443  |  0.0447  |  0.0476  |  0.0490  |  0.0447  |
+|range(   10,   11) | users   150 |  0.0805  |  0.0480  |  0.1115  |  0.0919  |  0.0902  |  0.0708  |  0.0741  |  0.0779  |  0.0881  |
+|range(   11,   12) | users   144 |  0.0554  |  0.0409  |  0.0826  |  0.0534  |  0.0498  |  0.0462  |  0.0478  |  0.0467  |  0.0547  |
+|range(   12,   13) | users   135 |  0.0506  |  0.0391  |  0.0780  |  0.0519  |  0.0535  |  0.0533  |  0.0570  |  0.0570  |  0.0506  |
+|range(   13,   14) | users   117 |  0.0368  |  0.0251  |  0.0706  |  0.0590  |  0.0618  |  0.0435  |  0.0741  |  0.0641  |  0.0456  |
+|range(   14,   15) | users   100 |  0.0625  |  0.0461  |  0.0677  |  0.0512  |  0.0508  |  0.0435  |  0.0397  |  0.0552  |  0.0417  |
+|range(   15,   30) | users   712 |  0.0593  |  0.0329  |  0.0762  |  0.0596  |  0.0557  |  0.0479  |  0.0568  |  0.0574  |  0.0540  |
+|range(   30,   50) | users   286 |  0.0382  |  0.0221  |  0.0507  |  0.0494  |  0.0469  |  0.0362  |  0.0430  |  0.0580  |  0.0477  |
+|range(   50,  100) | users   178 |  0.0372  |  0.0297  |  0.0477  |  0.0435  |  0.0477  |  0.0333  |  0.0462  |  0.0500  |  0.0469  |
+|range(  100, 1600) | users   105 |  0.0618  |  0.0513  |  0.0825  |  0.0841  |  0.0878  |  0.0584  |  0.0960  |  0.1026  |  0.0925  |
+
+# total precision
+|ItemKNNCF| precision = 0.0332 | Recall = 0.1179 | MAP = 0.0570 |
+|ItemKNNCB| precision = 0.0232 | Recall = 0.0848 | MAP = 0.0378 |
+|RP3beta  | precision = 0.0424 | Recall = 0.1500 | MAP = 0.0734 |
+|P3alpha  | precision = 0.0356 | Recall = 0.1144 | MAP = 0.0557 |
+|UserKNNCF| precision = 0.0352 | Recall = 0.1117 | MAP = 0.0543 |
+|UserKNNCB| precision = 0.0311 | Recall = 0.1089 | MAP = 0.0492 |
+|IALS     | precision = 0.0354 | Recall = 0.1150 | MAP = 0.0528 |
+|SLIM_MSE | precision = 0.0351 | Recall = 0.1061 | MAP = 0.0519 |
+|SLIM_ELN | precision = 0.0340 | Recall = 0.1053 | MAP = 0.0502 |
+
+
+# ACTUAL BEST
+|HMC| precision = 0.0442 | Recall = 0.1524 | MAP = 0.0773 |
+|range(-----,-----) | users ----- |HYBRID recomm  |recommender used in range                   |
+|range(    0,    2) | users   512 |  0.0535       |HybridMultiRhat (ItemKNNCB,RP3beta          |
+|range(    2,    3) | users   628 |  0.0810       |HybridMultiRhat (P3AICM,UserKNNCF,UserKNNCB)|
+|range(    3,    4) | users   579 |  0.0782       |HybridMultiRhat (P3AICM,UserKNNCF,UserKNNCB)|
+|range(    4,    5) | users   446 |  0.0935       |HybridMultiRhat (P3AICM,UserKNNCF,UserKNNCB)|
+|range(    5,    6) | users   403 |  0.0735       |HybridMultiRhat (ItemKNNCB,RP3beta          |
+|range(    6,    7) | users   368 |  0.0864       |HybridMultiRhat (RP3ICM,UserKNNCF,UserKNNCB)|
+|range(    7,    8) | users   344 |  0.0832       |RP3ICM                                      |
+|range(    8,    9) | users   224 |  0.0705       |HybridMultiRhat (RP3ICM,UserKNNCF,UserKNNCB)|
+|range(    9,   10) | users   181 |  0.0830       |RP3ICM                                      |
+|range(   10,   11) | users   150 |  0.1162       |HybridMultiRhat (RP3ICM,UserKNNCF,UserKNNCB)|
+|range(   11,   12) | users   144 |  0.0842       |HybridMultiRhat (RP3ICM,UserKNNCF,UserKNNCB)|
+|range(   12,   13) | users   135 |  0.0780       |RP3ICM                                      |
+|range(   13,   14) | users   117 |  0.0740       |HybridMultiRhat (P3AICM,UserKNNCF,UserKNNCB)|
+|range(   14,   15) | users   100 |  0.0736       |HybridMultiRhat (ItemKNNCB,RP3beta)         |
+|range(   15,   30) | users   712 |  0.0764       |HybridMultiRhat (RP3ICM,UserKNNCF,UserKNNCB)|
+|range(   30,   50) | users   286 |  0.0575       |HybridMultiRhat (SLIM_MSE,IALS,SLIM_ELN)    |
+|range(   50,  100) | users   178 |  0.0530       |HybridMultiRhat (SLIM_MSE,IALS,SLIM_ELN)    |
+|range(  100, 1600) | users   105 |  0.1087       |HybridMultiRhat (SLIM_MSE,IALS,SLIM_ELN)    |
+
+# Acronyms
+RP3ICM = RP3beta trained with URM concatenated with ICM
+P3AICM = P3alpha trained with URM concatenated with ICM
+
+HYBRID recomm uses for each range the best algorithm to compute the recommendations

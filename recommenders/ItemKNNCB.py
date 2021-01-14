@@ -7,7 +7,6 @@ import similaripy as sim
 import configparser
 import sys
 
-# | iter: 501/13600 | topk: 70 | shrink: 10 | sim type: cosine | MAP: 0.0319 |
 class ItemKNNCB(Recommender):
 
     NAME = 'ItemKNNCB'

@@ -29,8 +29,8 @@ class Dataset:
         self.test_dataframe = pd.read_csv(config['paths']['test'])
 
         # constants
-        self.NUM_USERS = self.URM_dataframe["row"].unique()
-        self.NUM_ITEMS = self.URM_dataframe["col"].unique()
+        self.NUM_USERS = max(self.URM_dataframe["row"]) + 1
+        self.NUM_ITEMS = max(self.URM_dataframe["col"]) + 1
         self.NUM_INTERACTIONS = len(self.URM_dataframe)
         self.split = split
 
@@ -40,20 +40,15 @@ class Dataset:
         self.test = self._create_test()
         self.URM_train, self.URM_valid = self._split_train_validation()
 
-        self.crossvalid_datasets = []
-        
         self.urm_train_df.columns = ['user_id', 'item_id', 'data']
         self.urm_valid_df.columns = ['user_id', 'item_id', 'data']
 
-        icm = self.ICM.copy()
         selector = VarianceThreshold(0.00002) 
-        NewICM = selector.fit_transform(icm)
-        print(NewICM.shape)
+        self.ICM_selected = selector.fit_transform(self.ICM.copy())
 
-        self.URMICM_train = sps.vstack((self.URM_train,NewICM.T))
-        self.URMICM = sps.vstack((self.URM,NewICM.T))
+    def get_URM(self):
+        return self.URM
         
-
     def get_URM_train(self):
         return self.URM_train
 
@@ -64,7 +59,21 @@ class Dataset:
         return self.test
 
     def get_ICM(self):
-        return self.ICM
+        icm_norm = sim.normalization.bm25(self.ICM.copy())
+        return icm_norm
+    
+    def get_URMICM(self):        
+        self.URMICM = sps.vstack((self.URM, self.ICM_selected.T))
+        return self.URMICM.tocsr()
+    
+    def get_URMICM_train(self):
+        self.URMICM_train = sps.vstack((self.URM_train, self.ICM_selected.T))
+        icm_norm = sim.normalization.bm25(self.URMICM_train.tocsr())
+        return icm_norm
+        #return self.URMICM_train.tocsr()
+    
+    def get_ICM_selected(self):
+        return self.ICM_selected
 
     def _split_train_validation(self):
 
@@ -76,17 +85,24 @@ class Dataset:
                                       self.NUM_INTERACTIONS, 
                                       p=[self.split,1-self.split]) 
 
-        self.urm_train_df = self.URM_dataframe.iloc[train_mask]       
-
-        URM_train = sps.csr_matrix((self.URM_dataframe.data[train_mask],
-                            (self.URM_dataframe.row[train_mask], self.URM_dataframe.col[train_mask])), shape=(7947, 25975))
+        self.urm_train_df = self.URM_dataframe.iloc[train_mask]
+        self.urm_train_df.to_csv('train.csv', index = True)   
+          
+        train_d = self.URM_dataframe.data[train_mask]  
+        train_r = self.URM_dataframe.row[train_mask]
+        train_c = self.URM_dataframe.col[train_mask]
+        URM_train = sps.csr_matrix((train_d,(train_r, train_c)), shape=(7947, 25975))
 
         valid_mask = np.logical_not(train_mask)
 
-        self.urm_valid_df = self.URM_dataframe.iloc[valid_mask]       
+        self.urm_valid_df = self.URM_dataframe.iloc[valid_mask]  
+        self.urm_valid_df.to_csv('valid.csv', index = True)     
 
-        URM_valid = sps.csr_matrix((self.URM_dataframe.data[valid_mask],
-                            (self.URM_dataframe.row[valid_mask], self.URM_dataframe.col[valid_mask])), shape=(7947, 25975))
+        valid_d = self.URM_dataframe.data[valid_mask]
+        valid_r = self.URM_dataframe.row[valid_mask]
+        valid_c = self.URM_dataframe.col[valid_mask]
+
+        URM_valid = sps.csr_matrix((valid_d,(valid_r, valid_c)), shape=(7947, 25975))
         
         #assert URM_train.shape == URM_valid.shape, "shapes aren't equal"
 
@@ -182,7 +198,7 @@ class Dataset:
 
         return datasets
    
-    def statistics(self):
+    def urm_statistics(self):
 
         n_user, n_item = self.URM.shape
         n_interactions = self.URM.nnz
@@ -215,19 +231,56 @@ class Dataset:
 
         df.plot(kind='bar',x='interactions',y='num_users',color='blue')
         plt.show()
+
+    def icm_statistics(self):
+
+        item_profile_length = np.ediff1d(self.ICM.indptr)
+      
+        min_interaction = item_profile_length.min()
+        max_interaction = item_profile_length.max()
+
+        data = []
+        for x in tqdm(range(min_interaction, max_interaction)):
+            item_with_x_interactions = 0
+            for item in range(0,25975):
+                s = self.ICM.indptr[item]
+                e = self.ICM.indptr[item + 1]
         
-
+                n_features = self.ICM.indices[s:e]
+                if len(n_features) == x:
+                    item_with_x_interactions += 1
             
+            data.append([x, item_with_x_interactions])
+        df = pd.DataFrame(data, columns = ['n_items', 'n_features']) 
+        #df = df[:30]
+        print(df)
+
+        df.plot(kind='line',x='n_items',y='n_features',color='blue')
+        plt.show()
+
+        print(min_interaction)
+        print(max_interaction)
 
 
+        self.ICM = sps.csr_matrix(self.ICM)
+        features_per_item = np.ediff1d(self.ICM.indptr)
+
+        self.ICM = sps.csc_matrix(self.ICM)
+        items_per_feature = np.ediff1d(self.ICM.indptr)
+
+        self.ICM = sps.csr_matrix(self.ICM)
 
 
+        plt.plot(features_per_item, 'ro')
+        plt.ylabel('Num features ')
+        plt.xlabel('Sorted items')
+        plt.show()
 
 
 def main():
 
     d = Dataset()
 
-    d.statistics()
+    #d.icm_stats()
 
-#main()
+main()

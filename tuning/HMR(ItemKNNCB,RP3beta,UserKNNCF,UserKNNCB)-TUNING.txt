@@ -1,5 +1,3656 @@
-08-01-2021-21:53:21
+11-01-2021-17:18:48
 HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)
-|iter:     0/1000 | vec: [0.04983539 0.40616979 0.04597554 0.49801927] | norm: none | MAP: 0.0658 |
-|iter:     1/1000 | vec: [0.17642181 0.24903375 0.38221214 0.1923323 ] | norm: none | MAP: 0.0705 |
-|iter:     2/1000 | vec: [0.17736033 0.10472522 0.04240537 0.67550908] | norm: none | MAP: 0.0596 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0431 | Recall = 0.1456 | MAP = 0.0715 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0443  |
+|range(    2,    3) | users   628 |  0.0652  |
+|range(    3,    4) | users   579 |  0.0754  |
+|range(    4,    5) | users   446 |  0.0832  |
+|range(    5,    6) | users   403 |  0.0723  |
+|range(    6,    7) | users   368 |  0.0886  |
+|range(    7,    8) | users   344 |  0.0754  |
+|range(    8,    9) | users   224 |  0.0697  |
+|range(    9,   10) | users   181 |  0.0777  |
+|range(   10,   11) | users   150 |  0.1093  |
+|range(   11,   12) | users   144 |  0.0658  |
+|range(   12,   13) | users   135 |  0.0692  |
+|range(   13,   14) | users   117 |  0.0741  |
+|range(   14,   15) | users   100 |  0.0729  |
+|range(   15,   30) | users   712 |  0.0754  |
+|range(   30,   50) | users   286 |  0.0545  |
+|range(   50,  100) | users   178 |  0.0531  |
+|range(  100, 1600) | users   105 |  0.0903  |
+|iter:     0/1000 | vec: [0.50749123 0.09166315 0.39116873 0.00967689] | norm: none | MAP: 0.0715 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0373 | Recall = 0.1221 | MAP = 0.0592 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0349  |
+|range(    2,    3) | users   628 |  0.0534  |
+|range(    3,    4) | users   579 |  0.0587  |
+|range(    4,    5) | users   446 |  0.0774  |
+|range(    5,    6) | users   403 |  0.0553  |
+|range(    6,    7) | users   368 |  0.0718  |
+|range(    7,    8) | users   344 |  0.0570  |
+|range(    8,    9) | users   224 |  0.0532  |
+|range(    9,   10) | users   181 |  0.0557  |
+|range(   10,   11) | users   150 |  0.0960  |
+|range(   11,   12) | users   144 |  0.0573  |
+|range(   12,   13) | users   135 |  0.0546  |
+|range(   13,   14) | users   117 |  0.0706  |
+|range(   14,   15) | users   100 |  0.0536  |
+|range(   15,   30) | users   712 |  0.0643  |
+|range(   30,   50) | users   286 |  0.0521  |
+|range(   50,  100) | users   178 |  0.0482  |
+|range(  100, 1600) | users   105 |  0.0878  |
+|iter:     1/1000 | vec: [0.04919831 0.39046023 0.32594651 0.23439495] | norm: none | MAP: 0.0592 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0388 | Recall = 0.1298 | MAP = 0.0632 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0393  |
+|range(    2,    3) | users   628 |  0.0591  |
+|range(    3,    4) | users   579 |  0.0657  |
+|range(    4,    5) | users   446 |  0.0775  |
+|range(    5,    6) | users   403 |  0.0592  |
+|range(    6,    7) | users   368 |  0.0786  |
+|range(    7,    8) | users   344 |  0.0624  |
+|range(    8,    9) | users   224 |  0.0568  |
+|range(    9,   10) | users   181 |  0.0668  |
+|range(   10,   11) | users   150 |  0.0977  |
+|range(   11,   12) | users   144 |  0.0584  |
+|range(   12,   13) | users   135 |  0.0619  |
+|range(   13,   14) | users   117 |  0.0801  |
+|range(   14,   15) | users   100 |  0.0543  |
+|range(   15,   30) | users   712 |  0.0658  |
+|range(   30,   50) | users   286 |  0.0539  |
+|range(   50,  100) | users   178 |  0.0475  |
+|range(  100, 1600) | users   105 |  0.0864  |
+|iter:     2/1000 | vec: [0.12416321 0.29605898 0.17519316 0.40458465] | norm: none | MAP: 0.0632 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0388 | Recall = 0.1310 | MAP = 0.0641 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0409  |
+|range(    2,    3) | users   628 |  0.0612  |
+|range(    3,    4) | users   579 |  0.0694  |
+|range(    4,    5) | users   446 |  0.0767  |
+|range(    5,    6) | users   403 |  0.0650  |
+|range(    6,    7) | users   368 |  0.0790  |
+|range(    7,    8) | users   344 |  0.0607  |
+|range(    8,    9) | users   224 |  0.0567  |
+|range(    9,   10) | users   181 |  0.0633  |
+|range(   10,   11) | users   150 |  0.0979  |
+|range(   11,   12) | users   144 |  0.0582  |
+|range(   12,   13) | users   135 |  0.0687  |
+|range(   13,   14) | users   117 |  0.0758  |
+|range(   14,   15) | users   100 |  0.0651  |
+|range(   15,   30) | users   712 |  0.0647  |
+|range(   30,   50) | users   286 |  0.0530  |
+|range(   50,  100) | users   178 |  0.0457  |
+|range(  100, 1600) | users   105 |  0.0798  |
+|iter:     3/1000 | vec: [0.10054693 0.11913033 0.14280408 0.63751866] | norm: none | MAP: 0.0641 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0422 | Recall = 0.1421 | MAP = 0.0682 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0418  |
+|range(    2,    3) | users   628 |  0.0648  |
+|range(    3,    4) | users   579 |  0.0698  |
+|range(    4,    5) | users   446 |  0.0798  |
+|range(    5,    6) | users   403 |  0.0657  |
+|range(    6,    7) | users   368 |  0.0855  |
+|range(    7,    8) | users   344 |  0.0680  |
+|range(    8,    9) | users   224 |  0.0626  |
+|range(    9,   10) | users   181 |  0.0733  |
+|range(   10,   11) | users   150 |  0.1073  |
+|range(   11,   12) | users   144 |  0.0638  |
+|range(   12,   13) | users   135 |  0.0705  |
+|range(   13,   14) | users   117 |  0.0731  |
+|range(   14,   15) | users   100 |  0.0723  |
+|range(   15,   30) | users   712 |  0.0723  |
+|range(   30,   50) | users   286 |  0.0540  |
+|range(   50,  100) | users   178 |  0.0511  |
+|range(  100, 1600) | users   105 |  0.0909  |
+|iter:     4/1000 | vec: [0.28225213 0.08778295 0.34410737 0.28585755] | norm: none | MAP: 0.0682 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0368 | Recall = 0.1194 | MAP = 0.0582 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0336  |
+|range(    2,    3) | users   628 |  0.0521  |
+|range(    3,    4) | users   579 |  0.0572  |
+|range(    4,    5) | users   446 |  0.0766  |
+|range(    5,    6) | users   403 |  0.0552  |
+|range(    6,    7) | users   368 |  0.0722  |
+|range(    7,    8) | users   344 |  0.0568  |
+|range(    8,    9) | users   224 |  0.0537  |
+|range(    9,   10) | users   181 |  0.0523  |
+|range(   10,   11) | users   150 |  0.0927  |
+|range(   11,   12) | users   144 |  0.0563  |
+|range(   12,   13) | users   135 |  0.0535  |
+|range(   13,   14) | users   117 |  0.0673  |
+|range(   14,   15) | users   100 |  0.0536  |
+|range(   15,   30) | users   712 |  0.0633  |
+|range(   30,   50) | users   286 |  0.0516  |
+|range(   50,  100) | users   178 |  0.0464  |
+|range(  100, 1600) | users   105 |  0.0865  |
+|iter:     5/1000 | vec: [0.01309414 0.2964383  0.37877916 0.3116884 ] | norm: none | MAP: 0.0582 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0416 | Recall = 0.1449 | MAP = 0.0698 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0466  |
+|range(    2,    3) | users   628 |  0.0672  |
+|range(    3,    4) | users   579 |  0.0766  |
+|range(    4,    5) | users   446 |  0.0767  |
+|range(    5,    6) | users   403 |  0.0737  |
+|range(    6,    7) | users   368 |  0.0863  |
+|range(    7,    8) | users   344 |  0.0709  |
+|range(    8,    9) | users   224 |  0.0631  |
+|range(    9,   10) | users   181 |  0.0744  |
+|range(   10,   11) | users   150 |  0.1014  |
+|range(   11,   12) | users   144 |  0.0637  |
+|range(   12,   13) | users   135 |  0.0735  |
+|range(   13,   14) | users   117 |  0.0791  |
+|range(   14,   15) | users   100 |  0.0739  |
+|range(   15,   30) | users   712 |  0.0704  |
+|range(   30,   50) | users   286 |  0.0532  |
+|range(   50,  100) | users   178 |  0.0476  |
+|range(  100, 1600) | users   105 |  0.0832  |
+|iter:     6/1000 | vec: [0.23262381 0.14666415 0.02511638 0.59559565] | norm: none | MAP: 0.0698 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0379 | Recall = 0.1294 | MAP = 0.0618 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0424  |
+|range(    2,    3) | users   628 |  0.0605  |
+|range(    3,    4) | users   579 |  0.0695  |
+|range(    4,    5) | users   446 |  0.0712  |
+|range(    5,    6) | users   403 |  0.0661  |
+|range(    6,    7) | users   368 |  0.0784  |
+|range(    7,    8) | users   344 |  0.0542  |
+|range(    8,    9) | users   224 |  0.0570  |
+|range(    9,   10) | users   181 |  0.0566  |
+|range(   10,   11) | users   150 |  0.0900  |
+|range(   11,   12) | users   144 |  0.0562  |
+|range(   12,   13) | users   135 |  0.0725  |
+|range(   13,   14) | users   117 |  0.0605  |
+|range(   14,   15) | users   100 |  0.0640  |
+|range(   15,   30) | users   712 |  0.0623  |
+|range(   30,   50) | users   286 |  0.0483  |
+|range(   50,  100) | users   178 |  0.0418  |
+|range(  100, 1600) | users   105 |  0.0738  |
+|iter:     7/1000 | vec: [0.07195074 0.03408366 0.17606023 0.71790537] | norm: none | MAP: 0.0618 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0380 | Recall = 0.1267 | MAP = 0.0610 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0367  |
+|range(    2,    3) | users   628 |  0.0566  |
+|range(    3,    4) | users   579 |  0.0617  |
+|range(    4,    5) | users   446 |  0.0764  |
+|range(    5,    6) | users   403 |  0.0564  |
+|range(    6,    7) | users   368 |  0.0756  |
+|range(    7,    8) | users   344 |  0.0603  |
+|range(    8,    9) | users   224 |  0.0547  |
+|range(    9,   10) | users   181 |  0.0635  |
+|range(   10,   11) | users   150 |  0.0967  |
+|range(   11,   12) | users   144 |  0.0570  |
+|range(   12,   13) | users   135 |  0.0581  |
+|range(   13,   14) | users   117 |  0.0730  |
+|range(   14,   15) | users   100 |  0.0530  |
+|range(   15,   30) | users   712 |  0.0650  |
+|range(   30,   50) | users   286 |  0.0527  |
+|range(   50,  100) | users   178 |  0.0475  |
+|range(  100, 1600) | users   105 |  0.0859  |
+|iter:     8/1000 | vec: [0.082339   0.31034855 0.25488888 0.35242357] | norm: none | MAP: 0.0610 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0421 | Recall = 0.1472 | MAP = 0.0693 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0497  |
+|range(    2,    3) | users   628 |  0.0655  |
+|range(    3,    4) | users   579 |  0.0738  |
+|range(    4,    5) | users   446 |  0.0765  |
+|range(    5,    6) | users   403 |  0.0704  |
+|range(    6,    7) | users   368 |  0.0866  |
+|range(    7,    8) | users   344 |  0.0730  |
+|range(    8,    9) | users   224 |  0.0606  |
+|range(    9,   10) | users   181 |  0.0736  |
+|range(   10,   11) | users   150 |  0.1016  |
+|range(   11,   12) | users   144 |  0.0710  |
+|range(   12,   13) | users   135 |  0.0738  |
+|range(   13,   14) | users   117 |  0.0628  |
+|range(   14,   15) | users   100 |  0.0723  |
+|range(   15,   30) | users   712 |  0.0698  |
+|range(   30,   50) | users   286 |  0.0514  |
+|range(   50,  100) | users   178 |  0.0522  |
+|range(  100, 1600) | users   105 |  0.0892  |
+|iter:     9/1000 | vec: [0.6906038  0.10808878 0.07292972 0.1283777 ] | norm: none | MAP: 0.0693 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0402 | Recall = 0.1370 | MAP = 0.0667 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0427  |
+|range(    2,    3) | users   628 |  0.0636  |
+|range(    3,    4) | users   579 |  0.0726  |
+|range(    4,    5) | users   446 |  0.0767  |
+|range(    5,    6) | users   403 |  0.0671  |
+|range(    6,    7) | users   368 |  0.0825  |
+|range(    7,    8) | users   344 |  0.0657  |
+|range(    8,    9) | users   224 |  0.0580  |
+|range(    9,   10) | users   181 |  0.0698  |
+|range(   10,   11) | users   150 |  0.1021  |
+|range(   11,   12) | users   144 |  0.0604  |
+|range(   12,   13) | users   135 |  0.0695  |
+|range(   13,   14) | users   117 |  0.0801  |
+|range(   14,   15) | users   100 |  0.0653  |
+|range(   15,   30) | users   712 |  0.0683  |
+|range(   30,   50) | users   286 |  0.0539  |
+|range(   50,  100) | users   178 |  0.0471  |
+|range(  100, 1600) | users   105 |  0.0838  |
+|iter:    10/1000 | vec: [0.17763595 0.16665712 0.06744117 0.58826575] | norm: none | MAP: 0.0667 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0397 | Recall = 0.1301 | MAP = 0.0641 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0405  |
+|range(    2,    3) | users   628 |  0.0593  |
+|range(    3,    4) | users   579 |  0.0631  |
+|range(    4,    5) | users   446 |  0.0793  |
+|range(    5,    6) | users   403 |  0.0610  |
+|range(    6,    7) | users   368 |  0.0730  |
+|range(    7,    8) | users   344 |  0.0642  |
+|range(    8,    9) | users   224 |  0.0577  |
+|range(    9,   10) | users   181 |  0.0674  |
+|range(   10,   11) | users   150 |  0.1034  |
+|range(   11,   12) | users   144 |  0.0605  |
+|range(   12,   13) | users   135 |  0.0669  |
+|range(   13,   14) | users   117 |  0.0720  |
+|range(   14,   15) | users   100 |  0.0605  |
+|range(   15,   30) | users   712 |  0.0684  |
+|range(   30,   50) | users   286 |  0.0554  |
+|range(   50,  100) | users   178 |  0.0510  |
+|range(  100, 1600) | users   105 |  0.0923  |
+|iter:    11/1000 | vec: [0.25057383 0.19589859 0.51751266 0.03601493] | norm: none | MAP: 0.0641 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0380 | Recall = 0.1256 | MAP = 0.0614 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0399  |
+|range(    2,    3) | users   628 |  0.0575  |
+|range(    3,    4) | users   579 |  0.0604  |
+|range(    4,    5) | users   446 |  0.0786  |
+|range(    5,    6) | users   403 |  0.0565  |
+|range(    6,    7) | users   368 |  0.0719  |
+|range(    7,    8) | users   344 |  0.0600  |
+|range(    8,    9) | users   224 |  0.0551  |
+|range(    9,   10) | users   181 |  0.0606  |
+|range(   10,   11) | users   150 |  0.0975  |
+|range(   11,   12) | users   144 |  0.0586  |
+|range(   12,   13) | users   135 |  0.0584  |
+|range(   13,   14) | users   117 |  0.0729  |
+|range(   14,   15) | users   100 |  0.0541  |
+|range(   15,   30) | users   712 |  0.0657  |
+|range(   30,   50) | users   286 |  0.0528  |
+|range(   50,  100) | users   178 |  0.0488  |
+|range(  100, 1600) | users   105 |  0.0902  |
+|iter:    12/1000 | vec: [0.13504351 0.39161898 0.38460181 0.08873569] | norm: none | MAP: 0.0614 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0384 | Recall = 0.1283 | MAP = 0.0625 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0396  |
+|range(    2,    3) | users   628 |  0.0581  |
+|range(    3,    4) | users   579 |  0.0659  |
+|range(    4,    5) | users   446 |  0.0768  |
+|range(    5,    6) | users   403 |  0.0590  |
+|range(    6,    7) | users   368 |  0.0787  |
+|range(    7,    8) | users   344 |  0.0594  |
+|range(    8,    9) | users   224 |  0.0562  |
+|range(    9,   10) | users   181 |  0.0639  |
+|range(   10,   11) | users   150 |  0.0970  |
+|range(   11,   12) | users   144 |  0.0560  |
+|range(   12,   13) | users   135 |  0.0618  |
+|range(   13,   14) | users   117 |  0.0765  |
+|range(   14,   15) | users   100 |  0.0531  |
+|range(   15,   30) | users   712 |  0.0653  |
+|range(   30,   50) | users   286 |  0.0531  |
+|range(   50,  100) | users   178 |  0.0469  |
+|range(  100, 1600) | users   105 |  0.0847  |
+|iter:    13/1000 | vec: [0.08138956 0.24679189 0.15788568 0.51393287] | norm: none | MAP: 0.0625 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0373 | Recall = 0.1228 | MAP = 0.0598 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0365  |
+|range(    2,    3) | users   628 |  0.0561  |
+|range(    3,    4) | users   579 |  0.0600  |
+|range(    4,    5) | users   446 |  0.0773  |
+|range(    5,    6) | users   403 |  0.0576  |
+|range(    6,    7) | users   368 |  0.0694  |
+|range(    7,    8) | users   344 |  0.0580  |
+|range(    8,    9) | users   224 |  0.0570  |
+|range(    9,   10) | users   181 |  0.0558  |
+|range(   10,   11) | users   150 |  0.0951  |
+|range(   11,   12) | users   144 |  0.0547  |
+|range(   12,   13) | users   135 |  0.0569  |
+|range(   13,   14) | users   117 |  0.0690  |
+|range(   14,   15) | users   100 |  0.0561  |
+|range(   15,   30) | users   712 |  0.0634  |
+|range(   30,   50) | users   286 |  0.0506  |
+|range(   50,  100) | users   178 |  0.0484  |
+|range(  100, 1600) | users   105 |  0.0880  |
+|iter:    14/1000 | vec: [0.06119048 0.1173858  0.54277161 0.27865211] | norm: none | MAP: 0.0598 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0391 | Recall = 0.1305 | MAP = 0.0647 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0411  |
+|range(    2,    3) | users   628 |  0.0605  |
+|range(    3,    4) | users   579 |  0.0671  |
+|range(    4,    5) | users   446 |  0.0813  |
+|range(    5,    6) | users   403 |  0.0597  |
+|range(    6,    7) | users   368 |  0.0769  |
+|range(    7,    8) | users   344 |  0.0630  |
+|range(    8,    9) | users   224 |  0.0558  |
+|range(    9,   10) | users   181 |  0.0679  |
+|range(   10,   11) | users   150 |  0.0998  |
+|range(   11,   12) | users   144 |  0.0626  |
+|range(   12,   13) | users   135 |  0.0674  |
+|range(   13,   14) | users   117 |  0.0769  |
+|range(   14,   15) | users   100 |  0.0601  |
+|range(   15,   30) | users   712 |  0.0678  |
+|range(   30,   50) | users   286 |  0.0543  |
+|range(   50,  100) | users   178 |  0.0489  |
+|range(  100, 1600) | users   105 |  0.0908  |
+|iter:    15/1000 | vec: [0.27299356 0.4732059  0.22865161 0.02514893] | norm: none | MAP: 0.0647 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0414 | Recall = 0.1406 | MAP = 0.0685 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0442  |
+|range(    2,    3) | users   628 |  0.0645  |
+|range(    3,    4) | users   579 |  0.0709  |
+|range(    4,    5) | users   446 |  0.0815  |
+|range(    5,    6) | users   403 |  0.0671  |
+|range(    6,    7) | users   368 |  0.0852  |
+|range(    7,    8) | users   344 |  0.0705  |
+|range(    8,    9) | users   224 |  0.0600  |
+|range(    9,   10) | users   181 |  0.0723  |
+|range(   10,   11) | users   150 |  0.1036  |
+|range(   11,   12) | users   144 |  0.0619  |
+|range(   12,   13) | users   135 |  0.0714  |
+|range(   13,   14) | users   117 |  0.0788  |
+|range(   14,   15) | users   100 |  0.0662  |
+|range(   15,   30) | users   712 |  0.0706  |
+|range(   30,   50) | users   286 |  0.0554  |
+|range(   50,  100) | users   178 |  0.0496  |
+|range(  100, 1600) | users   105 |  0.0910  |
+|iter:    16/1000 | vec: [0.27668261 0.18566074 0.14870102 0.38895564] | norm: none | MAP: 0.0685 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0428 | Recall = 0.1465 | MAP = 0.0716 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0476  |
+|range(    2,    3) | users   628 |  0.0666  |
+|range(    3,    4) | users   579 |  0.0776  |
+|range(    4,    5) | users   446 |  0.0820  |
+|range(    5,    6) | users   403 |  0.0715  |
+|range(    6,    7) | users   368 |  0.0878  |
+|range(    7,    8) | users   344 |  0.0764  |
+|range(    8,    9) | users   224 |  0.0612  |
+|range(    9,   10) | users   181 |  0.0761  |
+|range(   10,   11) | users   150 |  0.1048  |
+|range(   11,   12) | users   144 |  0.0638  |
+|range(   12,   13) | users   135 |  0.0764  |
+|range(   13,   14) | users   117 |  0.0824  |
+|range(   14,   15) | users   100 |  0.0758  |
+|range(   15,   30) | users   712 |  0.0728  |
+|range(   30,   50) | users   286 |  0.0567  |
+|range(   50,  100) | users   178 |  0.0495  |
+|range(  100, 1600) | users   105 |  0.0950  |
+|iter:    17/1000 | vec: [0.41027719 0.26977147 0.03519491 0.28475643] | norm: none | MAP: 0.0716 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0362 | Recall = 0.1167 | MAP = 0.0572 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0346  |
+|range(    2,    3) | users   628 |  0.0531  |
+|range(    3,    4) | users   579 |  0.0559  |
+|range(    4,    5) | users   446 |  0.0756  |
+|range(    5,    6) | users   403 |  0.0554  |
+|range(    6,    7) | users   368 |  0.0676  |
+|range(    7,    8) | users   344 |  0.0529  |
+|range(    8,    9) | users   224 |  0.0569  |
+|range(    9,   10) | users   181 |  0.0486  |
+|range(   10,   11) | users   150 |  0.0914  |
+|range(   11,   12) | users   144 |  0.0527  |
+|range(   12,   13) | users   135 |  0.0540  |
+|range(   13,   14) | users   117 |  0.0695  |
+|range(   14,   15) | users   100 |  0.0571  |
+|range(   15,   30) | users   712 |  0.0604  |
+|range(   30,   50) | users   286 |  0.0480  |
+|range(   50,  100) | users   178 |  0.0473  |
+|range(  100, 1600) | users   105 |  0.0886  |
+|iter:    18/1000 | vec: [0.01793241 0.06328978 0.76518934 0.15358846] | norm: none | MAP: 0.0572 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0376 | Recall = 0.1241 | MAP = 0.0604 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0366  |
+|range(    2,    3) | users   628 |  0.0552  |
+|range(    3,    4) | users   579 |  0.0609  |
+|range(    4,    5) | users   446 |  0.0764  |
+|range(    5,    6) | users   403 |  0.0558  |
+|range(    6,    7) | users   368 |  0.0745  |
+|range(    7,    8) | users   344 |  0.0605  |
+|range(    8,    9) | users   224 |  0.0537  |
+|range(    9,   10) | users   181 |  0.0597  |
+|range(   10,   11) | users   150 |  0.0927  |
+|range(   11,   12) | users   144 |  0.0568  |
+|range(   12,   13) | users   135 |  0.0601  |
+|range(   13,   14) | users   117 |  0.0757  |
+|range(   14,   15) | users   100 |  0.0548  |
+|range(   15,   30) | users   712 |  0.0639  |
+|range(   30,   50) | users   286 |  0.0527  |
+|range(   50,  100) | users   178 |  0.0468  |
+|range(  100, 1600) | users   105 |  0.0868  |
+|iter:    19/1000 | vec: [0.06343311 0.45313321 0.07054832 0.41288537] | norm: none | MAP: 0.0604 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0374 | Recall = 0.1207 | MAP = 0.0583 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0397  |
+|range(    2,    3) | users   628 |  0.0571  |
+|range(    3,    4) | users   579 |  0.0566  |
+|range(    4,    5) | users   446 |  0.0728  |
+|range(    5,    6) | users   403 |  0.0556  |
+|range(    6,    7) | users   368 |  0.0671  |
+|range(    7,    8) | users   344 |  0.0530  |
+|range(    8,    9) | users   224 |  0.0578  |
+|range(    9,   10) | users   181 |  0.0497  |
+|range(   10,   11) | users   150 |  0.0945  |
+|range(   11,   12) | users   144 |  0.0543  |
+|range(   12,   13) | users   135 |  0.0554  |
+|range(   13,   14) | users   117 |  0.0665  |
+|range(   14,   15) | users   100 |  0.0615  |
+|range(   15,   30) | users   712 |  0.0604  |
+|range(   30,   50) | users   286 |  0.0485  |
+|range(   50,  100) | users   178 |  0.0477  |
+|range(  100, 1600) | users   105 |  0.0948  |
+|iter:    20/1000 | vec: [0.08077836 0.01177683 0.88834949 0.01909532] | norm: none | MAP: 0.0583 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0405 | Recall = 0.1369 | MAP = 0.0660 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0400  |
+|range(    2,    3) | users   628 |  0.0633  |
+|range(    3,    4) | users   579 |  0.0694  |
+|range(    4,    5) | users   446 |  0.0799  |
+|range(    5,    6) | users   403 |  0.0659  |
+|range(    6,    7) | users   368 |  0.0809  |
+|range(    7,    8) | users   344 |  0.0639  |
+|range(    8,    9) | users   224 |  0.0604  |
+|range(    9,   10) | users   181 |  0.0673  |
+|range(   10,   11) | users   150 |  0.1017  |
+|range(   11,   12) | users   144 |  0.0588  |
+|range(   12,   13) | users   135 |  0.0690  |
+|range(   13,   14) | users   117 |  0.0742  |
+|range(   14,   15) | users   100 |  0.0670  |
+|range(   15,   30) | users   712 |  0.0684  |
+|range(   30,   50) | users   286 |  0.0547  |
+|range(   50,  100) | users   178 |  0.0498  |
+|range(  100, 1600) | users   105 |  0.0851  |
+|iter:    21/1000 | vec: [0.17647446 0.10241609 0.2646592  0.45645025] | norm: none | MAP: 0.0660 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0411 | Recall = 0.1397 | MAP = 0.0683 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0471  |
+|range(    2,    3) | users   628 |  0.0640  |
+|range(    3,    4) | users   579 |  0.0728  |
+|range(    4,    5) | users   446 |  0.0809  |
+|range(    5,    6) | users   403 |  0.0641  |
+|range(    6,    7) | users   368 |  0.0839  |
+|range(    7,    8) | users   344 |  0.0695  |
+|range(    8,    9) | users   224 |  0.0575  |
+|range(    9,   10) | users   181 |  0.0721  |
+|range(   10,   11) | users   150 |  0.1048  |
+|range(   11,   12) | users   144 |  0.0616  |
+|range(   12,   13) | users   135 |  0.0729  |
+|range(   13,   14) | users   117 |  0.0788  |
+|range(   14,   15) | users   100 |  0.0700  |
+|range(   15,   30) | users   712 |  0.0690  |
+|range(   30,   50) | users   286 |  0.0558  |
+|range(   50,  100) | users   178 |  0.0490  |
+|range(  100, 1600) | users   105 |  0.0907  |
+|iter:    22/1000 | vec: [0.29168008 0.27870922 0.03920575 0.39040494] | norm: none | MAP: 0.0683 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0384 | Recall = 0.1278 | MAP = 0.0631 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0418  |
+|range(    2,    3) | users   628 |  0.0580  |
+|range(    3,    4) | users   579 |  0.0668  |
+|range(    4,    5) | users   446 |  0.0783  |
+|range(    5,    6) | users   403 |  0.0576  |
+|range(    6,    7) | users   368 |  0.0753  |
+|range(    7,    8) | users   344 |  0.0630  |
+|range(    8,    9) | users   224 |  0.0540  |
+|range(    9,   10) | users   181 |  0.0665  |
+|range(   10,   11) | users   150 |  0.0946  |
+|range(   11,   12) | users   144 |  0.0603  |
+|range(   12,   13) | users   135 |  0.0630  |
+|range(   13,   14) | users   117 |  0.0770  |
+|range(   14,   15) | users   100 |  0.0558  |
+|range(   15,   30) | users   712 |  0.0654  |
+|range(   30,   50) | users   286 |  0.0537  |
+|range(   50,  100) | users   178 |  0.0475  |
+|range(  100, 1600) | users   105 |  0.0894  |
+|iter:    23/1000 | vec: [0.17346184 0.51100412 0.02827338 0.28726065] | norm: none | MAP: 0.0631 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0436 | Recall = 0.1487 | MAP = 0.0725 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0467  |
+|range(    2,    3) | users   628 |  0.0673  |
+|range(    3,    4) | users   579 |  0.0762  |
+|range(    4,    5) | users   446 |  0.0828  |
+|range(    5,    6) | users   403 |  0.0749  |
+|range(    6,    7) | users   368 |  0.0883  |
+|range(    7,    8) | users   344 |  0.0780  |
+|range(    8,    9) | users   224 |  0.0685  |
+|range(    9,   10) | users   181 |  0.0790  |
+|range(   10,   11) | users   150 |  0.1102  |
+|range(   11,   12) | users   144 |  0.0684  |
+|range(   12,   13) | users   135 |  0.0730  |
+|range(   13,   14) | users   117 |  0.0738  |
+|range(   14,   15) | users   100 |  0.0717  |
+|range(   15,   30) | users   712 |  0.0747  |
+|range(   30,   50) | users   286 |  0.0555  |
+|range(   50,  100) | users   178 |  0.0532  |
+|range(  100, 1600) | users   105 |  0.0945  |
+|iter:    24/1000 | vec: [0.49022118 0.20158821 0.19510701 0.1130836 ] | norm: none | MAP: 0.0725 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0433 | Recall = 0.1507 | MAP = 0.0713 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0506  |
+|range(    2,    3) | users   628 |  0.0682  |
+|range(    3,    4) | users   579 |  0.0746  |
+|range(    4,    5) | users   446 |  0.0790  |
+|range(    5,    6) | users   403 |  0.0729  |
+|range(    6,    7) | users   368 |  0.0905  |
+|range(    7,    8) | users   344 |  0.0759  |
+|range(    8,    9) | users   224 |  0.0643  |
+|range(    9,   10) | users   181 |  0.0785  |
+|range(   10,   11) | users   150 |  0.1038  |
+|range(   11,   12) | users   144 |  0.0706  |
+|range(   12,   13) | users   135 |  0.0721  |
+|range(   13,   14) | users   117 |  0.0651  |
+|range(   14,   15) | users   100 |  0.0711  |
+|range(   15,   30) | users   712 |  0.0717  |
+|range(   30,   50) | users   286 |  0.0548  |
+|range(   50,  100) | users   178 |  0.0517  |
+|range(  100, 1600) | users   105 |  0.0877  |
+|iter:    25/1000 | vec: [0.57814897 0.10617995 0.04408212 0.27158897] | norm: none | MAP: 0.0713 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0378 | Recall = 0.1253 | MAP = 0.0613 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0384  |
+|range(    2,    3) | users   628 |  0.0573  |
+|range(    3,    4) | users   579 |  0.0617  |
+|range(    4,    5) | users   446 |  0.0761  |
+|range(    5,    6) | users   403 |  0.0561  |
+|range(    6,    7) | users   368 |  0.0756  |
+|range(    7,    8) | users   344 |  0.0610  |
+|range(    8,    9) | users   224 |  0.0542  |
+|range(    9,   10) | users   181 |  0.0635  |
+|range(   10,   11) | users   150 |  0.0962  |
+|range(   11,   12) | users   144 |  0.0572  |
+|range(   12,   13) | users   135 |  0.0617  |
+|range(   13,   14) | users   117 |  0.0759  |
+|range(   14,   15) | users   100 |  0.0544  |
+|range(   15,   30) | users   712 |  0.0642  |
+|range(   30,   50) | users   286 |  0.0532  |
+|range(   50,  100) | users   178 |  0.0471  |
+|range(  100, 1600) | users   105 |  0.0866  |
+|iter:    26/1000 | vec: [0.08813114 0.42265089 0.05601892 0.43319905] | norm: none | MAP: 0.0613 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0431 | Recall = 0.1476 | MAP = 0.0711 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0463  |
+|range(    2,    3) | users   628 |  0.0663  |
+|range(    3,    4) | users   579 |  0.0745  |
+|range(    4,    5) | users   446 |  0.0833  |
+|range(    5,    6) | users   403 |  0.0767  |
+|range(    6,    7) | users   368 |  0.0848  |
+|range(    7,    8) | users   344 |  0.0751  |
+|range(    8,    9) | users   224 |  0.0714  |
+|range(    9,   10) | users   181 |  0.0786  |
+|range(   10,   11) | users   150 |  0.1012  |
+|range(   11,   12) | users   144 |  0.0664  |
+|range(   12,   13) | users   135 |  0.0746  |
+|range(   13,   14) | users   117 |  0.0687  |
+|range(   14,   15) | users   100 |  0.0714  |
+|range(   15,   30) | users   712 |  0.0728  |
+|range(   30,   50) | users   286 |  0.0514  |
+|range(   50,  100) | users   178 |  0.0506  |
+|range(  100, 1600) | users   105 |  0.0897  |
+|iter:    27/1000 | vec: [0.32225353 0.01467471 0.2835063  0.37956546] | norm: none | MAP: 0.0711 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0425 | Recall = 0.1431 | MAP = 0.0701 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0435  |
+|range(    2,    3) | users   628 |  0.0645  |
+|range(    3,    4) | users   579 |  0.0723  |
+|range(    4,    5) | users   446 |  0.0825  |
+|range(    5,    6) | users   403 |  0.0687  |
+|range(    6,    7) | users   368 |  0.0869  |
+|range(    7,    8) | users   344 |  0.0735  |
+|range(    8,    9) | users   224 |  0.0616  |
+|range(    9,   10) | users   181 |  0.0769  |
+|range(   10,   11) | users   150 |  0.1067  |
+|range(   11,   12) | users   144 |  0.0636  |
+|range(   12,   13) | users   135 |  0.0721  |
+|range(   13,   14) | users   117 |  0.0798  |
+|range(   14,   15) | users   100 |  0.0697  |
+|range(   15,   30) | users   712 |  0.0734  |
+|range(   30,   50) | users   286 |  0.0570  |
+|range(   50,  100) | users   178 |  0.0522  |
+|range(  100, 1600) | users   105 |  0.0970  |
+|iter:    28/1000 | vec: [0.43518823 0.2407544  0.21674013 0.10731723] | norm: none | MAP: 0.0701 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0368 | Recall = 0.1193 | MAP = 0.0585 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0340  |
+|range(    2,    3) | users   628 |  0.0501  |
+|range(    3,    4) | users   579 |  0.0586  |
+|range(    4,    5) | users   446 |  0.0753  |
+|range(    5,    6) | users   403 |  0.0543  |
+|range(    6,    7) | users   368 |  0.0722  |
+|range(    7,    8) | users   344 |  0.0588  |
+|range(    8,    9) | users   224 |  0.0523  |
+|range(    9,   10) | users   181 |  0.0551  |
+|range(   10,   11) | users   150 |  0.0921  |
+|range(   11,   12) | users   144 |  0.0563  |
+|range(   12,   13) | users   135 |  0.0583  |
+|range(   13,   14) | users   117 |  0.0752  |
+|range(   14,   15) | users   100 |  0.0549  |
+|range(   15,   30) | users   712 |  0.0630  |
+|range(   30,   50) | users   286 |  0.0528  |
+|range(   50,  100) | users   178 |  0.0468  |
+|range(  100, 1600) | users   105 |  0.0880  |
+|iter:    29/1000 | vec: [0.01710273 0.66478265 0.00537193 0.3127427 ] | norm: none | MAP: 0.0585 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0430 | Recall = 0.1516 | MAP = 0.0707 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0509  |
+|range(    2,    3) | users   628 |  0.0692  |
+|range(    3,    4) | users   579 |  0.0733  |
+|range(    4,    5) | users   446 |  0.0805  |
+|range(    5,    6) | users   403 |  0.0752  |
+|range(    6,    7) | users   368 |  0.0871  |
+|range(    7,    8) | users   344 |  0.0740  |
+|range(    8,    9) | users   224 |  0.0664  |
+|range(    9,   10) | users   181 |  0.0755  |
+|range(   10,   11) | users   150 |  0.1013  |
+|range(   11,   12) | users   144 |  0.0677  |
+|range(   12,   13) | users   135 |  0.0755  |
+|range(   13,   14) | users   117 |  0.0648  |
+|range(   14,   15) | users   100 |  0.0697  |
+|range(   15,   30) | users   712 |  0.0705  |
+|range(   30,   50) | users   286 |  0.0513  |
+|range(   50,  100) | users   178 |  0.0506  |
+|range(  100, 1600) | users   105 |  0.0866  |
+|iter:    30/1000 | vec: [0.44586965 0.0638616  0.03455529 0.45571346] | norm: none | MAP: 0.0707 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0430 | Recall = 0.1495 | MAP = 0.0720 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0499  |
+|range(    2,    3) | users   628 |  0.0689  |
+|range(    3,    4) | users   579 |  0.0774  |
+|range(    4,    5) | users   446 |  0.0785  |
+|range(    5,    6) | users   403 |  0.0757  |
+|range(    6,    7) | users   368 |  0.0865  |
+|range(    7,    8) | users   344 |  0.0763  |
+|range(    8,    9) | users   224 |  0.0642  |
+|range(    9,   10) | users   181 |  0.0778  |
+|range(   10,   11) | users   150 |  0.1052  |
+|range(   11,   12) | users   144 |  0.0672  |
+|range(   12,   13) | users   135 |  0.0766  |
+|range(   13,   14) | users   117 |  0.0798  |
+|range(   14,   15) | users   100 |  0.0745  |
+|range(   15,   30) | users   712 |  0.0734  |
+|range(   30,   50) | users   286 |  0.0550  |
+|range(   50,  100) | users   178 |  0.0490  |
+|range(  100, 1600) | users   105 |  0.0885  |
+|iter:    31/1000 | vec: [0.32123413 0.17339962 0.01963041 0.48573585] | norm: none | MAP: 0.0720 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0400 | Recall = 0.1343 | MAP = 0.0645 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0396  |
+|range(    2,    3) | users   628 |  0.0620  |
+|range(    3,    4) | users   579 |  0.0684  |
+|range(    4,    5) | users   446 |  0.0777  |
+|range(    5,    6) | users   403 |  0.0665  |
+|range(    6,    7) | users   368 |  0.0797  |
+|range(    7,    8) | users   344 |  0.0593  |
+|range(    8,    9) | users   224 |  0.0626  |
+|range(    9,   10) | users   181 |  0.0653  |
+|range(   10,   11) | users   150 |  0.0991  |
+|range(   11,   12) | users   144 |  0.0561  |
+|range(   12,   13) | users   135 |  0.0678  |
+|range(   13,   14) | users   117 |  0.0672  |
+|range(   14,   15) | users   100 |  0.0693  |
+|range(   15,   30) | users   712 |  0.0657  |
+|range(   30,   50) | users   286 |  0.0509  |
+|range(   50,  100) | users   178 |  0.0486  |
+|range(  100, 1600) | users   105 |  0.0861  |
+|iter:    32/1000 | vec: [0.16050509 0.01411205 0.39153597 0.43384689] | norm: none | MAP: 0.0645 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0379 | Recall = 0.1234 | MAP = 0.0598 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0361  |
+|range(    2,    3) | users   628 |  0.0568  |
+|range(    3,    4) | users   579 |  0.0599  |
+|range(    4,    5) | users   446 |  0.0763  |
+|range(    5,    6) | users   403 |  0.0578  |
+|range(    6,    7) | users   368 |  0.0687  |
+|range(    7,    8) | users   344 |  0.0567  |
+|range(    8,    9) | users   224 |  0.0581  |
+|range(    9,   10) | users   181 |  0.0541  |
+|range(   10,   11) | users   150 |  0.0954  |
+|range(   11,   12) | users   144 |  0.0552  |
+|range(   12,   13) | users   135 |  0.0653  |
+|range(   13,   14) | users   117 |  0.0706  |
+|range(   14,   15) | users   100 |  0.0612  |
+|range(   15,   30) | users   712 |  0.0623  |
+|range(   30,   50) | users   286 |  0.0496  |
+|range(   50,  100) | users   178 |  0.0468  |
+|range(  100, 1600) | users   105 |  0.0907  |
+|iter:    33/1000 | vec: [0.08679523 0.0302618  0.65941685 0.22352612] | norm: none | MAP: 0.0598 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0385 | Recall = 0.1292 | MAP = 0.0630 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0415  |
+|range(    2,    3) | users   628 |  0.0592  |
+|range(    3,    4) | users   579 |  0.0667  |
+|range(    4,    5) | users   446 |  0.0752  |
+|range(    5,    6) | users   403 |  0.0601  |
+|range(    6,    7) | users   368 |  0.0793  |
+|range(    7,    8) | users   344 |  0.0597  |
+|range(    8,    9) | users   224 |  0.0569  |
+|range(    9,   10) | users   181 |  0.0671  |
+|range(   10,   11) | users   150 |  0.0955  |
+|range(   11,   12) | users   144 |  0.0568  |
+|range(   12,   13) | users   135 |  0.0630  |
+|range(   13,   14) | users   117 |  0.0809  |
+|range(   14,   15) | users   100 |  0.0544  |
+|range(   15,   30) | users   712 |  0.0648  |
+|range(   30,   50) | users   286 |  0.0533  |
+|range(   50,  100) | users   178 |  0.0452  |
+|range(  100, 1600) | users   105 |  0.0829  |
+|iter:    34/1000 | vec: [0.08739011 0.22980199 0.09117993 0.59162797] | norm: none | MAP: 0.0630 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0383 | Recall = 0.1253 | MAP = 0.0613 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0401  |
+|range(    2,    3) | users   628 |  0.0583  |
+|range(    3,    4) | users   579 |  0.0608  |
+|range(    4,    5) | users   446 |  0.0776  |
+|range(    5,    6) | users   403 |  0.0575  |
+|range(    6,    7) | users   368 |  0.0693  |
+|range(    7,    8) | users   344 |  0.0616  |
+|range(    8,    9) | users   224 |  0.0562  |
+|range(    9,   10) | users   181 |  0.0591  |
+|range(   10,   11) | users   150 |  0.0957  |
+|range(   11,   12) | users   144 |  0.0556  |
+|range(   12,   13) | users   135 |  0.0580  |
+|range(   13,   14) | users   117 |  0.0727  |
+|range(   14,   15) | users   100 |  0.0581  |
+|range(   15,   30) | users   712 |  0.0646  |
+|range(   30,   50) | users   286 |  0.0525  |
+|range(   50,  100) | users   178 |  0.0495  |
+|range(  100, 1600) | users   105 |  0.0927  |
+|iter:    35/1000 | vec: [0.11612766 0.17153344 0.63533252 0.07700638] | norm: none | MAP: 0.0613 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0374 | Recall = 0.1222 | MAP = 0.0594 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0368  |
+|range(    2,    3) | users   628 |  0.0533  |
+|range(    3,    4) | users   579 |  0.0594  |
+|range(    4,    5) | users   446 |  0.0761  |
+|range(    5,    6) | users   403 |  0.0556  |
+|range(    6,    7) | users   368 |  0.0747  |
+|range(    7,    8) | users   344 |  0.0581  |
+|range(    8,    9) | users   224 |  0.0531  |
+|range(    9,   10) | users   181 |  0.0571  |
+|range(   10,   11) | users   150 |  0.0914  |
+|range(   11,   12) | users   144 |  0.0555  |
+|range(   12,   13) | users   135 |  0.0586  |
+|range(   13,   14) | users   117 |  0.0713  |
+|range(   14,   15) | users   100 |  0.0534  |
+|range(   15,   30) | users   712 |  0.0635  |
+|range(   30,   50) | users   286 |  0.0523  |
+|range(   50,  100) | users   178 |  0.0459  |
+|range(  100, 1600) | users   105 |  0.0865  |
+|iter:    36/1000 | vec: [0.02830687 0.42829336 0.09840264 0.44499713] | norm: none | MAP: 0.0594 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0444 | Recall = 0.1551 | MAP = 0.0742 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0498  |
+|range(    2,    3) | users   628 |  0.0702  |
+|range(    3,    4) | users   579 |  0.0774  |
+|range(    4,    5) | users   446 |  0.0835  |
+|range(    5,    6) | users   403 |  0.0765  |
+|range(    6,    7) | users   368 |  0.0924  |
+|range(    7,    8) | users   344 |  0.0815  |
+|range(    8,    9) | users   224 |  0.0673  |
+|range(    9,   10) | users   181 |  0.0817  |
+|range(   10,   11) | users   150 |  0.1067  |
+|range(   11,   12) | users   144 |  0.0738  |
+|range(   12,   13) | users   135 |  0.0751  |
+|range(   13,   14) | users   117 |  0.0719  |
+|range(   14,   15) | users   100 |  0.0788  |
+|range(   15,   30) | users   712 |  0.0769  |
+|range(   30,   50) | users   286 |  0.0550  |
+|range(   50,  100) | users   178 |  0.0518  |
+|range(  100, 1600) | users   105 |  0.0893  |
+|iter:    37/1000 | vec: [0.61264204 0.2160281  0.00346318 0.16786668] | norm: none | MAP: 0.0742 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0408 | Recall = 0.1358 | MAP = 0.0663 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0421  |
+|range(    2,    3) | users   628 |  0.0634  |
+|range(    3,    4) | users   579 |  0.0675  |
+|range(    4,    5) | users   446 |  0.0806  |
+|range(    5,    6) | users   403 |  0.0634  |
+|range(    6,    7) | users   368 |  0.0800  |
+|range(    7,    8) | users   344 |  0.0658  |
+|range(    8,    9) | users   224 |  0.0587  |
+|range(    9,   10) | users   181 |  0.0687  |
+|range(   10,   11) | users   150 |  0.1030  |
+|range(   11,   12) | users   144 |  0.0596  |
+|range(   12,   13) | users   135 |  0.0688  |
+|range(   13,   14) | users   117 |  0.0736  |
+|range(   14,   15) | users   100 |  0.0657  |
+|range(   15,   30) | users   712 |  0.0695  |
+|range(   30,   50) | users   286 |  0.0542  |
+|range(   50,  100) | users   178 |  0.0512  |
+|range(  100, 1600) | users   105 |  0.0917  |
+|iter:    38/1000 | vec: [0.25979358 0.12543237 0.41274429 0.20202976] | norm: none | MAP: 0.0663 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0391 | Recall = 0.1305 | MAP = 0.0651 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0418  |
+|range(    2,    3) | users   628 |  0.0600  |
+|range(    3,    4) | users   579 |  0.0695  |
+|range(    4,    5) | users   446 |  0.0820  |
+|range(    5,    6) | users   403 |  0.0586  |
+|range(    6,    7) | users   368 |  0.0755  |
+|range(    7,    8) | users   344 |  0.0678  |
+|range(    8,    9) | users   224 |  0.0551  |
+|range(    9,   10) | users   181 |  0.0691  |
+|range(   10,   11) | users   150 |  0.0995  |
+|range(   11,   12) | users   144 |  0.0610  |
+|range(   12,   13) | users   135 |  0.0698  |
+|range(   13,   14) | users   117 |  0.0760  |
+|range(   14,   15) | users   100 |  0.0582  |
+|range(   15,   30) | users   712 |  0.0679  |
+|range(   30,   50) | users   286 |  0.0541  |
+|range(   50,  100) | users   178 |  0.0494  |
+|range(  100, 1600) | users   105 |  0.0915  |
+|iter:    39/1000 | vec: [0.32337172 0.60491549 0.00594882 0.06576397] | norm: none | MAP: 0.0651 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0373 | Recall = 0.1214 | MAP = 0.0591 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0402  |
+|range(    2,    3) | users   628 |  0.0567  |
+|range(    3,    4) | users   579 |  0.0583  |
+|range(    4,    5) | users   446 |  0.0737  |
+|range(    5,    6) | users   403 |  0.0559  |
+|range(    6,    7) | users   368 |  0.0683  |
+|range(    7,    8) | users   344 |  0.0551  |
+|range(    8,    9) | users   224 |  0.0577  |
+|range(    9,   10) | users   181 |  0.0533  |
+|range(   10,   11) | users   150 |  0.0950  |
+|range(   11,   12) | users   144 |  0.0544  |
+|range(   12,   13) | users   135 |  0.0564  |
+|range(   13,   14) | users   117 |  0.0681  |
+|range(   14,   15) | users   100 |  0.0602  |
+|range(   15,   30) | users   712 |  0.0615  |
+|range(   30,   50) | users   286 |  0.0492  |
+|range(   50,  100) | users   178 |  0.0482  |
+|range(  100, 1600) | users   105 |  0.0920  |
+|iter:    40/1000 | vec: [0.08201862 0.04068474 0.80190622 0.07539042] | norm: none | MAP: 0.0591 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0407 | Recall = 0.1445 | MAP = 0.0673 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0492  |
+|range(    2,    3) | users   628 |  0.0652  |
+|range(    3,    4) | users   579 |  0.0731  |
+|range(    4,    5) | users   446 |  0.0791  |
+|range(    5,    6) | users   403 |  0.0717  |
+|range(    6,    7) | users   368 |  0.0872  |
+|range(    7,    8) | users   344 |  0.0663  |
+|range(    8,    9) | users   224 |  0.0619  |
+|range(    9,   10) | users   181 |  0.0681  |
+|range(   10,   11) | users   150 |  0.0947  |
+|range(   11,   12) | users   144 |  0.0590  |
+|range(   12,   13) | users   135 |  0.0791  |
+|range(   13,   14) | users   117 |  0.0626  |
+|range(   14,   15) | users   100 |  0.0696  |
+|range(   15,   30) | users   712 |  0.0663  |
+|range(   30,   50) | users   286 |  0.0482  |
+|range(   50,  100) | users   178 |  0.0428  |
+|range(  100, 1600) | users   105 |  0.0749  |
+|iter:    41/1000 | vec: [0.15149919 0.01726326 0.09357372 0.73766384] | norm: none | MAP: 0.0673 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0444 | Recall = 0.1528 | MAP = 0.0741 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0491  |
+|range(    2,    3) | users   628 |  0.0688  |
+|range(    3,    4) | users   579 |  0.0769  |
+|range(    4,    5) | users   446 |  0.0841  |
+|range(    5,    6) | users   403 |  0.0762  |
+|range(    6,    7) | users   368 |  0.0952  |
+|range(    7,    8) | users   344 |  0.0831  |
+|range(    8,    9) | users   224 |  0.0672  |
+|range(    9,   10) | users   181 |  0.0804  |
+|range(   10,   11) | users   150 |  0.1067  |
+|range(   11,   12) | users   144 |  0.0734  |
+|range(   12,   13) | users   135 |  0.0724  |
+|range(   13,   14) | users   117 |  0.0685  |
+|range(   14,   15) | users   100 |  0.0744  |
+|range(   15,   30) | users   712 |  0.0763  |
+|range(   30,   50) | users   286 |  0.0565  |
+|range(   50,  100) | users   178 |  0.0531  |
+|range(  100, 1600) | users   105 |  0.0914  |
+|iter:    42/1000 | vec: [0.69263137 0.22155205 0.07311771 0.01269888] | norm: none | MAP: 0.0741 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0405 | Recall = 0.1431 | MAP = 0.0672 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0493  |
+|range(    2,    3) | users   628 |  0.0660  |
+|range(    3,    4) | users   579 |  0.0699  |
+|range(    4,    5) | users   446 |  0.0780  |
+|range(    5,    6) | users   403 |  0.0702  |
+|range(    6,    7) | users   368 |  0.0850  |
+|range(    7,    8) | users   344 |  0.0736  |
+|range(    8,    9) | users   224 |  0.0585  |
+|range(    9,   10) | users   181 |  0.0694  |
+|range(   10,   11) | users   150 |  0.0968  |
+|range(   11,   12) | users   144 |  0.0653  |
+|range(   12,   13) | users   135 |  0.0704  |
+|range(   13,   14) | users   117 |  0.0622  |
+|range(   14,   15) | users   100 |  0.0681  |
+|range(   15,   30) | users   712 |  0.0640  |
+|range(   30,   50) | users   286 |  0.0459  |
+|range(   50,  100) | users   178 |  0.0515  |
+|range(  100, 1600) | users   105 |  0.0870  |
+|iter:    43/1000 | vec: [0.61007598 0.05146832 0.09589074 0.24256496] | norm: none | MAP: 0.0672 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0374 | Recall = 0.1237 | MAP = 0.0601 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0374  |
+|range(    2,    3) | users   628 |  0.0555  |
+|range(    3,    4) | users   579 |  0.0595  |
+|range(    4,    5) | users   446 |  0.0776  |
+|range(    5,    6) | users   403 |  0.0560  |
+|range(    6,    7) | users   368 |  0.0717  |
+|range(    7,    8) | users   344 |  0.0575  |
+|range(    8,    9) | users   224 |  0.0533  |
+|range(    9,   10) | users   181 |  0.0570  |
+|range(   10,   11) | users   150 |  0.0952  |
+|range(   11,   12) | users   144 |  0.0576  |
+|range(   12,   13) | users   135 |  0.0591  |
+|range(   13,   14) | users   117 |  0.0706  |
+|range(   14,   15) | users   100 |  0.0555  |
+|range(   15,   30) | users   712 |  0.0645  |
+|range(   30,   50) | users   286 |  0.0524  |
+|range(   50,  100) | users   178 |  0.0477  |
+|range(  100, 1600) | users   105 |  0.0888  |
+|iter:    44/1000 | vec: [0.08274344 0.5300209  0.19854182 0.18869385] | norm: none | MAP: 0.0601 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0409 | Recall = 0.1381 | MAP = 0.0679 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0441  |
+|range(    2,    3) | users   628 |  0.0625  |
+|range(    3,    4) | users   579 |  0.0729  |
+|range(    4,    5) | users   446 |  0.0837  |
+|range(    5,    6) | users   403 |  0.0617  |
+|range(    6,    7) | users   368 |  0.0804  |
+|range(    7,    8) | users   344 |  0.0704  |
+|range(    8,    9) | users   224 |  0.0563  |
+|range(    9,   10) | users   181 |  0.0719  |
+|range(   10,   11) | users   150 |  0.1028  |
+|range(   11,   12) | users   144 |  0.0626  |
+|range(   12,   13) | users   135 |  0.0717  |
+|range(   13,   14) | users   117 |  0.0773  |
+|range(   14,   15) | users   100 |  0.0656  |
+|range(   15,   30) | users   712 |  0.0711  |
+|range(   30,   50) | users   286 |  0.0570  |
+|range(   50,  100) | users   178 |  0.0496  |
+|range(  100, 1600) | users   105 |  0.0936  |
+|iter:    45/1000 | vec: [0.46023863 0.48204591 0.05401551 0.00369995] | norm: none | MAP: 0.0679 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0438 | Recall = 0.1523 | MAP = 0.0731 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0492  |
+|range(    2,    3) | users   628 |  0.0666  |
+|range(    3,    4) | users   579 |  0.0762  |
+|range(    4,    5) | users   446 |  0.0818  |
+|range(    5,    6) | users   403 |  0.0757  |
+|range(    6,    7) | users   368 |  0.0904  |
+|range(    7,    8) | users   344 |  0.0804  |
+|range(    8,    9) | users   224 |  0.0668  |
+|range(    9,   10) | users   181 |  0.0806  |
+|range(   10,   11) | users   150 |  0.1080  |
+|range(   11,   12) | users   144 |  0.0752  |
+|range(   12,   13) | users   135 |  0.0750  |
+|range(   13,   14) | users   117 |  0.0660  |
+|range(   14,   15) | users   100 |  0.0791  |
+|range(   15,   30) | users   712 |  0.0762  |
+|range(   30,   50) | users   286 |  0.0554  |
+|range(   50,  100) | users   178 |  0.0530  |
+|range(  100, 1600) | users   105 |  0.0887  |
+|iter:    46/1000 | vec: [0.71972836 0.20464495 0.00934722 0.06627947] | norm: none | MAP: 0.0731 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0427 | Recall = 0.1493 | MAP = 0.0711 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0466  |
+|range(    2,    3) | users   628 |  0.0672  |
+|range(    3,    4) | users   579 |  0.0791  |
+|range(    4,    5) | users   446 |  0.0812  |
+|range(    5,    6) | users   403 |  0.0763  |
+|range(    6,    7) | users   368 |  0.0885  |
+|range(    7,    8) | users   344 |  0.0717  |
+|range(    8,    9) | users   224 |  0.0684  |
+|range(    9,   10) | users   181 |  0.0771  |
+|range(   10,   11) | users   150 |  0.1008  |
+|range(   11,   12) | users   144 |  0.0637  |
+|range(   12,   13) | users   135 |  0.0776  |
+|range(   13,   14) | users   117 |  0.0727  |
+|range(   14,   15) | users   100 |  0.0685  |
+|range(   15,   30) | users   712 |  0.0722  |
+|range(   30,   50) | users   286 |  0.0513  |
+|range(   50,  100) | users   178 |  0.0477  |
+|range(  100, 1600) | users   105 |  0.0868  |
+|iter:    47/1000 | vec: [0.23909281 0.0565904  0.10222507 0.60209172] | norm: none | MAP: 0.0711 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0413 | Recall = 0.1465 | MAP = 0.0685 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0486  |
+|range(    2,    3) | users   628 |  0.0663  |
+|range(    3,    4) | users   579 |  0.0762  |
+|range(    4,    5) | users   446 |  0.0802  |
+|range(    5,    6) | users   403 |  0.0743  |
+|range(    6,    7) | users   368 |  0.0884  |
+|range(    7,    8) | users   344 |  0.0673  |
+|range(    8,    9) | users   224 |  0.0623  |
+|range(    9,   10) | users   181 |  0.0685  |
+|range(   10,   11) | users   150 |  0.0960  |
+|range(   11,   12) | users   144 |  0.0617  |
+|range(   12,   13) | users   135 |  0.0792  |
+|range(   13,   14) | users   117 |  0.0630  |
+|range(   14,   15) | users   100 |  0.0689  |
+|range(   15,   30) | users   712 |  0.0675  |
+|range(   30,   50) | users   286 |  0.0483  |
+|range(   50,  100) | users   178 |  0.0445  |
+|range(  100, 1600) | users   105 |  0.0765  |
+|iter:    48/1000 | vec: [0.16737541 0.03315545 0.06672751 0.73274163] | norm: none | MAP: 0.0685 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0366 | Recall = 0.1189 | MAP = 0.0580 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0326  |
+|range(    2,    3) | users   628 |  0.0511  |
+|range(    3,    4) | users   579 |  0.0564  |
+|range(    4,    5) | users   446 |  0.0765  |
+|range(    5,    6) | users   403 |  0.0553  |
+|range(    6,    7) | users   368 |  0.0728  |
+|range(    7,    8) | users   344 |  0.0560  |
+|range(    8,    9) | users   224 |  0.0541  |
+|range(    9,   10) | users   181 |  0.0527  |
+|range(   10,   11) | users   150 |  0.0919  |
+|range(   11,   12) | users   144 |  0.0555  |
+|range(   12,   13) | users   135 |  0.0540  |
+|range(   13,   14) | users   117 |  0.0717  |
+|range(   14,   15) | users   100 |  0.0531  |
+|range(   15,   30) | users   712 |  0.0635  |
+|range(   30,   50) | users   286 |  0.0515  |
+|range(   50,  100) | users   178 |  0.0462  |
+|range(  100, 1600) | users   105 |  0.0851  |
+|iter:    49/1000 | vec: [0.00246942 0.31992558 0.32236287 0.35524214] | norm: none | MAP: 0.0580 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0388 | Recall = 0.1294 | MAP = 0.0633 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0411  |
+|range(    2,    3) | users   628 |  0.0596  |
+|range(    3,    4) | users   579 |  0.0638  |
+|range(    4,    5) | users   446 |  0.0794  |
+|range(    5,    6) | users   403 |  0.0575  |
+|range(    6,    7) | users   368 |  0.0748  |
+|range(    7,    8) | users   344 |  0.0623  |
+|range(    8,    9) | users   224 |  0.0554  |
+|range(    9,   10) | users   181 |  0.0673  |
+|range(   10,   11) | users   150 |  0.0977  |
+|range(   11,   12) | users   144 |  0.0593  |
+|range(   12,   13) | users   135 |  0.0601  |
+|range(   13,   14) | users   117 |  0.0787  |
+|range(   14,   15) | users   100 |  0.0594  |
+|range(   15,   30) | users   712 |  0.0670  |
+|range(   30,   50) | users   286 |  0.0537  |
+|range(   50,  100) | users   178 |  0.0484  |
+|range(  100, 1600) | users   105 |  0.0904  |
+|iter:    50/1000 | vec: [0.16714194 0.29723824 0.33406819 0.20155164] | norm: none | MAP: 0.0633 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0377 | Recall = 0.1251 | MAP = 0.0611 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0391  |
+|range(    2,    3) | users   628 |  0.0558  |
+|range(    3,    4) | users   579 |  0.0634  |
+|range(    4,    5) | users   446 |  0.0763  |
+|range(    5,    6) | users   403 |  0.0575  |
+|range(    6,    7) | users   368 |  0.0771  |
+|range(    7,    8) | users   344 |  0.0601  |
+|range(    8,    9) | users   224 |  0.0539  |
+|range(    9,   10) | users   181 |  0.0629  |
+|range(   10,   11) | users   150 |  0.0953  |
+|range(   11,   12) | users   144 |  0.0547  |
+|range(   12,   13) | users   135 |  0.0597  |
+|range(   13,   14) | users   117 |  0.0734  |
+|range(   14,   15) | users   100 |  0.0529  |
+|range(   15,   30) | users   712 |  0.0636  |
+|range(   30,   50) | users   286 |  0.0525  |
+|range(   50,  100) | users   178 |  0.0463  |
+|range(  100, 1600) | users   105 |  0.0853  |
+|iter:    51/1000 | vec: [0.05394589 0.35297736 0.09128587 0.50179087] | norm: none | MAP: 0.0611 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0404 | Recall = 0.1325 | MAP = 0.0635 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0409  |
+|range(    2,    3) | users   628 |  0.0608  |
+|range(    3,    4) | users   579 |  0.0630  |
+|range(    4,    5) | users   446 |  0.0757  |
+|range(    5,    6) | users   403 |  0.0608  |
+|range(    6,    7) | users   368 |  0.0741  |
+|range(    7,    8) | users   344 |  0.0588  |
+|range(    8,    9) | users   224 |  0.0627  |
+|range(    9,   10) | users   181 |  0.0654  |
+|range(   10,   11) | users   150 |  0.1034  |
+|range(   11,   12) | users   144 |  0.0578  |
+|range(   12,   13) | users   135 |  0.0655  |
+|range(   13,   14) | users   117 |  0.0704  |
+|range(   14,   15) | users   100 |  0.0665  |
+|range(   15,   30) | users   712 |  0.0676  |
+|range(   30,   50) | users   286 |  0.0508  |
+|range(   50,  100) | users   178 |  0.0509  |
+|range(  100, 1600) | users   105 |  0.0915  |
+|iter:    52/1000 | vec: [0.21253447 0.02243343 0.60878384 0.15624826] | norm: none | MAP: 0.0635 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0321 | Recall = 0.1133 | MAP = 0.0508 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0446  |
+|range(    2,    3) | users   628 |  0.0475  |
+|range(    3,    4) | users   579 |  0.0509  |
+|range(    4,    5) | users   446 |  0.0548  |
+|range(    5,    6) | users   403 |  0.0535  |
+|range(    6,    7) | users   368 |  0.0685  |
+|range(    7,    8) | users   344 |  0.0605  |
+|range(    8,    9) | users   224 |  0.0423  |
+|range(    9,   10) | users   181 |  0.0512  |
+|range(   10,   11) | users   150 |  0.0587  |
+|range(   11,   12) | users   144 |  0.0566  |
+|range(   12,   13) | users   135 |  0.0532  |
+|range(   13,   14) | users   117 |  0.0406  |
+|range(   14,   15) | users   100 |  0.0599  |
+|range(   15,   30) | users   712 |  0.0459  |
+|range(   30,   50) | users   286 |  0.0331  |
+|range(   50,  100) | users   178 |  0.0420  |
+|range(  100, 1600) | users   105 |  0.0737  |
+|iter:    53/1000 | vec: [0.64664864 0.00933602 0.0256757  0.31833964] | norm: none | MAP: 0.0508 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0367 | Recall = 0.1185 | MAP = 0.0581 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0340  |
+|range(    2,    3) | users   628 |  0.0527  |
+|range(    3,    4) | users   579 |  0.0560  |
+|range(    4,    5) | users   446 |  0.0773  |
+|range(    5,    6) | users   403 |  0.0556  |
+|range(    6,    7) | users   368 |  0.0696  |
+|range(    7,    8) | users   344 |  0.0570  |
+|range(    8,    9) | users   224 |  0.0564  |
+|range(    9,   10) | users   181 |  0.0498  |
+|range(   10,   11) | users   150 |  0.0925  |
+|range(   11,   12) | users   144 |  0.0556  |
+|range(   12,   13) | users   135 |  0.0533  |
+|range(   13,   14) | users   117 |  0.0675  |
+|range(   14,   15) | users   100 |  0.0550  |
+|range(   15,   30) | users   712 |  0.0620  |
+|range(   30,   50) | users   286 |  0.0511  |
+|range(   50,  100) | users   178 |  0.0483  |
+|range(  100, 1600) | users   105 |  0.0891  |
+|iter:    54/1000 | vec: [0.01481789 0.20857129 0.5879487  0.18866212] | norm: none | MAP: 0.0581 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0375 | Recall = 0.1239 | MAP = 0.0603 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0402  |
+|range(    2,    3) | users   628 |  0.0542  |
+|range(    3,    4) | users   579 |  0.0599  |
+|range(    4,    5) | users   446 |  0.0752  |
+|range(    5,    6) | users   403 |  0.0548  |
+|range(    6,    7) | users   368 |  0.0728  |
+|range(    7,    8) | users   344 |  0.0610  |
+|range(    8,    9) | users   224 |  0.0524  |
+|range(    9,   10) | users   181 |  0.0576  |
+|range(   10,   11) | users   150 |  0.0943  |
+|range(   11,   12) | users   144 |  0.0581  |
+|range(   12,   13) | users   135 |  0.0591  |
+|range(   13,   14) | users   117 |  0.0756  |
+|range(   14,   15) | users   100 |  0.0550  |
+|range(   15,   30) | users   712 |  0.0643  |
+|range(   30,   50) | users   286 |  0.0525  |
+|range(   50,  100) | users   178 |  0.0480  |
+|range(  100, 1600) | users   105 |  0.0896  |
+|iter:    55/1000 | vec: [0.0836676  0.73636511 0.0450544  0.13491289] | norm: none | MAP: 0.0603 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0382 | Recall = 0.1282 | MAP = 0.0630 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0417  |
+|range(    2,    3) | users   628 |  0.0588  |
+|range(    3,    4) | users   579 |  0.0677  |
+|range(    4,    5) | users   446 |  0.0755  |
+|range(    5,    6) | users   403 |  0.0628  |
+|range(    6,    7) | users   368 |  0.0806  |
+|range(    7,    8) | users   344 |  0.0594  |
+|range(    8,    9) | users   224 |  0.0562  |
+|range(    9,   10) | users   181 |  0.0667  |
+|range(   10,   11) | users   150 |  0.0944  |
+|range(   11,   12) | users   144 |  0.0586  |
+|range(   12,   13) | users   135 |  0.0633  |
+|range(   13,   14) | users   117 |  0.0764  |
+|range(   14,   15) | users   100 |  0.0551  |
+|range(   15,   30) | users   712 |  0.0645  |
+|range(   30,   50) | users   286 |  0.0512  |
+|range(   50,  100) | users   178 |  0.0445  |
+|range(  100, 1600) | users   105 |  0.0816  |
+|iter:    56/1000 | vec: [0.06697788 0.1709124  0.10544703 0.65666269] | norm: none | MAP: 0.0630 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0421 | Recall = 0.1425 | MAP = 0.0697 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0462  |
+|range(    2,    3) | users   628 |  0.0651  |
+|range(    3,    4) | users   579 |  0.0739  |
+|range(    4,    5) | users   446 |  0.0819  |
+|range(    5,    6) | users   403 |  0.0673  |
+|range(    6,    7) | users   368 |  0.0868  |
+|range(    7,    8) | users   344 |  0.0722  |
+|range(    8,    9) | users   224 |  0.0580  |
+|range(    9,   10) | users   181 |  0.0746  |
+|range(   10,   11) | users   150 |  0.1058  |
+|range(   11,   12) | users   144 |  0.0628  |
+|range(   12,   13) | users   135 |  0.0753  |
+|range(   13,   14) | users   117 |  0.0798  |
+|range(   14,   15) | users   100 |  0.0710  |
+|range(   15,   30) | users   712 |  0.0710  |
+|range(   30,   50) | users   286 |  0.0569  |
+|range(   50,  100) | users   178 |  0.0493  |
+|range(  100, 1600) | users   105 |  0.0953  |
+|iter:    57/1000 | vec: [0.39893598 0.31689414 0.03904049 0.24512939] | norm: none | MAP: 0.0697 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0398 | Recall = 0.1333 | MAP = 0.0662 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0418  |
+|range(    2,    3) | users   628 |  0.0606  |
+|range(    3,    4) | users   579 |  0.0697  |
+|range(    4,    5) | users   446 |  0.0847  |
+|range(    5,    6) | users   403 |  0.0606  |
+|range(    6,    7) | users   368 |  0.0785  |
+|range(    7,    8) | users   344 |  0.0677  |
+|range(    8,    9) | users   224 |  0.0560  |
+|range(    9,   10) | users   181 |  0.0687  |
+|range(   10,   11) | users   150 |  0.1040  |
+|range(   11,   12) | users   144 |  0.0615  |
+|range(   12,   13) | users   135 |  0.0690  |
+|range(   13,   14) | users   117 |  0.0771  |
+|range(   14,   15) | users   100 |  0.0640  |
+|range(   15,   30) | users   712 |  0.0690  |
+|range(   30,   50) | users   286 |  0.0557  |
+|range(   50,  100) | users   178 |  0.0492  |
+|range(  100, 1600) | users   105 |  0.0917  |
+|iter:    58/1000 | vec: [0.32510731 0.43878326 0.18501534 0.05109409] | norm: none | MAP: 0.0662 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0378 | Recall = 0.1251 | MAP = 0.0611 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0393  |
+|range(    2,    3) | users   628 |  0.0570  |
+|range(    3,    4) | users   579 |  0.0591  |
+|range(    4,    5) | users   446 |  0.0796  |
+|range(    5,    6) | users   403 |  0.0566  |
+|range(    6,    7) | users   368 |  0.0718  |
+|range(    7,    8) | users   344 |  0.0599  |
+|range(    8,    9) | users   224 |  0.0546  |
+|range(    9,   10) | users   181 |  0.0599  |
+|range(   10,   11) | users   150 |  0.0949  |
+|range(   11,   12) | users   144 |  0.0579  |
+|range(   12,   13) | users   135 |  0.0574  |
+|range(   13,   14) | users   117 |  0.0726  |
+|range(   14,   15) | users   100 |  0.0574  |
+|range(   15,   30) | users   712 |  0.0654  |
+|range(   30,   50) | users   286 |  0.0527  |
+|range(   50,  100) | users   178 |  0.0490  |
+|range(  100, 1600) | users   105 |  0.0886  |
+|iter:    59/1000 | vec: [0.10850211 0.33788142 0.43151439 0.12210208] | norm: none | MAP: 0.0611 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0406 | Recall = 0.1353 | MAP = 0.0661 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0419  |
+|range(    2,    3) | users   628 |  0.0632  |
+|range(    3,    4) | users   579 |  0.0677  |
+|range(    4,    5) | users   446 |  0.0813  |
+|range(    5,    6) | users   403 |  0.0633  |
+|range(    6,    7) | users   368 |  0.0801  |
+|range(    7,    8) | users   344 |  0.0649  |
+|range(    8,    9) | users   224 |  0.0583  |
+|range(    9,   10) | users   181 |  0.0676  |
+|range(   10,   11) | users   150 |  0.1033  |
+|range(   11,   12) | users   144 |  0.0598  |
+|range(   12,   13) | users   135 |  0.0674  |
+|range(   13,   14) | users   117 |  0.0759  |
+|range(   14,   15) | users   100 |  0.0640  |
+|range(   15,   30) | users   712 |  0.0687  |
+|range(   30,   50) | users   286 |  0.0550  |
+|range(   50,  100) | users   178 |  0.0501  |
+|range(  100, 1600) | users   105 |  0.0927  |
+|iter:    60/1000 | vec: [0.23817114 0.14844486 0.37170118 0.24168282] | norm: none | MAP: 0.0661 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0434 | Recall = 0.1506 | MAP = 0.0717 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0484  |
+|range(    2,    3) | users   628 |  0.0682  |
+|range(    3,    4) | users   579 |  0.0761  |
+|range(    4,    5) | users   446 |  0.0848  |
+|range(    5,    6) | users   403 |  0.0776  |
+|range(    6,    7) | users   368 |  0.0858  |
+|range(    7,    8) | users   344 |  0.0744  |
+|range(    8,    9) | users   224 |  0.0710  |
+|range(    9,   10) | users   181 |  0.0788  |
+|range(   10,   11) | users   150 |  0.0998  |
+|range(   11,   12) | users   144 |  0.0666  |
+|range(   12,   13) | users   135 |  0.0755  |
+|range(   13,   14) | users   117 |  0.0681  |
+|range(   14,   15) | users   100 |  0.0712  |
+|range(   15,   30) | users   712 |  0.0726  |
+|range(   30,   50) | users   286 |  0.0509  |
+|range(   50,  100) | users   178 |  0.0505  |
+|range(  100, 1600) | users   105 |  0.0889  |
+|iter:    61/1000 | vec: [0.32868304 0.01743166 0.24980198 0.40408332] | norm: none | MAP: 0.0717 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0323 | Recall = 0.1145 | MAP = 0.0514 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0441  |
+|range(    2,    3) | users   628 |  0.0493  |
+|range(    3,    4) | users   579 |  0.0515  |
+|range(    4,    5) | users   446 |  0.0552  |
+|range(    5,    6) | users   403 |  0.0538  |
+|range(    6,    7) | users   368 |  0.0689  |
+|range(    7,    8) | users   344 |  0.0601  |
+|range(    8,    9) | users   224 |  0.0455  |
+|range(    9,   10) | users   181 |  0.0539  |
+|range(   10,   11) | users   150 |  0.0586  |
+|range(   11,   12) | users   144 |  0.0576  |
+|range(   12,   13) | users   135 |  0.0528  |
+|range(   13,   14) | users   117 |  0.0411  |
+|range(   14,   15) | users   100 |  0.0598  |
+|range(   15,   30) | users   712 |  0.0459  |
+|range(   30,   50) | users   286 |  0.0333  |
+|range(   50,  100) | users   178 |  0.0424  |
+|range(  100, 1600) | users   105 |  0.0741  |
+|iter:    62/1000 | vec: [0.59925039 0.00291998 0.02396273 0.3738669 ] | norm: none | MAP: 0.0514 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0395 | Recall = 0.1327 | MAP = 0.0646 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0403  |
+|range(    2,    3) | users   628 |  0.0617  |
+|range(    3,    4) | users   579 |  0.0665  |
+|range(    4,    5) | users   446 |  0.0804  |
+|range(    5,    6) | users   403 |  0.0623  |
+|range(    6,    7) | users   368 |  0.0795  |
+|range(    7,    8) | users   344 |  0.0608  |
+|range(    8,    9) | users   224 |  0.0585  |
+|range(    9,   10) | users   181 |  0.0655  |
+|range(   10,   11) | users   150 |  0.1001  |
+|range(   11,   12) | users   144 |  0.0600  |
+|range(   12,   13) | users   135 |  0.0651  |
+|range(   13,   14) | users   117 |  0.0732  |
+|range(   14,   15) | users   100 |  0.0600  |
+|range(   15,   30) | users   712 |  0.0674  |
+|range(   30,   50) | users   286 |  0.0539  |
+|range(   50,  100) | users   178 |  0.0486  |
+|range(  100, 1600) | users   105 |  0.0886  |
+|iter:    63/1000 | vec: [0.16079303 0.17034615 0.30004624 0.36881458] | norm: none | MAP: 0.0646 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0441 | Recall = 0.1509 | MAP = 0.0725 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0454  |
+|range(    2,    3) | users   628 |  0.0675  |
+|range(    3,    4) | users   579 |  0.0757  |
+|range(    4,    5) | users   446 |  0.0826  |
+|range(    5,    6) | users   403 |  0.0763  |
+|range(    6,    7) | users   368 |  0.0887  |
+|range(    7,    8) | users   344 |  0.0759  |
+|range(    8,    9) | users   224 |  0.0703  |
+|range(    9,   10) | users   181 |  0.0799  |
+|range(   10,   11) | users   150 |  0.1096  |
+|range(   11,   12) | users   144 |  0.0677  |
+|range(   12,   13) | users   135 |  0.0736  |
+|range(   13,   14) | users   117 |  0.0743  |
+|range(   14,   15) | users   100 |  0.0713  |
+|range(   15,   30) | users   712 |  0.0757  |
+|range(   30,   50) | users   286 |  0.0551  |
+|range(   50,  100) | users   178 |  0.0529  |
+|range(  100, 1600) | users   105 |  0.0910  |
+|iter:    64/1000 | vec: [0.47785467 0.11816529 0.26527728 0.13870277] | norm: none | MAP: 0.0725 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0419 | Recall = 0.1411 | MAP = 0.0681 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0417  |
+|range(    2,    3) | users   628 |  0.0643  |
+|range(    3,    4) | users   579 |  0.0699  |
+|range(    4,    5) | users   446 |  0.0818  |
+|range(    5,    6) | users   403 |  0.0637  |
+|range(    6,    7) | users   368 |  0.0832  |
+|range(    7,    8) | users   344 |  0.0701  |
+|range(    8,    9) | users   224 |  0.0600  |
+|range(    9,   10) | users   181 |  0.0758  |
+|range(   10,   11) | users   150 |  0.1055  |
+|range(   11,   12) | users   144 |  0.0622  |
+|range(   12,   13) | users   135 |  0.0699  |
+|range(   13,   14) | users   117 |  0.0773  |
+|range(   14,   15) | users   100 |  0.0653  |
+|range(   15,   30) | users   712 |  0.0717  |
+|range(   30,   50) | users   286 |  0.0567  |
+|range(   50,  100) | users   178 |  0.0503  |
+|range(  100, 1600) | users   105 |  0.0945  |
+|iter:    65/1000 | vec: [0.36763007 0.23581507 0.25698607 0.13956879] | norm: none | MAP: 0.0681 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0389 | Recall = 0.1297 | MAP = 0.0636 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0408  |
+|range(    2,    3) | users   628 |  0.0581  |
+|range(    3,    4) | users   579 |  0.0655  |
+|range(    4,    5) | users   446 |  0.0809  |
+|range(    5,    6) | users   403 |  0.0580  |
+|range(    6,    7) | users   368 |  0.0769  |
+|range(    7,    8) | users   344 |  0.0619  |
+|range(    8,    9) | users   224 |  0.0554  |
+|range(    9,   10) | users   181 |  0.0671  |
+|range(   10,   11) | users   150 |  0.0995  |
+|range(   11,   12) | users   144 |  0.0608  |
+|range(   12,   13) | users   135 |  0.0621  |
+|range(   13,   14) | users   117 |  0.0778  |
+|range(   14,   15) | users   100 |  0.0574  |
+|range(   15,   30) | users   712 |  0.0665  |
+|range(   30,   50) | users   286 |  0.0537  |
+|range(   50,  100) | users   178 |  0.0491  |
+|range(  100, 1600) | users   105 |  0.0903  |
+|iter:    66/1000 | vec: [0.23836111 0.47923791 0.24979924 0.03260175] | norm: none | MAP: 0.0636 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0372 | Recall = 0.1215 | MAP = 0.0588 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0348  |
+|range(    2,    3) | users   628 |  0.0518  |
+|range(    3,    4) | users   579 |  0.0574  |
+|range(    4,    5) | users   446 |  0.0768  |
+|range(    5,    6) | users   403 |  0.0561  |
+|range(    6,    7) | users   368 |  0.0712  |
+|range(    7,    8) | users   344 |  0.0566  |
+|range(    8,    9) | users   224 |  0.0531  |
+|range(    9,   10) | users   181 |  0.0551  |
+|range(   10,   11) | users   150 |  0.0928  |
+|range(   11,   12) | users   144 |  0.0576  |
+|range(   12,   13) | users   135 |  0.0579  |
+|range(   13,   14) | users   117 |  0.0704  |
+|range(   14,   15) | users   100 |  0.0554  |
+|range(   15,   30) | users   712 |  0.0642  |
+|range(   30,   50) | users   286 |  0.0522  |
+|range(   50,  100) | users   178 |  0.0471  |
+|range(  100, 1600) | users   105 |  0.0875  |
+|iter:    67/1000 | vec: [0.04551057 0.55418144 0.21521139 0.18509661] | norm: none | MAP: 0.0588 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0408 | Recall = 0.1359 | MAP = 0.0668 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0410  |
+|range(    2,    3) | users   628 |  0.0623  |
+|range(    3,    4) | users   579 |  0.0695  |
+|range(    4,    5) | users   446 |  0.0833  |
+|range(    5,    6) | users   403 |  0.0620  |
+|range(    6,    7) | users   368 |  0.0788  |
+|range(    7,    8) | users   344 |  0.0669  |
+|range(    8,    9) | users   224 |  0.0584  |
+|range(    9,   10) | users   181 |  0.0712  |
+|range(   10,   11) | users   150 |  0.1052  |
+|range(   11,   12) | users   144 |  0.0619  |
+|range(   12,   13) | users   135 |  0.0684  |
+|range(   13,   14) | users   117 |  0.0764  |
+|range(   14,   15) | users   100 |  0.0635  |
+|range(   15,   30) | users   712 |  0.0705  |
+|range(   30,   50) | users   286 |  0.0561  |
+|range(   50,  100) | users   178 |  0.0500  |
+|range(  100, 1600) | users   105 |  0.0940  |
+|iter:    68/1000 | vec: [0.35141397 0.31746509 0.26074887 0.07037207] | norm: none | MAP: 0.0668 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0414 | Recall = 0.1400 | MAP = 0.0685 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0450  |
+|range(    2,    3) | users   628 |  0.0635  |
+|range(    3,    4) | users   579 |  0.0711  |
+|range(    4,    5) | users   446 |  0.0837  |
+|range(    5,    6) | users   403 |  0.0646  |
+|range(    6,    7) | users   368 |  0.0841  |
+|range(    7,    8) | users   344 |  0.0708  |
+|range(    8,    9) | users   224 |  0.0579  |
+|range(    9,   10) | users   181 |  0.0724  |
+|range(   10,   11) | users   150 |  0.1053  |
+|range(   11,   12) | users   144 |  0.0620  |
+|range(   12,   13) | users   135 |  0.0742  |
+|range(   13,   14) | users   117 |  0.0795  |
+|range(   14,   15) | users   100 |  0.0661  |
+|range(   15,   30) | users   712 |  0.0699  |
+|range(   30,   50) | users   286 |  0.0572  |
+|range(   50,  100) | users   178 |  0.0494  |
+|range(  100, 1600) | users   105 |  0.0929  |
+|iter:    69/1000 | vec: [0.33062341 0.29495662 0.08673534 0.28768463] | norm: none | MAP: 0.0685 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0263 | Recall = 0.0967 | MAP = 0.0429 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0396  |
+|range(    2,    3) | users   628 |  0.0383  |
+|range(    3,    4) | users   579 |  0.0440  |
+|range(    4,    5) | users   446 |  0.0466  |
+|range(    5,    6) | users   403 |  0.0478  |
+|range(    6,    7) | users   368 |  0.0594  |
+|range(    7,    8) | users   344 |  0.0557  |
+|range(    8,    9) | users   224 |  0.0346  |
+|range(    9,   10) | users   181 |  0.0463  |
+|range(   10,   11) | users   150 |  0.0546  |
+|range(   11,   12) | users   144 |  0.0429  |
+|range(   12,   13) | users   135 |  0.0447  |
+|range(   13,   14) | users   117 |  0.0297  |
+|range(   14,   15) | users   100 |  0.0501  |
+|range(   15,   30) | users   712 |  0.0369  |
+|range(   30,   50) | users   286 |  0.0243  |
+|range(   50,  100) | users   178 |  0.0330  |
+|range(  100, 1600) | users   105 |  0.0577  |
+|iter:    70/1000 | vec: [0.88880555 0.00824386 0.04147498 0.06147561] | norm: none | MAP: 0.0429 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0445 | Recall = 0.1542 | MAP = 0.0743 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0496  |
+|range(    2,    3) | users   628 |  0.0692  |
+|range(    3,    4) | users   579 |  0.0771  |
+|range(    4,    5) | users   446 |  0.0836  |
+|range(    5,    6) | users   403 |  0.0782  |
+|range(    6,    7) | users   368 |  0.0914  |
+|range(    7,    8) | users   344 |  0.0822  |
+|range(    8,    9) | users   224 |  0.0681  |
+|range(    9,   10) | users   181 |  0.0831  |
+|range(   10,   11) | users   150 |  0.1071  |
+|range(   11,   12) | users   144 |  0.0720  |
+|range(   12,   13) | users   135 |  0.0720  |
+|range(   13,   14) | users   117 |  0.0736  |
+|range(   14,   15) | users   100 |  0.0791  |
+|range(   15,   30) | users   712 |  0.0772  |
+|range(   30,   50) | users   286 |  0.0557  |
+|range(   50,  100) | users   178 |  0.0520  |
+|range(  100, 1600) | users   105 |  0.0901  |
+|iter:    71/1000 | vec: [0.60946759 0.22141991 0.02445882 0.14465369] | norm: none | MAP: 0.0743 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0421 | Recall = 0.1426 | MAP = 0.0697 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0466  |
+|range(    2,    3) | users   628 |  0.0649  |
+|range(    3,    4) | users   579 |  0.0731  |
+|range(    4,    5) | users   446 |  0.0814  |
+|range(    5,    6) | users   403 |  0.0693  |
+|range(    6,    7) | users   368 |  0.0867  |
+|range(    7,    8) | users   344 |  0.0720  |
+|range(    8,    9) | users   224 |  0.0592  |
+|range(    9,   10) | users   181 |  0.0738  |
+|range(   10,   11) | users   150 |  0.1050  |
+|range(   11,   12) | users   144 |  0.0624  |
+|range(   12,   13) | users   135 |  0.0756  |
+|range(   13,   14) | users   117 |  0.0803  |
+|range(   14,   15) | users   100 |  0.0713  |
+|range(   15,   30) | users   712 |  0.0709  |
+|range(   30,   50) | users   286 |  0.0568  |
+|range(   50,  100) | users   178 |  0.0492  |
+|range(  100, 1600) | users   105 |  0.0953  |
+|iter:    72/1000 | vec: [0.37390923 0.28250834 0.06885917 0.27472326] | norm: none | MAP: 0.0697 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0372 | Recall = 0.1209 | MAP = 0.0586 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0394  |
+|range(    2,    3) | users   628 |  0.0568  |
+|range(    3,    4) | users   579 |  0.0572  |
+|range(    4,    5) | users   446 |  0.0736  |
+|range(    5,    6) | users   403 |  0.0555  |
+|range(    6,    7) | users   368 |  0.0681  |
+|range(    7,    8) | users   344 |  0.0548  |
+|range(    8,    9) | users   224 |  0.0577  |
+|range(    9,   10) | users   181 |  0.0497  |
+|range(   10,   11) | users   150 |  0.0931  |
+|range(   11,   12) | users   144 |  0.0538  |
+|range(   12,   13) | users   135 |  0.0561  |
+|range(   13,   14) | users   117 |  0.0673  |
+|range(   14,   15) | users   100 |  0.0593  |
+|range(   15,   30) | users   712 |  0.0612  |
+|range(   30,   50) | users   286 |  0.0485  |
+|range(   50,  100) | users   178 |  0.0479  |
+|range(  100, 1600) | users   105 |  0.0928  |
+|iter:    73/1000 | vec: [0.07634508 0.03280306 0.83073883 0.06011303] | norm: none | MAP: 0.0586 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0385 | Recall = 0.1279 | MAP = 0.0625 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0412  |
+|range(    2,    3) | users   628 |  0.0583  |
+|range(    3,    4) | users   579 |  0.0636  |
+|range(    4,    5) | users   446 |  0.0773  |
+|range(    5,    6) | users   403 |  0.0578  |
+|range(    6,    7) | users   368 |  0.0737  |
+|range(    7,    8) | users   344 |  0.0608  |
+|range(    8,    9) | users   224 |  0.0537  |
+|range(    9,   10) | users   181 |  0.0669  |
+|range(   10,   11) | users   150 |  0.0966  |
+|range(   11,   12) | users   144 |  0.0613  |
+|range(   12,   13) | users   135 |  0.0609  |
+|range(   13,   14) | users   117 |  0.0771  |
+|range(   14,   15) | users   100 |  0.0568  |
+|range(   15,   30) | users   712 |  0.0656  |
+|range(   30,   50) | users   286 |  0.0527  |
+|range(   50,  100) | users   178 |  0.0489  |
+|range(  100, 1600) | users   105 |  0.0914  |
+|iter:    74/1000 | vec: [0.18685066 0.49715317 0.20515495 0.11084122] | norm: none | MAP: 0.0625 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0427 | Recall = 0.1512 | MAP = 0.0707 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0522  |
+|range(    2,    3) | users   628 |  0.0705  |
+|range(    3,    4) | users   579 |  0.0733  |
+|range(    4,    5) | users   446 |  0.0822  |
+|range(    5,    6) | users   403 |  0.0759  |
+|range(    6,    7) | users   368 |  0.0878  |
+|range(    7,    8) | users   344 |  0.0733  |
+|range(    8,    9) | users   224 |  0.0649  |
+|range(    9,   10) | users   181 |  0.0761  |
+|range(   10,   11) | users   150 |  0.1000  |
+|range(   11,   12) | users   144 |  0.0670  |
+|range(   12,   13) | users   135 |  0.0747  |
+|range(   13,   14) | users   117 |  0.0655  |
+|range(   14,   15) | users   100 |  0.0692  |
+|range(   15,   30) | users   712 |  0.0686  |
+|range(   30,   50) | users   286 |  0.0498  |
+|range(   50,  100) | users   178 |  0.0494  |
+|range(  100, 1600) | users   105 |  0.0882  |
+|iter:    75/1000 | vec: [0.40817285 0.04043295 0.06832835 0.48306585] | norm: none | MAP: 0.0707 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0435 | Recall = 0.1490 | MAP = 0.0718 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0454  |
+|range(    2,    3) | users   628 |  0.0663  |
+|range(    3,    4) | users   579 |  0.0754  |
+|range(    4,    5) | users   446 |  0.0840  |
+|range(    5,    6) | users   403 |  0.0748  |
+|range(    6,    7) | users   368 |  0.0874  |
+|range(    7,    8) | users   344 |  0.0772  |
+|range(    8,    9) | users   224 |  0.0693  |
+|range(    9,   10) | users   181 |  0.0792  |
+|range(   10,   11) | users   150 |  0.1062  |
+|range(   11,   12) | users   144 |  0.0669  |
+|range(   12,   13) | users   135 |  0.0739  |
+|range(   13,   14) | users   117 |  0.0738  |
+|range(   14,   15) | users   100 |  0.0727  |
+|range(   15,   30) | users   712 |  0.0744  |
+|range(   30,   50) | users   286 |  0.0535  |
+|range(   50,  100) | users   178 |  0.0525  |
+|range(  100, 1600) | users   105 |  0.0884  |
+|iter:    76/1000 | vec: [0.3934963  0.04092589 0.3128512  0.25272661] | norm: none | MAP: 0.0718 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0381 | Recall = 0.1283 | MAP = 0.0625 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0409  |
+|range(    2,    3) | users   628 |  0.0583  |
+|range(    3,    4) | users   579 |  0.0679  |
+|range(    4,    5) | users   446 |  0.0758  |
+|range(    5,    6) | users   403 |  0.0634  |
+|range(    6,    7) | users   368 |  0.0792  |
+|range(    7,    8) | users   344 |  0.0580  |
+|range(    8,    9) | users   224 |  0.0573  |
+|range(    9,   10) | users   181 |  0.0591  |
+|range(   10,   11) | users   150 |  0.0951  |
+|range(   11,   12) | users   144 |  0.0564  |
+|range(   12,   13) | users   135 |  0.0635  |
+|range(   13,   14) | users   117 |  0.0720  |
+|range(   14,   15) | users   100 |  0.0611  |
+|range(   15,   30) | users   712 |  0.0641  |
+|range(   30,   50) | users   286 |  0.0500  |
+|range(   50,  100) | users   178 |  0.0448  |
+|range(  100, 1600) | users   105 |  0.0785  |
+|iter:    77/1000 | vec: [0.06200262 0.12135505 0.18123487 0.63540746] | norm: none | MAP: 0.0625 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0393 | Recall = 0.1315 | MAP = 0.0650 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0419  |
+|range(    2,    3) | users   628 |  0.0609  |
+|range(    3,    4) | users   579 |  0.0676  |
+|range(    4,    5) | users   446 |  0.0815  |
+|range(    5,    6) | users   403 |  0.0604  |
+|range(    6,    7) | users   368 |  0.0771  |
+|range(    7,    8) | users   344 |  0.0645  |
+|range(    8,    9) | users   224 |  0.0555  |
+|range(    9,   10) | users   181 |  0.0692  |
+|range(   10,   11) | users   150 |  0.0999  |
+|range(   11,   12) | users   144 |  0.0626  |
+|range(   12,   13) | users   135 |  0.0663  |
+|range(   13,   14) | users   117 |  0.0771  |
+|range(   14,   15) | users   100 |  0.0612  |
+|range(   15,   30) | users   712 |  0.0673  |
+|range(   30,   50) | users   286 |  0.0542  |
+|range(   50,  100) | users   178 |  0.0487  |
+|range(  100, 1600) | users   105 |  0.0898  |
+|iter:    78/1000 | vec: [0.23341484 0.40431726 0.1595336  0.2027343 ] | norm: none | MAP: 0.0650 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0408 | Recall = 0.1370 | MAP = 0.0663 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0419  |
+|range(    2,    3) | users   628 |  0.0638  |
+|range(    3,    4) | users   579 |  0.0680  |
+|range(    4,    5) | users   446 |  0.0806  |
+|range(    5,    6) | users   403 |  0.0641  |
+|range(    6,    7) | users   368 |  0.0817  |
+|range(    7,    8) | users   344 |  0.0641  |
+|range(    8,    9) | users   224 |  0.0598  |
+|range(    9,   10) | users   181 |  0.0665  |
+|range(   10,   11) | users   150 |  0.1031  |
+|range(   11,   12) | users   144 |  0.0594  |
+|range(   12,   13) | users   135 |  0.0704  |
+|range(   13,   14) | users   117 |  0.0756  |
+|range(   14,   15) | users   100 |  0.0684  |
+|range(   15,   30) | users   712 |  0.0687  |
+|range(   30,   50) | users   286 |  0.0542  |
+|range(   50,  100) | users   178 |  0.0496  |
+|range(  100, 1600) | users   105 |  0.0901  |
+|iter:    79/1000 | vec: [0.22212244 0.10969702 0.35365386 0.31452668] | norm: none | MAP: 0.0663 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0401 | Recall = 0.1346 | MAP = 0.0666 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0424  |
+|range(    2,    3) | users   628 |  0.0619  |
+|range(    3,    4) | users   579 |  0.0694  |
+|range(    4,    5) | users   446 |  0.0853  |
+|range(    5,    6) | users   403 |  0.0614  |
+|range(    6,    7) | users   368 |  0.0794  |
+|range(    7,    8) | users   344 |  0.0672  |
+|range(    8,    9) | users   224 |  0.0555  |
+|range(    9,   10) | users   181 |  0.0705  |
+|range(   10,   11) | users   150 |  0.1042  |
+|range(   11,   12) | users   144 |  0.0616  |
+|range(   12,   13) | users   135 |  0.0686  |
+|range(   13,   14) | users   117 |  0.0763  |
+|range(   14,   15) | users   100 |  0.0655  |
+|range(   15,   30) | users   712 |  0.0691  |
+|range(   30,   50) | users   286 |  0.0555  |
+|range(   50,  100) | users   178 |  0.0490  |
+|range(  100, 1600) | users   105 |  0.0914  |
+|iter:    80/1000 | vec: [0.30414518 0.38906109 0.128502   0.17829173] | norm: none | MAP: 0.0666 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0371 | Recall = 0.1217 | MAP = 0.0591 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0347  |
+|range(    2,    3) | users   628 |  0.0549  |
+|range(    3,    4) | users   579 |  0.0587  |
+|range(    4,    5) | users   446 |  0.0772  |
+|range(    5,    6) | users   403 |  0.0571  |
+|range(    6,    7) | users   368 |  0.0687  |
+|range(    7,    8) | users   344 |  0.0553  |
+|range(    8,    9) | users   224 |  0.0577  |
+|range(    9,   10) | users   181 |  0.0546  |
+|range(   10,   11) | users   150 |  0.0947  |
+|range(   11,   12) | users   144 |  0.0546  |
+|range(   12,   13) | users   135 |  0.0556  |
+|range(   13,   14) | users   117 |  0.0731  |
+|range(   14,   15) | users   100 |  0.0570  |
+|range(   15,   30) | users   712 |  0.0628  |
+|range(   30,   50) | users   286 |  0.0499  |
+|range(   50,  100) | users   178 |  0.0494  |
+|range(  100, 1600) | users   105 |  0.0891  |
+|iter:    81/1000 | vec: [0.04621876 0.10474305 0.58728551 0.26175268] | norm: none | MAP: 0.0591 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0369 | Recall = 0.1208 | MAP = 0.0594 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0392  |
+|range(    2,    3) | users   628 |  0.0512  |
+|range(    3,    4) | users   579 |  0.0578  |
+|range(    4,    5) | users   446 |  0.0756  |
+|range(    5,    6) | users   403 |  0.0553  |
+|range(    6,    7) | users   368 |  0.0728  |
+|range(    7,    8) | users   344 |  0.0604  |
+|range(    8,    9) | users   224 |  0.0519  |
+|range(    9,   10) | users   181 |  0.0557  |
+|range(   10,   11) | users   150 |  0.0934  |
+|range(   11,   12) | users   144 |  0.0542  |
+|range(   12,   13) | users   135 |  0.0584  |
+|range(   13,   14) | users   117 |  0.0753  |
+|range(   14,   15) | users   100 |  0.0550  |
+|range(   15,   30) | users   712 |  0.0640  |
+|range(   30,   50) | users   286 |  0.0519  |
+|range(   50,  100) | users   178 |  0.0473  |
+|range(  100, 1600) | users   105 |  0.0886  |
+|iter:    82/1000 | vec: [0.0507451 0.9276148 0.0131392 0.0085009] | norm: none | MAP: 0.0594 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0365 | Recall = 0.1196 | MAP = 0.0583 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0350  |
+|range(    2,    3) | users   628 |  0.0541  |
+|range(    3,    4) | users   579 |  0.0609  |
+|range(    4,    5) | users   446 |  0.0758  |
+|range(    5,    6) | users   403 |  0.0572  |
+|range(    6,    7) | users   368 |  0.0689  |
+|range(    7,    8) | users   344 |  0.0547  |
+|range(    8,    9) | users   224 |  0.0567  |
+|range(    9,   10) | users   181 |  0.0521  |
+|range(   10,   11) | users   150 |  0.0917  |
+|range(   11,   12) | users   144 |  0.0546  |
+|range(   12,   13) | users   135 |  0.0575  |
+|range(   13,   14) | users   117 |  0.0696  |
+|range(   14,   15) | users   100 |  0.0568  |
+|range(   15,   30) | users   712 |  0.0603  |
+|range(   30,   50) | users   286 |  0.0484  |
+|range(   50,  100) | users   178 |  0.0469  |
+|range(  100, 1600) | users   105 |  0.0821  |
+|iter:    83/1000 | vec: [0.02570675 0.04778567 0.54927332 0.37723426] | norm: none | MAP: 0.0583 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0397 | Recall = 0.1300 | MAP = 0.0637 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0412  |
+|range(    2,    3) | users   628 |  0.0597  |
+|range(    3,    4) | users   579 |  0.0634  |
+|range(    4,    5) | users   446 |  0.0791  |
+|range(    5,    6) | users   403 |  0.0605  |
+|range(    6,    7) | users   368 |  0.0727  |
+|range(    7,    8) | users   344 |  0.0626  |
+|range(    8,    9) | users   224 |  0.0577  |
+|range(    9,   10) | users   181 |  0.0671  |
+|range(   10,   11) | users   150 |  0.1030  |
+|range(   11,   12) | users   144 |  0.0591  |
+|range(   12,   13) | users   135 |  0.0679  |
+|range(   13,   14) | users   117 |  0.0677  |
+|range(   14,   15) | users   100 |  0.0614  |
+|range(   15,   30) | users   712 |  0.0672  |
+|range(   30,   50) | users   286 |  0.0544  |
+|range(   50,  100) | users   178 |  0.0510  |
+|range(  100, 1600) | users   105 |  0.0920  |
+|iter:    84/1000 | vec: [0.21418773 0.14475887 0.5148005  0.1262529 ] | norm: none | MAP: 0.0637 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0378 | Recall = 0.1242 | MAP = 0.0608 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0369  |
+|range(    2,    3) | users   628 |  0.0588  |
+|range(    3,    4) | users   579 |  0.0623  |
+|range(    4,    5) | users   446 |  0.0751  |
+|range(    5,    6) | users   403 |  0.0582  |
+|range(    6,    7) | users   368 |  0.0726  |
+|range(    7,    8) | users   344 |  0.0578  |
+|range(    8,    9) | users   224 |  0.0585  |
+|range(    9,   10) | users   181 |  0.0560  |
+|range(   10,   11) | users   150 |  0.0956  |
+|range(   11,   12) | users   144 |  0.0548  |
+|range(   12,   13) | users   135 |  0.0647  |
+|range(   13,   14) | users   117 |  0.0728  |
+|range(   14,   15) | users   100 |  0.0595  |
+|range(   15,   30) | users   712 |  0.0629  |
+|range(   30,   50) | users   286 |  0.0499  |
+|range(   50,  100) | users   178 |  0.0489  |
+|range(  100, 1600) | users   105 |  0.0893  |
+|iter:    85/1000 | vec: [0.0931183  0.05562099 0.56028961 0.2909711 ] | norm: none | MAP: 0.0608 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0407 | Recall = 0.1367 | MAP = 0.0673 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0425  |
+|range(    2,    3) | users   628 |  0.0632  |
+|range(    3,    4) | users   579 |  0.0705  |
+|range(    4,    5) | users   446 |  0.0823  |
+|range(    5,    6) | users   403 |  0.0640  |
+|range(    6,    7) | users   368 |  0.0817  |
+|range(    7,    8) | users   344 |  0.0684  |
+|range(    8,    9) | users   224 |  0.0571  |
+|range(    9,   10) | users   181 |  0.0701  |
+|range(   10,   11) | users   150 |  0.1049  |
+|range(   11,   12) | users   144 |  0.0614  |
+|range(   12,   13) | users   135 |  0.0670  |
+|range(   13,   14) | users   117 |  0.0766  |
+|range(   14,   15) | users   100 |  0.0641  |
+|range(   15,   30) | users   712 |  0.0701  |
+|range(   30,   50) | users   286 |  0.0570  |
+|range(   50,  100) | users   178 |  0.0490  |
+|range(  100, 1600) | users   105 |  0.0927  |
+|iter:    86/1000 | vec: [0.2887816  0.26818622 0.18837395 0.25465823] | norm: none | MAP: 0.0673 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0408 | Recall = 0.1374 | MAP = 0.0664 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0410  |
+|range(    2,    3) | users   628 |  0.0639  |
+|range(    3,    4) | users   579 |  0.0687  |
+|range(    4,    5) | users   446 |  0.0800  |
+|range(    5,    6) | users   403 |  0.0654  |
+|range(    6,    7) | users   368 |  0.0821  |
+|range(    7,    8) | users   344 |  0.0634  |
+|range(    8,    9) | users   224 |  0.0603  |
+|range(    9,   10) | users   181 |  0.0675  |
+|range(   10,   11) | users   150 |  0.1027  |
+|range(   11,   12) | users   144 |  0.0615  |
+|range(   12,   13) | users   135 |  0.0706  |
+|range(   13,   14) | users   117 |  0.0731  |
+|range(   14,   15) | users   100 |  0.0680  |
+|range(   15,   30) | users   712 |  0.0692  |
+|range(   30,   50) | users   286 |  0.0543  |
+|range(   50,  100) | users   178 |  0.0497  |
+|range(  100, 1600) | users   105 |  0.0881  |
+|iter:    87/1000 | vec: [0.19506064 0.09373797 0.29677359 0.4144278 ] | norm: none | MAP: 0.0664 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0415 | Recall = 0.1363 | MAP = 0.0659 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0421  |
+|range(    2,    3) | users   628 |  0.0614  |
+|range(    3,    4) | users   579 |  0.0667  |
+|range(    4,    5) | users   446 |  0.0773  |
+|range(    5,    6) | users   403 |  0.0617  |
+|range(    6,    7) | users   368 |  0.0764  |
+|range(    7,    8) | users   344 |  0.0653  |
+|range(    8,    9) | users   224 |  0.0640  |
+|range(    9,   10) | users   181 |  0.0720  |
+|range(   10,   11) | users   150 |  0.1074  |
+|range(   11,   12) | users   144 |  0.0624  |
+|range(   12,   13) | users   135 |  0.0709  |
+|range(   13,   14) | users   117 |  0.0695  |
+|range(   14,   15) | users   100 |  0.0724  |
+|range(   15,   30) | users   712 |  0.0704  |
+|range(   30,   50) | users   286 |  0.0518  |
+|range(   50,  100) | users   178 |  0.0510  |
+|range(  100, 1600) | users   105 |  0.0927  |
+|iter:    88/1000 | vec: [0.28729305 0.01716229 0.57156686 0.12397779] | norm: none | MAP: 0.0659 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0426 | Recall = 0.1421 | MAP = 0.0690 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0407  |
+|range(    2,    3) | users   628 |  0.0629  |
+|range(    3,    4) | users   579 |  0.0718  |
+|range(    4,    5) | users   446 |  0.0786  |
+|range(    5,    6) | users   403 |  0.0694  |
+|range(    6,    7) | users   368 |  0.0836  |
+|range(    7,    8) | users   344 |  0.0743  |
+|range(    8,    9) | users   224 |  0.0683  |
+|range(    9,   10) | users   181 |  0.0742  |
+|range(   10,   11) | users   150 |  0.1101  |
+|range(   11,   12) | users   144 |  0.0637  |
+|range(   12,   13) | users   135 |  0.0736  |
+|range(   13,   14) | users   117 |  0.0736  |
+|range(   14,   15) | users   100 |  0.0725  |
+|range(   15,   30) | users   712 |  0.0733  |
+|range(   30,   50) | users   286 |  0.0521  |
+|range(   50,  100) | users   178 |  0.0507  |
+|range(  100, 1600) | users   105 |  0.0908  |
+|iter:    89/1000 | vec: [0.39995288 0.01638543 0.51387555 0.06978614] | norm: none | MAP: 0.0690 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0389 | Recall = 0.1301 | MAP = 0.0645 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0424  |
+|range(    2,    3) | users   628 |  0.0600  |
+|range(    3,    4) | users   579 |  0.0686  |
+|range(    4,    5) | users   446 |  0.0805  |
+|range(    5,    6) | users   403 |  0.0587  |
+|range(    6,    7) | users   368 |  0.0750  |
+|range(    7,    8) | users   344 |  0.0644  |
+|range(    8,    9) | users   224 |  0.0548  |
+|range(    9,   10) | users   181 |  0.0691  |
+|range(   10,   11) | users   150 |  0.0989  |
+|range(   11,   12) | users   144 |  0.0610  |
+|range(   12,   13) | users   135 |  0.0684  |
+|range(   13,   14) | users   117 |  0.0772  |
+|range(   14,   15) | users   100 |  0.0570  |
+|range(   15,   30) | users   712 |  0.0670  |
+|range(   30,   50) | users   286 |  0.0540  |
+|range(   50,  100) | users   178 |  0.0485  |
+|range(  100, 1600) | users   105 |  0.0917  |
+|iter:    90/1000 | vec: [0.26907743 0.56923842 0.04687089 0.11481327] | norm: none | MAP: 0.0645 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0437 | Recall = 0.1498 | MAP = 0.0726 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0448  |
+|range(    2,    3) | users   628 |  0.0667  |
+|range(    3,    4) | users   579 |  0.0767  |
+|range(    4,    5) | users   446 |  0.0833  |
+|range(    5,    6) | users   403 |  0.0707  |
+|range(    6,    7) | users   368 |  0.0907  |
+|range(    7,    8) | users   344 |  0.0795  |
+|range(    8,    9) | users   224 |  0.0676  |
+|range(    9,   10) | users   181 |  0.0791  |
+|range(   10,   11) | users   150 |  0.1112  |
+|range(   11,   12) | users   144 |  0.0669  |
+|range(   12,   13) | users   135 |  0.0720  |
+|range(   13,   14) | users   117 |  0.0801  |
+|range(   14,   15) | users   100 |  0.0802  |
+|range(   15,   30) | users   712 |  0.0749  |
+|range(   30,   50) | users   286 |  0.0575  |
+|range(   50,  100) | users   178 |  0.0526  |
+|range(  100, 1600) | users   105 |  0.0940  |
+|iter:    91/1000 | vec: [0.589469   0.32788723 0.07581287 0.0068309 ] | norm: none | MAP: 0.0726 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0434 | Recall = 0.1496 | MAP = 0.0731 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0489  |
+|range(    2,    3) | users   628 |  0.0684  |
+|range(    3,    4) | users   579 |  0.0764  |
+|range(    4,    5) | users   446 |  0.0818  |
+|range(    5,    6) | users   403 |  0.0753  |
+|range(    6,    7) | users   368 |  0.0903  |
+|range(    7,    8) | users   344 |  0.0769  |
+|range(    8,    9) | users   224 |  0.0691  |
+|range(    9,   10) | users   181 |  0.0805  |
+|range(   10,   11) | users   150 |  0.1087  |
+|range(   11,   12) | users   144 |  0.0682  |
+|range(   12,   13) | users   135 |  0.0773  |
+|range(   13,   14) | users   117 |  0.0802  |
+|range(   14,   15) | users   100 |  0.0758  |
+|range(   15,   30) | users   712 |  0.0741  |
+|range(   30,   50) | users   286 |  0.0563  |
+|range(   50,  100) | users   178 |  0.0511  |
+|range(  100, 1600) | users   105 |  0.0933  |
+|iter:    92/1000 | vec: [0.3818423  0.18592048 0.06600242 0.36623479] | norm: none | MAP: 0.0731 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0323 | Recall = 0.1164 | MAP = 0.0516 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0467  |
+|range(    2,    3) | users   628 |  0.0521  |
+|range(    3,    4) | users   579 |  0.0518  |
+|range(    4,    5) | users   446 |  0.0555  |
+|range(    5,    6) | users   403 |  0.0542  |
+|range(    6,    7) | users   368 |  0.0705  |
+|range(    7,    8) | users   344 |  0.0590  |
+|range(    8,    9) | users   224 |  0.0423  |
+|range(    9,   10) | users   181 |  0.0499  |
+|range(   10,   11) | users   150 |  0.0692  |
+|range(   11,   12) | users   144 |  0.0521  |
+|range(   12,   13) | users   135 |  0.0525  |
+|range(   13,   14) | users   117 |  0.0398  |
+|range(   14,   15) | users   100 |  0.0629  |
+|range(   15,   30) | users   712 |  0.0452  |
+|range(   30,   50) | users   286 |  0.0332  |
+|range(   50,  100) | users   178 |  0.0402  |
+|range(  100, 1600) | users   105 |  0.0669  |
+|iter:    93/1000 | vec: [0.74970375 0.01865661 0.06618663 0.16545301] | norm: none | MAP: 0.0516 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0430 | Recall = 0.1447 | MAP = 0.0698 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0442  |
+|range(    2,    3) | users   628 |  0.0654  |
+|range(    3,    4) | users   579 |  0.0719  |
+|range(    4,    5) | users   446 |  0.0810  |
+|range(    5,    6) | users   403 |  0.0720  |
+|range(    6,    7) | users   368 |  0.0847  |
+|range(    7,    8) | users   344 |  0.0736  |
+|range(    8,    9) | users   224 |  0.0671  |
+|range(    9,   10) | users   181 |  0.0758  |
+|range(   10,   11) | users   150 |  0.1031  |
+|range(   11,   12) | users   144 |  0.0653  |
+|range(   12,   13) | users   135 |  0.0716  |
+|range(   13,   14) | users   117 |  0.0737  |
+|range(   14,   15) | users   100 |  0.0720  |
+|range(   15,   30) | users   712 |  0.0724  |
+|range(   30,   50) | users   286 |  0.0524  |
+|range(   50,  100) | users   178 |  0.0522  |
+|range(  100, 1600) | users   105 |  0.0916  |
+|iter:    94/1000 | vec: [0.32270653 0.03379328 0.34880403 0.29469615] | norm: none | MAP: 0.0698 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0423 | Recall = 0.1424 | MAP = 0.0698 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0430  |
+|range(    2,    3) | users   628 |  0.0642  |
+|range(    3,    4) | users   579 |  0.0727  |
+|range(    4,    5) | users   446 |  0.0839  |
+|range(    5,    6) | users   403 |  0.0675  |
+|range(    6,    7) | users   368 |  0.0851  |
+|range(    7,    8) | users   344 |  0.0712  |
+|range(    8,    9) | users   224 |  0.0612  |
+|range(    9,   10) | users   181 |  0.0758  |
+|range(   10,   11) | users   150 |  0.1075  |
+|range(   11,   12) | users   144 |  0.0641  |
+|range(   12,   13) | users   135 |  0.0735  |
+|range(   13,   14) | users   117 |  0.0797  |
+|range(   14,   15) | users   100 |  0.0747  |
+|range(   15,   30) | users   712 |  0.0730  |
+|range(   30,   50) | users   286 |  0.0571  |
+|range(   50,  100) | users   178 |  0.0514  |
+|range(  100, 1600) | users   105 |  0.0951  |
+|iter:    95/1000 | vec: [0.44526253 0.275264   0.21848029 0.06099318] | norm: none | MAP: 0.0698 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0426 | Recall = 0.1430 | MAP = 0.0702 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0418  |
+|range(    2,    3) | users   628 |  0.0638  |
+|range(    3,    4) | users   579 |  0.0732  |
+|range(    4,    5) | users   446 |  0.0815  |
+|range(    5,    6) | users   403 |  0.0720  |
+|range(    6,    7) | users   368 |  0.0869  |
+|range(    7,    8) | users   344 |  0.0740  |
+|range(    8,    9) | users   224 |  0.0697  |
+|range(    9,   10) | users   181 |  0.0769  |
+|range(   10,   11) | users   150 |  0.1112  |
+|range(   11,   12) | users   144 |  0.0630  |
+|range(   12,   13) | users   135 |  0.0763  |
+|range(   13,   14) | users   117 |  0.0735  |
+|range(   14,   15) | users   100 |  0.0729  |
+|range(   15,   30) | users   712 |  0.0736  |
+|range(   30,   50) | users   286 |  0.0513  |
+|range(   50,  100) | users   178 |  0.0507  |
+|range(  100, 1600) | users   105 |  0.0902  |
+|iter:    96/1000 | vec: [0.45539249 0.02313477 0.46112143 0.06035131] | norm: none | MAP: 0.0702 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0368 | Recall = 0.1190 | MAP = 0.0580 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0325  |
+|range(    2,    3) | users   628 |  0.0516  |
+|range(    3,    4) | users   579 |  0.0562  |
+|range(    4,    5) | users   446 |  0.0771  |
+|range(    5,    6) | users   403 |  0.0553  |
+|range(    6,    7) | users   368 |  0.0715  |
+|range(    7,    8) | users   344 |  0.0565  |
+|range(    8,    9) | users   224 |  0.0527  |
+|range(    9,   10) | users   181 |  0.0514  |
+|range(   10,   11) | users   150 |  0.0928  |
+|range(   11,   12) | users   144 |  0.0557  |
+|range(   12,   13) | users   135 |  0.0549  |
+|range(   13,   14) | users   117 |  0.0695  |
+|range(   14,   15) | users   100 |  0.0532  |
+|range(   15,   30) | users   712 |  0.0640  |
+|range(   30,   50) | users   286 |  0.0520  |
+|range(   50,  100) | users   178 |  0.0464  |
+|range(  100, 1600) | users   105 |  0.0873  |
+|iter:    97/1000 | vec: [0.01520748 0.4254391  0.40456174 0.15479168] | norm: none | MAP: 0.0580 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0412 | Recall = 0.1390 | MAP = 0.0678 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0423  |
+|range(    2,    3) | users   628 |  0.0630  |
+|range(    3,    4) | users   579 |  0.0720  |
+|range(    4,    5) | users   446 |  0.0845  |
+|range(    5,    6) | users   403 |  0.0625  |
+|range(    6,    7) | users   368 |  0.0823  |
+|range(    7,    8) | users   344 |  0.0683  |
+|range(    8,    9) | users   224 |  0.0578  |
+|range(    9,   10) | users   181 |  0.0714  |
+|range(   10,   11) | users   150 |  0.1051  |
+|range(   11,   12) | users   144 |  0.0608  |
+|range(   12,   13) | users   135 |  0.0706  |
+|range(   13,   14) | users   117 |  0.0774  |
+|range(   14,   15) | users   100 |  0.0668  |
+|range(   15,   30) | users   712 |  0.0709  |
+|range(   30,   50) | users   286 |  0.0566  |
+|range(   50,  100) | users   178 |  0.0494  |
+|range(  100, 1600) | users   105 |  0.0944  |
+|iter:    98/1000 | vec: [0.39009692 0.36416439 0.15791279 0.0878259 ] | norm: none | MAP: 0.0678 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0370 | Recall = 0.1212 | MAP = 0.0590 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0346  |
+|range(    2,    3) | users   628 |  0.0520  |
+|range(    3,    4) | users   579 |  0.0594  |
+|range(    4,    5) | users   446 |  0.0753  |
+|range(    5,    6) | users   403 |  0.0548  |
+|range(    6,    7) | users   368 |  0.0717  |
+|range(    7,    8) | users   344 |  0.0585  |
+|range(    8,    9) | users   224 |  0.0525  |
+|range(    9,   10) | users   181 |  0.0559  |
+|range(   10,   11) | users   150 |  0.0926  |
+|range(   11,   12) | users   144 |  0.0576  |
+|range(   12,   13) | users   135 |  0.0576  |
+|range(   13,   14) | users   117 |  0.0750  |
+|range(   14,   15) | users   100 |  0.0551  |
+|range(   15,   30) | users   712 |  0.0637  |
+|range(   30,   50) | users   286 |  0.0525  |
+|range(   50,  100) | users   178 |  0.0466  |
+|range(  100, 1600) | users   105 |  0.0876  |
+|iter:    99/1000 | vec: [0.03903156 0.61163866 0.02092476 0.32840502] | norm: none | MAP: 0.0590 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0371 | Recall = 0.1218 | MAP = 0.0595 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0397  |
+|range(    2,    3) | users   628 |  0.0513  |
+|range(    3,    4) | users   579 |  0.0582  |
+|range(    4,    5) | users   446 |  0.0751  |
+|range(    5,    6) | users   403 |  0.0548  |
+|range(    6,    7) | users   368 |  0.0726  |
+|range(    7,    8) | users   344 |  0.0601  |
+|range(    8,    9) | users   224 |  0.0520  |
+|range(    9,   10) | users   181 |  0.0564  |
+|range(   10,   11) | users   150 |  0.0932  |
+|range(   11,   12) | users   144 |  0.0562  |
+|range(   12,   13) | users   135 |  0.0586  |
+|range(   13,   14) | users   117 |  0.0754  |
+|range(   14,   15) | users   100 |  0.0559  |
+|range(   15,   30) | users   712 |  0.0641  |
+|range(   30,   50) | users   286 |  0.0522  |
+|range(   50,  100) | users   178 |  0.0475  |
+|range(  100, 1600) | users   105 |  0.0882  |
+|iter:   100/1000 | vec: [0.05904647 0.80942501 0.04540831 0.08612022] | norm: none | MAP: 0.0595 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0427 | Recall = 0.1503 | MAP = 0.0700 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0509  |
+|range(    2,    3) | users   628 |  0.0687  |
+|range(    3,    4) | users   579 |  0.0707  |
+|range(    4,    5) | users   446 |  0.0806  |
+|range(    5,    6) | users   403 |  0.0763  |
+|range(    6,    7) | users   368 |  0.0879  |
+|range(    7,    8) | users   344 |  0.0710  |
+|range(    8,    9) | users   224 |  0.0645  |
+|range(    9,   10) | users   181 |  0.0757  |
+|range(   10,   11) | users   150 |  0.0966  |
+|range(   11,   12) | users   144 |  0.0709  |
+|range(   12,   13) | users   135 |  0.0735  |
+|range(   13,   14) | users   117 |  0.0629  |
+|range(   14,   15) | users   100 |  0.0683  |
+|range(   15,   30) | users   712 |  0.0707  |
+|range(   30,   50) | users   286 |  0.0510  |
+|range(   50,  100) | users   178 |  0.0477  |
+|range(  100, 1600) | users   105 |  0.0853  |
+|iter:   101/1000 | vec: [0.3618578  0.0473624  0.01821862 0.57256118] | norm: none | MAP: 0.0700 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0432 | Recall = 0.1464 | MAP = 0.0702 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0435  |
+|range(    2,    3) | users   628 |  0.0656  |
+|range(    3,    4) | users   579 |  0.0736  |
+|range(    4,    5) | users   446 |  0.0809  |
+|range(    5,    6) | users   403 |  0.0724  |
+|range(    6,    7) | users   368 |  0.0855  |
+|range(    7,    8) | users   344 |  0.0719  |
+|range(    8,    9) | users   224 |  0.0651  |
+|range(    9,   10) | users   181 |  0.0781  |
+|range(   10,   11) | users   150 |  0.1036  |
+|range(   11,   12) | users   144 |  0.0648  |
+|range(   12,   13) | users   135 |  0.0744  |
+|range(   13,   14) | users   117 |  0.0753  |
+|range(   14,   15) | users   100 |  0.0724  |
+|range(   15,   30) | users   712 |  0.0737  |
+|range(   30,   50) | users   286 |  0.0549  |
+|range(   50,  100) | users   178 |  0.0517  |
+|range(  100, 1600) | users   105 |  0.0917  |
+|iter:   102/1000 | vec: [0.37792034 0.11061568 0.30463194 0.20683204] | norm: none | MAP: 0.0702 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0401 | Recall = 0.1350 | MAP = 0.0667 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0436  |
+|range(    2,    3) | users   628 |  0.0615  |
+|range(    3,    4) | users   579 |  0.0695  |
+|range(    4,    5) | users   446 |  0.0844  |
+|range(    5,    6) | users   403 |  0.0611  |
+|range(    6,    7) | users   368 |  0.0808  |
+|range(    7,    8) | users   344 |  0.0669  |
+|range(    8,    9) | users   224 |  0.0555  |
+|range(    9,   10) | users   181 |  0.0711  |
+|range(   10,   11) | users   150 |  0.1042  |
+|range(   11,   12) | users   144 |  0.0627  |
+|range(   12,   13) | users   135 |  0.0703  |
+|range(   13,   14) | users   117 |  0.0766  |
+|range(   14,   15) | users   100 |  0.0639  |
+|range(   15,   30) | users   712 |  0.0690  |
+|range(   30,   50) | users   286 |  0.0551  |
+|range(   50,  100) | users   178 |  0.0490  |
+|range(  100, 1600) | users   105 |  0.0907  |
+|iter:   103/1000 | vec: [0.26572133 0.36007043 0.08719215 0.2870161 ] | norm: none | MAP: 0.0667 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0403 | Recall = 0.1332 | MAP = 0.0649 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0415  |
+|range(    2,    3) | users   628 |  0.0620  |
+|range(    3,    4) | users   579 |  0.0649  |
+|range(    4,    5) | users   446 |  0.0802  |
+|range(    5,    6) | users   403 |  0.0613  |
+|range(    6,    7) | users   368 |  0.0762  |
+|range(    7,    8) | users   344 |  0.0648  |
+|range(    8,    9) | users   224 |  0.0580  |
+|range(    9,   10) | users   181 |  0.0677  |
+|range(   10,   11) | users   150 |  0.1029  |
+|range(   11,   12) | users   144 |  0.0588  |
+|range(   12,   13) | users   135 |  0.0672  |
+|range(   13,   14) | users   117 |  0.0673  |
+|range(   14,   15) | users   100 |  0.0638  |
+|range(   15,   30) | users   712 |  0.0686  |
+|range(   30,   50) | users   286 |  0.0542  |
+|range(   50,  100) | users   178 |  0.0507  |
+|range(  100, 1600) | users   105 |  0.0938  |
+|iter:   104/1000 | vec: [0.23595376 0.12066171 0.47605973 0.1673248 ] | norm: none | MAP: 0.0649 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0389 | Recall = 0.1292 | MAP = 0.0631 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0408  |
+|range(    2,    3) | users   628 |  0.0599  |
+|range(    3,    4) | users   579 |  0.0637  |
+|range(    4,    5) | users   446 |  0.0793  |
+|range(    5,    6) | users   403 |  0.0576  |
+|range(    6,    7) | users   368 |  0.0728  |
+|range(    7,    8) | users   344 |  0.0625  |
+|range(    8,    9) | users   224 |  0.0554  |
+|range(    9,   10) | users   181 |  0.0677  |
+|range(   10,   11) | users   150 |  0.0964  |
+|range(   11,   12) | users   144 |  0.0598  |
+|range(   12,   13) | users   135 |  0.0600  |
+|range(   13,   14) | users   117 |  0.0778  |
+|range(   14,   15) | users   100 |  0.0594  |
+|range(   15,   30) | users   712 |  0.0668  |
+|range(   30,   50) | users   286 |  0.0533  |
+|range(   50,  100) | users   178 |  0.0495  |
+|range(  100, 1600) | users   105 |  0.0907  |
+|iter:   105/1000 | vec: [0.18293375 0.33020886 0.3669472  0.1199102 ] | norm: none | MAP: 0.0631 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0360 | Recall = 0.1165 | MAP = 0.0568 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0338  |
+|range(    2,    3) | users   628 |  0.0533  |
+|range(    3,    4) | users   579 |  0.0564  |
+|range(    4,    5) | users   446 |  0.0754  |
+|range(    5,    6) | users   403 |  0.0556  |
+|range(    6,    7) | users   368 |  0.0666  |
+|range(    7,    8) | users   344 |  0.0528  |
+|range(    8,    9) | users   224 |  0.0571  |
+|range(    9,   10) | users   181 |  0.0475  |
+|range(   10,   11) | users   150 |  0.0911  |
+|range(   11,   12) | users   144 |  0.0523  |
+|range(   12,   13) | users   135 |  0.0537  |
+|range(   13,   14) | users   117 |  0.0689  |
+|range(   14,   15) | users   100 |  0.0559  |
+|range(   15,   30) | users   712 |  0.0594  |
+|range(   30,   50) | users   286 |  0.0474  |
+|range(   50,  100) | users   178 |  0.0465  |
+|range(  100, 1600) | users   105 |  0.0865  |
+|iter:   106/1000 | vec: [0.01680481 0.03587348 0.7529311  0.19439062] | norm: none | MAP: 0.0568 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0369 | Recall = 0.1227 | MAP = 0.0601 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0390  |
+|range(    2,    3) | users   628 |  0.0577  |
+|range(    3,    4) | users   579 |  0.0626  |
+|range(    4,    5) | users   446 |  0.0762  |
+|range(    5,    6) | users   403 |  0.0608  |
+|range(    6,    7) | users   368 |  0.0731  |
+|range(    7,    8) | users   344 |  0.0549  |
+|range(    8,    9) | users   224 |  0.0565  |
+|range(    9,   10) | users   181 |  0.0554  |
+|range(   10,   11) | users   150 |  0.0905  |
+|range(   11,   12) | users   144 |  0.0555  |
+|range(   12,   13) | users   135 |  0.0562  |
+|range(   13,   14) | users   117 |  0.0695  |
+|range(   14,   15) | users   100 |  0.0591  |
+|range(   15,   30) | users   712 |  0.0620  |
+|range(   30,   50) | users   286 |  0.0496  |
+|range(   50,  100) | users   178 |  0.0457  |
+|range(  100, 1600) | users   105 |  0.0789  |
+|iter:   107/1000 | vec: [0.03823539 0.05102864 0.39531504 0.51542093] | norm: none | MAP: 0.0601 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0387 | Recall = 0.1291 | MAP = 0.0631 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0411  |
+|range(    2,    3) | users   628 |  0.0594  |
+|range(    3,    4) | users   579 |  0.0652  |
+|range(    4,    5) | users   446 |  0.0788  |
+|range(    5,    6) | users   403 |  0.0575  |
+|range(    6,    7) | users   368 |  0.0757  |
+|range(    7,    8) | users   344 |  0.0613  |
+|range(    8,    9) | users   224 |  0.0545  |
+|range(    9,   10) | users   181 |  0.0669  |
+|range(   10,   11) | users   150 |  0.0973  |
+|range(   11,   12) | users   144 |  0.0605  |
+|range(   12,   13) | users   135 |  0.0617  |
+|range(   13,   14) | users   117 |  0.0774  |
+|range(   14,   15) | users   100 |  0.0549  |
+|range(   15,   30) | users   712 |  0.0662  |
+|range(   30,   50) | users   286 |  0.0532  |
+|range(   50,  100) | users   178 |  0.0483  |
+|range(  100, 1600) | users   105 |  0.0902  |
+|iter:   108/1000 | vec: [0.17394697 0.38777558 0.24574575 0.19253171] | norm: none | MAP: 0.0631 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0382 | Recall = 0.1271 | MAP = 0.0620 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0400  |
+|range(    2,    3) | users   628 |  0.0581  |
+|range(    3,    4) | users   579 |  0.0623  |
+|range(    4,    5) | users   446 |  0.0769  |
+|range(    5,    6) | users   403 |  0.0573  |
+|range(    6,    7) | users   368 |  0.0728  |
+|range(    7,    8) | users   344 |  0.0606  |
+|range(    8,    9) | users   224 |  0.0540  |
+|range(    9,   10) | users   181 |  0.0635  |
+|range(   10,   11) | users   150 |  0.0971  |
+|range(   11,   12) | users   144 |  0.0609  |
+|range(   12,   13) | users   135 |  0.0600  |
+|range(   13,   14) | users   117 |  0.0774  |
+|range(   14,   15) | users   100 |  0.0565  |
+|range(   15,   30) | users   712 |  0.0657  |
+|range(   30,   50) | users   286 |  0.0525  |
+|range(   50,  100) | users   178 |  0.0489  |
+|range(  100, 1600) | users   105 |  0.0905  |
+|iter:   109/1000 | vec: [0.1682172  0.48197606 0.26384566 0.08596108] | norm: none | MAP: 0.0620 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0362 | Recall = 0.1295 | MAP = 0.0599 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0449  |
+|range(    2,    3) | users   628 |  0.0611  |
+|range(    3,    4) | users   579 |  0.0659  |
+|range(    4,    5) | users   446 |  0.0725  |
+|range(    5,    6) | users   403 |  0.0656  |
+|range(    6,    7) | users   368 |  0.0798  |
+|range(    7,    8) | users   344 |  0.0496  |
+|range(    8,    9) | users   224 |  0.0581  |
+|range(    9,   10) | users   181 |  0.0580  |
+|range(   10,   11) | users   150 |  0.0785  |
+|range(   11,   12) | users   144 |  0.0551  |
+|range(   12,   13) | users   135 |  0.0725  |
+|range(   13,   14) | users   117 |  0.0512  |
+|range(   14,   15) | users   100 |  0.0606  |
+|range(   15,   30) | users   712 |  0.0581  |
+|range(   30,   50) | users   286 |  0.0429  |
+|range(   50,  100) | users   178 |  0.0352  |
+|range(  100, 1600) | users   105 |  0.0629  |
+|iter:   110/1000 | vec: [6.42124931e-02 5.82597240e-04 7.63488001e-02 8.58856110e-01] | norm: none | MAP: 0.0599 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0399 | Recall = 0.1343 | MAP = 0.0666 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0425  |
+|range(    2,    3) | users   628 |  0.0612  |
+|range(    3,    4) | users   579 |  0.0714  |
+|range(    4,    5) | users   446 |  0.0845  |
+|range(    5,    6) | users   403 |  0.0603  |
+|range(    6,    7) | users   368 |  0.0769  |
+|range(    7,    8) | users   344 |  0.0687  |
+|range(    8,    9) | users   224 |  0.0554  |
+|range(    9,   10) | users   181 |  0.0699  |
+|range(   10,   11) | users   150 |  0.1036  |
+|range(   11,   12) | users   144 |  0.0610  |
+|range(   12,   13) | users   135 |  0.0718  |
+|range(   13,   14) | users   117 |  0.0763  |
+|range(   14,   15) | users   100 |  0.0633  |
+|range(   15,   30) | users   712 |  0.0693  |
+|range(   30,   50) | users   286 |  0.0557  |
+|range(   50,  100) | users   178 |  0.0490  |
+|range(  100, 1600) | users   105 |  0.0919  |
+|iter:   111/1000 | vec: [0.35638372 0.50196438 0.04251608 0.09913582] | norm: none | MAP: 0.0666 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0425 | Recall = 0.1475 | MAP = 0.0695 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0496  |
+|range(    2,    3) | users   628 |  0.0648  |
+|range(    3,    4) | users   579 |  0.0731  |
+|range(    4,    5) | users   446 |  0.0766  |
+|range(    5,    6) | users   403 |  0.0708  |
+|range(    6,    7) | users   368 |  0.0867  |
+|range(    7,    8) | users   344 |  0.0740  |
+|range(    8,    9) | users   224 |  0.0619  |
+|range(    9,   10) | users   181 |  0.0745  |
+|range(   10,   11) | users   150 |  0.1039  |
+|range(   11,   12) | users   144 |  0.0717  |
+|range(   12,   13) | users   135 |  0.0741  |
+|range(   13,   14) | users   117 |  0.0632  |
+|range(   14,   15) | users   100 |  0.0712  |
+|range(   15,   30) | users   712 |  0.0701  |
+|range(   30,   50) | users   286 |  0.0542  |
+|range(   50,  100) | users   178 |  0.0515  |
+|range(  100, 1600) | users   105 |  0.0892  |
+|iter:   112/1000 | vec: [0.67470845 0.12209229 0.03977255 0.16342671] | norm: none | MAP: 0.0695 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0429 | Recall = 0.1464 | MAP = 0.0716 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0485  |
+|range(    2,    3) | users   628 |  0.0673  |
+|range(    3,    4) | users   579 |  0.0756  |
+|range(    4,    5) | users   446 |  0.0809  |
+|range(    5,    6) | users   403 |  0.0721  |
+|range(    6,    7) | users   368 |  0.0881  |
+|range(    7,    8) | users   344 |  0.0758  |
+|range(    8,    9) | users   224 |  0.0646  |
+|range(    9,   10) | users   181 |  0.0756  |
+|range(   10,   11) | users   150 |  0.1037  |
+|range(   11,   12) | users   144 |  0.0659  |
+|range(   12,   13) | users   135 |  0.0737  |
+|range(   13,   14) | users   117 |  0.0808  |
+|range(   14,   15) | users   100 |  0.0749  |
+|range(   15,   30) | users   712 |  0.0736  |
+|range(   30,   50) | users   286 |  0.0559  |
+|range(   50,  100) | users   178 |  0.0508  |
+|range(  100, 1600) | users   105 |  0.0929  |
+|iter:   113/1000 | vec: [0.35276684 0.1906666  0.10838818 0.34817838] | norm: none | MAP: 0.0716 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0373 | Recall = 0.1227 | MAP = 0.0591 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0343  |
+|range(    2,    3) | users   628 |  0.0525  |
+|range(    3,    4) | users   579 |  0.0591  |
+|range(    4,    5) | users   446 |  0.0777  |
+|range(    5,    6) | users   403 |  0.0557  |
+|range(    6,    7) | users   368 |  0.0712  |
+|range(    7,    8) | users   344 |  0.0576  |
+|range(    8,    9) | users   224 |  0.0532  |
+|range(    9,   10) | users   181 |  0.0562  |
+|range(   10,   11) | users   150 |  0.0951  |
+|range(   11,   12) | users   144 |  0.0575  |
+|range(   12,   13) | users   135 |  0.0581  |
+|range(   13,   14) | users   117 |  0.0709  |
+|range(   14,   15) | users   100 |  0.0543  |
+|range(   15,   30) | users   712 |  0.0636  |
+|range(   30,   50) | users   286 |  0.0522  |
+|range(   50,  100) | users   178 |  0.0470  |
+|range(  100, 1600) | users   105 |  0.0878  |
+|iter:   114/1000 | vec: [0.05100688 0.46611189 0.21710739 0.26577384] | norm: none | MAP: 0.0591 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0392 | Recall = 0.1313 | MAP = 0.0648 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0423  |
+|range(    2,    3) | users   628 |  0.0610  |
+|range(    3,    4) | users   579 |  0.0699  |
+|range(    4,    5) | users   446 |  0.0808  |
+|range(    5,    6) | users   403 |  0.0593  |
+|range(    6,    7) | users   368 |  0.0768  |
+|range(    7,    8) | users   344 |  0.0642  |
+|range(    8,    9) | users   224 |  0.0548  |
+|range(    9,   10) | users   181 |  0.0683  |
+|range(   10,   11) | users   150 |  0.0983  |
+|range(   11,   12) | users   144 |  0.0612  |
+|range(   12,   13) | users   135 |  0.0670  |
+|range(   13,   14) | users   117 |  0.0770  |
+|range(   14,   15) | users   100 |  0.0575  |
+|range(   15,   30) | users   712 |  0.0669  |
+|range(   30,   50) | users   286 |  0.0540  |
+|range(   50,  100) | users   178 |  0.0479  |
+|range(  100, 1600) | users   105 |  0.0900  |
+|iter:   115/1000 | vec: [0.21812717 0.43446269 0.08381599 0.26359415] | norm: none | MAP: 0.0648 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0372 | Recall = 0.1233 | MAP = 0.0605 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0372  |
+|range(    2,    3) | users   628 |  0.0562  |
+|range(    3,    4) | users   579 |  0.0648  |
+|range(    4,    5) | users   446 |  0.0763  |
+|range(    5,    6) | users   403 |  0.0583  |
+|range(    6,    7) | users   368 |  0.0745  |
+|range(    7,    8) | users   344 |  0.0575  |
+|range(    8,    9) | users   224 |  0.0580  |
+|range(    9,   10) | users   181 |  0.0560  |
+|range(   10,   11) | users   150 |  0.0945  |
+|range(   11,   12) | users   144 |  0.0564  |
+|range(   12,   13) | users   135 |  0.0571  |
+|range(   13,   14) | users   117 |  0.0706  |
+|range(   14,   15) | users   100 |  0.0577  |
+|range(   15,   30) | users   712 |  0.0628  |
+|range(   30,   50) | users   286 |  0.0504  |
+|range(   50,  100) | users   178 |  0.0454  |
+|range(  100, 1600) | users   105 |  0.0812  |
+|iter:   116/1000 | vec: [0.02972195 0.13840762 0.30280946 0.52906098] | norm: none | MAP: 0.0605 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0397 | Recall = 0.1328 | MAP = 0.0657 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0421  |
+|range(    2,    3) | users   628 |  0.0609  |
+|range(    3,    4) | users   579 |  0.0690  |
+|range(    4,    5) | users   446 |  0.0829  |
+|range(    5,    6) | users   403 |  0.0611  |
+|range(    6,    7) | users   368 |  0.0774  |
+|range(    7,    8) | users   344 |  0.0640  |
+|range(    8,    9) | users   224 |  0.0571  |
+|range(    9,   10) | users   181 |  0.0699  |
+|range(   10,   11) | users   150 |  0.1019  |
+|range(   11,   12) | users   144 |  0.0615  |
+|range(   12,   13) | users   135 |  0.0683  |
+|range(   13,   14) | users   117 |  0.0768  |
+|range(   14,   15) | users   100 |  0.0635  |
+|range(   15,   30) | users   712 |  0.0687  |
+|range(   30,   50) | users   286 |  0.0549  |
+|range(   50,  100) | users   178 |  0.0482  |
+|range(  100, 1600) | users   105 |  0.0912  |
+|iter:   117/1000 | vec: [0.27132549 0.33425043 0.25309412 0.14132996] | norm: none | MAP: 0.0657 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0437 | Recall = 0.1512 | MAP = 0.0735 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0489  |
+|range(    2,    3) | users   628 |  0.0687  |
+|range(    3,    4) | users   579 |  0.0768  |
+|range(    4,    5) | users   446 |  0.0818  |
+|range(    5,    6) | users   403 |  0.0751  |
+|range(    6,    7) | users   368 |  0.0918  |
+|range(    7,    8) | users   344 |  0.0792  |
+|range(    8,    9) | users   224 |  0.0679  |
+|range(    9,   10) | users   181 |  0.0831  |
+|range(   10,   11) | users   150 |  0.1096  |
+|range(   11,   12) | users   144 |  0.0684  |
+|range(   12,   13) | users   135 |  0.0781  |
+|range(   13,   14) | users   117 |  0.0799  |
+|range(   14,   15) | users   100 |  0.0766  |
+|range(   15,   30) | users   712 |  0.0749  |
+|range(   30,   50) | users   286 |  0.0554  |
+|range(   50,  100) | users   178 |  0.0513  |
+|range(  100, 1600) | users   105 |  0.0937  |
+|iter:   118/1000 | vec: [0.4045492  0.18480147 0.0654421  0.34520723] | norm: none | MAP: 0.0735 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0433 | Recall = 0.1463 | MAP = 0.0712 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0447  |
+|range(    2,    3) | users   628 |  0.0654  |
+|range(    3,    4) | users   579 |  0.0751  |
+|range(    4,    5) | users   446 |  0.0833  |
+|range(    5,    6) | users   403 |  0.0715  |
+|range(    6,    7) | users   368 |  0.0857  |
+|range(    7,    8) | users   344 |  0.0747  |
+|range(    8,    9) | users   224 |  0.0685  |
+|range(    9,   10) | users   181 |  0.0757  |
+|range(   10,   11) | users   150 |  0.1103  |
+|range(   11,   12) | users   144 |  0.0685  |
+|range(   12,   13) | users   135 |  0.0732  |
+|range(   13,   14) | users   117 |  0.0727  |
+|range(   14,   15) | users   100 |  0.0717  |
+|range(   15,   30) | users   712 |  0.0746  |
+|range(   30,   50) | users   286 |  0.0552  |
+|range(   50,  100) | users   178 |  0.0525  |
+|range(  100, 1600) | users   105 |  0.0921  |
+|iter:   119/1000 | vec: [0.49444969 0.16577315 0.3128652  0.02691196] | norm: none | MAP: 0.0712 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0446 | Recall = 0.1556 | MAP = 0.0751 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0523  |
+|range(    2,    3) | users   628 |  0.0713  |
+|range(    3,    4) | users   579 |  0.0771  |
+|range(    4,    5) | users   446 |  0.0860  |
+|range(    5,    6) | users   403 |  0.0813  |
+|range(    6,    7) | users   368 |  0.0917  |
+|range(    7,    8) | users   344 |  0.0803  |
+|range(    8,    9) | users   224 |  0.0701  |
+|range(    9,   10) | users   181 |  0.0835  |
+|range(   10,   11) | users   150 |  0.1083  |
+|range(   11,   12) | users   144 |  0.0705  |
+|range(   12,   13) | users   135 |  0.0771  |
+|range(   13,   14) | users   117 |  0.0775  |
+|range(   14,   15) | users   100 |  0.0768  |
+|range(   15,   30) | users   712 |  0.0758  |
+|range(   30,   50) | users   286 |  0.0550  |
+|range(   50,  100) | users   178 |  0.0507  |
+|range(  100, 1600) | users   105 |  0.0911  |
+|iter:   120/1000 | vec: [0.43666109 0.13969317 0.0077649  0.41588084] | norm: none | MAP: 0.0751 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0386 | Recall = 0.1302 | MAP = 0.0637 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0419  |
+|range(    2,    3) | users   628 |  0.0585  |
+|range(    3,    4) | users   579 |  0.0686  |
+|range(    4,    5) | users   446 |  0.0752  |
+|range(    5,    6) | users   403 |  0.0651  |
+|range(    6,    7) | users   368 |  0.0800  |
+|range(    7,    8) | users   344 |  0.0600  |
+|range(    8,    9) | users   224 |  0.0568  |
+|range(    9,   10) | users   181 |  0.0676  |
+|range(   10,   11) | users   150 |  0.0956  |
+|range(   11,   12) | users   144 |  0.0568  |
+|range(   12,   13) | users   135 |  0.0637  |
+|range(   13,   14) | users   117 |  0.0800  |
+|range(   14,   15) | users   100 |  0.0563  |
+|range(   15,   30) | users   712 |  0.0654  |
+|range(   30,   50) | users   286 |  0.0531  |
+|range(   50,  100) | users   178 |  0.0444  |
+|range(  100, 1600) | users   105 |  0.0835  |
+|iter:   121/1000 | vec: [0.10359145 0.2296801  0.01595832 0.65077013] | norm: none | MAP: 0.0637 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0445 | Recall = 0.1552 | MAP = 0.0747 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0501  |
+|range(    2,    3) | users   628 |  0.0713  |
+|range(    3,    4) | users   579 |  0.0779  |
+|range(    4,    5) | users   446 |  0.0847  |
+|range(    5,    6) | users   403 |  0.0809  |
+|range(    6,    7) | users   368 |  0.0909  |
+|range(    7,    8) | users   344 |  0.0797  |
+|range(    8,    9) | users   224 |  0.0689  |
+|range(    9,   10) | users   181 |  0.0823  |
+|range(   10,   11) | users   150 |  0.1078  |
+|range(   11,   12) | users   144 |  0.0680  |
+|range(   12,   13) | users   135 |  0.0773  |
+|range(   13,   14) | users   117 |  0.0788  |
+|range(   14,   15) | users   100 |  0.0702  |
+|range(   15,   30) | users   712 |  0.0769  |
+|range(   30,   50) | users   286 |  0.0548  |
+|range(   50,  100) | users   178 |  0.0518  |
+|range(  100, 1600) | users   105 |  0.0911  |
+|iter:   122/1000 | vec: [0.41322478 0.14700215 0.04426006 0.395513  ] | norm: none | MAP: 0.0747 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0372 | Recall = 0.1219 | MAP = 0.0594 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0391  |
+|range(    2,    3) | users   628 |  0.0544  |
+|range(    3,    4) | users   579 |  0.0578  |
+|range(    4,    5) | users   446 |  0.0777  |
+|range(    5,    6) | users   403 |  0.0557  |
+|range(    6,    7) | users   368 |  0.0686  |
+|range(    7,    8) | users   344 |  0.0591  |
+|range(    8,    9) | users   224 |  0.0563  |
+|range(    9,   10) | users   181 |  0.0513  |
+|range(   10,   11) | users   150 |  0.0954  |
+|range(   11,   12) | users   144 |  0.0539  |
+|range(   12,   13) | users   135 |  0.0548  |
+|range(   13,   14) | users   117 |  0.0726  |
+|range(   14,   15) | users   100 |  0.0563  |
+|range(   15,   30) | users   712 |  0.0633  |
+|range(   30,   50) | users   286 |  0.0511  |
+|range(   50,  100) | users   178 |  0.0486  |
+|range(  100, 1600) | users   105 |  0.0888  |
+|iter:   123/1000 | vec: [0.05219646 0.18923114 0.70442992 0.05414248] | norm: none | MAP: 0.0594 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0404 | Recall = 0.1367 | MAP = 0.0665 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0417  |
+|range(    2,    3) | users   628 |  0.0630  |
+|range(    3,    4) | users   579 |  0.0703  |
+|range(    4,    5) | users   446 |  0.0792  |
+|range(    5,    6) | users   403 |  0.0676  |
+|range(    6,    7) | users   368 |  0.0832  |
+|range(    7,    8) | users   344 |  0.0638  |
+|range(    8,    9) | users   224 |  0.0584  |
+|range(    9,   10) | users   181 |  0.0676  |
+|range(   10,   11) | users   150 |  0.1024  |
+|range(   11,   12) | users   144 |  0.0612  |
+|range(   12,   13) | users   135 |  0.0706  |
+|range(   13,   14) | users   117 |  0.0793  |
+|range(   14,   15) | users   100 |  0.0661  |
+|range(   15,   30) | users   712 |  0.0681  |
+|range(   30,   50) | users   286 |  0.0544  |
+|range(   50,  100) | users   178 |  0.0480  |
+|range(  100, 1600) | users   105 |  0.0843  |
+|iter:   124/1000 | vec: [0.18255301 0.14150112 0.14459371 0.53135215] | norm: none | MAP: 0.0665 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0440 | Recall = 0.1518 | MAP = 0.0736 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0479  |
+|range(    2,    3) | users   628 |  0.0675  |
+|range(    3,    4) | users   579 |  0.0773  |
+|range(    4,    5) | users   446 |  0.0855  |
+|range(    5,    6) | users   403 |  0.0777  |
+|range(    6,    7) | users   368 |  0.0907  |
+|range(    7,    8) | users   344 |  0.0798  |
+|range(    8,    9) | users   224 |  0.0676  |
+|range(    9,   10) | users   181 |  0.0832  |
+|range(   10,   11) | users   150 |  0.1111  |
+|range(   11,   12) | users   144 |  0.0695  |
+|range(   12,   13) | users   135 |  0.0725  |
+|range(   13,   14) | users   117 |  0.0742  |
+|range(   14,   15) | users   100 |  0.0726  |
+|range(   15,   30) | users   712 |  0.0756  |
+|range(   30,   50) | users   286 |  0.0550  |
+|range(   50,  100) | users   178 |  0.0528  |
+|range(  100, 1600) | users   105 |  0.0927  |
+|iter:   125/1000 | vec: [0.53500232 0.20990187 0.12243734 0.13265847] | norm: none | MAP: 0.0736 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0416 | Recall = 0.1443 | MAP = 0.0691 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0463  |
+|range(    2,    3) | users   628 |  0.0664  |
+|range(    3,    4) | users   579 |  0.0760  |
+|range(    4,    5) | users   446 |  0.0772  |
+|range(    5,    6) | users   403 |  0.0727  |
+|range(    6,    7) | users   368 |  0.0849  |
+|range(    7,    8) | users   344 |  0.0702  |
+|range(    8,    9) | users   224 |  0.0625  |
+|range(    9,   10) | users   181 |  0.0700  |
+|range(   10,   11) | users   150 |  0.0989  |
+|range(   11,   12) | users   144 |  0.0629  |
+|range(   12,   13) | users   135 |  0.0766  |
+|range(   13,   14) | users   117 |  0.0787  |
+|range(   14,   15) | users   100 |  0.0682  |
+|range(   15,   30) | users   712 |  0.0700  |
+|range(   30,   50) | users   286 |  0.0530  |
+|range(   50,  100) | users   178 |  0.0481  |
+|range(  100, 1600) | users   105 |  0.0823  |
+|iter:   126/1000 | vec: [0.20779984 0.09407609 0.07690699 0.62121708] | norm: none | MAP: 0.0691 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0429 | Recall = 0.1434 | MAP = 0.0688 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0413  |
+|range(    2,    3) | users   628 |  0.0647  |
+|range(    3,    4) | users   579 |  0.0712  |
+|range(    4,    5) | users   446 |  0.0795  |
+|range(    5,    6) | users   403 |  0.0673  |
+|range(    6,    7) | users   368 |  0.0859  |
+|range(    7,    8) | users   344 |  0.0707  |
+|range(    8,    9) | users   224 |  0.0647  |
+|range(    9,   10) | users   181 |  0.0748  |
+|range(   10,   11) | users   150 |  0.1037  |
+|range(   11,   12) | users   144 |  0.0648  |
+|range(   12,   13) | users   135 |  0.0700  |
+|range(   13,   14) | users   117 |  0.0765  |
+|range(   14,   15) | users   100 |  0.0743  |
+|range(   15,   30) | users   712 |  0.0723  |
+|range(   30,   50) | users   286 |  0.0536  |
+|range(   50,  100) | users   178 |  0.0521  |
+|range(  100, 1600) | users   105 |  0.0913  |
+|iter:   127/1000 | vec: [0.36242471 0.06443064 0.42763641 0.14550824] | norm: none | MAP: 0.0688 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0371 | Recall = 0.1203 | MAP = 0.0587 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0344  |
+|range(    2,    3) | users   628 |  0.0513  |
+|range(    3,    4) | users   579 |  0.0591  |
+|range(    4,    5) | users   446 |  0.0757  |
+|range(    5,    6) | users   403 |  0.0571  |
+|range(    6,    7) | users   368 |  0.0745  |
+|range(    7,    8) | users   344 |  0.0573  |
+|range(    8,    9) | users   224 |  0.0536  |
+|range(    9,   10) | users   181 |  0.0535  |
+|range(   10,   11) | users   150 |  0.0913  |
+|range(   11,   12) | users   144 |  0.0552  |
+|range(   12,   13) | users   135 |  0.0571  |
+|range(   13,   14) | users   117 |  0.0743  |
+|range(   14,   15) | users   100 |  0.0521  |
+|range(   15,   30) | users   712 |  0.0626  |
+|range(   30,   50) | users   286 |  0.0519  |
+|range(   50,  100) | users   178 |  0.0445  |
+|range(  100, 1600) | users   105 |  0.0850  |
+|iter:   128/1000 | vec: [0.00221027 0.34683163 0.18119575 0.46976234] | norm: none | MAP: 0.0587 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0441 | Recall = 0.1545 | MAP = 0.0737 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0500  |
+|range(    2,    3) | users   628 |  0.0697  |
+|range(    3,    4) | users   579 |  0.0780  |
+|range(    4,    5) | users   446 |  0.0875  |
+|range(    5,    6) | users   403 |  0.0778  |
+|range(    6,    7) | users   368 |  0.0906  |
+|range(    7,    8) | users   344 |  0.0789  |
+|range(    8,    9) | users   224 |  0.0688  |
+|range(    9,   10) | users   181 |  0.0813  |
+|range(   10,   11) | users   150 |  0.1041  |
+|range(   11,   12) | users   144 |  0.0677  |
+|range(   12,   13) | users   135 |  0.0773  |
+|range(   13,   14) | users   117 |  0.0712  |
+|range(   14,   15) | users   100 |  0.0687  |
+|range(   15,   30) | users   712 |  0.0750  |
+|range(   30,   50) | users   286 |  0.0536  |
+|range(   50,  100) | users   178 |  0.0506  |
+|range(  100, 1600) | users   105 |  0.0896  |
+|iter:   129/1000 | vec: [0.34493493 0.06914539 0.12995051 0.45596917] | norm: none | MAP: 0.0737 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0430 | Recall = 0.1507 | MAP = 0.0717 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0485  |
+|range(    2,    3) | users   628 |  0.0687  |
+|range(    3,    4) | users   579 |  0.0795  |
+|range(    4,    5) | users   446 |  0.0817  |
+|range(    5,    6) | users   403 |  0.0769  |
+|range(    6,    7) | users   368 |  0.0890  |
+|range(    7,    8) | users   344 |  0.0715  |
+|range(    8,    9) | users   224 |  0.0662  |
+|range(    9,   10) | users   181 |  0.0785  |
+|range(   10,   11) | users   150 |  0.1015  |
+|range(   11,   12) | users   144 |  0.0654  |
+|range(   12,   13) | users   135 |  0.0774  |
+|range(   13,   14) | users   117 |  0.0737  |
+|range(   14,   15) | users   100 |  0.0680  |
+|range(   15,   30) | users   712 |  0.0728  |
+|range(   30,   50) | users   286 |  0.0516  |
+|range(   50,  100) | users   178 |  0.0483  |
+|range(  100, 1600) | users   105 |  0.0861  |
+|iter:   130/1000 | vec: [0.25692193 0.06599773 0.08716074 0.58991961] | norm: none | MAP: 0.0717 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0420 | Recall = 0.1425 | MAP = 0.0697 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0462  |
+|range(    2,    3) | users   628 |  0.0647  |
+|range(    3,    4) | users   579 |  0.0738  |
+|range(    4,    5) | users   446 |  0.0823  |
+|range(    5,    6) | users   403 |  0.0673  |
+|range(    6,    7) | users   368 |  0.0869  |
+|range(    7,    8) | users   344 |  0.0716  |
+|range(    8,    9) | users   224 |  0.0581  |
+|range(    9,   10) | users   181 |  0.0752  |
+|range(   10,   11) | users   150 |  0.1044  |
+|range(   11,   12) | users   144 |  0.0630  |
+|range(   12,   13) | users   135 |  0.0756  |
+|range(   13,   14) | users   117 |  0.0781  |
+|range(   14,   15) | users   100 |  0.0731  |
+|range(   15,   30) | users   712 |  0.0715  |
+|range(   30,   50) | users   286 |  0.0571  |
+|range(   50,  100) | users   178 |  0.0491  |
+|range(  100, 1600) | users   105 |  0.0951  |
+|iter:   131/1000 | vec: [0.41868215 0.34652975 0.02453868 0.21024941] | norm: none | MAP: 0.0697 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0390 | Recall = 0.1306 | MAP = 0.0638 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0398  |
+|range(    2,    3) | users   628 |  0.0602  |
+|range(    3,    4) | users   579 |  0.0659  |
+|range(    4,    5) | users   446 |  0.0801  |
+|range(    5,    6) | users   403 |  0.0588  |
+|range(    6,    7) | users   368 |  0.0792  |
+|range(    7,    8) | users   344 |  0.0593  |
+|range(    8,    9) | users   224 |  0.0571  |
+|range(    9,   10) | users   181 |  0.0653  |
+|range(   10,   11) | users   150 |  0.0983  |
+|range(   11,   12) | users   144 |  0.0603  |
+|range(   12,   13) | users   135 |  0.0642  |
+|range(   13,   14) | users   117 |  0.0772  |
+|range(   14,   15) | users   100 |  0.0596  |
+|range(   15,   30) | users   712 |  0.0671  |
+|range(   30,   50) | users   286 |  0.0538  |
+|range(   50,  100) | users   178 |  0.0482  |
+|range(  100, 1600) | users   105 |  0.0874  |
+|iter:   132/1000 | vec: [0.15036654 0.22370038 0.30348403 0.32244906] | norm: none | MAP: 0.0638 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0428 | Recall = 0.1463 | MAP = 0.0711 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0482  |
+|range(    2,    3) | users   628 |  0.0664  |
+|range(    3,    4) | users   579 |  0.0757  |
+|range(    4,    5) | users   446 |  0.0800  |
+|range(    5,    6) | users   403 |  0.0733  |
+|range(    6,    7) | users   368 |  0.0868  |
+|range(    7,    8) | users   344 |  0.0748  |
+|range(    8,    9) | users   224 |  0.0658  |
+|range(    9,   10) | users   181 |  0.0745  |
+|range(   10,   11) | users   150 |  0.1001  |
+|range(   11,   12) | users   144 |  0.0651  |
+|range(   12,   13) | users   135 |  0.0742  |
+|range(   13,   14) | users   117 |  0.0813  |
+|range(   14,   15) | users   100 |  0.0706  |
+|range(   15,   30) | users   712 |  0.0739  |
+|range(   30,   50) | users   286 |  0.0543  |
+|range(   50,  100) | users   178 |  0.0502  |
+|range(  100, 1600) | users   105 |  0.0898  |
+|iter:   133/1000 | vec: [0.27742085 0.09769684 0.1623957  0.46248662] | norm: none | MAP: 0.0711 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0381 | Recall = 0.1283 | MAP = 0.0626 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0414  |
+|range(    2,    3) | users   628 |  0.0611  |
+|range(    3,    4) | users   579 |  0.0667  |
+|range(    4,    5) | users   446 |  0.0749  |
+|range(    5,    6) | users   403 |  0.0640  |
+|range(    6,    7) | users   368 |  0.0782  |
+|range(    7,    8) | users   344 |  0.0576  |
+|range(    8,    9) | users   224 |  0.0581  |
+|range(    9,   10) | users   181 |  0.0595  |
+|range(   10,   11) | users   150 |  0.0921  |
+|range(   11,   12) | users   144 |  0.0560  |
+|range(   12,   13) | users   135 |  0.0703  |
+|range(   13,   14) | users   117 |  0.0689  |
+|range(   14,   15) | users   100 |  0.0630  |
+|range(   15,   30) | users   712 |  0.0634  |
+|range(   30,   50) | users   286 |  0.0504  |
+|range(   50,  100) | users   178 |  0.0455  |
+|range(  100, 1600) | users   105 |  0.0788  |
+|iter:   134/1000 | vec: [0.07468407 0.06167167 0.22978301 0.63386125] | norm: none | MAP: 0.0626 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0382 | Recall = 0.1251 | MAP = 0.0611 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0390  |
+|range(    2,    3) | users   628 |  0.0580  |
+|range(    3,    4) | users   579 |  0.0599  |
+|range(    4,    5) | users   446 |  0.0783  |
+|range(    5,    6) | users   403 |  0.0574  |
+|range(    6,    7) | users   368 |  0.0689  |
+|range(    7,    8) | users   344 |  0.0622  |
+|range(    8,    9) | users   224 |  0.0568  |
+|range(    9,   10) | users   181 |  0.0563  |
+|range(   10,   11) | users   150 |  0.0956  |
+|range(   11,   12) | users   144 |  0.0580  |
+|range(   12,   13) | users   135 |  0.0588  |
+|range(   13,   14) | users   117 |  0.0678  |
+|range(   14,   15) | users   100 |  0.0564  |
+|range(   15,   30) | users   712 |  0.0653  |
+|range(   30,   50) | users   286 |  0.0530  |
+|range(   50,  100) | users   178 |  0.0496  |
+|range(  100, 1600) | users   105 |  0.0921  |
+|iter:   135/1000 | vec: [0.13162082 0.24285712 0.58500152 0.04052054] | norm: none | MAP: 0.0611 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0382 | Recall = 0.1272 | MAP = 0.0626 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0415  |
+|range(    2,    3) | users   628 |  0.0581  |
+|range(    3,    4) | users   579 |  0.0642  |
+|range(    4,    5) | users   446 |  0.0776  |
+|range(    5,    6) | users   403 |  0.0565  |
+|range(    6,    7) | users   368 |  0.0744  |
+|range(    7,    8) | users   344 |  0.0622  |
+|range(    8,    9) | users   224 |  0.0542  |
+|range(    9,   10) | users   181 |  0.0660  |
+|range(   10,   11) | users   150 |  0.0952  |
+|range(   11,   12) | users   144 |  0.0598  |
+|range(   12,   13) | users   135 |  0.0628  |
+|range(   13,   14) | users   117 |  0.0767  |
+|range(   14,   15) | users   100 |  0.0565  |
+|range(   15,   30) | users   712 |  0.0656  |
+|range(   30,   50) | users   286 |  0.0533  |
+|range(   50,  100) | users   178 |  0.0486  |
+|range(  100, 1600) | users   105 |  0.0898  |
+|iter:   136/1000 | vec: [0.18007072 0.54518907 0.10279121 0.171949  ] | norm: none | MAP: 0.0626 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0402 | Recall = 0.1398 | MAP = 0.0651 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0475  |
+|range(    2,    3) | users   628 |  0.0627  |
+|range(    3,    4) | users   579 |  0.0629  |
+|range(    4,    5) | users   446 |  0.0686  |
+|range(    5,    6) | users   403 |  0.0689  |
+|range(    6,    7) | users   368 |  0.0808  |
+|range(    7,    8) | users   344 |  0.0713  |
+|range(    8,    9) | users   224 |  0.0569  |
+|range(    9,   10) | users   181 |  0.0724  |
+|range(   10,   11) | users   150 |  0.0950  |
+|range(   11,   12) | users   144 |  0.0651  |
+|range(   12,   13) | users   135 |  0.0711  |
+|range(   13,   14) | users   117 |  0.0622  |
+|range(   14,   15) | users   100 |  0.0689  |
+|range(   15,   30) | users   712 |  0.0663  |
+|range(   30,   50) | users   286 |  0.0484  |
+|range(   50,  100) | users   178 |  0.0509  |
+|range(  100, 1600) | users   105 |  0.0882  |
+|iter:   137/1000 | vec: [0.70151149 0.09639993 0.0257431  0.17634549] | norm: none | MAP: 0.0651 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0362 | Recall = 0.1185 | MAP = 0.0579 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0348  |
+|range(    2,    3) | users   628 |  0.0533  |
+|range(    3,    4) | users   579 |  0.0598  |
+|range(    4,    5) | users   446 |  0.0761  |
+|range(    5,    6) | users   403 |  0.0562  |
+|range(    6,    7) | users   368 |  0.0681  |
+|range(    7,    8) | users   344 |  0.0537  |
+|range(    8,    9) | users   224 |  0.0573  |
+|range(    9,   10) | users   181 |  0.0523  |
+|range(   10,   11) | users   150 |  0.0914  |
+|range(   11,   12) | users   144 |  0.0548  |
+|range(   12,   13) | users   135 |  0.0572  |
+|range(   13,   14) | users   117 |  0.0695  |
+|range(   14,   15) | users   100 |  0.0559  |
+|range(   15,   30) | users   712 |  0.0603  |
+|range(   30,   50) | users   286 |  0.0482  |
+|range(   50,  100) | users   178 |  0.0464  |
+|range(  100, 1600) | users   105 |  0.0816  |
+|iter:   138/1000 | vec: [0.01487522 0.05437054 0.58416451 0.34658973] | norm: none | MAP: 0.0579 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0395 | Recall = 0.1325 | MAP = 0.0653 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0430  |
+|range(    2,    3) | users   628 |  0.0611  |
+|range(    3,    4) | users   579 |  0.0695  |
+|range(    4,    5) | users   446 |  0.0825  |
+|range(    5,    6) | users   403 |  0.0600  |
+|range(    6,    7) | users   368 |  0.0771  |
+|range(    7,    8) | users   344 |  0.0649  |
+|range(    8,    9) | users   224 |  0.0550  |
+|range(    9,   10) | users   181 |  0.0691  |
+|range(   10,   11) | users   150 |  0.0990  |
+|range(   11,   12) | users   144 |  0.0626  |
+|range(   12,   13) | users   135 |  0.0688  |
+|range(   13,   14) | users   117 |  0.0769  |
+|range(   14,   15) | users   100 |  0.0579  |
+|range(   15,   30) | users   712 |  0.0671  |
+|range(   30,   50) | users   286 |  0.0544  |
+|range(   50,  100) | users   178 |  0.0479  |
+|range(  100, 1600) | users   105 |  0.0899  |
+|iter:   139/1000 | vec: [0.22274809 0.39095642 0.07790187 0.30839363] | norm: none | MAP: 0.0653 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0395 | Recall = 0.1321 | MAP = 0.0657 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0412  |
+|range(    2,    3) | users   628 |  0.0608  |
+|range(    3,    4) | users   579 |  0.0689  |
+|range(    4,    5) | users   446 |  0.0841  |
+|range(    5,    6) | users   403 |  0.0605  |
+|range(    6,    7) | users   368 |  0.0775  |
+|range(    7,    8) | users   344 |  0.0656  |
+|range(    8,    9) | users   224 |  0.0554  |
+|range(    9,   10) | users   181 |  0.0683  |
+|range(   10,   11) | users   150 |  0.1018  |
+|range(   11,   12) | users   144 |  0.0614  |
+|range(   12,   13) | users   135 |  0.0687  |
+|range(   13,   14) | users   117 |  0.0771  |
+|range(   14,   15) | users   100 |  0.0622  |
+|range(   15,   30) | users   712 |  0.0689  |
+|range(   30,   50) | users   286 |  0.0552  |
+|range(   50,  100) | users   178 |  0.0487  |
+|range(  100, 1600) | users   105 |  0.0911  |
+|iter:   140/1000 | vec: [0.31902289 0.47477814 0.18898471 0.01721426] | norm: none | MAP: 0.0657 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0396 | Recall = 0.1334 | MAP = 0.0660 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0441  |
+|range(    2,    3) | users   628 |  0.0612  |
+|range(    3,    4) | users   579 |  0.0711  |
+|range(    4,    5) | users   446 |  0.0844  |
+|range(    5,    6) | users   403 |  0.0609  |
+|range(    6,    7) | users   368 |  0.0794  |
+|range(    7,    8) | users   344 |  0.0653  |
+|range(    8,    9) | users   224 |  0.0547  |
+|range(    9,   10) | users   181 |  0.0697  |
+|range(   10,   11) | users   150 |  0.1001  |
+|range(   11,   12) | users   144 |  0.0614  |
+|range(   12,   13) | users   135 |  0.0701  |
+|range(   13,   14) | users   117 |  0.0765  |
+|range(   14,   15) | users   100 |  0.0585  |
+|range(   15,   30) | users   712 |  0.0672  |
+|range(   30,   50) | users   286 |  0.0548  |
+|range(   50,  100) | users   178 |  0.0482  |
+|range(  100, 1600) | users   105 |  0.0908  |
+|iter:   141/1000 | vec: [0.25006534 0.39573602 0.0404995  0.31369915] | norm: none | MAP: 0.0660 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0423 | Recall = 0.1406 | MAP = 0.0681 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0417  |
+|range(    2,    3) | users   628 |  0.0638  |
+|range(    3,    4) | users   579 |  0.0688  |
+|range(    4,    5) | users   446 |  0.0797  |
+|range(    5,    6) | users   403 |  0.0634  |
+|range(    6,    7) | users   368 |  0.0834  |
+|range(    7,    8) | users   344 |  0.0700  |
+|range(    8,    9) | users   224 |  0.0634  |
+|range(    9,   10) | users   181 |  0.0731  |
+|range(   10,   11) | users   150 |  0.1089  |
+|range(   11,   12) | users   144 |  0.0610  |
+|range(   12,   13) | users   135 |  0.0702  |
+|range(   13,   14) | users   117 |  0.0743  |
+|range(   14,   15) | users   100 |  0.0744  |
+|range(   15,   30) | users   712 |  0.0736  |
+|range(   30,   50) | users   286 |  0.0549  |
+|range(   50,  100) | users   178 |  0.0526  |
+|range(  100, 1600) | users   105 |  0.0921  |
+|iter:   142/1000 | vec: [0.36802269 0.12722923 0.45615465 0.04859343] | norm: none | MAP: 0.0681 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0377 | Recall = 0.1249 | MAP = 0.0600 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0354  |
+|range(    2,    3) | users   628 |  0.0554  |
+|range(    3,    4) | users   579 |  0.0597  |
+|range(    4,    5) | users   446 |  0.0777  |
+|range(    5,    6) | users   403 |  0.0564  |
+|range(    6,    7) | users   368 |  0.0725  |
+|range(    7,    8) | users   344 |  0.0583  |
+|range(    8,    9) | users   224 |  0.0540  |
+|range(    9,   10) | users   181 |  0.0592  |
+|range(   10,   11) | users   150 |  0.0956  |
+|range(   11,   12) | users   144 |  0.0571  |
+|range(   12,   13) | users   135 |  0.0570  |
+|range(   13,   14) | users   117 |  0.0724  |
+|range(   14,   15) | users   100 |  0.0541  |
+|range(   15,   30) | users   712 |  0.0643  |
+|range(   30,   50) | users   286 |  0.0523  |
+|range(   50,  100) | users   178 |  0.0476  |
+|range(  100, 1600) | users   105 |  0.0873  |
+|iter:   143/1000 | vec: [0.06634816 0.35395703 0.24983787 0.32985694] | norm: none | MAP: 0.0600 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0371 | Recall = 0.1209 | MAP = 0.0589 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0349  |
+|range(    2,    3) | users   628 |  0.0516  |
+|range(    3,    4) | users   579 |  0.0589  |
+|range(    4,    5) | users   446 |  0.0751  |
+|range(    5,    6) | users   403 |  0.0546  |
+|range(    6,    7) | users   368 |  0.0721  |
+|range(    7,    8) | users   344 |  0.0590  |
+|range(    8,    9) | users   224 |  0.0523  |
+|range(    9,   10) | users   181 |  0.0563  |
+|range(   10,   11) | users   150 |  0.0928  |
+|range(   11,   12) | users   144 |  0.0575  |
+|range(   12,   13) | users   135 |  0.0577  |
+|range(   13,   14) | users   117 |  0.0750  |
+|range(   14,   15) | users   100 |  0.0549  |
+|range(   15,   30) | users   712 |  0.0635  |
+|range(   30,   50) | users   286 |  0.0526  |
+|range(   50,  100) | users   178 |  0.0470  |
+|range(  100, 1600) | users   105 |  0.0886  |
+|iter:   144/1000 | vec: [0.04230692 0.65918363 0.04186462 0.25664483] | norm: none | MAP: 0.0589 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0375 | Recall = 0.1234 | MAP = 0.0604 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0368  |
+|range(    2,    3) | users   628 |  0.0573  |
+|range(    3,    4) | users   579 |  0.0608  |
+|range(    4,    5) | users   446 |  0.0773  |
+|range(    5,    6) | users   403 |  0.0575  |
+|range(    6,    7) | users   368 |  0.0699  |
+|range(    7,    8) | users   344 |  0.0585  |
+|range(    8,    9) | users   224 |  0.0576  |
+|range(    9,   10) | users   181 |  0.0581  |
+|range(   10,   11) | users   150 |  0.0966  |
+|range(   11,   12) | users   144 |  0.0557  |
+|range(   12,   13) | users   135 |  0.0572  |
+|range(   13,   14) | users   117 |  0.0695  |
+|range(   14,   15) | users   100 |  0.0548  |
+|range(   15,   30) | users   712 |  0.0639  |
+|range(   30,   50) | users   286 |  0.0520  |
+|range(   50,  100) | users   178 |  0.0493  |
+|range(  100, 1600) | users   105 |  0.0875  |
+|iter:   145/1000 | vec: [0.07315003 0.14109327 0.48757094 0.29818577] | norm: none | MAP: 0.0604 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0411 | Recall = 0.1370 | MAP = 0.0666 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0415  |
+|range(    2,    3) | users   628 |  0.0637  |
+|range(    3,    4) | users   579 |  0.0679  |
+|range(    4,    5) | users   446 |  0.0784  |
+|range(    5,    6) | users   403 |  0.0667  |
+|range(    6,    7) | users   368 |  0.0819  |
+|range(    7,    8) | users   344 |  0.0646  |
+|range(    8,    9) | users   224 |  0.0641  |
+|range(    9,   10) | users   181 |  0.0704  |
+|range(   10,   11) | users   150 |  0.1011  |
+|range(   11,   12) | users   144 |  0.0621  |
+|range(   12,   13) | users   135 |  0.0720  |
+|range(   13,   14) | users   117 |  0.0656  |
+|range(   14,   15) | users   100 |  0.0728  |
+|range(   15,   30) | users   712 |  0.0700  |
+|range(   30,   50) | users   286 |  0.0514  |
+|range(   50,  100) | users   178 |  0.0505  |
+|range(  100, 1600) | users   105 |  0.0894  |
+|iter:   146/1000 | vec: [0.22019433 0.01871194 0.38935803 0.3717357 ] | norm: none | MAP: 0.0666 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0324 | Recall = 0.1184 | MAP = 0.0528 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0474  |
+|range(    2,    3) | users   628 |  0.0552  |
+|range(    3,    4) | users   579 |  0.0538  |
+|range(    4,    5) | users   446 |  0.0577  |
+|range(    5,    6) | users   403 |  0.0549  |
+|range(    6,    7) | users   368 |  0.0710  |
+|range(    7,    8) | users   344 |  0.0619  |
+|range(    8,    9) | users   224 |  0.0426  |
+|range(    9,   10) | users   181 |  0.0507  |
+|range(   10,   11) | users   150 |  0.0699  |
+|range(   11,   12) | users   144 |  0.0512  |
+|range(   12,   13) | users   135 |  0.0536  |
+|range(   13,   14) | users   117 |  0.0408  |
+|range(   14,   15) | users   100 |  0.0629  |
+|range(   15,   30) | users   712 |  0.0457  |
+|range(   30,   50) | users   286 |  0.0322  |
+|range(   50,  100) | users   178 |  0.0401  |
+|range(  100, 1600) | users   105 |  0.0663  |
+|iter:   147/1000 | vec: [0.81761757 0.02367103 0.09524817 0.06346323] | norm: none | MAP: 0.0528 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0402 | Recall = 0.1347 | MAP = 0.0667 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0417  |
+|range(    2,    3) | users   628 |  0.0614  |
+|range(    3,    4) | users   579 |  0.0713  |
+|range(    4,    5) | users   446 |  0.0851  |
+|range(    5,    6) | users   403 |  0.0604  |
+|range(    6,    7) | users   368 |  0.0786  |
+|range(    7,    8) | users   344 |  0.0677  |
+|range(    8,    9) | users   224 |  0.0561  |
+|range(    9,   10) | users   181 |  0.0701  |
+|range(   10,   11) | users   150 |  0.1045  |
+|range(   11,   12) | users   144 |  0.0605  |
+|range(   12,   13) | users   135 |  0.0698  |
+|range(   13,   14) | users   117 |  0.0759  |
+|range(   14,   15) | users   100 |  0.0659  |
+|range(   15,   30) | users   712 |  0.0699  |
+|range(   30,   50) | users   286 |  0.0557  |
+|range(   50,  100) | users   178 |  0.0495  |
+|range(  100, 1600) | users   105 |  0.0923  |
+|iter:   148/1000 | vec: [0.36768883 0.44663354 0.13698356 0.04869408] | norm: none | MAP: 0.0667 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0368 | Recall = 0.1185 | MAP = 0.0579 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0323  |
+|range(    2,    3) | users   628 |  0.0522  |
+|range(    3,    4) | users   579 |  0.0553  |
+|range(    4,    5) | users   446 |  0.0764  |
+|range(    5,    6) | users   403 |  0.0552  |
+|range(    6,    7) | users   368 |  0.0718  |
+|range(    7,    8) | users   344 |  0.0567  |
+|range(    8,    9) | users   224 |  0.0545  |
+|range(    9,   10) | users   181 |  0.0506  |
+|range(   10,   11) | users   150 |  0.0934  |
+|range(   11,   12) | users   144 |  0.0559  |
+|range(   12,   13) | users   135 |  0.0542  |
+|range(   13,   14) | users   117 |  0.0666  |
+|range(   14,   15) | users   100 |  0.0533  |
+|range(   15,   30) | users   712 |  0.0633  |
+|range(   30,   50) | users   286 |  0.0514  |
+|range(   50,  100) | users   178 |  0.0466  |
+|range(  100, 1600) | users   105 |  0.0876  |
+|iter:   149/1000 | vec: [0.00755326 0.32506128 0.45277166 0.2146138 ] | norm: none | MAP: 0.0579 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0432 | Recall = 0.1501 | MAP = 0.0716 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0487  |
+|range(    2,    3) | users   628 |  0.0664  |
+|range(    3,    4) | users   579 |  0.0760  |
+|range(    4,    5) | users   446 |  0.0795  |
+|range(    5,    6) | users   403 |  0.0731  |
+|range(    6,    7) | users   368 |  0.0899  |
+|range(    7,    8) | users   344 |  0.0759  |
+|range(    8,    9) | users   224 |  0.0666  |
+|range(    9,   10) | users   181 |  0.0743  |
+|range(   10,   11) | users   150 |  0.1056  |
+|range(   11,   12) | users   144 |  0.0747  |
+|range(   12,   13) | users   135 |  0.0720  |
+|range(   13,   14) | users   117 |  0.0663  |
+|range(   14,   15) | users   100 |  0.0731  |
+|range(   15,   30) | users   712 |  0.0736  |
+|range(   30,   50) | users   286 |  0.0555  |
+|range(   50,  100) | users   178 |  0.0531  |
+|range(  100, 1600) | users   105 |  0.0890  |
+|iter:   150/1000 | vec: [0.7379467  0.15824338 0.05866534 0.04514458] | norm: none | MAP: 0.0716 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0407 | Recall = 0.1334 | MAP = 0.0644 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0417  |
+|range(    2,    3) | users   628 |  0.0616  |
+|range(    3,    4) | users   579 |  0.0636  |
+|range(    4,    5) | users   446 |  0.0770  |
+|range(    5,    6) | users   403 |  0.0595  |
+|range(    6,    7) | users   368 |  0.0742  |
+|range(    7,    8) | users   344 |  0.0613  |
+|range(    8,    9) | users   224 |  0.0623  |
+|range(    9,   10) | users   181 |  0.0675  |
+|range(   10,   11) | users   150 |  0.1052  |
+|range(   11,   12) | users   144 |  0.0586  |
+|range(   12,   13) | users   135 |  0.0679  |
+|range(   13,   14) | users   117 |  0.0699  |
+|range(   14,   15) | users   100 |  0.0675  |
+|range(   15,   30) | users   712 |  0.0697  |
+|range(   30,   50) | users   286 |  0.0515  |
+|range(   50,  100) | users   178 |  0.0520  |
+|range(  100, 1600) | users   105 |  0.0939  |
+|iter:   151/1000 | vec: [0.27100808 0.03720054 0.62349113 0.06830024] | norm: none | MAP: 0.0644 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0422 | Recall = 0.1425 | MAP = 0.0697 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0465  |
+|range(    2,    3) | users   628 |  0.0645  |
+|range(    3,    4) | users   579 |  0.0720  |
+|range(    4,    5) | users   446 |  0.0823  |
+|range(    5,    6) | users   403 |  0.0690  |
+|range(    6,    7) | users   368 |  0.0865  |
+|range(    7,    8) | users   344 |  0.0713  |
+|range(    8,    9) | users   224 |  0.0604  |
+|range(    9,   10) | users   181 |  0.0750  |
+|range(   10,   11) | users   150 |  0.1050  |
+|range(   11,   12) | users   144 |  0.0637  |
+|range(   12,   13) | users   135 |  0.0738  |
+|range(   13,   14) | users   117 |  0.0805  |
+|range(   14,   15) | users   100 |  0.0693  |
+|range(   15,   30) | users   712 |  0.0715  |
+|range(   30,   50) | users   286 |  0.0563  |
+|range(   50,  100) | users   178 |  0.0497  |
+|range(  100, 1600) | users   105 |  0.0948  |
+|iter:   152/1000 | vec: [0.36827122 0.25225378 0.11298359 0.26649141] | norm: none | MAP: 0.0697 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0368 | Recall = 0.1193 | MAP = 0.0581 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0334  |
+|range(    2,    3) | users   628 |  0.0498  |
+|range(    3,    4) | users   579 |  0.0576  |
+|range(    4,    5) | users   446 |  0.0754  |
+|range(    5,    6) | users   403 |  0.0543  |
+|range(    6,    7) | users   368 |  0.0722  |
+|range(    7,    8) | users   344 |  0.0580  |
+|range(    8,    9) | users   224 |  0.0525  |
+|range(    9,   10) | users   181 |  0.0541  |
+|range(   10,   11) | users   150 |  0.0911  |
+|range(   11,   12) | users   144 |  0.0558  |
+|range(   12,   13) | users   135 |  0.0573  |
+|range(   13,   14) | users   117 |  0.0710  |
+|range(   14,   15) | users   100 |  0.0548  |
+|range(   15,   30) | users   712 |  0.0629  |
+|range(   30,   50) | users   286 |  0.0528  |
+|range(   50,  100) | users   178 |  0.0467  |
+|range(  100, 1600) | users   105 |  0.0876  |
+|iter:   153/1000 | vec: [0.00695855 0.5560017  0.07256737 0.36447237] | norm: none | MAP: 0.0581 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0373 | Recall = 0.1227 | MAP = 0.0594 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0351  |
+|range(    2,    3) | users   628 |  0.0528  |
+|range(    3,    4) | users   579 |  0.0601  |
+|range(    4,    5) | users   446 |  0.0768  |
+|range(    5,    6) | users   403 |  0.0555  |
+|range(    6,    7) | users   368 |  0.0729  |
+|range(    7,    8) | users   344 |  0.0579  |
+|range(    8,    9) | users   224 |  0.0572  |
+|range(    9,   10) | users   181 |  0.0567  |
+|range(   10,   11) | users   150 |  0.0955  |
+|range(   11,   12) | users   144 |  0.0558  |
+|range(   12,   13) | users   135 |  0.0542  |
+|range(   13,   14) | users   117 |  0.0712  |
+|range(   14,   15) | users   100 |  0.0573  |
+|range(   15,   30) | users   712 |  0.0634  |
+|range(   30,   50) | users   286 |  0.0522  |
+|range(   50,  100) | users   178 |  0.0467  |
+|range(  100, 1600) | users   105 |  0.0841  |
+|iter:   154/1000 | vec: [0.03220139 0.21744904 0.3404907  0.40985888] | norm: none | MAP: 0.0594 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0377 | Recall = 0.1246 | MAP = 0.0603 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0361  |
+|range(    2,    3) | users   628 |  0.0559  |
+|range(    3,    4) | users   579 |  0.0599  |
+|range(    4,    5) | users   446 |  0.0777  |
+|range(    5,    6) | users   403 |  0.0560  |
+|range(    6,    7) | users   368 |  0.0724  |
+|range(    7,    8) | users   344 |  0.0584  |
+|range(    8,    9) | users   224 |  0.0549  |
+|range(    9,   10) | users   181 |  0.0601  |
+|range(   10,   11) | users   150 |  0.0954  |
+|range(   11,   12) | users   144 |  0.0574  |
+|range(   12,   13) | users   135 |  0.0575  |
+|range(   13,   14) | users   117 |  0.0726  |
+|range(   14,   15) | users   100 |  0.0539  |
+|range(   15,   30) | users   712 |  0.0647  |
+|range(   30,   50) | users   286 |  0.0525  |
+|range(   50,  100) | users   178 |  0.0486  |
+|range(  100, 1600) | users   105 |  0.0878  |
+|iter:   155/1000 | vec: [0.0799117  0.35343837 0.28880319 0.27784674] | norm: none | MAP: 0.0603 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0435 | Recall = 0.1483 | MAP = 0.0717 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0455  |
+|range(    2,    3) | users   628 |  0.0663  |
+|range(    3,    4) | users   579 |  0.0752  |
+|range(    4,    5) | users   446 |  0.0849  |
+|range(    5,    6) | users   403 |  0.0740  |
+|range(    6,    7) | users   368 |  0.0858  |
+|range(    7,    8) | users   344 |  0.0764  |
+|range(    8,    9) | users   224 |  0.0698  |
+|range(    9,   10) | users   181 |  0.0803  |
+|range(   10,   11) | users   150 |  0.1027  |
+|range(   11,   12) | users   144 |  0.0672  |
+|range(   12,   13) | users   135 |  0.0745  |
+|range(   13,   14) | users   117 |  0.0744  |
+|range(   14,   15) | users   100 |  0.0730  |
+|range(   15,   30) | users   712 |  0.0739  |
+|range(   30,   50) | users   286 |  0.0538  |
+|range(   50,  100) | users   178 |  0.0526  |
+|range(  100, 1600) | users   105 |  0.0906  |
+|iter:   156/1000 | vec: [0.37400515 0.0437852  0.30189058 0.28031907] | norm: none | MAP: 0.0717 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0397 | Recall = 0.1336 | MAP = 0.0644 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0405  |
+|range(    2,    3) | users   628 |  0.0625  |
+|range(    3,    4) | users   579 |  0.0684  |
+|range(    4,    5) | users   446 |  0.0764  |
+|range(    5,    6) | users   403 |  0.0673  |
+|range(    6,    7) | users   368 |  0.0794  |
+|range(    7,    8) | users   344 |  0.0575  |
+|range(    8,    9) | users   224 |  0.0602  |
+|range(    9,   10) | users   181 |  0.0641  |
+|range(   10,   11) | users   150 |  0.0987  |
+|range(   11,   12) | users   144 |  0.0573  |
+|range(   12,   13) | users   135 |  0.0707  |
+|range(   13,   14) | users   117 |  0.0675  |
+|range(   14,   15) | users   100 |  0.0663  |
+|range(   15,   30) | users   712 |  0.0666  |
+|range(   30,   50) | users   286 |  0.0513  |
+|range(   50,  100) | users   178 |  0.0476  |
+|range(  100, 1600) | users   105 |  0.0822  |
+|iter:   157/1000 | vec: [0.13739833 0.03689306 0.30512402 0.52058459] | norm: none | MAP: 0.0644 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0404 | Recall = 0.1368 | MAP = 0.0664 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0414  |
+|range(    2,    3) | users   628 |  0.0632  |
+|range(    3,    4) | users   579 |  0.0707  |
+|range(    4,    5) | users   446 |  0.0805  |
+|range(    5,    6) | users   403 |  0.0669  |
+|range(    6,    7) | users   368 |  0.0825  |
+|range(    7,    8) | users   344 |  0.0641  |
+|range(    8,    9) | users   224 |  0.0596  |
+|range(    9,   10) | users   181 |  0.0673  |
+|range(   10,   11) | users   150 |  0.1015  |
+|range(   11,   12) | users   144 |  0.0581  |
+|range(   12,   13) | users   135 |  0.0725  |
+|range(   13,   14) | users   117 |  0.0743  |
+|range(   14,   15) | users   100 |  0.0646  |
+|range(   15,   30) | users   712 |  0.0677  |
+|range(   30,   50) | users   286 |  0.0545  |
+|range(   50,  100) | users   178 |  0.0490  |
+|range(  100, 1600) | users   105 |  0.0842  |
+|iter:   158/1000 | vec: [0.16951451 0.10960909 0.2072593  0.5136171 ] | norm: none | MAP: 0.0664 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0391 | Recall = 0.1312 | MAP = 0.0637 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0408  |
+|range(    2,    3) | users   628 |  0.0605  |
+|range(    3,    4) | users   579 |  0.0678  |
+|range(    4,    5) | users   446 |  0.0773  |
+|range(    5,    6) | users   403 |  0.0583  |
+|range(    6,    7) | users   368 |  0.0783  |
+|range(    7,    8) | users   344 |  0.0609  |
+|range(    8,    9) | users   224 |  0.0554  |
+|range(    9,   10) | users   181 |  0.0685  |
+|range(   10,   11) | users   150 |  0.0989  |
+|range(   11,   12) | users   144 |  0.0588  |
+|range(   12,   13) | users   135 |  0.0639  |
+|range(   13,   14) | users   117 |  0.0808  |
+|range(   14,   15) | users   100 |  0.0557  |
+|range(   15,   30) | users   712 |  0.0654  |
+|range(   30,   50) | users   286 |  0.0547  |
+|range(   50,  100) | users   178 |  0.0473  |
+|range(  100, 1600) | users   105 |  0.0865  |
+|iter:   159/1000 | vec: [0.13684944 0.31368171 0.03978725 0.50968159] | norm: none | MAP: 0.0637 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0441 | Recall = 0.1536 | MAP = 0.0742 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0504  |
+|range(    2,    3) | users   628 |  0.0700  |
+|range(    3,    4) | users   579 |  0.0781  |
+|range(    4,    5) | users   446 |  0.0833  |
+|range(    5,    6) | users   403 |  0.0786  |
+|range(    6,    7) | users   368 |  0.0910  |
+|range(    7,    8) | users   344 |  0.0779  |
+|range(    8,    9) | users   224 |  0.0688  |
+|range(    9,   10) | users   181 |  0.0838  |
+|range(   10,   11) | users   150 |  0.1090  |
+|range(   11,   12) | users   144 |  0.0671  |
+|range(   12,   13) | users   135 |  0.0765  |
+|range(   13,   14) | users   117 |  0.0789  |
+|range(   14,   15) | users   100 |  0.0754  |
+|range(   15,   30) | users   712 |  0.0756  |
+|range(   30,   50) | users   286 |  0.0551  |
+|range(   50,  100) | users   178 |  0.0512  |
+|range(  100, 1600) | users   105 |  0.0920  |
+|iter:   160/1000 | vec: [0.37438986 0.16634094 0.01168772 0.44758148] | norm: none | MAP: 0.0742 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0372 | Recall = 0.1210 | MAP = 0.0592 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0391  |
+|range(    2,    3) | users   628 |  0.0543  |
+|range(    3,    4) | users   579 |  0.0572  |
+|range(    4,    5) | users   446 |  0.0771  |
+|range(    5,    6) | users   403 |  0.0567  |
+|range(    6,    7) | users   368 |  0.0685  |
+|range(    7,    8) | users   344 |  0.0582  |
+|range(    8,    9) | users   224 |  0.0559  |
+|range(    9,   10) | users   181 |  0.0508  |
+|range(   10,   11) | users   150 |  0.0951  |
+|range(   11,   12) | users   144 |  0.0539  |
+|range(   12,   13) | users   135 |  0.0553  |
+|range(   13,   14) | users   117 |  0.0712  |
+|range(   14,   15) | users   100 |  0.0578  |
+|range(   15,   30) | users   712 |  0.0630  |
+|range(   30,   50) | users   286 |  0.0494  |
+|range(   50,  100) | users   178 |  0.0482  |
+|range(  100, 1600) | users   105 |  0.0918  |
+|iter:   161/1000 | vec: [0.05277801 0.13634188 0.75794735 0.05293275] | norm: none | MAP: 0.0592 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0380 | Recall = 0.1267 | MAP = 0.0625 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0408  |
+|range(    2,    3) | users   628 |  0.0582  |
+|range(    3,    4) | users   579 |  0.0651  |
+|range(    4,    5) | users   446 |  0.0768  |
+|range(    5,    6) | users   403 |  0.0566  |
+|range(    6,    7) | users   368 |  0.0753  |
+|range(    7,    8) | users   344 |  0.0629  |
+|range(    8,    9) | users   224 |  0.0536  |
+|range(    9,   10) | users   181 |  0.0674  |
+|range(   10,   11) | users   150 |  0.0945  |
+|range(   11,   12) | users   144 |  0.0597  |
+|range(   12,   13) | users   135 |  0.0630  |
+|range(   13,   14) | users   117 |  0.0771  |
+|range(   14,   15) | users   100 |  0.0548  |
+|range(   15,   30) | users   712 |  0.0649  |
+|range(   30,   50) | users   286 |  0.0534  |
+|range(   50,  100) | users   178 |  0.0476  |
+|range(  100, 1600) | users   105 |  0.0890  |
+|iter:   162/1000 | vec: [0.15128363 0.52587742 0.00781708 0.31502187] | norm: none | MAP: 0.0625 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0410 | Recall = 0.1375 | MAP = 0.0667 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0419  |
+|range(    2,    3) | users   628 |  0.0640  |
+|range(    3,    4) | users   579 |  0.0677  |
+|range(    4,    5) | users   446 |  0.0822  |
+|range(    5,    6) | users   403 |  0.0634  |
+|range(    6,    7) | users   368 |  0.0807  |
+|range(    7,    8) | users   344 |  0.0659  |
+|range(    8,    9) | users   224 |  0.0584  |
+|range(    9,   10) | users   181 |  0.0682  |
+|range(   10,   11) | users   150 |  0.1041  |
+|range(   11,   12) | users   144 |  0.0612  |
+|range(   12,   13) | users   135 |  0.0673  |
+|range(   13,   14) | users   117 |  0.0809  |
+|range(   14,   15) | users   100 |  0.0637  |
+|range(   15,   30) | users   712 |  0.0700  |
+|range(   30,   50) | users   286 |  0.0555  |
+|range(   50,  100) | users   178 |  0.0496  |
+|range(  100, 1600) | users   105 |  0.0934  |
+|iter:   163/1000 | vec: [0.27181696 0.18208882 0.30064908 0.24544513] | norm: none | MAP: 0.0667 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0422 | Recall = 0.1484 | MAP = 0.0701 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0468  |
+|range(    2,    3) | users   628 |  0.0674  |
+|range(    3,    4) | users   579 |  0.0789  |
+|range(    4,    5) | users   446 |  0.0808  |
+|range(    5,    6) | users   403 |  0.0746  |
+|range(    6,    7) | users   368 |  0.0881  |
+|range(    7,    8) | users   344 |  0.0696  |
+|range(    8,    9) | users   224 |  0.0643  |
+|range(    9,   10) | users   181 |  0.0742  |
+|range(   10,   11) | users   150 |  0.0985  |
+|range(   11,   12) | users   144 |  0.0621  |
+|range(   12,   13) | users   135 |  0.0800  |
+|range(   13,   14) | users   117 |  0.0677  |
+|range(   14,   15) | users   100 |  0.0695  |
+|range(   15,   30) | users   712 |  0.0708  |
+|range(   30,   50) | users   286 |  0.0507  |
+|range(   50,  100) | users   178 |  0.0469  |
+|range(  100, 1600) | users   105 |  0.0813  |
+|iter:   164/1000 | vec: [0.20256411 0.02841812 0.1089362  0.66008157] | norm: none | MAP: 0.0701 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0393 | Recall = 0.1327 | MAP = 0.0649 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0415  |
+|range(    2,    3) | users   628 |  0.0611  |
+|range(    3,    4) | users   579 |  0.0696  |
+|range(    4,    5) | users   446 |  0.0778  |
+|range(    5,    6) | users   403 |  0.0649  |
+|range(    6,    7) | users   368 |  0.0815  |
+|range(    7,    8) | users   344 |  0.0608  |
+|range(    8,    9) | users   224 |  0.0575  |
+|range(    9,   10) | users   181 |  0.0682  |
+|range(   10,   11) | users   150 |  0.0975  |
+|range(   11,   12) | users   144 |  0.0585  |
+|range(   12,   13) | users   135 |  0.0685  |
+|range(   13,   14) | users   117 |  0.0805  |
+|range(   14,   15) | users   100 |  0.0659  |
+|range(   15,   30) | users   712 |  0.0662  |
+|range(   30,   50) | users   286 |  0.0531  |
+|range(   50,  100) | users   178 |  0.0460  |
+|range(  100, 1600) | users   105 |  0.0823  |
+|iter:   165/1000 | vec: [0.12080744 0.17679058 0.10962712 0.59277487] | norm: none | MAP: 0.0649 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0374 | Recall = 0.1239 | MAP = 0.0607 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0375  |
+|range(    2,    3) | users   628 |  0.0564  |
+|range(    3,    4) | users   579 |  0.0635  |
+|range(    4,    5) | users   446 |  0.0775  |
+|range(    5,    6) | users   403 |  0.0580  |
+|range(    6,    7) | users   368 |  0.0735  |
+|range(    7,    8) | users   344 |  0.0575  |
+|range(    8,    9) | users   224 |  0.0580  |
+|range(    9,   10) | users   181 |  0.0558  |
+|range(   10,   11) | users   150 |  0.0970  |
+|range(   11,   12) | users   144 |  0.0568  |
+|range(   12,   13) | users   135 |  0.0573  |
+|range(   13,   14) | users   117 |  0.0718  |
+|range(   14,   15) | users   100 |  0.0567  |
+|range(   15,   30) | users   712 |  0.0630  |
+|range(   30,   50) | users   286 |  0.0516  |
+|range(   50,  100) | users   178 |  0.0465  |
+|range(  100, 1600) | users   105 |  0.0829  |
+|iter:   166/1000 | vec: [0.03825667 0.13345216 0.35246375 0.47582741] | norm: none | MAP: 0.0607 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0385 | Recall = 0.1284 | MAP = 0.0625 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0403  |
+|range(    2,    3) | users   628 |  0.0579  |
+|range(    3,    4) | users   579 |  0.0636  |
+|range(    4,    5) | users   446 |  0.0773  |
+|range(    5,    6) | users   403 |  0.0581  |
+|range(    6,    7) | users   368 |  0.0747  |
+|range(    7,    8) | users   344 |  0.0618  |
+|range(    8,    9) | users   224 |  0.0540  |
+|range(    9,   10) | users   181 |  0.0635  |
+|range(   10,   11) | users   150 |  0.0979  |
+|range(   11,   12) | users   144 |  0.0618  |
+|range(   12,   13) | users   135 |  0.0602  |
+|range(   13,   14) | users   117 |  0.0770  |
+|range(   14,   15) | users   100 |  0.0566  |
+|range(   15,   30) | users   712 |  0.0660  |
+|range(   30,   50) | users   286 |  0.0526  |
+|range(   50,  100) | users   178 |  0.0491  |
+|range(  100, 1600) | users   105 |  0.0913  |
+|iter:   167/1000 | vec: [0.20898513 0.55647968 0.19220399 0.0423312 ] | norm: none | MAP: 0.0625 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0357 | Recall = 0.1142 | MAP = 0.0560 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0345  |
+|range(    2,    3) | users   628 |  0.0522  |
+|range(    3,    4) | users   579 |  0.0543  |
+|range(    4,    5) | users   446 |  0.0743  |
+|range(    5,    6) | users   403 |  0.0543  |
+|range(    6,    7) | users   368 |  0.0653  |
+|range(    7,    8) | users   344 |  0.0520  |
+|range(    8,    9) | users   224 |  0.0568  |
+|range(    9,   10) | users   181 |  0.0455  |
+|range(   10,   11) | users   150 |  0.0882  |
+|range(   11,   12) | users   144 |  0.0509  |
+|range(   12,   13) | users   135 |  0.0534  |
+|range(   13,   14) | users   117 |  0.0670  |
+|range(   14,   15) | users   100 |  0.0567  |
+|range(   15,   30) | users   712 |  0.0587  |
+|range(   30,   50) | users   286 |  0.0465  |
+|range(   50,  100) | users   178 |  0.0468  |
+|range(  100, 1600) | users   105 |  0.0918  |
+|iter:   168/1000 | vec: [0.00361772 0.03228974 0.91902529 0.04506725] | norm: none | MAP: 0.0560 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0367 | Recall = 0.1183 | MAP = 0.0579 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0323  |
+|range(    2,    3) | users   628 |  0.0503  |
+|range(    3,    4) | users   579 |  0.0560  |
+|range(    4,    5) | users   446 |  0.0771  |
+|range(    5,    6) | users   403 |  0.0553  |
+|range(    6,    7) | users   368 |  0.0714  |
+|range(    7,    8) | users   344 |  0.0564  |
+|range(    8,    9) | users   224 |  0.0529  |
+|range(    9,   10) | users   181 |  0.0515  |
+|range(   10,   11) | users   150 |  0.0930  |
+|range(   11,   12) | users   144 |  0.0555  |
+|range(   12,   13) | users   135 |  0.0553  |
+|range(   13,   14) | users   117 |  0.0710  |
+|range(   14,   15) | users   100 |  0.0538  |
+|range(   15,   30) | users   712 |  0.0638  |
+|range(   30,   50) | users   286 |  0.0516  |
+|range(   50,  100) | users   178 |  0.0463  |
+|range(  100, 1600) | users   105 |  0.0872  |
+|iter:   169/1000 | vec: [0.00431865 0.45169945 0.3538692  0.1901127 ] | norm: none | MAP: 0.0579 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0440 | Recall = 0.1509 | MAP = 0.0733 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0453  |
+|range(    2,    3) | users   628 |  0.0670  |
+|range(    3,    4) | users   579 |  0.0774  |
+|range(    4,    5) | users   446 |  0.0840  |
+|range(    5,    6) | users   403 |  0.0749  |
+|range(    6,    7) | users   368 |  0.0904  |
+|range(    7,    8) | users   344 |  0.0797  |
+|range(    8,    9) | users   224 |  0.0685  |
+|range(    9,   10) | users   181 |  0.0798  |
+|range(   10,   11) | users   150 |  0.1119  |
+|range(   11,   12) | users   144 |  0.0698  |
+|range(   12,   13) | users   135 |  0.0723  |
+|range(   13,   14) | users   117 |  0.0742  |
+|range(   14,   15) | users   100 |  0.0796  |
+|range(   15,   30) | users   712 |  0.0764  |
+|range(   30,   50) | users   286 |  0.0562  |
+|range(   50,  100) | users   178 |  0.0535  |
+|range(  100, 1600) | users   105 |  0.0942  |
+|iter:   170/1000 | vec: [0.60133556 0.27272466 0.12053872 0.00540105] | norm: none | MAP: 0.0733 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0403 | Recall = 0.1374 | MAP = 0.0668 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0433  |
+|range(    2,    3) | users   628 |  0.0633  |
+|range(    3,    4) | users   579 |  0.0725  |
+|range(    4,    5) | users   446 |  0.0776  |
+|range(    5,    6) | users   403 |  0.0672  |
+|range(    6,    7) | users   368 |  0.0830  |
+|range(    7,    8) | users   344 |  0.0661  |
+|range(    8,    9) | users   224 |  0.0581  |
+|range(    9,   10) | users   181 |  0.0681  |
+|range(   10,   11) | users   150 |  0.1024  |
+|range(   11,   12) | users   144 |  0.0604  |
+|range(   12,   13) | users   135 |  0.0697  |
+|range(   13,   14) | users   117 |  0.0802  |
+|range(   14,   15) | users   100 |  0.0672  |
+|range(   15,   30) | users   712 |  0.0683  |
+|range(   30,   50) | users   286 |  0.0541  |
+|range(   50,  100) | users   178 |  0.0468  |
+|range(  100, 1600) | users   105 |  0.0847  |
+|iter:   171/1000 | vec: [0.1865707  0.17768107 0.0654682  0.57028003] | norm: none | MAP: 0.0668 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0433 | Recall = 0.1470 | MAP = 0.0712 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0441  |
+|range(    2,    3) | users   628 |  0.0665  |
+|range(    3,    4) | users   579 |  0.0757  |
+|range(    4,    5) | users   446 |  0.0818  |
+|range(    5,    6) | users   403 |  0.0734  |
+|range(    6,    7) | users   368 |  0.0876  |
+|range(    7,    8) | users   344 |  0.0747  |
+|range(    8,    9) | users   224 |  0.0662  |
+|range(    9,   10) | users   181 |  0.0778  |
+|range(   10,   11) | users   150 |  0.1052  |
+|range(   11,   12) | users   144 |  0.0655  |
+|range(   12,   13) | users   135 |  0.0745  |
+|range(   13,   14) | users   117 |  0.0808  |
+|range(   14,   15) | users   100 |  0.0719  |
+|range(   15,   30) | users   712 |  0.0735  |
+|range(   30,   50) | users   286 |  0.0547  |
+|range(   50,  100) | users   178 |  0.0514  |
+|range(  100, 1600) | users   105 |  0.0928  |
+|iter:   172/1000 | vec: [0.36169532 0.0994049  0.2668803  0.27201948] | norm: none | MAP: 0.0712 |
+|HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)| precision = 0.0373 | Recall = 0.1223 | MAP = 0.0593 |
+|range(-----,-----) | users ----- |HMR(ItemKNNCB,RP3beta,UserKNNCF,UserKNNCB)|
+|range(    0,    2) | users   512 |  0.0365  |
+|range(    2,    3) | users   628 |  0.0521  |
+|range(    3,    4) | users   579 |  0.0585  |
+|range(    4,    5) | users   446 |  0.0749  |
+|range(    5,    6) | users   403 |  0.0554  |
+|range(    6,    7) | users   368 |  0.0725  |
+|range(    7,    8) | users   344 |  0.0592  |
+|range(    8,    9) | users   224 |  0.0521  |
+|range(    9,   10) | users   181 |  0.0569  |
+|range(   10,   11) | users   150 |  0.0928  |
+|range(   11,   12) | users   144 |  0.0572  |
+|range(   12,   13) | users   135 |  0.0575  |
+|range(   13,   14) | users   117 |  0.0754  |
+|range(   14,   15) | users   100 |  0.0550  |
+|range(   15,   30) | users   712 |  0.0639  |
+|range(   30,   50) | users   286 |  0.0525  |
+|range(   50,  100) | users   178 |  0.0477  |
+|range(  100, 1600) | users   105 |  0.0889  |
+|iter:   173/1000 | vec: [0.06272768 0.67546659 0.06714107 0.19466466] | norm: none | MAP: 0.0593 |
